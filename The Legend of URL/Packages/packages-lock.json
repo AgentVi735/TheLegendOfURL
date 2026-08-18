@@ -1,5 +1,67 @@
 {
   "dependencies": {
+    "com.heathen.gameframework": {
+      "version": "file:C:\\Users\\vicky\\Unity\\The Legend of URL\\3rdParties\\com.heathen.gameframework\\1.0.2\\com.heathen.gameframework",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "3.2.1"
+      }
+    },
+    "com.heathen.gameplaytags": {
+      "version": "file:C:\\Users\\vicky\\Unity\\The Legend of URL\\3rdParties\\com.heathen.gameplaytags\\1.0.12\\com.heathen.gameplaytagsfoundation",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {
+        "com.unity.collections": "2.6.2",
+        "com.unity.mathematics": "1.2.5",
+        "com.unity.nuget.newtonsoft-json": "3.2.1"
+      }
+    },
+    "com.heathen.lexiconfoundation": {
+      "version": "file:C:\\Users\\vicky\\Unity\\The Legend of URL\\3rdParties\\com.heathen.lexiconfoundation\\1.0.12\\com.heathen.lexiconfoundation",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {
+        "com.unity.addressables": "2.9.1",
+        "com.unity.collections": "2.6.2",
+        "com.unity.mathematics": "1.2.5",
+        "com.unity.nuget.newtonsoft-json": "3.2.1"
+      }
+    },
+    "com.heathen.oghamfoundation": {
+      "version": "file:C:\\Users\\vicky\\Unity\\The Legend of URL\\3rdParties\\com.heathen.oghamfoundation\\1.0.11\\com.heathen.oghamfoundation",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "3.2.1"
+      }
+    },
+    "com.heathen.toolbox": {
+      "version": "https://codeberg.org/Heathen-Engineering/Unity-Heathen-Toolbox.git?path=/com.heathen.toolbox",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "3.2.1"
+      },
+      "hash": "25f5123d1e31358e204a330aba1999f201ab84e9"
+    },
+    "com.unity.addressables": {
+      "version": "2.9.1",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.profiling.core": "1.0.2",
+        "com.unity.test-framework": "1.4.5",
+        "com.unity.modules.assetbundle": "1.0.0",
+        "com.unity.modules.jsonserialize": "1.0.0",
+        "com.unity.modules.imageconversion": "1.0.0",
+        "com.unity.modules.unitywebrequest": "1.0.0",
+        "com.unity.scriptablebuildpipeline": "2.6.1",
+        "com.unity.modules.unitywebrequestassetbundle": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.ai.navigation": {
       "version": "2.0.14",
       "depth": 0,
@@ -46,7 +108,7 @@
       "dependencies": {}
     },
     "com.unity.ide.rider": {
-      "version": "3.0.38",
+      "version": "3.0.40",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -74,20 +136,26 @@
     },
     "com.unity.mathematics": {
       "version": "1.4.0",
-      "depth": 3,
+      "depth": 1,
       "source": "builtin",
       "dependencies": {}
     },
-    "com.unity.multiplayer.center": {
-      "version": "1.0.1",
-      "depth": 0,
-      "source": "builtin",
-      "dependencies": {
-        "com.unity.modules.uielements": "1.0.0"
-      }
-    },
     "com.unity.nuget.mono-cecil": {
       "version": "1.11.6",
+      "depth": 2,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.nuget.newtonsoft-json": {
+      "version": "3.2.2",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.profiling.core": {
+      "version": "1.0.3",
       "depth": 2,
       "source": "registry",
       "dependencies": {},
@@ -121,6 +189,16 @@
       "dependencies": {
         "com.unity.render-pipelines.core": "17.5.0"
       }
+    },
+    "com.unity.scriptablebuildpipeline": {
+      "version": "2.6.1",
+      "depth": 2,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.test-framework": "1.4.5",
+        "com.unity.modules.assetbundle": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
     },
     "com.unity.searcher": {
       "version": "4.9.5",
