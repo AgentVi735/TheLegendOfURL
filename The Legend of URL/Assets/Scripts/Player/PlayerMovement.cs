@@ -1,14 +1,12 @@
-using System;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Movement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     [Header("Object References")]
     [SerializeField] private CharacterController controller;
-
     [SerializeField] private Transform characterTrans;
+    [SerializeField] private Transform camTrans;
     
     [Header("Input")]
     [SerializeField] private InputActionAsset inputActionAsset;
@@ -17,9 +15,7 @@ public class Movement : MonoBehaviour
     private InputAction runInput;
     [SerializeField] private string runInputPath;
     private bool isRunning;
-    private Vector2 moveAmount;
     [SerializeField] private float maxTurnDiff;
-    private bool hasToTurn;
     [SerializeField] private float turnSpeed;
     [SerializeField] private float runTurnSpeed;
     
@@ -60,8 +56,12 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-        moveAmount = movementInput.ReadValue<Vector2>();
+        Vector2 moveAmount = movementInput.ReadValue<Vector2>();
         if (moveAmount == Vector2.zero) return;
+
+        float deltaRot = -camTrans.rotation.eulerAngles.y;
+        Quaternion rotation = Quaternion.AngleAxis(deltaRot, Vector3.forward);
+        moveAmount = rotation * moveAmount;
         
         Vector3 movePos = new(moveAmount.x, 0, moveAmount.y);
         
@@ -70,9 +70,8 @@ public class Movement : MonoBehaviour
         Quaternion deltaRotation = Quaternion.AngleAxis(deltaAngle, rotationAxis);
         characterTrans.rotation = Quaternion.Lerp(characterTrans.rotation, characterTrans.rotation * deltaRotation,
             (isRunning ? runTurnSpeed : turnSpeed) * Time.deltaTime);
-        
-        if (!hasToTurn)
-            controller.Move(characterTrans.forward * (speed * Time.deltaTime));
+
+        controller.Move(characterTrans.forward * (speed * Time.deltaTime));
     }
 
     private void OnRunEntered(InputAction.CallbackContext ctx)
