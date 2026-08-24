@@ -1,10 +1,9 @@
 {
   "dependencies": {
-    "com.heathen.gameframework": "file:C:\\Users\\vicky\\Unity\\The Legend of URL\\3rdParties\\com.heathen.gameframework\\1.0.2\\com.heathen.gameframework",
-    "com.heathen.gameplaytags": "file:C:\\Users\\vicky\\Unity\\The Legend of URL\\3rdParties\\com.heathen.gameplaytags\\1.0.12\\com.heathen.gameplaytagsfoundation",
-    "com.heathen.lexiconfoundation": "file:C:\\Users\\vicky\\Unity\\The Legend of URL\\3rdParties\\com.heathen.lexiconfoundation\\1.0.12\\com.heathen.lexiconfoundation",
-    "com.heathen.oghamfoundation": "file:C:\\Users\\vicky\\Unity\\The Legend of URL\\3rdParties\\com.heathen.oghamfoundation\\1.0.11\\com.heathen.oghamfoundation",
-    "com.heathen.toolbox": "https://codeberg.org/Heathen-Engineering/Unity-Heathen-Toolbox.git?path=/com.heathen.toolbox",
+    "com.heathen.gameframework": "https://codeberg.org/Heathen-Engineering/Unity-Game-Framework.git?path=/com.heathen.gameframework",
+    "com.heathen.gameplaytags": "https://codeberg.org/Heathen-Engineering/Unity-GameplayTags-Foundation.git?path=/com.heathen.gameplaytagsfoundation",
+    "com.heathen.lexiconfoundation": "https://codeberg.org/Heathen-Engineering/Unity-Lexicon-Localisation-Foundation.git?path=/com.heathen.lexiconfoundation",
+    "com.heathen.oghamfoundation": "https://codeberg.org/Heathen-Engineering/Unity-Ogham-Storyteller-Foundation.git?path=/com.heathen.oghamfoundation",
     "com.unity.ai.navigation": "2.0.14",
     "com.unity.cinemachine": "3.1.7",
     "com.unity.collab-proxy": "2.13.5",

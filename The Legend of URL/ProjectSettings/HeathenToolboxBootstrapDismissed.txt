@@ -1,0 +1,4 @@
+This file exists because a "Don't ask again" checkbox was checked when a Heathen 
+package offered to install Heathen Toolbox. No Heathen package in this project will 
+offer to install Toolbox again while this file exists. Delete this file to see that 
+prompt again.

@@ -1,50 +1,45 @@
 {
   "dependencies": {
     "com.heathen.gameframework": {
-      "version": "file:C:\\Users\\vicky\\Unity\\The Legend of URL\\3rdParties\\com.heathen.gameframework\\1.0.2\\com.heathen.gameframework",
-      "depth": 0,
-      "source": "local",
-      "dependencies": {
-        "com.unity.nuget.newtonsoft-json": "3.2.1"
-      }
-    },
-    "com.heathen.gameplaytags": {
-      "version": "file:C:\\Users\\vicky\\Unity\\The Legend of URL\\3rdParties\\com.heathen.gameplaytags\\1.0.12\\com.heathen.gameplaytagsfoundation",
-      "depth": 0,
-      "source": "local",
-      "dependencies": {
-        "com.unity.collections": "2.6.2",
-        "com.unity.mathematics": "1.2.5",
-        "com.unity.nuget.newtonsoft-json": "3.2.1"
-      }
-    },
-    "com.heathen.lexiconfoundation": {
-      "version": "file:C:\\Users\\vicky\\Unity\\The Legend of URL\\3rdParties\\com.heathen.lexiconfoundation\\1.0.12\\com.heathen.lexiconfoundation",
-      "depth": 0,
-      "source": "local",
-      "dependencies": {
-        "com.unity.addressables": "2.9.1",
-        "com.unity.collections": "2.6.2",
-        "com.unity.mathematics": "1.2.5",
-        "com.unity.nuget.newtonsoft-json": "3.2.1"
-      }
-    },
-    "com.heathen.oghamfoundation": {
-      "version": "file:C:\\Users\\vicky\\Unity\\The Legend of URL\\3rdParties\\com.heathen.oghamfoundation\\1.0.11\\com.heathen.oghamfoundation",
-      "depth": 0,
-      "source": "local",
-      "dependencies": {
-        "com.unity.nuget.newtonsoft-json": "3.2.1"
-      }
-    },
-    "com.heathen.toolbox": {
-      "version": "https://codeberg.org/Heathen-Engineering/Unity-Heathen-Toolbox.git?path=/com.heathen.toolbox",
+      "version": "https://codeberg.org/Heathen-Engineering/Unity-Game-Framework.git?path=/com.heathen.gameframework",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.nuget.newtonsoft-json": "3.2.1"
       },
-      "hash": "25f5123d1e31358e204a330aba1999f201ab84e9"
+      "hash": "2d115319f84879c3a0853a9b7276b1d507faeed0"
+    },
+    "com.heathen.gameplaytags": {
+      "version": "https://codeberg.org/Heathen-Engineering/Unity-GameplayTags-Foundation.git?path=/com.heathen.gameplaytagsfoundation",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.collections": "2.6.2",
+        "com.unity.mathematics": "1.2.5",
+        "com.unity.nuget.newtonsoft-json": "3.2.1"
+      },
+      "hash": "e5fc0fc827dbc51bbe846b8d0e0c5d8a506372b5"
+    },
+    "com.heathen.lexiconfoundation": {
+      "version": "https://codeberg.org/Heathen-Engineering/Unity-Lexicon-Localisation-Foundation.git?path=/com.heathen.lexiconfoundation",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.addressables": "2.9.1",
+        "com.unity.collections": "2.6.2",
+        "com.unity.mathematics": "1.2.5",
+        "com.unity.nuget.newtonsoft-json": "3.2.1"
+      },
+      "hash": "7613f2de52b3a22b5ea2f1d4d867bda6fb997822"
+    },
+    "com.heathen.oghamfoundation": {
+      "version": "https://codeberg.org/Heathen-Engineering/Unity-Ogham-Storyteller-Foundation.git?path=/com.heathen.oghamfoundation",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "3.2.1"
+      },
+      "hash": "d3b1da7754c6c017fd04d20bf7f3dc2325970a81"
     },
     "com.unity.addressables": {
       "version": "2.9.1",
