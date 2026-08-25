@@ -2,9 +2,5 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/../3rdParties/com.heathen.gameframework/1.0.2" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/../3rdParties/com.heathen.gameplaytags/1.0.12" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/../3rdParties/com.heathen.lexiconfoundation/1.0.12" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/../3rdParties/com.heathen.oghamfoundation/1.0.11" vcs="Git" />
   </component>
 </project>

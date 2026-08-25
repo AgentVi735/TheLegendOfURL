@@ -22,8 +22,10 @@ public class PlayerMovement : MonoBehaviour
     [Header("Options")]
     [SerializeField] private float speed;
     [SerializeField] private float runModifier;
+    public bool CanMove;
+    public bool CanRun;
 
-    private void Awake()
+    public void Initialise()
     {
         movementInput = inputActionAsset.FindAction(movementInputPath);
         if (movementInput == null)
@@ -56,9 +58,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (!CanMove) return;
+        
         Vector2 moveAmount = movementInput.ReadValue<Vector2>();
         if (moveAmount == Vector2.zero) return;
-
+        
         float deltaRot = -camTrans.rotation.eulerAngles.y;
         Quaternion rotation = Quaternion.AngleAxis(deltaRot, Vector3.forward);
         moveAmount = rotation * moveAmount;
@@ -76,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnRunEntered(InputAction.CallbackContext ctx)
     {
-        if (isRunning) return;
+        if (isRunning || !CanRun) return;
         isRunning = true;
         speed += runModifier;
     }
@@ -86,5 +90,23 @@ public class PlayerMovement : MonoBehaviour
         if (!isRunning) return;
         isRunning = false;
         speed -= runModifier;
+    }
+    
+    public void ToggleMovement(bool toggle)
+    {
+        CanMove = toggle;
+        if (toggle)
+            movementInput.Enable();
+        else
+            movementInput.Disable();
+    }
+
+    public void ToggleRun(bool toggle)
+    {
+        CanRun = toggle;
+        if (toggle)
+            runInput.Enable();
+        else
+            runInput.Disable();
     }
 }
