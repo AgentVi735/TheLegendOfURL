@@ -90,20 +90,10 @@
                     "name": "Sprint",
                     "type": "Button",
                     "id": "641cd816-40e6-41b4-8c3d-04687c349290",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false,
-                    "priority": 0
-                },
-                {
-                    "name": "Zoom",
-                    "type": "Value",
-                    "id": "642f3f35-ae96-485b-8fc5-de536c84fbbc",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true,
                     "priority": 0
                 }
             ],
@@ -490,17 +480,6 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Crouch",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f522d511-77d8-4db5-95f2-9e7827dcb619",
-                    "path": "<Mouse>/scroll",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Zoom",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
