@@ -3,37 +3,36 @@ using UnityEngine.AI;
 
 public abstract class EnemyController : MonoBehaviour
 {
-    [SerializeField] private CharacterController characterController;
-    [SerializeField] private NavMeshAgent navMeshAgent;
-    private PlayerController player;
+    public CharacterController characterController => _characterController;
+    [SerializeField] private CharacterController _characterController;
+    public NavMeshAgent navMeshAgent => _navMeshAgent;
+    [SerializeField] private NavMeshAgent _navMeshAgent;
+    public PlayerController player { get; private set; }
     
-    protected short health;
-    protected short damage;
-    protected float walkSpeed;
-    protected float turnSpeed;
+    public short health { get; protected set; }
+    public short damage { get; protected set; }
+    public float walkSpeed { get; private set; }
+    public float turnSpeed { get; private set; }
     protected EnemyControllerType type;
     private EnemyData data;
+    public EnemyWaypoint[] patrolPath { get; private set; }
 
     private IEnemyState currentState;
-    
+
+    protected IEnemyState idleState;
     protected IEnemyState moveState;
     protected IEnemyState attackState;
     
-    public EnemyData GetData() => data;
-    public CharacterController GetCharacterController() => characterController;
-    public NavMeshAgent GetNavMeshAgent() => navMeshAgent;
-    public PlayerController GetPlayer() => player;
-    
-    public virtual void Initialise(EnemyData receivedData)
+    public virtual void Initialise(EnemyData receivedData, EnemyWaypoint[] receivedPath)
     {
         data = receivedData;
         health = data.health;
         damage = data.damage;
         walkSpeed = data.walkSpeed;
-        navMeshAgent.speed = walkSpeed;
         turnSpeed = data.turnSpeed;
         gameObject.name = data.enemyName;
         type = data.controllerType;
+        patrolPath = receivedPath;
         player = FindAnyObjectByType<PlayerController>();
     }
 

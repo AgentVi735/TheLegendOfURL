@@ -155,8 +155,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa8b28a9c3e64299a6c553de03cd2394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpiderController
-  characterController: {fileID: 8582374838700577451}
-  navMeshAgent: {fileID: 1476070819956099717}
+  _characterController: {fileID: 8582374838700577451}
+  _navMeshAgent: {fileID: 1476070819956099717}
 --- !u!120 &6548717985719910291
 LineRenderer:
   serializedVersion: 3

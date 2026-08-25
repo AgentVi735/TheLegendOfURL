@@ -6,14 +6,14 @@ public class SpiderMoveState : IEnemyState
     private Transform playerTransform;
     private Transform enemyTransform;
     private CharacterController character;
-    private NavMeshAgent navMeshAgent;
+    private NavMeshAgent agent;
     private float speed;
     private float turnSpeed;
     
     public void UpdateState(EnemyController controller)
     {
         NavMeshPath path = new();
-        navMeshAgent.CalculatePath(playerTransform.position, path);
+        agent.CalculatePath(playerTransform.position, path);
         if (path.corners.Length < 2)
             return;
         Vector3 posToMoveTo = path.corners[1] - enemyTransform.position;
@@ -29,13 +29,13 @@ public class SpiderMoveState : IEnemyState
 
     public void OnEnter(EnemyController controller)
     {
-        character = controller.GetCharacterController();
+        character = controller.characterController;
         enemyTransform = character.transform;
-        speed = controller.GetData().walkSpeed;
-        turnSpeed = controller.GetData().turnSpeed;
-        playerTransform = controller.GetPlayer().transform;
-        navMeshAgent = controller.GetNavMeshAgent();
-        navMeshAgent.isStopped = true;
+        speed = controller.walkSpeed;
+        turnSpeed = controller.turnSpeed;
+        playerTransform = controller.player.transform;
+        agent = controller.navMeshAgent;
+        agent.isStopped = true;
     }
 
     public void OnExit(EnemyController controller)

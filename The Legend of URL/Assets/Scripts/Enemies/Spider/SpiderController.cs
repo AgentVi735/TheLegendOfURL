@@ -1,10 +1,12 @@
-﻿public class SpiderController : EnemyController
+﻿using UnityEngine;
+
+public class SpiderController : EnemyController
 {
-    public override void Initialise(EnemyData receivedData)
+    public override void Initialise(EnemyData receivedData, EnemyWaypoint[] receivedPath)
     {
-        base.Initialise(receivedData);
+        base.Initialise(receivedData, receivedPath);
         moveState = new SpiderMoveState();
-        ChangeState(moveState);
-        
+        idleState = new SpiderPatrolState();
+        ChangeState(idleState);
     }
 }
