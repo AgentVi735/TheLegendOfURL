@@ -3,20 +3,30 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class SpiderPatrolState : IEnemyState
+public class BasicPatrolState : IEnemyState
 {
+    private Transform playerTransform;
     private Transform enemyTransform;
+    private Transform eyesTransform;
     private CharacterController character;
     private NavMeshAgent agent;
     private float speed;
     private float turnSpeed;
+    private float detectDistance;
     private int pathPos;
     private EnemyWaypoint[] path;
     private EnemyWaypoint currentWaypoint;
     private EnemyWaypoint lastWaypoint;
+    private LineRenderer line;
     
     public void UpdateState(EnemyController controller)
     {
+        if (CanSeeEnemy())
+        {
+            controller.ChangeState(controller.moveState);
+            return;
+        }
+        
         NavMeshPath navMeshPath = new();
         agent.CalculatePath(currentWaypoint.transform.position, navMeshPath);
         Vector3 destination;
@@ -32,7 +42,7 @@ public class SpiderPatrolState : IEnemyState
                 return;
         }
         Vector3 posToMoveTo = destination - enemyTransform.position;
-        posToMoveTo = new Vector3(posToMoveTo.x, 0, posToMoveTo.z);
+        posToMoveTo.y = enemyTransform.position.y;
         float deltaAngle = Vector3.Angle(enemyTransform.forward, posToMoveTo);
         Vector3 rotationAxis = Vector3.Cross(enemyTransform.forward, posToMoveTo);
         Quaternion deltaRotation = Quaternion.AngleAxis(deltaAngle, rotationAxis);
@@ -47,6 +57,18 @@ public class SpiderPatrolState : IEnemyState
         EnemyWaypoint oldWaypoint = currentWaypoint;
         currentWaypoint = GetNewWaypoint();
         lastWaypoint = oldWaypoint;
+    }
+
+    private bool CanSeeEnemy()
+    {
+        float distance = Vector3.Distance(playerTransform.position, enemyTransform.position);
+        if (!(distance < detectDistance)) return false;
+        Vector3 toTarget = (playerTransform.position - enemyTransform.position).normalized;
+        float dot = Vector3.Dot(enemyTransform.forward, toTarget);
+
+        if (!(dot > 0.7071)) return false;
+        return Physics.Raycast(eyesTransform.position, playerTransform.position - enemyTransform.position, out RaycastHit hit,
+            detectDistance) && hit.transform != null && hit.transform.CompareTag("Player");
     }
 
     private EnemyWaypoint GetNewWaypoint()
@@ -73,14 +95,19 @@ public class SpiderPatrolState : IEnemyState
 
     public void OnEnter(EnemyController controller)
     {
+        playerTransform = controller.player.transform;
         character = controller.characterController;
         enemyTransform = character.transform;
-        speed = controller.walkSpeed;
-        turnSpeed = controller.turnSpeed;
+        eyesTransform = controller.eyesTransform;
+        speed = controller.data.walkSpeed;
+        turnSpeed = controller.data.turnSpeed;
+        detectDistance = controller.data.detectDistance;
         agent = controller.navMeshAgent;
         agent.isStopped = true;
         agent.autoBraking = false;
         path = controller.patrolPath;
+        line = enemyTransform.GetComponent<LineRenderer>();
+        // line.useWorldSpace = true;
 
         float closestPosDiff = 0;
         int closestPosIdx = -1;

@@ -7,36 +7,33 @@ public abstract class EnemyController : MonoBehaviour
     [SerializeField] private CharacterController _characterController;
     public NavMeshAgent navMeshAgent => _navMeshAgent;
     [SerializeField] private NavMeshAgent _navMeshAgent;
+    public Transform eyesTransform => _eyesTransform;
+    [SerializeField] private Transform _eyesTransform;
     public PlayerController player { get; private set; }
     
     public short health { get; protected set; }
-    public short damage { get; protected set; }
-    public float walkSpeed { get; private set; }
-    public float turnSpeed { get; private set; }
     protected EnemyControllerType type;
-    private EnemyData data;
+    public EnemyData data { get; private set; }
     public EnemyWaypoint[] patrolPath { get; private set; }
 
     private IEnemyState currentState;
 
-    protected IEnemyState idleState;
-    protected IEnemyState moveState;
-    protected IEnemyState attackState;
+    public IEnemyState idleState;
+    public IEnemyState moveState;
+    public IEnemyState lookState;
+    public IEnemyState attackState;
     
     public virtual void Initialise(EnemyData receivedData, EnemyWaypoint[] receivedPath)
     {
         data = receivedData;
         health = data.health;
-        damage = data.damage;
-        walkSpeed = data.walkSpeed;
-        turnSpeed = data.turnSpeed;
         gameObject.name = data.enemyName;
         type = data.controllerType;
         patrolPath = receivedPath;
         player = FindAnyObjectByType<PlayerController>();
     }
 
-    protected void ChangeState(IEnemyState newState)
+    public virtual void ChangeState(IEnemyState newState)
     {
         currentState?.OnExit(this);
         currentState = newState;

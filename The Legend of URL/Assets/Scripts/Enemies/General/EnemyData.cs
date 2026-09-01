@@ -10,4 +10,7 @@ public class EnemyData : ScriptableObject
     public short damage;
     public float walkSpeed;
     public float turnSpeed;
+    public float detectDistance;
+    public float followRange;
+    public float maxLookTime;
 }
