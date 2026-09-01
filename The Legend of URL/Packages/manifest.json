@@ -4,6 +4,7 @@
     "com.heathen.gameplaytags": "https://codeberg.org/Heathen-Engineering/Unity-GameplayTags-Foundation.git?path=/com.heathen.gameplaytagsfoundation",
     "com.heathen.lexiconfoundation": "https://codeberg.org/Heathen-Engineering/Unity-Lexicon-Localisation-Foundation.git?path=/com.heathen.lexiconfoundation",
     "com.heathen.oghamfoundation": "https://codeberg.org/Heathen-Engineering/Unity-Ogham-Storyteller-Foundation.git?path=/com.heathen.oghamfoundation",
+    "com.unity.2d.sprite": "1.0.0",
     "com.unity.ai.navigation": "2.0.14",
     "com.unity.cinemachine": "3.1.7",
     "com.unity.collab-proxy": "2.13.5",

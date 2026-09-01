@@ -33,7 +33,8 @@ public abstract class EnemyController : MonoBehaviour
         type = data.controllerType;
         patrolPath = receivedPath;
         player = FindAnyObjectByType<PlayerController>();
-        obj = GameObject.Find("Cube").transform;
+        if (gameObject.name == "ABC")
+            obj = GameObject.Find("Cube").transform;
     }
 
     public virtual void ChangeState(IEnemyState newState)

@@ -11,6 +11,7 @@ public class EnemyData : ScriptableObject
     public float walkSpeed;
     public float turnSpeed;
     public float detectDistance;
+    public float forceDetectDistance;
     public float followRange;
     public float maxLookTime;
 }

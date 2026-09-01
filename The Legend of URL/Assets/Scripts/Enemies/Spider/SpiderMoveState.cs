@@ -14,6 +14,7 @@ public class SpiderMoveState : IEnemyState
     private Vector3 posToMoveToLocal;
     private Vector3 posToMoveTo;
     private Vector3 lastSeenPos;
+    private Transform obj;
     
     public void UpdateState(EnemyController controller)
     {
@@ -23,7 +24,6 @@ public class SpiderMoveState : IEnemyState
             case false:
             {
                 float distance = Vector3.Distance(enemyTransform.position, lastSeenPos);
-                Debug.Log(distance);
                 if (distance < 0.1)
                 {
                     controller.ChangeState(controller.lookState);
@@ -49,6 +49,8 @@ public class SpiderMoveState : IEnemyState
         
         if (canSeePlayer)
             lastSeenPos = posToMoveTo;
+        if (obj != null)
+            obj.position = lastSeenPos;
         
         float deltaAngle = Vector3.Angle(enemyTransform.forward, posToMoveToLocal);
         Vector3 rotationAxis = Vector3.Cross(enemyTransform.forward, posToMoveToLocal);
@@ -82,6 +84,8 @@ public class SpiderMoveState : IEnemyState
         playerTransform = controller.player.transform;
         agent = controller.navMeshAgent;
         agent.isStopped = true;
+        obj = controller.obj;
+        lastSeenPos = playerTransform.position;
     }
 
     public void OnExit(EnemyController controller)

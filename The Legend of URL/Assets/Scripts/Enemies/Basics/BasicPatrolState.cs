@@ -13,6 +13,7 @@ public class BasicPatrolState : IEnemyState
     private float speed;
     private float turnSpeed;
     private float detectDistance;
+    private float forceDetectDistance;
     private int pathPos;
     private EnemyWaypoint[] path;
     private EnemyWaypoint currentWaypoint;
@@ -31,7 +32,7 @@ public class BasicPatrolState : IEnemyState
 
         if (pathIdx == -1)
         {
-            navMeshPath = new();
+            navMeshPath = new NavMeshPath();
             agent.CalculatePath(currentWaypoint.transform.position, navMeshPath);
             switch (navMeshPath.corners.Length)
             {
@@ -49,15 +50,18 @@ public class BasicPatrolState : IEnemyState
         Vector3 destination = navMeshPath.corners[pathIdx];
         Vector3 posToMoveTo = destination - enemyTransform.position;
         posToMoveTo.y = enemyTransform.position.y;
-        obj.position = posToMoveTo + enemyTransform.position;
+        if (obj != null)
+            obj.position = posToMoveTo + enemyTransform.position;
         float deltaAngle = Vector3.Angle(enemyTransform.forward, posToMoveTo);
         Vector3 rotationAxis = Vector3.Cross(enemyTransform.forward, posToMoveTo);
+        rotationAxis.x = 0;
+        rotationAxis.z = 0;
         Quaternion deltaRotation = Quaternion.AngleAxis(deltaAngle, rotationAxis);
         enemyTransform.rotation = Quaternion.Lerp(enemyTransform.rotation, enemyTransform.rotation * deltaRotation,
             turnSpeed * Time.deltaTime);
         
         character.Move(enemyTransform.forward * (speed * Time.deltaTime));
-
+        
         Vector3 diffPos = enemyTransform.position;
         diffPos.y = 0;
         if (!(Vector3.Distance(destination, diffPos) < 0.5f)) return;
@@ -72,6 +76,7 @@ public class BasicPatrolState : IEnemyState
     private bool CanSeePlayer()
     {
         float distance = Vector3.Distance(playerTransform.position, enemyTransform.position);
+        if (distance <= forceDetectDistance) return true;
         if (!(distance < detectDistance)) return false;
         Vector3 toTarget = (playerTransform.position - enemyTransform.position).normalized;
         float dot = Vector3.Dot(enemyTransform.forward, toTarget);
@@ -112,6 +117,7 @@ public class BasicPatrolState : IEnemyState
         speed = controller.data.walkSpeed;
         turnSpeed = controller.data.turnSpeed;
         detectDistance = controller.data.detectDistance;
+        forceDetectDistance = controller.data.forceDetectDistance;
         agent = controller.navMeshAgent;
         agent.isStopped = true;
         agent.autoBraking = false;
