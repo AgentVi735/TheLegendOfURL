@@ -68,6 +68,7 @@ public class LookForPlayerState : IEnemyState
         followRange = controller.data.followRange;
         playerTransform = controller.player.transform;
         maxLookTime = controller.data.maxLookTime;
+        timeSpent = 0;
         GetPlayerDirection();
     }
 

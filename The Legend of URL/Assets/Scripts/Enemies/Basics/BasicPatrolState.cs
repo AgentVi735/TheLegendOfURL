@@ -17,32 +17,39 @@ public class BasicPatrolState : IEnemyState
     private EnemyWaypoint[] path;
     private EnemyWaypoint currentWaypoint;
     private EnemyWaypoint lastWaypoint;
-    private LineRenderer line;
+    private NavMeshPath navMeshPath;
+    private int pathIdx;
+    private Transform obj;
     
     public void UpdateState(EnemyController controller)
     {
-        if (CanSeeEnemy())
+        if (CanSeePlayer())
         {
             controller.ChangeState(controller.moveState);
             return;
         }
-        
-        NavMeshPath navMeshPath = new();
-        agent.CalculatePath(currentWaypoint.transform.position, navMeshPath);
-        Vector3 destination;
-        switch (navMeshPath.corners.Length)
+
+        if (pathIdx == -1)
         {
-            case 1:
-                destination = navMeshPath.corners[0];
-                break;
-            case > 1:
-                destination = navMeshPath.corners[1];
-                break;
-            default:
-                return;
+            navMeshPath = new();
+            agent.CalculatePath(currentWaypoint.transform.position, navMeshPath);
+            switch (navMeshPath.corners.Length)
+            {
+                case 1:
+                    pathIdx = 0;
+                    break;
+                case > 1:
+                    pathIdx = 1;
+                    break;
+                default:
+                    return;
+            }
         }
+        
+        Vector3 destination = navMeshPath.corners[pathIdx];
         Vector3 posToMoveTo = destination - enemyTransform.position;
         posToMoveTo.y = enemyTransform.position.y;
+        obj.position = posToMoveTo + enemyTransform.position;
         float deltaAngle = Vector3.Angle(enemyTransform.forward, posToMoveTo);
         Vector3 rotationAxis = Vector3.Cross(enemyTransform.forward, posToMoveTo);
         Quaternion deltaRotation = Quaternion.AngleAxis(deltaAngle, rotationAxis);
@@ -54,12 +61,15 @@ public class BasicPatrolState : IEnemyState
         Vector3 diffPos = enemyTransform.position;
         diffPos.y = 0;
         if (!(Vector3.Distance(destination, diffPos) < 0.5f)) return;
+        pathIdx++;
+        if (navMeshPath.corners.Length > pathIdx) return;
         EnemyWaypoint oldWaypoint = currentWaypoint;
         currentWaypoint = GetNewWaypoint();
         lastWaypoint = oldWaypoint;
+        pathIdx = -1;
     }
 
-    private bool CanSeeEnemy()
+    private bool CanSeePlayer()
     {
         float distance = Vector3.Distance(playerTransform.position, enemyTransform.position);
         if (!(distance < detectDistance)) return false;
@@ -106,8 +116,8 @@ public class BasicPatrolState : IEnemyState
         agent.isStopped = true;
         agent.autoBraking = false;
         path = controller.patrolPath;
-        line = enemyTransform.GetComponent<LineRenderer>();
-        // line.useWorldSpace = true;
+        pathIdx = -1;
+        obj = controller.obj;
 
         float closestPosDiff = 0;
         int closestPosIdx = -1;

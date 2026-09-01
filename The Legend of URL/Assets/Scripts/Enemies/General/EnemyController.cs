@@ -22,6 +22,8 @@ public abstract class EnemyController : MonoBehaviour
     public IEnemyState moveState;
     public IEnemyState lookState;
     public IEnemyState attackState;
+
+    public Transform obj;
     
     public virtual void Initialise(EnemyData receivedData, EnemyWaypoint[] receivedPath)
     {
@@ -31,6 +33,7 @@ public abstract class EnemyController : MonoBehaviour
         type = data.controllerType;
         patrolPath = receivedPath;
         player = FindAnyObjectByType<PlayerController>();
+        obj = GameObject.Find("Cube").transform;
     }
 
     public virtual void ChangeState(IEnemyState newState)
