@@ -81,4 +81,9 @@ public class LookForPlayerState : IEnemyState
     {
         
     }
+
+    public void OnDrawGizmosSelected(EnemyController controller)
+    {
+        
+    }
 }

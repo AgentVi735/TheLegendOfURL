@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public class BasicPatrolState : IEnemyState
 {
@@ -21,6 +23,7 @@ public class BasicPatrolState : IEnemyState
     private NavMeshPath navMeshPath;
     private int pathIdx;
     private Transform obj;
+    private float lastDistance;
     
     public void UpdateState(EnemyController controller)
     {
@@ -63,19 +66,43 @@ public class BasicPatrolState : IEnemyState
         Vector3 velocity = Vector3.zero;
         if (controller.characterController.isGrounded)
         {
-            // Slight downward velocity to keep grounded stable
             if (velocity.y < -2f)
                 velocity.y = -2f;
         }
         
         velocity.y += controller.data.gravitySpeed * Time.deltaTime;
+
+        Vector3 diffPos = enemyTransform.position;
+        diffPos.y = destination.y;
+        float distance = Vector3.Distance(destination, diffPos);
+        
+        lastDistance = distance;
         
         character.Move(enemyTransform.forward * (speed * Time.deltaTime));
         character.Move(-enemyTransform.up * velocity.y);
         
-        Vector3 diffPos = enemyTransform.position;
-        diffPos.y = 0;
-        if (!(Vector3.Distance(destination, diffPos) < 0.5f)) return;
+        diffPos = enemyTransform.position;
+        diffPos.y = destination.y;
+        distance = Vector3.Distance(destination, diffPos);
+        
+        if (Math.Abs(distance - lastDistance) < 0.001f)
+        {
+            pathIdx = -1;
+            return;
+        }
+
+        if (Physics.Raycast(eyesTransform.position, enemyTransform.forward, out RaycastHit hit, 1))
+        {
+            if (hit.transform.CompareTag("Enemy"))
+            {
+                if (obj != null)
+                    Debug.Log($"Hit enemy {hit.transform.name}");
+                pathIdx = -1;
+                return;
+            }
+        }
+        
+        if (!(distance < 0.5f)) return;
         pathIdx++;
         if (navMeshPath.corners.Length > pathIdx) return;
         EnemyWaypoint oldWaypoint = currentWaypoint;
@@ -159,5 +186,21 @@ public class BasicPatrolState : IEnemyState
     public void OnHurt(EnemyController controller)
     {
         
+    }
+
+    public void OnDrawGizmosSelected(EnemyController controller)
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawCube(currentWaypoint.transform.position, new Vector3(0.5f, 0.5f, 0.5f));
+        Gizmos.color = Color.purple;
+        switch (navMeshPath.corners.Length)
+        {
+            case > 1:
+                Gizmos.DrawLineStrip(navMeshPath.corners, false);
+                break;
+            case 1:
+                Gizmos.DrawLine(enemyTransform.position, navMeshPath.corners[0]);
+                break;
+        }
     }
 }

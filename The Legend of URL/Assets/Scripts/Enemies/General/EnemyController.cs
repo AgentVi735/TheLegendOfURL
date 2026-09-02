@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.AI;
 
 public abstract class EnemyController : MonoBehaviour
@@ -48,5 +49,10 @@ public abstract class EnemyController : MonoBehaviour
     protected void Update()
     { 
         currentState?.UpdateState(this);
+    }
+
+    protected void OnDrawGizmosSelected()
+    {
+        currentState?.OnDrawGizmosSelected(this);
     }
 }

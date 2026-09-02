@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 3603274524011894796}
   - component: {fileID: 4799554513522965058}
   - component: {fileID: 1956885326903020103}
+  - component: {fileID: 4784867834131911298}
+  - component: {fileID: 3149674237381900025}
   m_Layer: 0
   m_Name: Fence Gate Big Right
   m_TagString: Untagged
@@ -26,13 +28,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 656544161701574903}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: 0.67430884, z: -0, w: 0.7384496}
   m_LocalPosition: {x: -1.9140759, y: 0.11304903, z: 0.09239043}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2984213996227597150}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 84.801, z: 0}
 --- !u!33 &4799554513522965058
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -90,6 +92,43 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4784867834131911298
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656544161701574903}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9208345, y: 1.9939817, z: 0.20035939}
+  m_Center: {x: 0.4435086, y: 0.9969899, z: -0.04136381}
+--- !u!208 &3149674237381900025
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656544161701574903}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.46, y: 0.40300003, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.44400004, y: 0.40300003, z: -0.041}
+  m_TimeToStationary: 0.5
 --- !u!1 &1635994902257274412
 GameObject:
   m_ObjectHideFlags: 0
@@ -116,7 +155,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1635994902257274412}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -193,6 +232,8 @@ GameObject:
   - component: {fileID: 2524490566851196157}
   - component: {fileID: 4856318267454055121}
   - component: {fileID: 1904232584793027678}
+  - component: {fileID: 2831768800926935677}
+  - component: {fileID: 6200442475565947956}
   m_Layer: 0
   m_Name: Fence Gate Big Left
   m_TagString: Untagged
@@ -208,13 +249,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8531178395142991464}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0.72124785, z: -0, w: 0.69267714}
   m_LocalPosition: {x: -0.08592415, y: 0.11304903, z: 0.09239043}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2984213996227597150}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -92.315, z: 0}
 --- !u!33 &4856318267454055121
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -272,3 +313,40 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2831768800926935677
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8531178395142991464}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.92083573, y: 1.8712193, z: 0.20036066}
+  m_Center: {x: -0.44350865, y: 0.93560797, z: -0.041363813}
+--- !u!208 &6200442475565947956
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8531178395142991464}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.46, y: 0.40300003, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.44400004, y: 0.40300003, z: -0.041}
+  m_TimeToStationary: 0.5

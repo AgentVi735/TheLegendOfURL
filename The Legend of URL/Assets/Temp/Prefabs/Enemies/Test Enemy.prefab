@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 1476070819956099717}
   m_Layer: 0
   m_Name: Test Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -302,19 +302,19 @@ NavMeshAgent:
   m_GameObject: {fileID: 1953083478717100938}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.2
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 0
-  m_AutoBraking: 1
-  m_AutoRepath: 0
+  m_AutoBraking: 0
+  m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 1
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_WalkableMask: 1
+  m_ObstacleAvoidanceType: 0
 --- !u!1 &9023825504570285801
 GameObject:
   m_ObjectHideFlags: 0

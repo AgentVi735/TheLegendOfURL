@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private Vector3 spawnOffset;
     [SerializeField] private EnemyWaypoint[] patrolPath;
     private EnemyController enemy;
+    [SerializeField] private int areaToSpawnOn;
 
     private void Awake()
     {
@@ -25,7 +27,11 @@ public class EnemySpawner : MonoBehaviour
                     path.Add(availableWaypoint);
             }
         }
-        enemy = Instantiate(enemyToSpawn.prefab, transform.position + spawnOffset, transform.rotation, transform);
+
+        // NavMesh.SamplePosition(transform.position + spawnOffset, out NavMeshHit hit, 3, areaToSpawnOn);
+        // Vector3 spawnPos = hit.position;
+        Vector3 spawnPos = transform.position + spawnOffset;
+        enemy = Instantiate(enemyToSpawn.prefab, spawnPos, transform.rotation, transform);
         enemy.Initialise(enemyToSpawn, path.ToArray());
     }
 }

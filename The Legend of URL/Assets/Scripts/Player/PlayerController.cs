@@ -15,6 +15,10 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        // TODO: PUT THIS INTO A METHOD PLS
+#if UNITY_EDITOR
+        // Application.targetFrameRate = 30;
+#endif        
         health = maxHealth;
         
         movement.Initialise();

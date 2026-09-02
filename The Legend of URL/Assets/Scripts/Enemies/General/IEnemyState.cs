@@ -7,4 +7,6 @@
     public void OnExit(EnemyController controller);
 
     public void OnHurt(EnemyController controller);
+
+    public void OnDrawGizmosSelected(EnemyController controller);
 }

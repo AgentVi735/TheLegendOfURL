@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.AI;
 
 public class SpiderMoveState : IEnemyState
@@ -58,7 +59,17 @@ public class SpiderMoveState : IEnemyState
         enemyTransform.rotation = Quaternion.Lerp(enemyTransform.rotation, enemyTransform.rotation * deltaRotation,
             turnSpeed * Time.deltaTime);
         
+        Vector3 velocity = Vector3.zero;
+        if (controller.characterController.isGrounded)
+        {
+            if (velocity.y < -2f)
+                velocity.y = -2f;
+        }
+        
+        velocity.y += controller.data.gravitySpeed * Time.deltaTime;
+
         character.Move(enemyTransform.forward * (speed * Time.deltaTime));
+        character.Move(-enemyTransform.up * velocity.y);
     }
 
     private bool CanSeePlayer()
@@ -96,5 +107,21 @@ public class SpiderMoveState : IEnemyState
     public void OnHurt(EnemyController controller)
     {
         
+    }
+
+    public void OnDrawGizmosSelected(EnemyController controller)
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawCube(posToMoveTo, new Vector3(0.5f, 0.5f, 0.5f));
+        Gizmos.color = Color.purple;
+        switch (agent.path.corners.Length)
+        {
+            case > 1:
+                Gizmos.DrawLineStrip(agent.path.corners, false);
+                break;
+            case 1:
+                Gizmos.DrawLine(enemyTransform.position, agent.path.corners[0]);
+                break;
+        }
     }
 }
