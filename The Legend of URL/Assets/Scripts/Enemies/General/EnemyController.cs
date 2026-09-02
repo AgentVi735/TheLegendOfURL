@@ -33,7 +33,8 @@ public abstract class EnemyController : MonoBehaviour
         type = data.controllerType;
         patrolPath = receivedPath;
         player = FindAnyObjectByType<PlayerController>();
-        if (gameObject.name == "ABC")
+        navMeshAgent.autoTraverseOffMeshLink = false;
+        if (gameObject.name == "Freddy Fazbear")
             obj = GameObject.Find("Cube").transform;
     }
 

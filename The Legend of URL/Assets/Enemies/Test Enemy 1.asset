@@ -19,6 +19,7 @@ MonoBehaviour:
   damage: 5
   walkSpeed: 2.5
   turnSpeed: 7
+  gravitySpeed: 8
   detectDistance: 30
   forceDetectDistance: 7
   followRange: 20

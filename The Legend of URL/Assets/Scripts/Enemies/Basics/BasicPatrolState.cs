@@ -59,8 +59,19 @@ public class BasicPatrolState : IEnemyState
         Quaternion deltaRotation = Quaternion.AngleAxis(deltaAngle, rotationAxis);
         enemyTransform.rotation = Quaternion.Lerp(enemyTransform.rotation, enemyTransform.rotation * deltaRotation,
             turnSpeed * Time.deltaTime);
+
+        Vector3 velocity = Vector3.zero;
+        if (controller.characterController.isGrounded)
+        {
+            // Slight downward velocity to keep grounded stable
+            if (velocity.y < -2f)
+                velocity.y = -2f;
+        }
+        
+        velocity.y += controller.data.gravitySpeed * Time.deltaTime;
         
         character.Move(enemyTransform.forward * (speed * Time.deltaTime));
+        character.Move(-enemyTransform.up * velocity.y);
         
         Vector3 diffPos = enemyTransform.position;
         diffPos.y = 0;
