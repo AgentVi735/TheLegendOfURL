@@ -5,13 +5,13 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Player References")]
     [SerializeField] private PlayerMovement movement;
+    [SerializeField] private PlayerAttackManager attackManager;
     [SerializeField] private CinemachineCamera cinemachineCamera;
     [SerializeField] private CinemachineInputAxisController cinemachineInputController;
 
     [Header("Stats")]
     [SerializeField] private short maxHealth;
     private short health;
-    [SerializeField] private short damage;
 
     private void Awake()
     {
@@ -22,13 +22,18 @@ public class PlayerController : MonoBehaviour
         health = maxHealth;
         
         movement.Initialise();
+        attackManager.Initialise();
 
-        movement.ToggleMovement(true);
-        movement.ToggleRun(true);
+        ToggleMovement(true);
+        ToggleRun(true);
+        ToggleAttack(true);
     }
 
     private void ToggleCameraInput(bool toggle) => cinemachineInputController.enabled = toggle;
     private void ToggleCameraFollow(bool toggle) => cinemachineCamera.enabled = toggle;
+    public void ToggleMovement(bool toggle) => movement.ToggleMovement(toggle);
+    public void ToggleRun(bool toggle) => movement.ToggleRun(toggle);
+    public void ToggleAttack(bool toggle) => attackManager.ToggleAttack(toggle);
 
     private void OnHit(short receivedDamage)
     {
@@ -43,4 +48,6 @@ public class PlayerController : MonoBehaviour
         ToggleCameraInput(false);
         print("Death :3");
     }
+
+    public short EnemyGetDamage() => attackManager.damage;
 }

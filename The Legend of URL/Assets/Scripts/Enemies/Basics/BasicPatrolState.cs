@@ -116,11 +116,14 @@ public class BasicPatrolState : IEnemyState
         float distance = Vector3.Distance(playerTransform.position, enemyTransform.position);
         if (distance <= forceDetectDistance) return true;
         if (!(distance < detectDistance)) return false;
-        Vector3 toTarget = (playerTransform.position - enemyTransform.position).normalized;
+        Vector3 playerPos = playerTransform.position;
+        playerPos.y = enemyTransform.position.y;
+        Vector3 toTarget = (playerPos - enemyTransform.position).normalized;
         float dot = Vector3.Dot(enemyTransform.forward, toTarget);
 
         if (!(dot > 0.7071)) return false;
-        return Physics.Raycast(eyesTransform.position, playerTransform.position - enemyTransform.position, out RaycastHit hit,
+        playerPos.y = playerTransform.position.y;
+        return Physics.Raycast(eyesTransform.position, playerPos - enemyTransform.position, out RaycastHit hit,
             detectDistance) && hit.transform != null && hit.transform.CompareTag("Player");
     }
 
@@ -185,7 +188,6 @@ public class BasicPatrolState : IEnemyState
 
     public void OnHurt(EnemyController controller)
     {
-        
     }
 
     public void OnDrawGizmosSelected(EnemyController controller)

@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Options")]
     [SerializeField] private float speed;
     [SerializeField] private float runModifier;
+    [SerializeField] private float gravitySpeed;
     public bool CanMove;
     public bool CanRun;
 
@@ -58,6 +59,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        Vector3 velocity = Vector3.zero;
+        if (controller.isGrounded)
+        {
+            if (velocity.y < -2f)
+                velocity.y = -2f;
+        }
+        
+        velocity.y += gravitySpeed * Time.deltaTime;
+
+        controller.Move(-characterTrans.up * velocity.y);
+        
         if (!CanMove) return;
         
         Vector2 moveAmount = movementInput.ReadValue<Vector2>();

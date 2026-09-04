@@ -15,12 +15,17 @@ MonoBehaviour:
   enemyName: Freddy Fazbear
   controllerType: 1
   prefab: {fileID: 1411090755591761608, guid: 7c8dee0c89502c24da1b183fbaa8f56b, type: 3}
-  health: 15
+  health: 5000
   damage: 5
   walkSpeed: 2.5
   turnSpeed: 7
-  gravitySpeed: 8
+  gravitySpeed: 12
+  knockbackMultiplier: 10
+  knockbackSpeed: 7
+  knockbackVelocityOffset: {x: 0, y: 0.3, z: -0.35}
+  knockbackStunTime: 0.1
+  invincibleTimeAfterHit: 0.5
   detectDistance: 30
-  forceDetectDistance: 7
+  forceDetectDistance: 12
   followRange: 20
   maxLookTime: 7

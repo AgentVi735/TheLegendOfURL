@@ -1,4 +1,6 @@
-﻿public interface IEnemyState
+﻿using UnityEngine;
+
+public interface IEnemyState
 {
     public void UpdateState(EnemyController controller);
 

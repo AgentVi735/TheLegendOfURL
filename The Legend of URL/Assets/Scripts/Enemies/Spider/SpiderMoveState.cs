@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
 public class SpiderMoveState : IEnemyState
@@ -8,6 +7,7 @@ public class SpiderMoveState : IEnemyState
     private Transform enemyTransform;
     private Transform eyesTransform;
     private CharacterController character;
+    private Rigidbody rb;
     private NavMeshAgent agent;
     private float speed;
     private float turnSpeed;
@@ -19,13 +19,15 @@ public class SpiderMoveState : IEnemyState
     
     public void UpdateState(EnemyController controller)
     {
+        bool canMove = controller.hitVelocity != Vector3.zero;
+        
         bool canSeePlayer = CanSeePlayer();
         switch (canSeePlayer)
         {
             case false:
             {
                 float distance = Vector3.Distance(enemyTransform.position, lastSeenPos);
-                if (distance < 0.1)
+                if (distance < 0.5)
                 {
                     controller.ChangeState(controller.lookState);
                     return;
@@ -45,8 +47,6 @@ public class SpiderMoveState : IEnemyState
             return;
         posToMoveTo = path.corners[1];
         posToMoveToLocal = posToMoveTo - enemyTransform.position;
-        posToMoveTo.y = enemyTransform.position.y;
-        posToMoveToLocal.y = enemyTransform.position.y;
         
         if (canSeePlayer)
             lastSeenPos = posToMoveTo;
@@ -55,6 +55,8 @@ public class SpiderMoveState : IEnemyState
         
         float deltaAngle = Vector3.Angle(enemyTransform.forward, posToMoveToLocal);
         Vector3 rotationAxis = Vector3.Cross(enemyTransform.forward, posToMoveToLocal);
+        rotationAxis.x = 0;
+        rotationAxis.z = 0;
         Quaternion deltaRotation = Quaternion.AngleAxis(deltaAngle, rotationAxis);
         enemyTransform.rotation = Quaternion.Lerp(enemyTransform.rotation, enemyTransform.rotation * deltaRotation,
             turnSpeed * Time.deltaTime);
@@ -68,19 +70,24 @@ public class SpiderMoveState : IEnemyState
         
         velocity.y += controller.data.gravitySpeed * Time.deltaTime;
 
-        character.Move(enemyTransform.forward * (speed * Time.deltaTime));
-        character.Move(-enemyTransform.up * velocity.y);
+        Vector3 movePos = enemyTransform.forward * (speed * Time.deltaTime);
+        movePos += -enemyTransform.up * velocity.y;
+        
+        character.Move(movePos);
     }
 
     private bool CanSeePlayer()
     {
         float distance = Vector3.Distance(playerTransform.position, enemyTransform.position);
         if (!(distance < followRange)) return false;
-        Vector3 toTarget = (playerTransform.position - enemyTransform.position).normalized;
+        Vector3 playerPos = playerTransform.position;
+        playerPos.y = enemyTransform.position.y;
+        Vector3 toTarget = (playerPos - enemyTransform.position).normalized;
         float dot = Vector3.Dot(enemyTransform.forward, toTarget);
 
         if (!(dot > 0.7071)) return false;
-        return Physics.Raycast(eyesTransform.position, playerTransform.position - enemyTransform.position, out RaycastHit hit,
+        playerPos.y = playerTransform.position.y;
+        return Physics.Raycast(eyesTransform.position, playerPos - enemyTransform.position, out RaycastHit hit,
             followRange) && hit.transform != null && hit.transform.CompareTag("Player");
     }
 
@@ -101,12 +108,10 @@ public class SpiderMoveState : IEnemyState
 
     public void OnExit(EnemyController controller)
     {
-        
     }
 
     public void OnHurt(EnemyController controller)
     {
-        
     }
 
     public void OnDrawGizmosSelected(EnemyController controller)

@@ -6,8 +6,6 @@ public class SpiderController : EnemyController
     {
         base.Initialise(receivedData, receivedPath);
         moveState = new SpiderMoveState();
-        idleState = new BasicPatrolState();
-        lookState = new LookForPlayerState();
         ChangeState(idleState);
     }
 }

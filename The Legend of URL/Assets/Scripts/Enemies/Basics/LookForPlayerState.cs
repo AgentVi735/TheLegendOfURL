@@ -19,6 +19,8 @@ public class LookForPlayerState : IEnemyState
         timeSpent += Time.deltaTime;
         float deltaAngle = Vector3.Angle(enemyTransform.forward, posToMoveTo);
         Vector3 rotationAxis = Vector3.Cross(enemyTransform.forward, posToMoveTo);
+        rotationAxis.x = 0;
+        rotationAxis.z = 0;
         Quaternion deltaRotation = Quaternion.AngleAxis(deltaAngle, rotationAxis);
         enemyTransform.rotation = Quaternion.Lerp(enemyTransform.rotation, enemyTransform.rotation * deltaRotation,
             turnSpeed * Time.deltaTime);
@@ -34,11 +36,14 @@ public class LookForPlayerState : IEnemyState
 
     private bool CanSeePlayer()
     {
-        Vector3 toTarget = (playerTransform.position - enemyTransform.position).normalized;
+        Vector3 playerPos = playerTransform.position;
+        playerPos.y = enemyTransform.position.y;
+        Vector3 toTarget = (playerPos - enemyTransform.position).normalized;
         float dot = Vector3.Dot(enemyTransform.forward, toTarget);
 
         if (!(dot > 0.7071)) return false;
-        return Physics.Raycast(eyesTransform.position, playerTransform.position - enemyTransform.position, out RaycastHit hit,
+        playerPos.y = playerTransform.position.y;
+        return Physics.Raycast(eyesTransform.position, playerPos  - enemyTransform.position, out RaycastHit hit,
             followRange) && hit.transform != null && hit.transform.CompareTag("Player");
     }
 
@@ -74,16 +79,17 @@ public class LookForPlayerState : IEnemyState
 
     public void OnExit(EnemyController controller)
     {
-        
     }
 
     public void OnHurt(EnemyController controller)
     {
-        
     }
 
     public void OnDrawGizmosSelected(EnemyController controller)
     {
-        
+        Gizmos.color = Color.coral;
+        Vector3 playerPos = playerTransform.position;
+        playerPos.y += 1;
+        Gizmos.DrawLine(eyesTransform.position, playerPos);
     }
 }

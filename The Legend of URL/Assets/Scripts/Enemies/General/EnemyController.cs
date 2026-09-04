@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -11,8 +12,8 @@ public abstract class EnemyController : MonoBehaviour
     public Transform eyesTransform => _eyesTransform;
     [SerializeField] private Transform _eyesTransform;
     public PlayerController player { get; private set; }
-    
-    public short health { get; protected set; }
+
+    private short health { get; set; }
     protected EnemyControllerType type;
     public EnemyData data { get; private set; }
     public EnemyWaypoint[] patrolPath { get; private set; }
@@ -23,8 +24,14 @@ public abstract class EnemyController : MonoBehaviour
     public IEnemyState moveState;
     public IEnemyState lookState;
     public IEnemyState attackState;
+    public IEnemyState knockbackState;
+    public IEnemyState stunState;
 
     public Transform obj;
+
+    private WaitForSeconds waitInvincibleTimeAfterHit;
+    private bool canBeHit;
+    public Vector3 hitVelocity;
     
     public virtual void Initialise(EnemyData receivedData, EnemyWaypoint[] receivedPath)
     {
@@ -37,6 +44,13 @@ public abstract class EnemyController : MonoBehaviour
         navMeshAgent.autoTraverseOffMeshLink = false;
         if (gameObject.name == "Freddy Fazbear")
             obj = GameObject.Find("Cube").transform;
+        waitInvincibleTimeAfterHit = new WaitForSeconds(data.invincibleTimeAfterHit);
+        canBeHit = true;
+        
+        idleState = new BasicPatrolState();
+        lookState = new LookForPlayerState();
+        knockbackState = new KnockbackState();
+        stunState = new StunState();
     }
 
     public virtual void ChangeState(IEnemyState newState)
@@ -54,5 +68,50 @@ public abstract class EnemyController : MonoBehaviour
     protected void OnDrawGizmosSelected()
     {
         currentState?.OnDrawGizmosSelected(this);
+    }
+
+    protected void OnTriggerEnter(Collider trigger)
+    {
+        if (trigger.name != "Sword" || !canBeHit) return;
+        GetDamage(player.EnemyGetDamage(), trigger.ClosestPoint(transform.position) - transform.position);
+    }
+
+    private void GetDamage(short amount, Vector3 swordPoint)
+    {
+        if (!canBeHit) return;
+        
+        health -= amount;
+        if (ShouldDie())
+        {
+            KillEnemy();
+            return;
+        }
+
+        StartCoroutine(HitCooldown());
+        GetKnockback();
+    }
+
+    private IEnumerator HitCooldown()
+    {
+        canBeHit = false;
+        yield return waitInvincibleTimeAfterHit;
+        canBeHit = true;
+    }
+
+    private void GetKnockback()
+    {
+        hitVelocity = transform.TransformDirection(data.knockbackVelocityOffset);
+        hitVelocity *= data.knockbackMultiplier;
+        ChangeState(knockbackState);
+    }
+
+    private bool ShouldDie()
+    {
+        return health <= 0;
+    }
+
+    private void KillEnemy()
+    {
+        Destroy(gameObject);
     }
 }
