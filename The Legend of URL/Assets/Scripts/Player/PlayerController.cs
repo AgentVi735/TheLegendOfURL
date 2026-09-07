@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
     public void ToggleRun(bool toggle) => movement.ToggleRun(toggle);
     public void ToggleAttack(bool toggle) => attackManager.ToggleAttack(toggle);
 
-    private void OnHit(short receivedDamage)
+    public void OnHit(short receivedDamage)
     {
         health -= receivedDamage;
         if (health < 0)

@@ -110,16 +110,23 @@ public class BasicPatrolState : IEnemyState
     private bool CanSeePlayer()
     {
         float distance = Vector3.Distance(playerTransform.position, enemyTransform.position);
-        if (distance <= forceDetectDistance) return true;
+        Vector3 playerPos;
+        RaycastHit hit;
+        if (distance <= forceDetectDistance)
+        {
+            playerPos = playerTransform.position;
+            return Physics.Raycast(eyesTransform.position, playerPos - enemyTransform.position, out hit,
+                detectDistance, layers) && hit.transform != null && hit.transform.CompareTag("Player");
+        }
         if (!(distance < detectDistance)) return false;
-        Vector3 playerPos = playerTransform.position;
+        playerPos = playerTransform.position;
         playerPos.y = enemyTransform.position.y;
         Vector3 toTarget = (playerPos - enemyTransform.position).normalized;
         float dot = Vector3.Dot(enemyTransform.forward, toTarget);
 
         if (!(dot > 0.7071)) return false;
         playerPos.y = playerTransform.position.y;
-        return Physics.Raycast(eyesTransform.position, playerPos - enemyTransform.position, out RaycastHit hit,
+        return Physics.Raycast(eyesTransform.position, playerPos - enemyTransform.position, out hit,
             detectDistance, layers) && hit.transform != null && hit.transform.CompareTag("Player");
     }
 
@@ -191,17 +198,20 @@ public class BasicPatrolState : IEnemyState
     {
         Gizmos.color = Color.green;
         Gizmos.DrawCube(currentWaypoint.transform.position, new Vector3(0.5f, 0.5f, 0.5f));
-        Gizmos.color = Color.purple;
-        switch (navMeshPath.corners.Length)
+        if (navMeshPath is { corners: not null })
         {
-            case > 1:
-                Gizmos.DrawLineStrip(navMeshPath.corners, false);
-                break;
-            case 1:
-                Gizmos.DrawLine(enemyTransform.position, navMeshPath.corners[0]);
-                break;
+            Gizmos.color = Color.purple;
+            switch (navMeshPath.corners.Length)
+            {
+                case > 1:
+                    Gizmos.DrawLineStrip(navMeshPath.corners, false);
+                    break;
+                case 1:
+                    Gizmos.DrawLine(enemyTransform.position, navMeshPath.corners[0]);
+                    break;
+            }
         }
-
+        
         if (Physics.Raycast(eyesTransform.position, playerTransform.position - enemyTransform.position, out RaycastHit hit,
                 detectDistance, layers) && hit.transform != null && hit.transform.CompareTag("Player"))
             Gizmos.color = Color.blue;

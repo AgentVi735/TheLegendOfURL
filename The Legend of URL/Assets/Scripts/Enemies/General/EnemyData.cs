@@ -8,6 +8,8 @@ public class EnemyData : ScriptableObject
     public EnemyController prefab;
     public short health;
     public short damage;
+    public float attackCooldown;
+    public float attackRadius;
     public float walkSpeed;
     public float turnSpeed;
     public float gravitySpeed;

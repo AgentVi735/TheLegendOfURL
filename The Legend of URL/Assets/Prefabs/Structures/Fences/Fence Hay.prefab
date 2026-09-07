@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 855575415709838524}
   - component: {fileID: 7862756043499209053}
   - component: {fileID: 8579720080755461990}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fence Hay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 7639341808143500855}
   - component: {fileID: 2167415615009536572}
   - component: {fileID: 2254818736344776328}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fence Hay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4431367568870118788}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

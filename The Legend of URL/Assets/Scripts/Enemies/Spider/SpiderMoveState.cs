@@ -12,10 +12,16 @@ public class SpiderMoveState : IEnemyState
     private float speed;
     private float turnSpeed;
     private float followRange;
+    private float forceDetectDistance;
+    private float attackRange;
     private Vector3 posToMoveToLocal;
     private Vector3 posToMoveTo;
     private Vector3 lastSeenPos;
     private LayerMask layers;
+    private NavMeshPath path;
+
+    private float invalidTime;
+    private const float maxInvalidTime = 1.6f;
     
     public void UpdateState(EnemyController controller)
     {
@@ -35,19 +41,42 @@ public class SpiderMoveState : IEnemyState
             case true:
             {
                 lastSeenPos = playerTransform.position;
+                float distance = Vector3.Distance(enemyTransform.position, lastSeenPos);
+                if (distance < attackRange)
+                {
+                    controller.ChangeState(controller.attackState);
+                    return;
+                }
                 break;
             }
         }
         
-        NavMeshPath path = new();
+        path = new NavMeshPath();
         agent.CalculatePath(lastSeenPos, path);
+        if (path.status != NavMeshPathStatus.PathComplete)
+        {
+            if (NavMesh.SamplePosition(lastSeenPos, out NavMeshHit hit, 6, NavMesh.AllAreas))
+            {
+                agent.CalculatePath(hit.position, path);
+                if (path.status != NavMeshPathStatus.PathComplete)
+                {
+                    invalidTime += Time.deltaTime;
+                    if (invalidTime >= maxInvalidTime)
+                    {
+                        controller.ChangeState(controller.idleState);
+                    }
+                    return;
+                }
+            }
+        }
+        
         if (path.corners.Length < 2)
             return;
         posToMoveTo = path.corners[1];
         posToMoveToLocal = posToMoveTo - enemyTransform.position;
         
         if (canSeePlayer)
-            lastSeenPos = posToMoveTo;
+            lastSeenPos = playerTransform.position;
         
         float deltaAngle = Vector3.Angle(enemyTransform.forward, posToMoveToLocal);
         Vector3 rotationAxis = Vector3.Cross(enemyTransform.forward, posToMoveToLocal);
@@ -75,15 +104,23 @@ public class SpiderMoveState : IEnemyState
     private bool CanSeePlayer()
     {
         float distance = Vector3.Distance(playerTransform.position, enemyTransform.position);
+        Vector3 playerPos;
+        RaycastHit hit;
+        if (distance <= forceDetectDistance)
+        {
+            playerPos = playerTransform.position;
+            return Physics.Raycast(eyesTransform.position, playerPos - enemyTransform.position, out hit,
+                followRange, layers) && hit.transform != null && hit.transform.CompareTag("Player");
+        }
         if (!(distance < followRange)) return false;
-        Vector3 playerPos = playerTransform.position;
+        playerPos = playerTransform.position;
         playerPos.y = enemyTransform.position.y;
         Vector3 toTarget = (playerPos - enemyTransform.position).normalized;
         float dot = Vector3.Dot(enemyTransform.forward, toTarget);
 
         if (!(dot > 0.7071)) return false;
         playerPos.y = playerTransform.position.y;
-        return Physics.Raycast(eyesTransform.position, playerPos - enemyTransform.position, out RaycastHit hit,
+        return Physics.Raycast(eyesTransform.position, playerPos - enemyTransform.position, out hit,
             followRange, layers) && hit.transform != null && hit.transform.CompareTag("Player");
     }
 
@@ -96,6 +133,8 @@ public class SpiderMoveState : IEnemyState
         speed = controller.data.walkSpeed;
         turnSpeed = controller.data.turnSpeed;
         followRange = controller.data.followRange;
+        forceDetectDistance = controller.data.forceDetectDistance;
+        attackRange = controller.data.attackRadius;
         playerTransform = controller.player.transform;
         layers = controller.raycastLayers;
         agent = controller.navMeshAgent;
@@ -113,16 +152,31 @@ public class SpiderMoveState : IEnemyState
 
     public void OnDrawGizmosSelected(EnemyController controller)
     {
-        Gizmos.color = Color.green;
-        Gizmos.DrawCube(posToMoveTo, new Vector3(0.5f, 0.5f, 0.5f));
+        Vector3 cubeSize = new(0.5f, 0.5f, 0.5f);
+        Gizmos.color = Color.orangeRed;
+        if (path?.corners?.Length > 0)
+        {
+            foreach (var corner in path.corners)
+            {
+                Gizmos.DrawCube(corner, new Vector3(0.6f, 0.6f, 0.6f));
+            }
+        }
+
+        Color color = Color.green;
+        color.a = 0.5f;
+        Gizmos.color = color;
+        Gizmos.DrawCube(posToMoveTo, cubeSize);
+        
+        Gizmos.color = Color.hotPink;
+        Gizmos.DrawCube(lastSeenPos, cubeSize);
         Gizmos.color = Color.purple;
-        switch (agent.path.corners.Length)
+        switch (path?.corners?.Length)
         {
             case > 1:
-                Gizmos.DrawLineStrip(agent.path.corners, false);
+                Gizmos.DrawLineStrip(path.corners, false);
                 break;
             case 1:
-                Gizmos.DrawLine(enemyTransform.position, agent.path.corners[0]);
+                Gizmos.DrawLine(enemyTransform.position, path.corners[0]);
                 break;
         }
 

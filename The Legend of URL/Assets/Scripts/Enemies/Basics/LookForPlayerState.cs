@@ -9,6 +9,7 @@ public class LookForPlayerState : IEnemyState
     private CharacterController character;
     private float turnSpeed;
     private float followRange;
+    private float forceDetectDistance;
     private Vector3 posToMoveTo;
     private Quaternion rotationToGoTo;
     private float timeSpent;
@@ -37,14 +38,23 @@ public class LookForPlayerState : IEnemyState
 
     private bool CanSeePlayer()
     {
-        Vector3 playerPos = playerTransform.position;
+        float distance = Vector3.Distance(playerTransform.position, enemyTransform.position);
+        Vector3 playerPos;
+        RaycastHit hit;
+        if (distance <= forceDetectDistance)
+        {
+            playerPos = playerTransform.position;
+            return Physics.Raycast(eyesTransform.position, playerPos - enemyTransform.position, out hit,
+                followRange, layers) && hit.transform != null && hit.transform.CompareTag("Player");
+        }
+        playerPos = playerTransform.position;
         playerPos.y = enemyTransform.position.y;
         Vector3 toTarget = (playerPos - enemyTransform.position).normalized;
         float dot = Vector3.Dot(enemyTransform.forward, toTarget);
 
         if (!(dot > 0.7071)) return false;
         playerPos.y = playerTransform.position.y;
-        return Physics.Raycast(eyesTransform.position, playerPos  - enemyTransform.position, out RaycastHit hit,
+        return Physics.Raycast(eyesTransform.position, playerPos  - enemyTransform.position, out hit,
             followRange, layers) && hit.transform != null && hit.transform.CompareTag("Player");
     }
 
@@ -76,6 +86,7 @@ public class LookForPlayerState : IEnemyState
         eyesTransform = controller.eyesTransform;
         turnSpeed = controller.data.turnSpeed;
         followRange = controller.data.followRange;
+        forceDetectDistance = controller.data.forceDetectDistance;
         playerTransform = controller.player.transform;
         maxLookTime = controller.data.maxLookTime;
         layers = controller.raycastLayers;

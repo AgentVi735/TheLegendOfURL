@@ -218,7 +218,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3850063847859711435, guid: c1e4fabe060740d4a98743fbc2d396d5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6187742861341056170, guid: c1e4fabe060740d4a98743fbc2d396d5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -334,7 +334,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3850063847859711435, guid: c1e4fabe060740d4a98743fbc2d396d5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6187742861341056170, guid: c1e4fabe060740d4a98743fbc2d396d5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3740,60 +3740,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4431367568870118788, guid: 8721bbb2ffad06d4b90991c4a7a03227, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1829097044}
-    - targetCorrespondingSourceObject: {fileID: 4431367568870118788, guid: 8721bbb2ffad06d4b90991c4a7a03227, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1829097043}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8721bbb2ffad06d4b90991c4a7a03227, type: 3}
---- !u!1 &1829097042 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4431367568870118788, guid: 8721bbb2ffad06d4b90991c4a7a03227, type: 3}
-  m_PrefabInstance: {fileID: 1829097041}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1829097043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1829097042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
-  m_SerializedVersion: 0
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
---- !u!65 &1829097044
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1829097042}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.40595, y: 2.5691354, z: 0.3771061}
-  m_Center: {x: -0.9999995, y: 1.2845649, z: -0.0000074388972}
 --- !u!4 &1829097045 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6142701391824477943, guid: 8721bbb2ffad06d4b90991c4a7a03227, type: 3}

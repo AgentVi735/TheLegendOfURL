@@ -26,8 +26,8 @@ public abstract class EnemyController : MonoBehaviour
     public IEnemyState moveState;
     public IEnemyState lookState;
     public IEnemyState attackState;
-    public IEnemyState knockbackState;
-    public IEnemyState stunState;
+    private IEnemyState knockbackState;
+    private IEnemyState stunState;
 
     private WaitForSeconds waitInvincibleTimeAfterHit;
     private bool canBeHit;
@@ -49,6 +49,7 @@ public abstract class EnemyController : MonoBehaviour
         
         idleState = new BasicPatrolState();
         lookState = new LookForPlayerState();
+        attackState = new BasicAttackState();
         knockbackState = new KnockbackState();
         stunState = new StunState();
     }
@@ -67,16 +68,22 @@ public abstract class EnemyController : MonoBehaviour
 
     protected void OnDrawGizmosSelected()
     {
+        Gizmos.color = Color.darkRed;
+        Gizmos.DrawWireSphere(transform.position, data.attackRadius);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, data.forceDetectDistance);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, data.followRange);
         currentState?.OnDrawGizmosSelected(this);
     }
 
     protected void OnTriggerEnter(Collider trigger)
     {
         if (trigger.name != "Sword" || !canBeHit) return;
-        GetDamage(player.EnemyGetDamage(), trigger.ClosestPoint(transform.position) - transform.position);
+        GetDamage(player.EnemyGetDamage());
     }
 
-    private void GetDamage(short amount, Vector3 swordPoint)
+    private void GetDamage(short amount)
     {
         if (!canBeHit) return;
         
