@@ -13,6 +13,7 @@ public class LookForPlayerState : IEnemyState
     private Quaternion rotationToGoTo;
     private float timeSpent;
     private float maxLookTime;
+    private LayerMask layers;
     
     public void UpdateState(EnemyController controller)
     {
@@ -44,7 +45,7 @@ public class LookForPlayerState : IEnemyState
         if (!(dot > 0.7071)) return false;
         playerPos.y = playerTransform.position.y;
         return Physics.Raycast(eyesTransform.position, playerPos  - enemyTransform.position, out RaycastHit hit,
-            followRange) && hit.transform != null && hit.transform.CompareTag("Player");
+            followRange, layers) && hit.transform != null && hit.transform.CompareTag("Player");
     }
 
     private void GetNewDirection()
@@ -62,10 +63,14 @@ public class LookForPlayerState : IEnemyState
         Vector3 rotationAxis = Vector3.Cross(enemyTransform.forward, posToMoveTo);
         Quaternion deltaRotation = Quaternion.AngleAxis(deltaAngle, rotationAxis);
         rotationToGoTo = Quaternion.Euler(0, deltaRotation.eulerAngles.y + enemyTransform.rotation.y, 0);
+        
+        Vector3 direction = rotationToGoTo * enemyTransform.forward;
+        posToMoveTo = direction;
     }
 
     public void OnEnter(EnemyController controller)
     {
+        controller.meshRenderer.material.color = Color.yellow;
         character = controller.characterController;
         enemyTransform = character.transform;
         eyesTransform = controller.eyesTransform;
@@ -73,6 +78,7 @@ public class LookForPlayerState : IEnemyState
         followRange = controller.data.followRange;
         playerTransform = controller.player.transform;
         maxLookTime = controller.data.maxLookTime;
+        layers = controller.raycastLayers;
         timeSpent = 0;
         GetPlayerDirection();
     }
@@ -88,8 +94,12 @@ public class LookForPlayerState : IEnemyState
     public void OnDrawGizmosSelected(EnemyController controller)
     {
         Gizmos.color = Color.coral;
-        Vector3 playerPos = playerTransform.position;
-        playerPos.y += 1;
-        Gizmos.DrawLine(eyesTransform.position, playerPos);
+
+        if (Physics.Raycast(eyesTransform.position, playerTransform.position - enemyTransform.position, out RaycastHit hit,
+                followRange, layers) && hit.transform != null && hit.transform.CompareTag("Player"))
+            Gizmos.color = Color.blue;
+        else
+            Gizmos.color = Color.red;
+        Gizmos.DrawLine(eyesTransform.position, playerTransform.position);
     }
 }

@@ -7,6 +7,8 @@ public abstract class EnemyController : MonoBehaviour
 {
     public CharacterController characterController => _characterController;
     [SerializeField] private CharacterController _characterController;
+    public MeshRenderer meshRenderer => _meshRenderer;
+    [SerializeField] private MeshRenderer _meshRenderer;
     public NavMeshAgent navMeshAgent => _navMeshAgent;
     [SerializeField] private NavMeshAgent _navMeshAgent;
     public Transform eyesTransform => _eyesTransform;
@@ -27,11 +29,11 @@ public abstract class EnemyController : MonoBehaviour
     public IEnemyState knockbackState;
     public IEnemyState stunState;
 
-    public Transform obj;
-
     private WaitForSeconds waitInvincibleTimeAfterHit;
     private bool canBeHit;
     public Vector3 hitVelocity;
+    public float stunTime;
+    public LayerMask raycastLayers;
     
     public virtual void Initialise(EnemyData receivedData, EnemyWaypoint[] receivedPath)
     {
@@ -42,8 +44,6 @@ public abstract class EnemyController : MonoBehaviour
         patrolPath = receivedPath;
         player = FindAnyObjectByType<PlayerController>();
         navMeshAgent.autoTraverseOffMeshLink = false;
-        if (gameObject.name == "Freddy Fazbear")
-            obj = GameObject.Find("Cube").transform;
         waitInvincibleTimeAfterHit = new WaitForSeconds(data.invincibleTimeAfterHit);
         canBeHit = true;
         
@@ -103,6 +103,12 @@ public abstract class EnemyController : MonoBehaviour
         hitVelocity = transform.TransformDirection(data.knockbackVelocityOffset);
         hitVelocity *= data.knockbackMultiplier;
         ChangeState(knockbackState);
+    }
+
+    public void Stun(float time)
+    {
+        stunTime = time;
+        ChangeState(stunState);
     }
 
     private bool ShouldDie()

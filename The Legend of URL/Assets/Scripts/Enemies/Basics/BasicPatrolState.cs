@@ -22,8 +22,8 @@ public class BasicPatrolState : IEnemyState
     private EnemyWaypoint lastWaypoint;
     private NavMeshPath navMeshPath;
     private int pathIdx;
-    private Transform obj;
     private float lastDistance;
+    private LayerMask layers;
     
     public void UpdateState(EnemyController controller)
     {
@@ -53,8 +53,6 @@ public class BasicPatrolState : IEnemyState
         Vector3 destination = navMeshPath.corners[pathIdx];
         Vector3 posToMoveTo = destination - enemyTransform.position;
         posToMoveTo.y = enemyTransform.position.y;
-        if (obj != null)
-            obj.position = posToMoveTo + enemyTransform.position;
         float deltaAngle = Vector3.Angle(enemyTransform.forward, posToMoveTo);
         Vector3 rotationAxis = Vector3.Cross(enemyTransform.forward, posToMoveTo);
         rotationAxis.x = 0;
@@ -95,8 +93,6 @@ public class BasicPatrolState : IEnemyState
         {
             if (hit.transform.CompareTag("Enemy"))
             {
-                if (obj != null)
-                    Debug.Log($"Hit enemy {hit.transform.name}");
                 pathIdx = -1;
                 return;
             }
@@ -124,7 +120,7 @@ public class BasicPatrolState : IEnemyState
         if (!(dot > 0.7071)) return false;
         playerPos.y = playerTransform.position.y;
         return Physics.Raycast(eyesTransform.position, playerPos - enemyTransform.position, out RaycastHit hit,
-            detectDistance) && hit.transform != null && hit.transform.CompareTag("Player");
+            detectDistance, layers) && hit.transform != null && hit.transform.CompareTag("Player");
     }
 
     private EnemyWaypoint GetNewWaypoint()
@@ -151,6 +147,7 @@ public class BasicPatrolState : IEnemyState
 
     public void OnEnter(EnemyController controller)
     {
+        controller.meshRenderer.material.color = Color.green;
         playerTransform = controller.player.transform;
         character = controller.characterController;
         enemyTransform = character.transform;
@@ -159,12 +156,12 @@ public class BasicPatrolState : IEnemyState
         turnSpeed = controller.data.turnSpeed;
         detectDistance = controller.data.detectDistance;
         forceDetectDistance = controller.data.forceDetectDistance;
+        layers = controller.raycastLayers;
         agent = controller.navMeshAgent;
         agent.isStopped = true;
         agent.autoBraking = false;
         path = controller.patrolPath;
         pathIdx = -1;
-        obj = controller.obj;
 
         float closestPosDiff = 0;
         int closestPosIdx = -1;
@@ -204,5 +201,12 @@ public class BasicPatrolState : IEnemyState
                 Gizmos.DrawLine(enemyTransform.position, navMeshPath.corners[0]);
                 break;
         }
+
+        if (Physics.Raycast(eyesTransform.position, playerTransform.position - enemyTransform.position, out RaycastHit hit,
+                detectDistance, layers) && hit.transform != null && hit.transform.CompareTag("Player"))
+            Gizmos.color = Color.blue;
+        else
+            Gizmos.color = Color.red;
+        Gizmos.DrawLine(eyesTransform.position, playerTransform.position);
     }
 }

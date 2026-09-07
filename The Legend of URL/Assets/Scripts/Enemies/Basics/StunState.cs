@@ -15,7 +15,8 @@ public class StunState : IEnemyState
 
     public void OnEnter(EnemyController controller)
     {
-        stunTime = controller.data.knockbackStunTime;
+        controller.meshRenderer.material.color = Color.red;
+        stunTime = controller.stunTime;
         timeSpent = 0;
     }
 

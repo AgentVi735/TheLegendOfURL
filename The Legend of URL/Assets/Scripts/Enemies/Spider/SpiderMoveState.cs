@@ -15,12 +15,10 @@ public class SpiderMoveState : IEnemyState
     private Vector3 posToMoveToLocal;
     private Vector3 posToMoveTo;
     private Vector3 lastSeenPos;
-    private Transform obj;
+    private LayerMask layers;
     
     public void UpdateState(EnemyController controller)
     {
-        bool canMove = controller.hitVelocity != Vector3.zero;
-        
         bool canSeePlayer = CanSeePlayer();
         switch (canSeePlayer)
         {
@@ -50,8 +48,6 @@ public class SpiderMoveState : IEnemyState
         
         if (canSeePlayer)
             lastSeenPos = posToMoveTo;
-        if (obj != null)
-            obj.position = lastSeenPos;
         
         float deltaAngle = Vector3.Angle(enemyTransform.forward, posToMoveToLocal);
         Vector3 rotationAxis = Vector3.Cross(enemyTransform.forward, posToMoveToLocal);
@@ -88,11 +84,12 @@ public class SpiderMoveState : IEnemyState
         if (!(dot > 0.7071)) return false;
         playerPos.y = playerTransform.position.y;
         return Physics.Raycast(eyesTransform.position, playerPos - enemyTransform.position, out RaycastHit hit,
-            followRange) && hit.transform != null && hit.transform.CompareTag("Player");
+            followRange, layers) && hit.transform != null && hit.transform.CompareTag("Player");
     }
 
     public void OnEnter(EnemyController controller)
     {
+        controller.meshRenderer.material.color = Color.darkBlue;
         character = controller.characterController;
         enemyTransform = character.transform;
         eyesTransform = controller.eyesTransform;
@@ -100,9 +97,9 @@ public class SpiderMoveState : IEnemyState
         turnSpeed = controller.data.turnSpeed;
         followRange = controller.data.followRange;
         playerTransform = controller.player.transform;
+        layers = controller.raycastLayers;
         agent = controller.navMeshAgent;
         agent.isStopped = true;
-        obj = controller.obj;
         lastSeenPos = playerTransform.position;
     }
 
@@ -128,5 +125,12 @@ public class SpiderMoveState : IEnemyState
                 Gizmos.DrawLine(enemyTransform.position, agent.path.corners[0]);
                 break;
         }
+
+        if (Physics.Raycast(eyesTransform.position, playerTransform.position - enemyTransform.position, out RaycastHit hit,
+                followRange, layers) && hit.transform != null && hit.transform.CompareTag("Player"))
+            Gizmos.color = Color.blue;
+        else
+            Gizmos.color = Color.red;
+        Gizmos.DrawLine(eyesTransform.position, playerTransform.position);
     }
 }

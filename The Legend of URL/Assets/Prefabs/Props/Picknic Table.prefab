@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6666783450335277929}
   - component: {fileID: 4170734996714683350}
   - component: {fileID: 6043027100779182737}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Picknic Table
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -188,10 +188,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpiderController
   _characterController: {fileID: 8582374838700577451}
+  _meshRenderer: {fileID: 9154619352139846465}
   _navMeshAgent: {fileID: 1476070819956099717}
   _eyesTransform: {fileID: 5579425560779346164}
-  obj: {fileID: 0}
   hitVelocity: {x: 0, y: 0, z: 0}
+  stunTime: 0
+  raycastLayers:
+    serializedVersion: 2
+    m_Bits: 65
 --- !u!120 &6548717985719910291
 LineRenderer:
   serializedVersion: 3

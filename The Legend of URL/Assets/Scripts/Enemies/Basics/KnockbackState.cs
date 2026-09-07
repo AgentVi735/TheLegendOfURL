@@ -15,7 +15,7 @@ public class KnockbackState : IEnemyState
             controller.hitVelocity.y is < 0.01f and > -0.01f &&
             controller.hitVelocity.z is < 0.01f and > -0.01f)
         {
-            controller.ChangeState(controller.stunState);
+            controller.Stun(controller.data.knockbackStunTime);
             return;
         }
         
@@ -39,6 +39,7 @@ public class KnockbackState : IEnemyState
 
     public void OnEnter(EnemyController controller)
     {
+        controller.meshRenderer.material.color = Color.blueViolet;
         character = controller.characterController;
         enemyTransform = character.transform;
         agent = controller.navMeshAgent;

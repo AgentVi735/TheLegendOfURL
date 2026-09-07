@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1191011158799270670}
   - component: {fileID: 2913208323176659464}
   - component: {fileID: 7722627145685807528}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: House 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,7 +171,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4232452388158141910}
   - component: {fileID: 6143636347225154003}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GameObject (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,7 +219,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6408944852893530589}
   - component: {fileID: 3746217669732414805}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GameObject (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -267,7 +267,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3604167942789993261}
   - component: {fileID: 4392236107790424814}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GameObject (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -316,7 +316,7 @@ GameObject:
   - component: {fileID: 6097307534572733449}
   - component: {fileID: 7174441018586137919}
   - component: {fileID: 941302712611083635}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: House 1 Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -405,7 +405,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8248632088470869035}
   - component: {fileID: 1695053382840507050}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GameObject (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -453,7 +453,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8082623703285816056}
   - component: {fileID: 7906813022814372801}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GameObject (0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

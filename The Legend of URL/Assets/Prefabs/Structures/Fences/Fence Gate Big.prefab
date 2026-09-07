@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1956885326903020103}
   - component: {fileID: 4784867834131911298}
   - component: {fileID: 3149674237381900025}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fence Gate Big Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 2984213996227597150}
   - component: {fileID: 4441634556034201326}
   - component: {fileID: 8602224288021131064}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fence Gate Big
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 1904232584793027678}
   - component: {fileID: 2831768800926935677}
   - component: {fileID: 6200442475565947956}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fence Gate Big Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}

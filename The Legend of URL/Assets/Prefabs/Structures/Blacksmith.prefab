@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1892174706570387642}
   - component: {fileID: 456714412675612521}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GameObject (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2064289831131058080}
   - component: {fileID: 8469101268484518272}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GameObject (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3549780143167399394}
   - component: {fileID: 1690252102011274048}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GameObject (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7154768484435477844}
   - component: {fileID: 1401606076023756851}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GameObject (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +202,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8967391020961325154}
   - component: {fileID: 3639076272718855184}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GameObject (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,7 +253,7 @@ GameObject:
   - component: {fileID: 7847621732631786415}
   - component: {fileID: 5758533548865458994}
   - component: {fileID: 8698916425493231918}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Blacksmith
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -390,7 +390,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2556507100924304631}
   - component: {fileID: 1713194219058148225}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GameObject (0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -439,7 +439,7 @@ GameObject:
   - component: {fileID: 4474955810504497854}
   - component: {fileID: 6134480965792836205}
   - component: {fileID: 5830815646369604198}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Blacksmith Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}

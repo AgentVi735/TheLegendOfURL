@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8597385803113569380}
   - component: {fileID: 1212007287126828390}
   - component: {fileID: 8408976733376837281}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fence 2 Post Diagonal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
