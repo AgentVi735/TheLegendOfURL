@@ -2048,6 +2048,8 @@ MonoBehaviour:
   turnSpeed: 7
   runTurnSpeed: 12.75
   speed: 3
+  strollInputMax: 0.6
+  strollSpeed: 1.6
   runModifier: 4.5
   gravitySpeed: 15
   CanMove: 0

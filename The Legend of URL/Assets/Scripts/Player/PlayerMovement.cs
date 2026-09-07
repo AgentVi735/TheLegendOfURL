@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -21,6 +22,8 @@ public class PlayerMovement : MonoBehaviour
     
     [Header("Options")]
     [SerializeField] private float speed;
+    [SerializeField] private float strollInputMax;
+    [SerializeField] private float strollSpeed;
     [SerializeField] private float runModifier;
     [SerializeField] private float gravitySpeed;
     public bool CanMove;
@@ -87,7 +90,16 @@ public class PlayerMovement : MonoBehaviour
         characterTrans.rotation = Quaternion.Lerp(characterTrans.rotation, characterTrans.rotation * deltaRotation,
             (isRunning ? runTurnSpeed : turnSpeed) * Time.deltaTime);
 
-        controller.Move(characterTrans.forward * (speed * Time.deltaTime));
+        float amtX = Math.Abs(moveAmount.x);
+        float amtY = Math.Abs(moveAmount.y);
+
+        
+        float highestInputAmt = Math.Max(amtX, amtY);
+        float currentSpeed = speed;
+        if (!isRunning && highestInputAmt < strollInputMax)
+            currentSpeed = strollSpeed;
+        
+        controller.Move(characterTrans.forward * (currentSpeed * Time.deltaTime));
     }
 
     private void OnRunEntered(InputAction.CallbackContext ctx)
