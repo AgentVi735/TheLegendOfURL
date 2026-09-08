@@ -110,7 +110,7 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
-    - _Foam_Amount: 3.9
+    - _Foam_Amount: 2.09
     - _Foam_Cutoff: 1.38
     - _Foam_Scale: 198.8
     - _Foam_Speed: 0.01
@@ -123,7 +123,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Ripple_Density: 28.2
+    - _Ripple_Density: 26.3
     - _Ripple_Speed: 2.71
     - _Ripple_Thickness: 6.35
     - _Smoothness: 0.5
