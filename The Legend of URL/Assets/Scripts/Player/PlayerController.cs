@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
     private void ToggleCameraFollow(bool toggle) => cinemachineCamera.enabled = toggle;
     public void ToggleMovement(bool toggle) => movement.ToggleMovement(toggle);
     public void ToggleRun(bool toggle) => movement.ToggleRun(toggle);
+    public void ToggleJump(bool toggle) => movement.ToggleJump(toggle);
     public void ToggleAttack(bool toggle) => attackManager.ToggleAttack(toggle);
 
     public void OnHit(short receivedDamage)

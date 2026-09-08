@@ -41,6 +41,7 @@ public class PlayerAttackManager : MonoBehaviour
         }
         
         attackInput.started += OnAttackInput;
+        ToggleAttack(true);
 
         waitAttackTime = new WaitForSeconds(attackTime);
     }

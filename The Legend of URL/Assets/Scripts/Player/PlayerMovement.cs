@@ -16,6 +16,9 @@ public class PlayerMovement : MonoBehaviour
     private InputAction runInput;
     [SerializeField] private string runInputPath;
     private bool isRunning;
+    private InputAction jumpInput;
+    [SerializeField] private string jumpInputPath;
+    private Vector3 jumpVelocity;
     [SerializeField] private float maxTurnDiff;
     [SerializeField] private float turnSpeed;
     [SerializeField] private float runTurnSpeed;
@@ -25,9 +28,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float strollInputMax;
     [SerializeField] private float strollSpeed;
     [SerializeField] private float runModifier;
+    [SerializeField] private float jumpSpeed;
+    [SerializeField] private Vector3 baseJumpVelocity;
     [SerializeField] private float gravitySpeed;
     public bool CanMove;
     public bool CanRun;
+    public bool CanJump;
+    private bool isOnGround;
 
     public void Initialise()
     {
@@ -47,8 +54,21 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
+        jumpInput = inputActionAsset.FindAction(jumpInputPath);
+        if (runInput == null)
+        {
+            Debug.LogError($"JumpInputPath is invalid on object {gameObject.name}");
+            gameObject.SetActive(false);
+            return;
+        }
+
         runInput.started += OnRunEntered;
         runInput.canceled += OnRunCancelled;
+        jumpInput.started += OnJumpPressed;
+
+        ToggleMovement(true);
+        ToggleRun(true);
+        ToggleJump(true);
     }
 
     private void OnDestroy() => DisposeActions();
@@ -62,8 +82,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        isOnGround = Physics.Raycast(transform.position, -transform.up, out RaycastHit hit,
+            0.2f);
+        
         Vector3 velocity = Vector3.zero;
-        if (controller.isGrounded)
+        if (isOnGround)
         {
             if (velocity.y < -2f)
                 velocity.y = -2f;
@@ -71,7 +94,18 @@ public class PlayerMovement : MonoBehaviour
         
         velocity.y += gravitySpeed * Time.deltaTime;
 
-        controller.Move(-characterTrans.up * velocity.y);
+        Vector3 movePos = Vector3.zero; 
+        movePos += -characterTrans.up * velocity.y;
+        if (jumpVelocity.y > 0)
+        {
+            Vector3 extraVelocity = jumpVelocity * (jumpSpeed * Time.deltaTime);
+            movePos += extraVelocity;
+            jumpVelocity -= extraVelocity;
+            if (jumpVelocity.y < 0.1f || (jumpVelocity.y < baseJumpVelocity.y / 3 && isOnGround))
+                jumpVelocity.y = 0;
+        }
+
+        controller.Move(movePos);
         
         if (!CanMove) return;
         
@@ -82,7 +116,7 @@ public class PlayerMovement : MonoBehaviour
         Quaternion rotation = Quaternion.AngleAxis(deltaRot, Vector3.forward);
         moveAmount = rotation * moveAmount;
         
-        Vector3 movePos = new(moveAmount.x, 0, moveAmount.y);
+        movePos = new Vector3(moveAmount.x, 0, moveAmount.y);
         
         float deltaAngle = Vector3.Angle(characterTrans.forward, movePos);
         Vector3 rotationAxis = Vector3.Cross(characterTrans.forward, movePos);
@@ -92,7 +126,6 @@ public class PlayerMovement : MonoBehaviour
 
         float amtX = Math.Abs(moveAmount.x);
         float amtY = Math.Abs(moveAmount.y);
-
         
         float highestInputAmt = Math.Max(amtX, amtY);
         float currentSpeed = speed;
@@ -115,6 +148,12 @@ public class PlayerMovement : MonoBehaviour
         isRunning = false;
         speed -= runModifier;
     }
+
+    private void OnJumpPressed(InputAction.CallbackContext ctx)
+    {
+        if (!isOnGround || jumpVelocity.y > 0) return;
+        jumpVelocity += baseJumpVelocity;
+    }
     
     public void ToggleMovement(bool toggle)
     {
@@ -132,5 +171,14 @@ public class PlayerMovement : MonoBehaviour
             runInput.Enable();
         else
             runInput.Disable();
+    }
+
+    public void ToggleJump(bool toggle)
+    {
+        CanJump = toggle;
+        if (toggle)
+            jumpInput.Enable();
+        else
+            jumpInput.Disable();
     }
 }

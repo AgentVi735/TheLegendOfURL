@@ -10,27 +10,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 61e32375a2f4e3c4dbcead06c4e343b9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.2044264
+      value: 15.446
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 61e32375a2f4e3c4dbcead06c4e343b9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0000011308924
+      value: 0.00000008203233
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 61e32375a2f4e3c4dbcead06c4e343b9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.94159836
+      value: 7.431
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 61e32375a2f4e3c4dbcead06c4e343b9, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.49759296
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 61e32375a2f4e3c4dbcead06c4e343b9, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 61e32375a2f4e3c4dbcead06c4e343b9, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.8674107
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 61e32375a2f4e3c4dbcead06c4e343b9, type: 3}
       propertyPath: m_LocalRotation.z
@@ -42,7 +42,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 61e32375a2f4e3c4dbcead06c4e343b9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -120.318
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 61e32375a2f4e3c4dbcead06c4e343b9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -50,10 +50,58 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 61e32375a2f4e3c4dbcead06c4e343b9, type: 3}
       propertyPath: m_Name
-      value: Villager Female 1 Geen Unwrap
+      value: Villager Female 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 61e32375a2f4e3c4dbcead06c4e343b9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1049043639716818363}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 61e32375a2f4e3c4dbcead06c4e343b9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5879773472756683011}
   m_SourcePrefab: {fileID: 100100000, guid: 61e32375a2f4e3c4dbcead06c4e343b9, type: 3}
+--- !u!1 &5748425564394341954 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 61e32375a2f4e3c4dbcead06c4e343b9, type: 3}
+  m_PrefabInstance: {fileID: 4830087827422378771}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1049043639716818363
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5748425564394341954}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.96567386, y: 1.8000038, z: 0.8395245}
+  m_Center: {x: -0.005410461, y: 0.8999995, z: -0.05892476}
+--- !u!208 &5879773472756683011
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5748425564394341954}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.48283696, y: 0.900002, z: 0.41976225}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.005410461, y: 0.8999995, z: -0.05892476}
+  m_TimeToStationary: 0.5
