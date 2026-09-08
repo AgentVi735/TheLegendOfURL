@@ -1,11 +1,16 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerAttackManager : MonoBehaviour
 {
     [Header("Player References")]
+    [SerializeField] private CinemachineCamera camera;
     [SerializeField] private PlayerController controller;
+    [SerializeField] private Transform characterTransform;
+    [SerializeField] private Transform cameraTarget;
     [SerializeField] private BoxCollider swordCollider;
     [SerializeField] private Animator swordAnimator; // TODO: TEMPORARY, THIS WILL GET REPLACED WITH PLAYER ANIMATOR
     [SerializeField] private string swordAnimationPath; // TODO: TEMPORARY
@@ -26,7 +31,10 @@ public class PlayerAttackManager : MonoBehaviour
     [SerializeField] private float attackTime;
     private WaitForSeconds waitAttackTime;
     public bool CanLockOn;
+    [SerializeField] private float lockOnRadius;
+    [SerializeField] private LayerMask lockOnLayerMask;
     private bool isLockedOn;
+    private EnemyController lockedEnemy;
 
     public PlayerAttackManager(PlayerController controller)
     {
@@ -93,7 +101,42 @@ public class PlayerAttackManager : MonoBehaviour
     private void OnLockOnInput(InputAction.CallbackContext ctx)
     {
         if (!CanLockOn) return;
-        isLockedOn = !isLockedOn;
+        if (isLockedOn)
+            DisableLockOn();
+        else
+            EnableLockOn();
+    }
+
+    private void EnableLockOn()
+    {
+        Collider[] foundColliders = new Collider[10];
+        Physics.OverlapSphereNonAlloc(transform.position, lockOnRadius, foundColliders, lockOnLayerMask);
+
+        Vector3 camForward = camera.transform.forward;
+        Collider closestEnemy = null;
+        float closestEnemyAngle = 0;
+        foreach (Collider collider in foundColliders)
+        {
+            if (collider == null || !collider.CompareTag("Enemy")) continue;
+
+            camForward.y = collider.transform.position.y;
+            float angle = Vector3.Angle(camForward, collider.transform.position);
+            if (angle < closestEnemyAngle) continue;
+            closestEnemy = collider;
+            closestEnemyAngle = angle;
+        }
+
+        if (closestEnemy == null) return;
+        lockedEnemy = closestEnemy.GetComponent<EnemyController>();
+        
+        isLockedOn = true;
+    }
+
+    private void DisableLockOn()
+    {
+        isLockedOn = false;
+        lockedEnemy = null;
+        cameraTarget.position = characterTransform.position;
     }
 
     public void ToggleAttack(bool toggle)
@@ -117,7 +160,27 @@ public class PlayerAttackManager : MonoBehaviour
         {
             lockOnInput.Disable();
             if (isLockedOn)
-                OnLockOnInput(new InputAction.CallbackContext());
+                DisableLockOn();
         }
+    }
+
+    private void Update()
+    {
+        if (!isLockedOn) return;
+        if (lockedEnemy == null)
+        {
+            DisableLockOn();
+            return;
+        }
+        cameraTarget.position = Vector3.Lerp(characterTransform.position, lockedEnemy.transform.position, 0.5f);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, lockOnRadius);
+        if (lockedEnemy == null) return;
+        Gizmos.color = Color.blueViolet;
+        Gizmos.DrawLine(camera.transform.position, lockedEnemy.transform.position);
     }
 }

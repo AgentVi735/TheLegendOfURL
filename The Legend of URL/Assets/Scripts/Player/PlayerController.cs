@@ -23,7 +23,15 @@ public class PlayerController : MonoBehaviour
         // TODO: PUT THIS INTO A METHOD PLS
 #if UNITY_EDITOR
         if (targetFrameRateEditor > 0)
-            Application.targetFrameRate = targetFrameRateEditor > 0 ? targetFrameRateEditor : -1;
+        {
+            QualitySettings.vSyncCount = 0;
+            Application.targetFrameRate = targetFrameRateEditor;
+        }
+        else
+        {
+            QualitySettings.vSyncCount = 1;
+            Application.targetFrameRate = -1;
+        }
 #endif        
         health = maxHealth;
         

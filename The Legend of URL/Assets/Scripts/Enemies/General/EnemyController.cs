@@ -68,6 +68,7 @@ public abstract class EnemyController : MonoBehaviour
 
     protected void OnDrawGizmosSelected()
     {
+        if (data == null) return;
         Gizmos.color = Color.darkRed;
         Gizmos.DrawWireSphere(transform.position, data.attackRadius);
         Gizmos.color = Color.yellow;

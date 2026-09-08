@@ -3058,6 +3058,7 @@ Transform:
   m_Children:
   - {fileID: 363693356}
   - {fileID: 727474261}
+  - {fileID: 1908081826}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &571336848
@@ -3090,7 +3091,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d4c5b5dedf24291bbd25ef703e654d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackManager
+  camera: {fileID: 727474264}
   controller: {fileID: 571336848}
+  characterTransform: {fileID: 363693356}
+  cameraTarget: {fileID: 1908081826}
   swordCollider: {fileID: 118768572}
   swordAnimator: {fileID: 118768575}
   swordAnimationPath: Swing
@@ -3101,6 +3105,10 @@ MonoBehaviour:
   CanAttack: 0
   attackTime: 0.5
   CanLockOn: 0
+  lockOnRadius: 18
+  lockOnLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1001 &597457753
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3326,7 +3334,7 @@ MonoBehaviour:
   m_StreamingVersion: 20241001
   m_LegacyPriority: 0
   Target:
-    TrackingTarget: {fileID: 571336847}
+    TrackingTarget: {fileID: 1908081826}
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
@@ -5963,6 +5971,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36b25ddd35bd4be4ebce84f26a05f07b, type: 3}
+--- !u!1 &1908081825
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1908081826}
+  m_Layer: 6
+  m_Name: Camera Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1908081826
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908081825}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 571336847}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1925293147
 PrefabInstance:
   m_ObjectHideFlags: 0
