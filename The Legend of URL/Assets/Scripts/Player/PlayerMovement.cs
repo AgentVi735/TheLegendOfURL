@@ -85,19 +85,19 @@ public class PlayerMovement : MonoBehaviour
         runInput.started += OnRunEntered;
         runInput.canceled += OnRunCancelled;
         jumpInput.started += OnJumpPressed;
-
-        ToggleMovement(true);
-        ToggleRun(true);
-        ToggleJump(true);
     }
 
     private void OnDestroy() => DisposeActions();
 
     private void DisposeActions()
     {
-        if (runInput == null) return;
-        runInput.started -= OnRunEntered;
-        runInput.canceled -= OnRunCancelled;
+        if (runInput != null)
+        {
+            runInput.started -= OnRunEntered;
+            runInput.canceled -= OnRunCancelled;
+        }
+        if (jumpInput != null)
+            jumpInput.started -= OnJumpPressed;
     }
 
     private void Update()

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6187742861341056170}
   - component: {fileID: 8069929379341086722}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,3 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   enemyToSpawn: {fileID: 0}
+  spawnOffset: {x: 0, y: 0, z: 0}
+  patrolPath: []
+  areaToSpawnOn: 0

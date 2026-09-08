@@ -196,6 +196,12 @@ public class BasicPatrolState : IEnemyState
 
     public void OnDrawGizmosSelected(EnemyController controller)
     {
+        Gizmos.color = Color.orangeRed;
+        if (navMeshPath?.corners?.Length > 0)
+        {
+            foreach (var corner in navMeshPath.corners)
+                Gizmos.DrawCube(corner, new Vector3(0.6f, 0.6f, 0.6f));
+        }
         Gizmos.color = Color.green;
         Gizmos.DrawCube(currentWaypoint.transform.position, new Vector3(0.5f, 0.5f, 0.5f));
         if (navMeshPath is { corners: not null })

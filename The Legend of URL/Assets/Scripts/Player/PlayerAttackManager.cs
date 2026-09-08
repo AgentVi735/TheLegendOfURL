@@ -14,6 +14,8 @@ public class PlayerAttackManager : MonoBehaviour
     [SerializeField] private InputActionAsset inputActionAsset;
     private InputAction attackInput;
     [SerializeField] private string attackInputPath;
+    private InputAction lockOnInput;
+    [SerializeField] private string lockOnInputPath;
 
     [Header("Stats")]
     public short damage;
@@ -23,6 +25,8 @@ public class PlayerAttackManager : MonoBehaviour
     private bool isAttacking;
     [SerializeField] private float attackTime;
     private WaitForSeconds waitAttackTime;
+    public bool CanLockOn;
+    private bool isLockedOn;
 
     public PlayerAttackManager(PlayerController controller)
     {
@@ -39,9 +43,16 @@ public class PlayerAttackManager : MonoBehaviour
             gameObject.SetActive(false);
             return;
         }
+        lockOnInput = inputActionAsset.FindAction(lockOnInputPath);
+        if (lockOnInput == null)
+        {
+            Debug.LogError($"LockOnInputPath is invalid on object {gameObject.name}");
+            gameObject.SetActive(false);
+            return;
+        }
         
         attackInput.started += OnAttackInput;
-        ToggleAttack(true);
+        lockOnInput.started += OnLockOnInput;
 
         waitAttackTime = new WaitForSeconds(attackTime);
     }
@@ -50,6 +61,8 @@ public class PlayerAttackManager : MonoBehaviour
     {
         if (attackInput != null)
             attackInput.started -= OnAttackInput;
+        if (lockOnInput != null)
+            lockOnInput.started -= OnLockOnInput;
     }
     
     private void OnAttackInput(InputAction.CallbackContext ctx)
@@ -76,6 +89,12 @@ public class PlayerAttackManager : MonoBehaviour
         swordCollider.enabled = false;
         isAttacking = false;
     }
+    
+    private void OnLockOnInput(InputAction.CallbackContext ctx)
+    {
+        if (!CanLockOn) return;
+        isLockedOn = !isLockedOn;
+    }
 
     public void ToggleAttack(bool toggle)
     {
@@ -86,6 +105,19 @@ public class PlayerAttackManager : MonoBehaviour
         {
             attackInput.Disable();
             AttackFinish();
+        }
+    }
+
+    public void ToggleLockOn(bool toggle)
+    {
+        CanLockOn = toggle;
+        if (toggle)
+            lockOnInput.Enable();
+        else
+        {
+            lockOnInput.Disable();
+            if (isLockedOn)
+                OnLockOnInput(new InputAction.CallbackContext());
         }
     }
 }

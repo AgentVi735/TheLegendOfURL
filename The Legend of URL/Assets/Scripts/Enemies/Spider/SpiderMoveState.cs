@@ -157,9 +157,7 @@ public class SpiderMoveState : IEnemyState
         if (path?.corners?.Length > 0)
         {
             foreach (var corner in path.corners)
-            {
                 Gizmos.DrawCube(corner, new Vector3(0.6f, 0.6f, 0.6f));
-            }
         }
 
         Color color = Color.green;

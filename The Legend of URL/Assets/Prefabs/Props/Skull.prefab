@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 220764160404276732}
   - component: {fileID: 3097689598056105604}
   - component: {fileID: 4869134877156392535}
-  - component: {fileID: 1134164811373882509}
+  - component: {fileID: 5594458052529441390}
   m_Layer: 8
   m_Name: Skull
   m_TagString: Untagged
@@ -113,19 +113,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5021263, y: 0.50000226, z: 0.73013014}
   m_Center: {x: 0, y: 0.25093785, z: 0.07416065}
---- !u!208 &1134164811373882509
-NavMeshObstacle:
+--- !u!114 &5594458052529441390
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5390750235989721562}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.25100002, y: 0.25, z: 0.365}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0.25100002, z: 0.074}
-  m_TimeToStationary: 0.5
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff

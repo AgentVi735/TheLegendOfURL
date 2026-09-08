@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5367580913497746795}
   - component: {fileID: 6466785097868990493}
   - component: {fileID: 1769061623063766372}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wooden Sword
   m_TagString: Player
   m_Icon: {fileID: 0}
