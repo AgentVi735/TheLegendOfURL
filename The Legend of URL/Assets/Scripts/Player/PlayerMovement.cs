@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Utilities;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -35,9 +36,28 @@ public class PlayerMovement : MonoBehaviour
     public bool CanRun;
     public bool CanJump;
     private bool isOnGround;
+#if UNITY_EDITOR
+    public bool disableKeyboard;
+#endif
 
     public void Initialise()
     {
+#if UNITY_EDITOR
+        if (disableKeyboard)
+        {
+            foreach (InputDevice inputDevice in InputSystem.devices)
+            {
+                if (inputDevice is Keyboard or Mouse)
+                    InputSystem.DisableDevice(inputDevice);
+                else
+                    InputSystem.EnableDevice(inputDevice);
+            }
+        }
+        else
+            foreach (InputDevice inputDevice in InputSystem.devices)
+                InputSystem.EnableDevice(inputDevice);
+#endif
+
         movementInput = inputActionAsset.FindAction(movementInputPath);
         if (movementInput == null)
         {
