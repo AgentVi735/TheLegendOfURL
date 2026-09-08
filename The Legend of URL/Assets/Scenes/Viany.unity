@@ -509,6 +509,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a5afbeafa02ff044a9c484b62ebad25, type: 3}
+--- !u!1001 &8010395912533313959
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3637679927254319687, guid: 201d2313913dfdb4f9e04860cd8d61d5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3637679927254319687, guid: 201d2313913dfdb4f9e04860cd8d61d5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3637679927254319687, guid: 201d2313913dfdb4f9e04860cd8d61d5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 3637679927254319687, guid: 201d2313913dfdb4f9e04860cd8d61d5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3637679927254319687, guid: 201d2313913dfdb4f9e04860cd8d61d5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3637679927254319687, guid: 201d2313913dfdb4f9e04860cd8d61d5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3637679927254319687, guid: 201d2313913dfdb4f9e04860cd8d61d5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3637679927254319687, guid: 201d2313913dfdb4f9e04860cd8d61d5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3637679927254319687, guid: 201d2313913dfdb4f9e04860cd8d61d5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3637679927254319687, guid: 201d2313913dfdb4f9e04860cd8d61d5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7521365371200092343, guid: 201d2313913dfdb4f9e04860cd8d61d5, type: 3}
+      propertyPath: m_Name
+      value: House Of Mayor
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 201d2313913dfdb4f9e04860cd8d61d5, type: 3}
 --- !u!1001 &8478444743072590472
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -576,3 +633,4 @@ SceneRoots:
   - {fileID: 6995196962897773231}
   - {fileID: 7873422458475162378}
   - {fileID: 8478444743072590472}
+  - {fileID: 8010395912533313959}
