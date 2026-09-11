@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -33,6 +32,7 @@ public class PlayerAttackManager : MonoBehaviour
     public bool CanLockOn;
     [SerializeField] private float lockOnRadius;
     [SerializeField] private LayerMask lockOnLayerMask;
+    [SerializeField] private LayerMask lockOnCheckLayerMask;
     private bool isLockedOn;
     private EnemyController lockedEnemy;
 
@@ -118,6 +118,11 @@ public class PlayerAttackManager : MonoBehaviour
         foreach (Collider collider in foundColliders)
         {
             if (collider == null || !collider.CompareTag("Enemy")) continue;
+            
+                // || !Physics.Raycast(camera.transform.position,
+                // camera.transform.position - collider.transform.position,
+                // out RaycastHit hit,
+                // lockOnRadius, lockOnCheckLayerMask) || hit.collider.gameObject != collider.gameObject
 
             camForward.y = collider.transform.position.y;
             float angle = Vector3.Angle(camForward, collider.transform.position);
@@ -128,7 +133,7 @@ public class PlayerAttackManager : MonoBehaviour
 
         if (closestEnemy == null) return;
         lockedEnemy = closestEnemy.GetComponent<EnemyController>();
-        
+
         isLockedOn = true;
     }
 
@@ -167,11 +172,18 @@ public class PlayerAttackManager : MonoBehaviour
     private void Update()
     {
         if (!isLockedOn) return;
-        if (lockedEnemy == null)
+        if (lockedEnemy == null ||
+            Vector3.Distance(characterTransform.position, lockedEnemy.transform.position) > lockOnRadius)
+            
+        //     ||
+        // !Physics.Raycast(camera.transform.position, camera.transform.position - lockedEnemy.transform.position,
+        //     out RaycastHit hit,
+        //     lockOnRadius, lockOnCheckLayerMask) || hit.collider.gameObject != lockedEnemy.gameObject
         {
             DisableLockOn();
             return;
         }
+
         cameraTarget.position = Vector3.Lerp(characterTransform.position, lockedEnemy.transform.position, 0.5f);
     }
 

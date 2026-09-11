@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Vicky.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/Test/Village Test.unity
+    guid: 7570ec615405ae543b4c7387ab56e391
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 8bfc2ef015f9f0e468d5ee4712ee2969, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

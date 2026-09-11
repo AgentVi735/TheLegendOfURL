@@ -51,13 +51,16 @@ public class SpiderMoveState : IEnemyState
             }
         }
         
+        bool isOnGround = Physics.Raycast(enemyTransform.position, -enemyTransform.up, out RaycastHit hit,
+            0.2f);
+        
         path = new NavMeshPath();
         agent.CalculatePath(lastSeenPos, path);
         if (path.status != NavMeshPathStatus.PathComplete)
         {
-            if (NavMesh.SamplePosition(lastSeenPos, out NavMeshHit hit, 6, NavMesh.AllAreas))
+            if (NavMesh.SamplePosition(lastSeenPos, out NavMeshHit navMeshHit, 6, NavMesh.AllAreas))
             {
-                agent.CalculatePath(hit.position, path);
+                agent.CalculatePath(navMeshHit.position, path);
                 if (path.status != NavMeshPathStatus.PathComplete)
                 {
                     invalidTime += Time.deltaTime;
@@ -87,7 +90,7 @@ public class SpiderMoveState : IEnemyState
             turnSpeed * Time.deltaTime);
         
         Vector3 velocity = Vector3.zero;
-        if (controller.characterController.isGrounded)
+        if (isOnGround)
         {
             if (velocity.y < -2f)
                 velocity.y = -2f;

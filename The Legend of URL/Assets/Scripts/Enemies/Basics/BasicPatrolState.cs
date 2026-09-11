@@ -32,6 +32,9 @@ public class BasicPatrolState : IEnemyState
             controller.ChangeState(controller.moveState);
             return;
         }
+        
+        bool isOnGround = Physics.Raycast(enemyTransform.position, -enemyTransform.up, out RaycastHit hit,
+            0.2f);
 
         if (pathIdx == -1)
         {
@@ -50,11 +53,10 @@ public class BasicPatrolState : IEnemyState
             }
         }
         
-        Vector3 destination = navMeshPath.corners[pathIdx];
-        Vector3 posToMoveTo = destination - enemyTransform.position;
-        posToMoveTo.y = enemyTransform.position.y;
-        float deltaAngle = Vector3.Angle(enemyTransform.forward, posToMoveTo);
-        Vector3 rotationAxis = Vector3.Cross(enemyTransform.forward, posToMoveTo);
+        Vector3 posToMoveToGlobal = navMeshPath.corners[pathIdx];
+        Vector3 posToMoveToLocal = posToMoveToGlobal - enemyTransform.position;
+        float deltaAngle = Vector3.Angle(enemyTransform.forward, posToMoveToLocal);
+        Vector3 rotationAxis = Vector3.Cross(enemyTransform.forward, posToMoveToLocal);
         rotationAxis.x = 0;
         rotationAxis.z = 0;
         Quaternion deltaRotation = Quaternion.AngleAxis(deltaAngle, rotationAxis);
@@ -62,26 +64,28 @@ public class BasicPatrolState : IEnemyState
             turnSpeed * Time.deltaTime);
 
         Vector3 velocity = Vector3.zero;
-        if (controller.characterController.isGrounded)
+        if (isOnGround)
         {
             if (velocity.y < -2f)
                 velocity.y = -2f;
         }
         
         velocity.y += controller.data.gravitySpeed * Time.deltaTime;
+        Vector3 movePos = -enemyTransform.up * velocity.y;
 
         Vector3 diffPos = enemyTransform.position;
-        diffPos.y = destination.y;
-        float distance = Vector3.Distance(destination, diffPos);
+        diffPos.y = posToMoveToGlobal.y;
+        float distance = Vector3.Distance(posToMoveToGlobal, diffPos);
         
         lastDistance = distance;
+
+        movePos += enemyTransform.forward * (speed * Time.deltaTime);
         
-        character.Move(enemyTransform.forward * (speed * Time.deltaTime));
-        character.Move(-enemyTransform.up * velocity.y);
+        character.Move(movePos);
         
         diffPos = enemyTransform.position;
-        diffPos.y = destination.y;
-        distance = Vector3.Distance(destination, diffPos);
+        diffPos.y = posToMoveToGlobal.y;
+        distance = Vector3.Distance(posToMoveToGlobal, diffPos);
         
         if (Math.Abs(distance - lastDistance) < 0.001f)
         {
@@ -89,7 +93,7 @@ public class BasicPatrolState : IEnemyState
             return;
         }
 
-        if (Physics.Raycast(eyesTransform.position, enemyTransform.forward, out RaycastHit hit, 1))
+        if (Physics.Raycast(eyesTransform.position, enemyTransform.forward, out hit, 1))
         {
             if (hit.transform.CompareTag("Enemy"))
             {
@@ -200,10 +204,10 @@ public class BasicPatrolState : IEnemyState
         if (navMeshPath?.corners?.Length > 0)
         {
             foreach (var corner in navMeshPath.corners)
-                Gizmos.DrawCube(corner, new Vector3(0.6f, 0.6f, 0.6f));
+                Gizmos.DrawCube(corner, new Vector3(0.4f, 0.4f, 0.4f));
         }
         Gizmos.color = Color.green;
-        Gizmos.DrawCube(currentWaypoint.transform.position, new Vector3(0.5f, 0.5f, 0.5f));
+        Gizmos.DrawCube(currentWaypoint.transform.position, new Vector3(0.3f, 0.3f, 0.3f));
         if (navMeshPath is { corners: not null })
         {
             Gizmos.color = Color.purple;
