@@ -19,6 +19,7 @@ public class SpiderMoveState : IEnemyState
     private Vector3 lastSeenPos;
     private LayerMask layers;
     private NavMeshPath path;
+    private bool canReachPlayer;
 
     private float invalidTime;
     private const float maxInvalidTime = 1.6f;
@@ -30,7 +31,7 @@ public class SpiderMoveState : IEnemyState
         {
             case false:
             {
-                float distance = Vector3.Distance(enemyTransform.position, lastSeenPos);
+                float distance = Vector3.Distance(enemyTransform.position, canReachPlayer ? lastSeenPos : posToMoveTo);
                 if (distance < 0.5)
                 {
                     controller.ChangeState(controller.lookState);
@@ -58,6 +59,7 @@ public class SpiderMoveState : IEnemyState
         agent.CalculatePath(lastSeenPos, path);
         if (path.status != NavMeshPathStatus.PathComplete)
         {
+            canReachPlayer = false;
             if (NavMesh.SamplePosition(lastSeenPos, out NavMeshHit navMeshHit, 6, NavMesh.AllAreas))
             {
                 agent.CalculatePath(navMeshHit.position, path);
@@ -65,13 +67,13 @@ public class SpiderMoveState : IEnemyState
                 {
                     invalidTime += Time.deltaTime;
                     if (invalidTime >= maxInvalidTime)
-                    {
                         controller.ChangeState(controller.idleState);
-                    }
                     return;
                 }
             }
         }
+        else
+            canReachPlayer = true;
         
         if (path.corners.Length < 2)
             return;

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8720391201613543472}
   - component: {fileID: 6308353686689376459}
   - component: {fileID: 333246027688024219}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fence Gate Small Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 1713681050891781573}
   - component: {fileID: 4917637851158453299}
   - component: {fileID: 8282236160470142302}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fence Gate Small
   m_TagString: Untagged
   m_Icon: {fileID: 0}

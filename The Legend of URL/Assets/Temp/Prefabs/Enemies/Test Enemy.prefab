@@ -195,7 +195,7 @@ MonoBehaviour:
   stunTime: 0
   raycastLayers:
     serializedVersion: 2
-    m_Bits: 193
+    m_Bits: 2241
 --- !u!120 &6548717985719910291
 LineRenderer:
   serializedVersion: 3
