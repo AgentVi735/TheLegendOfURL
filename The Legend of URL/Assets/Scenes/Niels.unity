@@ -1072,7 +1072,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2979511544496176938, guid: 3758475dc0d455840929799e0d9b2c57, type: 3}
       propertyPath: m_Name
-      value: Lantern
+      value: Unlit_Lantern
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1763,6 +1763,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8721bbb2ffad06d4b90991c4a7a03227, type: 3}
+--- !u!1001 &6339123113777890030
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1627997087618796279, guid: ff2d60bf6d225e4479c14646d5c1b65f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.442
+      objectReference: {fileID: 0}
+    - target: {fileID: 1627997087618796279, guid: ff2d60bf6d225e4479c14646d5c1b65f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1627997087618796279, guid: ff2d60bf6d225e4479c14646d5c1b65f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1627997087618796279, guid: ff2d60bf6d225e4479c14646d5c1b65f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1627997087618796279, guid: ff2d60bf6d225e4479c14646d5c1b65f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1627997087618796279, guid: ff2d60bf6d225e4479c14646d5c1b65f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1627997087618796279, guid: ff2d60bf6d225e4479c14646d5c1b65f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1627997087618796279, guid: ff2d60bf6d225e4479c14646d5c1b65f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1627997087618796279, guid: ff2d60bf6d225e4479c14646d5c1b65f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1627997087618796279, guid: ff2d60bf6d225e4479c14646d5c1b65f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2058796520568162165, guid: ff2d60bf6d225e4479c14646d5c1b65f, type: 3}
+      propertyPath: m_Name
+      value: Hayfork
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ff2d60bf6d225e4479c14646d5c1b65f, type: 3}
 --- !u!1001 &6920997311983534657
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2142,3 +2199,4 @@ SceneRoots:
   - {fileID: 9063293595425274741}
   - {fileID: 3474158220582506419}
   - {fileID: 7879340643328876234}
+  - {fileID: 6339123113777890030}
