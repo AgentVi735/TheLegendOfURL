@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
     [Header("Player References")]
     [SerializeField] private PlayerMovement movement;
     [SerializeField] private PlayerAttackManager attackManager;
+    [SerializeField] private PlayerHUDController hudController;
     [SerializeField] private CinemachineCamera cinemachineCamera;
     [SerializeField] private CinemachineInputAxisController cinemachineInputController;
 
@@ -37,12 +38,15 @@ public class PlayerController : MonoBehaviour
         
         movement.Initialise();
         attackManager.Initialise();
+
+        hudController.Initialise(maxHealth);
         
         ToggleAllInputs(true);
     }
 
     private void ToggleCameraInput(bool toggle) => cinemachineInputController.enabled = toggle;
     private void ToggleCameraFollow(bool toggle) => cinemachineCamera.enabled = toggle;
+    public void TogglePause(bool toggle) => movement.TogglePause(toggle);
     public void ToggleMovement(bool toggle) => movement.ToggleMovement(toggle);
     public void ToggleRun(bool toggle) => movement.ToggleRun(toggle);
     public void ToggleJump(bool toggle) => movement.ToggleJump(toggle);
@@ -52,6 +56,7 @@ public class PlayerController : MonoBehaviour
     public void OnHit(short receivedDamage)
     {
         health -= receivedDamage;
+        hudController.UpdateHealthBar(health);
         if (health < 0)
             OnDeath();
     }
@@ -64,6 +69,7 @@ public class PlayerController : MonoBehaviour
 
     private void ToggleAllInputs(bool toggle)
     {
+        TogglePause(toggle);
         ToggleMovement(toggle);
         ToggleRun(toggle);
         ToggleJump(toggle);

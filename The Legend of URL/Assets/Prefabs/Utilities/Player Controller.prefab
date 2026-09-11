@@ -108,6 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   movement: {fileID: 6460780336858691293}
   attackManager: {fileID: 290314121052655610}
+  hudController: {fileID: 0}
   cinemachineCamera: {fileID: 172040523102954746}
   cinemachineInputController: {fileID: 5006302976836543788}
   maxHealth: 100
@@ -128,6 +129,7 @@ MonoBehaviour:
   characterTrans: {fileID: 267672793640884527}
   camTrans: {fileID: 6906417931468776817}
   inputActionAsset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  pauseInputPath: Pause
   movementInputPath: Move
   runInputPath: Sprint
   jumpInputPath: Jump
@@ -141,6 +143,7 @@ MonoBehaviour:
   jumpSpeed: 3
   baseJumpVelocity: {x: 0, y: 9, z: 0}
   gravitySpeed: 13
+  CanPause: 0
   CanMove: 0
   CanRun: 0
   CanJump: 0
@@ -177,7 +180,7 @@ MonoBehaviour:
     m_Bits: 8
   lockOnCheckLayerMask:
     serializedVersion: 2
-    m_Bits: 136
+    m_Bits: 1160
 --- !u!1 &4129507807256346642
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,7 +624,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineDeoccluder
   CollideAgainst:
     serializedVersion: 2
-    m_Bits: 129
+    m_Bits: 1153
   IgnoreTag: Player
   TransparentLayers:
     serializedVersion: 2

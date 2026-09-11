@@ -15,7 +15,7 @@ MonoBehaviour:
   enemyName: Freddy Fazbear
   controllerType: 1
   prefab: {fileID: 1411090755591761608, guid: 7c8dee0c89502c24da1b183fbaa8f56b, type: 3}
-  health: 25
+  health: 50
   damage: 5
   attackCooldown: 0.8
   attackRadius: 1.2

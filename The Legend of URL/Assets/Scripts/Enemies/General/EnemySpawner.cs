@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private EnemyData enemyToSpawn;
+    [SerializeField] private Transform spawnTrans;
     [SerializeField] private Vector3 spawnOffset;
     [SerializeField] private EnemyWaypoint patrolPath;
     private EnemyController enemy;
@@ -20,7 +20,7 @@ public class EnemySpawner : MonoBehaviour
                 path.Add(availableWaypoint);
         }
 
-        Vector3 spawnPos = transform.position + spawnOffset;
+        Vector3 spawnPos = (spawnTrans != null ? spawnTrans.position : transform.position) + spawnOffset;
         enemy = Instantiate(enemyToSpawn.prefab, spawnPos, transform.rotation, transform);
         enemy.Initialise(enemyToSpawn, path.ToArray());
     }

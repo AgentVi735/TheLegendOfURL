@@ -1,7 +1,9 @@
 using System;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Utilities;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -12,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
     
     [Header("Input")]
     [SerializeField] private InputActionAsset inputActionAsset;
+    private InputAction pauseInput;
+    [SerializeField] private string pauseInputPath;
     private InputAction movementInput;
     [SerializeField] private string movementInputPath;
     private InputAction runInput;
@@ -32,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpSpeed;
     [SerializeField] private Vector3 baseJumpVelocity;
     [SerializeField] private float gravitySpeed;
+    public bool CanPause;
     public bool CanMove;
     public bool CanRun;
     public bool CanJump;
@@ -58,6 +63,14 @@ public class PlayerMovement : MonoBehaviour
                 InputSystem.EnableDevice(inputDevice);
 #endif
 
+        pauseInput = inputActionAsset.FindAction(pauseInputPath);
+        if (pauseInput == null)
+        {
+            Debug.LogError($"PauseInputPath is invalid on object {gameObject.name}");
+            gameObject.SetActive(false);
+            return;
+        }
+
         movementInput = inputActionAsset.FindAction(movementInputPath);
         if (movementInput == null)
         {
@@ -82,6 +95,7 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
+        pauseInput.started += OnPausePressed;
         runInput.started += OnRunEntered;
         runInput.canceled += OnRunCancelled;
         jumpInput.started += OnJumpPressed;
@@ -91,6 +105,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void DisposeActions()
     {
+        if (pauseInput != null)
+            pauseInput.started -= OnPausePressed;
         if (runInput != null)
         {
             runInput.started -= OnRunEntered;
@@ -155,6 +171,22 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(characterTrans.forward * (currentSpeed * Time.deltaTime));
     }
 
+    private void OnPausePressed(InputAction.CallbackContext ctx)
+    {
+        if (!CanPause) return;
+        
+        Quit();
+    }
+    
+    private static void Quit()
+    {
+#if UNITY_EDITOR
+        EditorApplication.ExitPlaymode();
+#else
+        Application.Quit();
+#endif
+    }
+
     private void OnRunEntered(InputAction.CallbackContext ctx)
     {
         if (isRunning || !CanRun) return;
@@ -173,6 +205,15 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!isOnGround || jumpVelocity.y > 0) return;
         jumpVelocity += baseJumpVelocity;
+    }
+    
+    public void TogglePause(bool toggle)
+    {
+        CanPause = toggle;
+        if (toggle)
+            pauseInput.Enable();
+        else
+            pauseInput.Disable();
     }
     
     public void ToggleMovement(bool toggle)
