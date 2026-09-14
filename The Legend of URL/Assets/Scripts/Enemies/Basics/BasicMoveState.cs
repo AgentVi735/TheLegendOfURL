@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
-public class SpiderMoveState : IEnemyState
+public class BasicMoveState : IEnemyState
 {
     private Transform playerTransform;
     private Transform enemyTransform;
