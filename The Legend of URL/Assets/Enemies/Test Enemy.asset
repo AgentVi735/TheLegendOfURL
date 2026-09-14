@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea26bcb2333e416ea3dd515459db160d, type: 3}
   m_Name: Test Enemy
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  enemyName: Freddy Fazbear
+  enemyName: Test Enemy
   controllerType: 1
   prefab: {fileID: 1411090755591761608, guid: 7c8dee0c89502c24da1b183fbaa8f56b, type: 3}
   health: 50
@@ -31,3 +31,4 @@ MonoBehaviour:
   forceDetectDistance: 12
   followRange: 20
   maxLookTime: 7
+  maxWaypointsToRemember: 2

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5107014200310866405}
   - component: {fileID: 1144704919844840050}
   - component: {fileID: 9154619352139846465}
-  - component: {fileID: 1916943488716221912}
+  - component: {fileID: 604075785183327030}
   m_Layer: 3
   m_Name: Model
   m_TagString: Untagged
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1057565153174954217}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -41,7 +41,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1057565153174954217}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &9154619352139846465
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -91,8 +91,8 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1916943488716221912
-MeshCollider:
+--- !u!135 &604075785183327030
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -109,10 +109,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1953083478717100938
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,11 +122,11 @@ GameObject:
   m_Component:
   - component: {fileID: 8877640195773346123}
   - component: {fileID: 8582374838700577451}
-  - component: {fileID: 1411090755591761608}
+  - component: {fileID: 2673913721158306445}
   - component: {fileID: 6548717985719910291}
   - component: {fileID: 1476070819956099717}
   m_Layer: 3
-  m_Name: Test Enemy
+  m_Name: Test Flying Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -168,14 +167,14 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 2
+  m_Height: 1
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &1411090755591761608
+  m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &2673913721158306445
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -184,9 +183,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1953083478717100938}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa8b28a9c3e64299a6c553de03cd2394, type: 3}
+  m_Script: {fileID: 11500000, guid: d8d1f4b391884755b8ee979e45bd409c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SpiderController
+  m_EditorClassIdentifier: Assembly-CSharp::FlyingSkullController
   _characterController: {fileID: 8582374838700577451}
   _meshRenderer: {fileID: 9154619352139846465}
   _navMeshAgent: {fileID: 1476070819956099717}
@@ -249,8 +248,8 @@ LineRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Positions:
-  - {x: 0, y: 1.5, z: 0}
-  - {x: 0, y: 1.5, z: 1}
+  - {x: 0, y: 0.5, z: 0}
+  - {x: 0, y: 0.5, z: 1}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -317,8 +316,8 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1953083478717100938}
   m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.2
+  m_AgentTypeID: -1372625422
+  m_Radius: 0.5
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -327,7 +326,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 0
   m_AutoBraking: 0
   m_AutoRepath: 1
-  m_Height: 2
+  m_Height: 1
   m_BaseOffset: 0
   m_WalkableMask: 1
   m_ObstacleAvoidanceType: 0
@@ -356,7 +355,7 @@ Transform:
   m_GameObject: {fileID: 5198692141321478520}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0.6}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

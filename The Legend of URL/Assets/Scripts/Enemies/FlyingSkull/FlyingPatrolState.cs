@@ -1,11 +1,11 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
-public class BasicPatrolState : IEnemyState
+public class FlyingPatrolState : IEnemyState
 {
     private Transform playerTransform;
     private Transform enemyTransform;
@@ -32,9 +32,6 @@ public class BasicPatrolState : IEnemyState
             controller.ChangeState(controller.moveState);
             return;
         }
-        
-        bool isOnGround = Physics.Raycast(enemyTransform.position, -enemyTransform.up, out RaycastHit hit,
-            0.2f);
 
         if (pathIdx == -1)
         {
@@ -66,23 +63,13 @@ public class BasicPatrolState : IEnemyState
         enemyTransform.rotation = Quaternion.Lerp(enemyTransform.rotation, enemyTransform.rotation * deltaRotation,
             turnSpeed * Time.deltaTime);
 
-        Vector3 velocity = Vector3.zero;
-        if (isOnGround)
-        {
-            if (velocity.y < -2f)
-                velocity.y = -2f;
-        }
-        
-        velocity.y += controller.data.gravitySpeed * Time.deltaTime;
-        Vector3 movePos = -enemyTransform.up * velocity.y;
-
         Vector3 diffPos = enemyTransform.position;
         diffPos.y = posToMoveToGlobal.y;
         float distance = Vector3.Distance(posToMoveToGlobal, diffPos);
         
         lastDistance = distance;
 
-        movePos += enemyTransform.forward * (speed * Time.deltaTime);
+        Vector3 movePos = enemyTransform.forward * (speed * Time.deltaTime);
         
         character.Move(movePos);
         
@@ -96,7 +83,7 @@ public class BasicPatrolState : IEnemyState
             return;
         }
 
-        if (Physics.Raycast(eyesTransform.position, enemyTransform.forward, out hit, 1))
+        if (Physics.Raycast(eyesTransform.position, enemyTransform.forward, out RaycastHit hit, 1))
         {
             if (hit.transform.CompareTag("Enemy"))
             {
@@ -113,7 +100,6 @@ public class BasicPatrolState : IEnemyState
 
     private bool CanSeePlayer()
     {
-        
         float distance = Vector3.Distance(playerTransform.position, enemyTransform.position);
         Vector3 playerPos;
         RaycastHit hit;

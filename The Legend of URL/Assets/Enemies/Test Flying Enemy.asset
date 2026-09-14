@@ -10,24 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea26bcb2333e416ea3dd515459db160d, type: 3}
-  m_Name: Test Enemy 1
+  m_Name: Test Flying Enemy
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  enemyName: ABC
-  controllerType: 1
-  prefab: {fileID: 1411090755591761608, guid: 7c8dee0c89502c24da1b183fbaa8f56b, type: 3}
-  health: 50
+  enemyName: Test Flying Enemy
+  controllerType: 2
+  prefab: {fileID: 2673913721158306445, guid: 1b0aea96593e5a843abf7fc95c758df6, type: 3}
+  health: 15
   damage: 5
-  attackCooldown: 0.8
+  attackCooldown: 0.4
   attackRadius: 1.2
-  walkSpeed: 2.5
-  turnSpeed: 10.48
+  walkSpeed: 4
+  turnSpeed: 12
   gravitySpeed: 12
   knockbackMultiplier: 10
   knockbackSpeed: 7
   knockbackVelocityOffset: {x: 0, y: 0.3, z: -0.35}
   knockbackStunTime: 0.1
   invincibleTimeAfterHit: 0.5
-  detectDistance: 30
-  forceDetectDistance: 12
-  followRange: 20
-  maxLookTime: 7
+  detectDistance: 40
+  forceDetectDistance: 15
+  followRange: 25
+  maxLookTime: 3
+  maxWaypointsToRemember: 2

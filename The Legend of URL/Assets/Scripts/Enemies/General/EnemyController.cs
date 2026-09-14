@@ -34,6 +34,7 @@ public abstract class EnemyController : MonoBehaviour
     public Vector3 hitVelocity;
     public float stunTime;
     public LayerMask raycastLayers;
+    public LayerMask swordLayer;
     
     public virtual void Initialise(EnemyData receivedData, EnemyWaypoint[] receivedPath)
     {
@@ -80,7 +81,7 @@ public abstract class EnemyController : MonoBehaviour
 
     protected void OnTriggerEnter(Collider trigger)
     {
-        if (trigger.name != "Sword" || !canBeHit) return;
+        if (trigger.gameObject.layer != swordLayer || !canBeHit) return;
         GetDamage(player.EnemyGetDamage());
     }
 
