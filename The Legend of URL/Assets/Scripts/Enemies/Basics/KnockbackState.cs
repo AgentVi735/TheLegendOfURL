@@ -5,7 +5,6 @@ public class KnockbackState : IEnemyState
 {
     private Transform enemyTransform;
     private CharacterController character;
-    private NavMeshAgent agent;
     private Vector3 posToMoveToLocal;
     private Vector3 posToMoveTo;
     
@@ -42,8 +41,6 @@ public class KnockbackState : IEnemyState
         controller.meshRenderer.material.color = Color.blueViolet;
         character = controller.characterController;
         enemyTransform = character.transform;
-        agent = controller.navMeshAgent;
-        agent.isStopped = true;
     }
 
     public void OnExit(EnemyController controller)

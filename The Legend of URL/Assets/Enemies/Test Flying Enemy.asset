@@ -21,7 +21,7 @@ MonoBehaviour:
   attackRadius: 1.2
   walkSpeed: 4
   turnSpeed: 12
-  gravitySpeed: 12
+  gravitySpeed: 2
   knockbackMultiplier: 10
   knockbackSpeed: 7
   knockbackVelocityOffset: {x: 0, y: 0.3, z: -0.35}
@@ -31,4 +31,3 @@ MonoBehaviour:
   forceDetectDistance: 15
   followRange: 25
   maxLookTime: 3
-  maxWaypointsToRemember: 2

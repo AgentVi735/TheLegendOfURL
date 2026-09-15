@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
@@ -11,7 +10,6 @@ public class FlyingPatrolState : IEnemyState
     private Transform enemyTransform;
     private Transform eyesTransform;
     private CharacterController character;
-    private NavMeshAgent agent;
     private float speed;
     private float turnSpeed;
     private float detectDistance;
@@ -22,11 +20,17 @@ public class FlyingPatrolState : IEnemyState
     private EnemyWaypoint lastWaypoint;
     private NavMeshPath navMeshPath;
     private int pathIdx;
-    private float lastDistance;
     private LayerMask layers;
     
     public void UpdateState(EnemyController controller)
     {
+        float dist = Vector3.Distance(currentWaypoint.transform.position, enemyTransform.position);
+        Debug.Log(dist);
+        if (dist < 0.5f)
+        {
+            GetNewWaypoint();
+        }
+        
         if (CanSeePlayer())
         {
             controller.ChangeState(controller.moveState);
@@ -36,7 +40,14 @@ public class FlyingPatrolState : IEnemyState
         if (pathIdx == -1)
         {
             navMeshPath = new NavMeshPath();
-            agent.CalculatePath(currentWaypoint.transform.position, navMeshPath);
+            Vector3 pos = enemyTransform.position;
+            NavMesh.SamplePosition(pos, out NavMeshHit charPos, 6, controller.navMeshFilter);
+            Debug.Log(charPos.position);
+            pos.y = charPos.position.y;
+            Vector3 destinationPos = currentWaypoint.transform.position;
+            destinationPos.y = pos.y;
+            NavMesh.CalculatePath(pos, destinationPos, controller.navMeshFilter, navMeshPath);
+            Debug.Log(navMeshPath.corners.Length);
             switch (navMeshPath.corners.Length)
             {
                 case 1:
@@ -52,8 +63,12 @@ public class FlyingPatrolState : IEnemyState
                     return;
             }
         }
-        
-        Vector3 posToMoveToGlobal = navMeshPath.corners[pathIdx];
+
+        Vector3 posToMoveToGlobal;
+        if (navMeshPath.corners.Length == 0 || navMeshPath.corners.Length <= pathIdx)
+            posToMoveToGlobal = currentWaypoint.transform.position;
+        else
+            posToMoveToGlobal = navMeshPath.corners[pathIdx];
         Vector3 posToMoveToLocal = posToMoveToGlobal - enemyTransform.position;
         float deltaAngle = Vector3.Angle(enemyTransform.forward, posToMoveToLocal);
         Vector3 rotationAxis = Vector3.Cross(enemyTransform.forward, posToMoveToLocal);
@@ -65,37 +80,64 @@ public class FlyingPatrolState : IEnemyState
 
         Vector3 diffPos = enemyTransform.position;
         diffPos.y = posToMoveToGlobal.y;
-        float distance = Vector3.Distance(posToMoveToGlobal, diffPos);
-        
-        lastDistance = distance;
+        float distance = Vector3.Distance(diffPos, enemyTransform.position);
 
-        Vector3 movePos = enemyTransform.forward * (speed * Time.deltaTime);
+        Vector3 movePos = Vector3.zero;
+        if (distance >= 0.1f)
+            movePos += enemyTransform.forward * (speed * Time.deltaTime);
+
+        Vector3 directionToCheck = Vector3.zero;
+        if (currentWaypoint.transform.position.y > enemyTransform.position.y)
+            directionToCheck = enemyTransform.up;
+        else if (currentWaypoint.transform.position.y < enemyTransform.position.y)
+            directionToCheck = -enemyTransform.up;
+        
+        if (directionToCheck.y != 0)
+        {
+            if (!Physics.Raycast(controller.leftTransform.position, directionToCheck, out RaycastHit _, character.height, layers))
+            {
+                if (!Physics.Raycast(controller.rightTransform.position, directionToCheck, out RaycastHit _, character.height, layers))
+                {
+                    if (!Physics.Raycast(controller.eyesTransform.position, directionToCheck, out RaycastHit _, character.height, layers))
+                    {
+                        Vector3 flyMovement = directionToCheck * (controller.data.gravitySpeed * Time.deltaTime);
+
+                        float amountToFly = Mathf.Abs(currentWaypoint.transform.position.y - enemyTransform.position.y);
+                        float amountFlying = Mathf.Abs(flyMovement.y);
+
+                        if (amountFlying > amountToFly)
+                        {
+                            amountFlying = amountToFly;
+                            flyMovement.y = flyMovement.y switch
+                            {
+                                < 0 => -amountFlying,
+                                > 0 => amountFlying,
+                                _ => flyMovement.y
+                            };
+                        }
+                        
+                        movePos += flyMovement;
+                    }
+                }
+            }
+        }
         
         character.Move(movePos);
         
-        diffPos = enemyTransform.position;
-        diffPos.y = posToMoveToGlobal.y;
-        distance = Vector3.Distance(posToMoveToGlobal, diffPos);
-        
-        if (Math.Abs(distance - lastDistance) < 0.001f)
-        {
-            pathIdx = -1;
-            return;
-        }
+        posToMoveToGlobal.y = enemyTransform.position.y;
+        distance = Vector3.Distance(posToMoveToGlobal, enemyTransform.position);
 
-        if (Physics.Raycast(eyesTransform.position, enemyTransform.forward, out RaycastHit hit, 1))
+        if (Physics.Raycast(eyesTransform.position, enemyTransform.forward, out RaycastHit enemyHit, 1))
         {
-            if (hit.transform.CompareTag("Enemy"))
+            if (enemyHit.transform.CompareTag("Enemy"))
             {
                 pathIdx = -1;
                 return;
             }
         }
         
-        if (!(distance < 0.5f)) return;
+        if (distance >= 0.5f) return;
         pathIdx++;
-        if (navMeshPath.corners.Length > pathIdx) return;
-        GetNewWaypoint();
     }
 
     private bool CanSeePlayer()
@@ -145,6 +187,8 @@ public class FlyingPatrolState : IEnemyState
                 currentWaypoint = path[0];
                 break;
         }
+        
+        Debug.LogWarning(currentWaypoint.name);
 
         lastWaypoint = latestWaypoint;
         pathIdx = -1;
@@ -162,9 +206,6 @@ public class FlyingPatrolState : IEnemyState
         detectDistance = controller.data.detectDistance;
         forceDetectDistance = controller.data.forceDetectDistance;
         layers = controller.raycastLayers;
-        agent = controller.navMeshAgent;
-        agent.isStopped = true;
-        agent.autoBraking = false;
         path = controller.patrolPath;
         pathIdx = -1;
 
@@ -185,7 +226,6 @@ public class FlyingPatrolState : IEnemyState
 
     public void OnExit(EnemyController controller)
     {
-        agent.autoBraking = true;
     }
 
     public void OnHurt(EnemyController controller)

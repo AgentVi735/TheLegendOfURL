@@ -11,7 +11,6 @@ public class BasicPatrolState : IEnemyState
     private Transform enemyTransform;
     private Transform eyesTransform;
     private CharacterController character;
-    private NavMeshAgent agent;
     private float speed;
     private float turnSpeed;
     private float detectDistance;
@@ -39,7 +38,12 @@ public class BasicPatrolState : IEnemyState
         if (pathIdx == -1)
         {
             navMeshPath = new NavMeshPath();
-            agent.CalculatePath(currentWaypoint.transform.position, navMeshPath);
+            Vector3 pos = enemyTransform.position;
+            NavMesh.SamplePosition(pos, out NavMeshHit charPos, 6, controller.navMeshFilter);
+            Debug.Log(charPos.position);
+            pos = charPos.position;
+            Vector3 destinationPos = currentWaypoint.transform.position;
+            NavMesh.CalculatePath(pos, destinationPos, controller.navMeshFilter, navMeshPath);
             switch (navMeshPath.corners.Length)
             {
                 case 1:
@@ -176,9 +180,6 @@ public class BasicPatrolState : IEnemyState
         detectDistance = controller.data.detectDistance;
         forceDetectDistance = controller.data.forceDetectDistance;
         layers = controller.raycastLayers;
-        agent = controller.navMeshAgent;
-        agent.isStopped = true;
-        agent.autoBraking = false;
         path = controller.patrolPath;
         pathIdx = -1;
 
@@ -199,7 +200,6 @@ public class BasicPatrolState : IEnemyState
 
     public void OnExit(EnemyController controller)
     {
-        agent.autoBraking = true;
     }
 
     public void OnHurt(EnemyController controller)

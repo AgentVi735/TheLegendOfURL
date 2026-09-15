@@ -8,7 +8,6 @@ public class BasicMoveState : IEnemyState
     private Transform eyesTransform;
     private CharacterController character;
     private Rigidbody rb;
-    private NavMeshAgent agent;
     private float speed;
     private float turnSpeed;
     private float followRange;
@@ -52,17 +51,23 @@ public class BasicMoveState : IEnemyState
             }
         }
         
-        bool isOnGround = Physics.Raycast(enemyTransform.position, -enemyTransform.up, out RaycastHit hit,
+        bool isOnGround = Physics.Raycast(enemyTransform.position, -enemyTransform.up, out RaycastHit _,
             0.2f);
         
         path = new NavMeshPath();
-        agent.CalculatePath(lastSeenPos, path);
+        Vector3 pos = enemyTransform.position;
+        NavMesh.SamplePosition(pos, out NavMeshHit charPos, 6, controller.navMeshFilter);
+        Debug.Log(charPos.position);
+        pos = charPos.position;
+        Vector3 destinationPos = lastSeenPos;
+        NavMesh.CalculatePath(pos, destinationPos, controller.navMeshFilter, path);
         if (path.status != NavMeshPathStatus.PathComplete)
         {
             canReachPlayer = false;
-            if (NavMesh.SamplePosition(lastSeenPos, out NavMeshHit navMeshHit, 6, NavMesh.AllAreas))
+            if (NavMesh.SamplePosition(lastSeenPos, out NavMeshHit navMeshHit, 6, controller.navMeshFilter))
             {
-                agent.CalculatePath(navMeshHit.position, path);
+                destinationPos = navMeshHit.position;
+                NavMesh.CalculatePath(pos, destinationPos, controller.navMeshFilter, path);
                 if (path.status != NavMeshPathStatus.PathComplete)
                 {
                     invalidTime += Time.deltaTime;
@@ -142,8 +147,6 @@ public class BasicMoveState : IEnemyState
         attackRange = controller.data.attackRadius;
         playerTransform = controller.player.transform;
         layers = controller.raycastLayers;
-        agent = controller.navMeshAgent;
-        agent.isStopped = true;
         lastSeenPos = playerTransform.position;
     }
 

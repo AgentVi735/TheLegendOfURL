@@ -13,12 +13,17 @@ public abstract class EnemyController : MonoBehaviour
     [SerializeField] private NavMeshAgent _navMeshAgent;
     public Transform eyesTransform => _eyesTransform;
     [SerializeField] private Transform _eyesTransform;
+    public Transform rightTransform => _rightTransform;
+    [SerializeField] private Transform _rightTransform;
+    public Transform leftTransform => _leftTransform;
+    [SerializeField] private Transform _leftTransform;
     public PlayerController player { get; private set; }
 
     private short health { get; set; }
     protected EnemyControllerType type;
     public EnemyData data { get; private set; }
     public EnemyWaypoint[] patrolPath { get; private set; }
+    public NavMeshQueryFilter navMeshFilter { get; private set; }
 
     private IEnemyState currentState;
 
@@ -44,7 +49,12 @@ public abstract class EnemyController : MonoBehaviour
         type = data.controllerType;
         patrolPath = receivedPath;
         player = FindAnyObjectByType<PlayerController>();
-        navMeshAgent.autoTraverseOffMeshLink = false;
+        navMeshFilter = new NavMeshQueryFilter
+        {
+            agentTypeID = navMeshAgent.agentTypeID,
+            areaMask = navMeshAgent.areaMask
+        };
+        Destroy(navMeshAgent);
         waitInvincibleTimeAfterHit = new WaitForSeconds(data.invincibleTimeAfterHit);
         canBeHit = true;
         
@@ -72,6 +82,8 @@ public abstract class EnemyController : MonoBehaviour
         if (data == null) return;
         Gizmos.color = Color.darkRed;
         Gizmos.DrawWireSphere(transform.position, data.attackRadius);
+        Gizmos.color = Color.mediumSlateBlue;
+        Gizmos.DrawWireSphere(transform.position, data.detectDistance);
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, data.forceDetectDistance);
         Gizmos.color = Color.blue;

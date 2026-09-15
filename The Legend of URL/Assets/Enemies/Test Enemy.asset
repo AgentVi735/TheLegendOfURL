@@ -31,4 +31,3 @@ MonoBehaviour:
   forceDetectDistance: 12
   followRange: 20
   maxLookTime: 7
-  maxWaypointsToRemember: 2
