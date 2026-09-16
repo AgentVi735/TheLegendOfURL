@@ -25,7 +25,6 @@ public class FlyingPatrolState : IEnemyState
     public void UpdateState(EnemyController controller)
     {
         float dist = Vector3.Distance(currentWaypoint.transform.position, enemyTransform.position);
-        Debug.Log(dist);
         if (dist < 0.5f)
         {
             GetNewWaypoint();
@@ -42,7 +41,6 @@ public class FlyingPatrolState : IEnemyState
             navMeshPath = new NavMeshPath();
             Vector3 pos = enemyTransform.position;
             NavMesh.SamplePosition(pos, out NavMeshHit charPos, 6, controller.navMeshFilter);
-            Debug.Log(charPos.position);
             pos.y = charPos.position.y;
             Vector3 destinationPos = currentWaypoint.transform.position;
             destinationPos.y = pos.y;
@@ -80,7 +78,7 @@ public class FlyingPatrolState : IEnemyState
 
         Vector3 diffPos = enemyTransform.position;
         diffPos.y = posToMoveToGlobal.y;
-        float distance = Vector3.Distance(diffPos, enemyTransform.position);
+        float distance = Vector3.Distance(diffPos, posToMoveToGlobal);
 
         Vector3 movePos = Vector3.zero;
         if (distance >= 0.1f)
@@ -187,8 +185,6 @@ public class FlyingPatrolState : IEnemyState
                 currentWaypoint = path[0];
                 break;
         }
-        
-        Debug.LogWarning(currentWaypoint.name);
 
         lastWaypoint = latestWaypoint;
         pathIdx = -1;

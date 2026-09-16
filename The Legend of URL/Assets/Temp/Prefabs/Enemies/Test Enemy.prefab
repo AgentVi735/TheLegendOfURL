@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1144704919844840050}
   - component: {fileID: 9154619352139846465}
   - component: {fileID: 1916943488716221912}
-  m_Layer: 3
+  m_Layer: 13
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3760242074288106875}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 1411090755591761608}
   - component: {fileID: 6548717985719910291}
   - component: {fileID: 1476070819956099717}
-  m_Layer: 3
+  m_Layer: 13
   m_Name: Test Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ MonoBehaviour:
   stunTime: 0
   raycastLayers:
     serializedVersion: 2
-    m_Bits: 2241
+    m_Bits: 27841
   swordLayer:
     serializedVersion: 2
     m_Bits: 4096
@@ -374,7 +374,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4473161310380338767}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -405,7 +405,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5579425560779346164}
-  m_Layer: 3
+  m_Layer: 13
   m_Name: Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -436,7 +436,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6827725493177972856}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Hit Detection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
