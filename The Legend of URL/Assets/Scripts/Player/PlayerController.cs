@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerMovement movement;
     [SerializeField] private PlayerAttackManager attackManager;
     [SerializeField] private PlayerHUDController hudController;
+    public CharacterController _characterController => characterController;
+    [SerializeField] private CharacterController characterController;
     [SerializeField] private CinemachineCamera cinemachineCamera;
     [SerializeField] private CinemachineInputAxisController cinemachineInputController;
 

@@ -2,27 +2,33 @@
 
 public class BasicAttackState : IEnemyState
 {
-    public void UpdateState(EnemyController controller)
+    private EnemyController _controller;
+    
+    public void Initialise(EnemyController controller)
     {
-        
+        _controller = controller;
     }
 
-    public void OnEnter(EnemyController controller)
-    {
-        controller.meshRenderer.material.color = Color.darkCyan;
-        controller.player.OnHit(controller.data.damage);
-        controller.Stun(controller.data.attackCooldown);
-    }
-
-    public void OnExit(EnemyController controller)
+    public void UpdateState()
     {
     }
 
-    public void OnHurt(EnemyController controller)
+    public void OnEnter()
+    {
+        _controller.meshRenderer.material.color = Color.darkCyan;
+        _controller.player.OnHit(_controller.data.damage);
+        _controller.Stun(_controller.data.attackCooldown);
+    }
+
+    public void OnExit()
     {
     }
 
-    public void OnDrawGizmosSelected(EnemyController controller)
+    public void OnHurt( )
+    {
+    }
+
+    public void OnDrawGizmosSelected()
     {
     }
 }

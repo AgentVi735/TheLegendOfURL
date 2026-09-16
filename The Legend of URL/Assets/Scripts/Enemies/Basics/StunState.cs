@@ -2,33 +2,40 @@
 
 public class StunState : IEnemyState
 {
+    private EnemyController _controller;
+    
     private float timeSpent;
     private float stunTime;
     
-    public void UpdateState(EnemyController controller)
+    public void Initialise(EnemyController controller)
+    {
+        _controller = controller;
+    }
+
+    public void UpdateState()
     {
         timeSpent += Time.deltaTime;
 
         if (timeSpent >= stunTime)
-            controller.ChangeState(controller.lookState);
+            _controller.ChangeState(_controller.lookState);
     }
 
-    public void OnEnter(EnemyController controller)
+    public void OnEnter()
     {
-        controller.meshRenderer.material.color = Color.red;
-        stunTime = controller.stunTime;
+        _controller.meshRenderer.material.color = Color.red;
         timeSpent = 0;
+        stunTime = _controller.stunTime;
     }
 
-    public void OnExit(EnemyController controller)
+    public void OnExit()
     {
     }
 
-    public void OnHurt(EnemyController controller)
+    public void OnHurt()
     {
     }
 
-    public void OnDrawGizmosSelected(EnemyController controller)
+    public void OnDrawGizmosSelected()
     {
     }
 }

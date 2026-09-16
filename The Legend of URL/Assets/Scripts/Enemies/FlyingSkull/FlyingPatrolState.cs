@@ -6,6 +6,8 @@ using Random = UnityEngine.Random;
 
 public class FlyingPatrolState : IEnemyState
 {
+    private EnemyController _controller;
+    
     private Transform playerTransform;
     private Transform enemyTransform;
     private Transform eyesTransform;
@@ -22,7 +24,22 @@ public class FlyingPatrolState : IEnemyState
     private int pathIdx;
     private LayerMask layers;
     
-    public void UpdateState(EnemyController controller)
+    public void Initialise(EnemyController controller)
+    {
+        _controller = controller;
+        playerTransform = _controller.player.transform;
+        character = _controller.characterController;
+        enemyTransform = character.transform;
+        eyesTransform = _controller.eyesTransform;
+        speed = _controller.data.walkSpeed;
+        turnSpeed = _controller.data.turnSpeed;
+        detectDistance = _controller.data.detectDistance;
+        forceDetectDistance = _controller.data.forceDetectDistance;
+        layers = _controller.raycastLayers;
+        path = _controller.patrolPath;
+    }
+
+    public void UpdateState()
     {
         float dist = Vector3.Distance(currentWaypoint.transform.position, enemyTransform.position);
         if (dist < 0.5f)
@@ -32,7 +49,7 @@ public class FlyingPatrolState : IEnemyState
         
         if (CanSeePlayer())
         {
-            controller.ChangeState(controller.moveState);
+            _controller.ChangeState(_controller.moveState);
             return;
         }
 
@@ -40,11 +57,11 @@ public class FlyingPatrolState : IEnemyState
         {
             navMeshPath = new NavMeshPath();
             Vector3 pos = enemyTransform.position;
-            NavMesh.SamplePosition(pos, out NavMeshHit charPos, 6, controller.navMeshFilter);
+            NavMesh.SamplePosition(pos, out NavMeshHit charPos, 6, _controller.navMeshFilter);
             pos.y = charPos.position.y;
             Vector3 destinationPos = currentWaypoint.transform.position;
             destinationPos.y = pos.y;
-            NavMesh.CalculatePath(pos, destinationPos, controller.navMeshFilter, navMeshPath);
+            NavMesh.CalculatePath(pos, destinationPos, _controller.navMeshFilter, navMeshPath);
             Debug.Log(navMeshPath.corners.Length);
             switch (navMeshPath.corners.Length)
             {
@@ -92,13 +109,13 @@ public class FlyingPatrolState : IEnemyState
         
         if (directionToCheck.y != 0)
         {
-            if (!Physics.Raycast(controller.leftTransform.position, directionToCheck, out RaycastHit _, character.height, layers))
+            if (!Physics.Raycast(_controller.leftTransform.position, directionToCheck, out RaycastHit _, character.height, layers))
             {
-                if (!Physics.Raycast(controller.rightTransform.position, directionToCheck, out RaycastHit _, character.height, layers))
+                if (!Physics.Raycast(_controller.rightTransform.position, directionToCheck, out RaycastHit _, character.height, layers))
                 {
-                    if (!Physics.Raycast(controller.eyesTransform.position, directionToCheck, out RaycastHit _, character.height, layers))
+                    if (!Physics.Raycast(_controller.eyesTransform.position, directionToCheck, out RaycastHit _, character.height, layers))
                     {
-                        Vector3 flyMovement = directionToCheck * (controller.data.gravitySpeed * Time.deltaTime);
+                        Vector3 flyMovement = directionToCheck * (_controller.data.gravitySpeed * Time.deltaTime);
 
                         float amountToFly = Mathf.Abs(currentWaypoint.transform.position.y - enemyTransform.position.y);
                         float amountFlying = Mathf.Abs(flyMovement.y);
@@ -190,19 +207,9 @@ public class FlyingPatrolState : IEnemyState
         pathIdx = -1;
     }
 
-    public void OnEnter(EnemyController controller)
+    public void OnEnter()
     {
-        controller.meshRenderer.material.color = Color.green;
-        playerTransform = controller.player.transform;
-        character = controller.characterController;
-        enemyTransform = character.transform;
-        eyesTransform = controller.eyesTransform;
-        speed = controller.data.walkSpeed;
-        turnSpeed = controller.data.turnSpeed;
-        detectDistance = controller.data.detectDistance;
-        forceDetectDistance = controller.data.forceDetectDistance;
-        layers = controller.raycastLayers;
-        path = controller.patrolPath;
+        _controller.meshRenderer.material.color = Color.green;
         pathIdx = -1;
 
         float closestPosDiff = 0;
@@ -220,15 +227,15 @@ public class FlyingPatrolState : IEnemyState
             currentWaypoint = path[closestPosIdx];
     }
 
-    public void OnExit(EnemyController controller)
+    public void OnExit()
     {
     }
 
-    public void OnHurt(EnemyController controller)
+    public void OnHurt()
     {
     }
 
-    public void OnDrawGizmosSelected(EnemyController controller)
+    public void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.orangeRed;
         if (navMeshPath?.corners?.Length > 0)

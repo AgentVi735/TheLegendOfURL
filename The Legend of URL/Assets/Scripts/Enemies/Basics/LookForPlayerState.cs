@@ -3,6 +3,8 @@ using Random = UnityEngine.Random;
 
 public class LookForPlayerState : IEnemyState
 {
+    private EnemyController _controller;
+    
     private Transform playerTransform;
     private Transform enemyTransform;
     private Transform eyesTransform;
@@ -16,7 +18,21 @@ public class LookForPlayerState : IEnemyState
     private float maxLookTime;
     private LayerMask layers;
     
-    public void UpdateState(EnemyController controller)
+    public void Initialise(EnemyController controller)
+    {
+        _controller = controller;
+        character = _controller.characterController;
+        enemyTransform = character.transform;
+        eyesTransform = _controller.eyesTransform;
+        turnSpeed = _controller.data.turnSpeed;
+        followRange = _controller.data.followRange;
+        forceDetectDistance = _controller.data.forceDetectDistance;
+        playerTransform = _controller.player.transform;
+        maxLookTime = _controller.data.maxLookTime;
+        layers = _controller.raycastLayers;
+    }
+
+    public void UpdateState()
     {
         timeSpent += Time.deltaTime;
         float deltaAngle = Vector3.Angle(enemyTransform.forward, posToMoveTo);
@@ -31,9 +47,9 @@ public class LookForPlayerState : IEnemyState
             GetNewDirection();
 
         if (CanSeePlayer())
-            controller.ChangeState(controller.moveState);
+            _controller.ChangeState(_controller.moveState);
         else if (timeSpent >= maxLookTime)
-            controller.ChangeState(controller.idleState);
+            _controller.ChangeState(_controller.idleState);
     }
 
     private bool CanSeePlayer()
@@ -78,31 +94,22 @@ public class LookForPlayerState : IEnemyState
         posToMoveTo = direction;
     }
 
-    public void OnEnter(EnemyController controller)
+    public void OnEnter()
     {
-        controller.meshRenderer.material.color = Color.yellow;
-        character = controller.characterController;
-        enemyTransform = character.transform;
-        eyesTransform = controller.eyesTransform;
-        turnSpeed = controller.data.turnSpeed;
-        followRange = controller.data.followRange;
-        forceDetectDistance = controller.data.forceDetectDistance;
-        playerTransform = controller.player.transform;
-        maxLookTime = controller.data.maxLookTime;
-        layers = controller.raycastLayers;
+        _controller.meshRenderer.material.color = Color.yellow;
         timeSpent = 0;
         GetPlayerDirection();
     }
 
-    public void OnExit(EnemyController controller)
+    public void OnExit()
     {
     }
 
-    public void OnHurt(EnemyController controller)
+    public void OnHurt()
     {
     }
 
-    public void OnDrawGizmosSelected(EnemyController controller)
+    public void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.coral;
 

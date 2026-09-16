@@ -109,6 +109,7 @@ MonoBehaviour:
   movement: {fileID: 6460780336858691293}
   attackManager: {fileID: 290314121052655610}
   hudController: {fileID: 0}
+  characterController: {fileID: 4448322957953899592}
   cinemachineCamera: {fileID: 172040523102954746}
   cinemachineInputController: {fileID: 5006302976836543788}
   maxHealth: 100

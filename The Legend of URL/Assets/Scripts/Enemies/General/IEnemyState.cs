@@ -2,13 +2,15 @@
 
 public interface IEnemyState
 {
-    public void UpdateState(EnemyController controller);
+    public void Initialise(EnemyController controller);
+    
+    public void UpdateState();
 
-    public void OnEnter(EnemyController controller);
+    public void OnEnter();
 
-    public void OnExit(EnemyController controller);
+    public void OnExit();
 
-    public void OnHurt(EnemyController controller);
+    public void OnHurt();
 
-    public void OnDrawGizmosSelected(EnemyController controller);
+    public void OnDrawGizmosSelected();
 }

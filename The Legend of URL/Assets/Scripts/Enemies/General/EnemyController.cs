@@ -9,7 +9,6 @@ public abstract class EnemyController : MonoBehaviour
     [SerializeField] private CharacterController _characterController;
     public MeshRenderer meshRenderer => _meshRenderer;
     [SerializeField] private MeshRenderer _meshRenderer;
-    public NavMeshAgent navMeshAgent => _navMeshAgent;
     [SerializeField] private NavMeshAgent _navMeshAgent;
     public Transform eyesTransform => _eyesTransform;
     [SerializeField] private Transform _eyesTransform;
@@ -31,8 +30,8 @@ public abstract class EnemyController : MonoBehaviour
     public IEnemyState moveState;
     public IEnemyState lookState;
     public IEnemyState attackState;
-    private IEnemyState knockbackState;
-    private IEnemyState stunState;
+    protected IEnemyState knockbackState;
+    protected IEnemyState stunState;
 
     private WaitForSeconds waitInvincibleTimeAfterHit;
     private bool canBeHit;
@@ -51,30 +50,40 @@ public abstract class EnemyController : MonoBehaviour
         player = FindAnyObjectByType<PlayerController>();
         navMeshFilter = new NavMeshQueryFilter
         {
-            agentTypeID = navMeshAgent.agentTypeID,
-            areaMask = navMeshAgent.areaMask
+            agentTypeID = _navMeshAgent.agentTypeID,
+            areaMask = _navMeshAgent.areaMask
         };
-        Destroy(navMeshAgent);
+        Destroy(_navMeshAgent);
         waitInvincibleTimeAfterHit = new WaitForSeconds(data.invincibleTimeAfterHit);
         canBeHit = true;
         
+        InitialiseStates();
+    }
+
+    protected virtual void InitialiseStates()
+    {
         idleState = new BasicPatrolState();
+        idleState.Initialise(this);
         lookState = new LookForPlayerState();
+        lookState.Initialise(this);
         attackState = new BasicAttackState();
+        attackState.Initialise(this);
         knockbackState = new KnockbackState();
+        knockbackState.Initialise(this);
         stunState = new StunState();
+        stunState.Initialise(this);
     }
 
     public virtual void ChangeState(IEnemyState newState)
     {
-        currentState?.OnExit(this);
+        currentState?.OnExit();
         currentState = newState;
-        currentState.OnEnter(this);
+        currentState.OnEnter();
     }
 
     protected void Update()
     { 
-        currentState?.UpdateState(this);
+        currentState?.UpdateState();
     }
 
     protected void OnDrawGizmosSelected()
@@ -88,7 +97,7 @@ public abstract class EnemyController : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, data.forceDetectDistance);
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, data.followRange);
-        currentState?.OnDrawGizmosSelected(this);
+        currentState?.OnDrawGizmosSelected();
     }
 
     protected void OnTriggerEnter(Collider trigger)

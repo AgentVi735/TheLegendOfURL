@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
-public class BasicMoveState : IEnemyState
+public class FlyingFollowState : IEnemyState
 {
-    private EnemyController _controller;
+    private FlyingSkullController _controller;
     
     private Transform playerTransform;
     private Transform enemyTransform;
@@ -18,16 +18,14 @@ public class BasicMoveState : IEnemyState
     private Vector3 posToMoveToLocal;
     private Vector3 posToMoveTo;
     private Vector3 lastSeenPos;
+    private Vector3 lastSeenPosOnMesh;
     private LayerMask layers;
     private NavMeshPath path;
     private bool canReachPlayer;
-
-    private float invalidTime;
-    private const float maxInvalidTime = 1.6f;
     
     public void Initialise(EnemyController controller)
     {
-        _controller = controller;
+        _controller = (FlyingSkullController) controller;
         character = _controller.characterController;
         enemyTransform = character.transform;
         eyesTransform = _controller.eyesTransform;
@@ -37,18 +35,19 @@ public class BasicMoveState : IEnemyState
         forceDetectDistance = _controller.data.forceDetectDistance;
         attackRange = _controller.data.attackRadius;
         playerTransform = _controller.player.transform;
-        layers = _controller.raycastLayers;
         lastSeenPos = playerTransform.position;
+        layers = _controller.raycastLayers;
     }
-    
+
     public void UpdateState()
     {
         bool canSeePlayer = CanSeePlayer();
+        float distance;
         switch (canSeePlayer)
         {
             case false:
             {
-                float distance = Vector3.Distance(enemyTransform.position, canReachPlayer ? lastSeenPos : posToMoveTo);
+                distance = Vector3.Distance(enemyTransform.position, canReachPlayer ? lastSeenPosOnMesh : posToMoveTo);
                 if (distance < 0.5)
                 {
                     _controller.ChangeState(_controller.lookState);
@@ -59,52 +58,35 @@ public class BasicMoveState : IEnemyState
             case true:
             {
                 lastSeenPos = playerTransform.position;
-                float distance = Vector3.Distance(enemyTransform.position, lastSeenPos);
-                if (distance < attackRange)
+                NavMesh.SamplePosition(lastSeenPos, out NavMeshHit lastSeenPosNavMesh, 6, _controller.navMeshFilter);
+                float neededDistance = Mathf.Abs(lastSeenPos.y + _controller.player._characterController.height / 2 - lastSeenPosNavMesh.position.y);
+                distance = Vector3.Distance(enemyTransform.position, lastSeenPosNavMesh.position);
+                Debug.Log($"{neededDistance} | {distance}");
+                if (distance < neededDistance)
                 {
-                    _controller.ChangeState(_controller.attackState);
+                    _controller.ChangeState(_controller.attackSweepState);
                     return;
                 }
                 break;
             }
         }
         
-        bool isOnGround = Physics.Raycast(enemyTransform.position, -enemyTransform.up, out RaycastHit _,
-            0.2f);
-        
+        if (canSeePlayer)
+            lastSeenPos = playerTransform.position;
+
         path = new NavMeshPath();
         Vector3 pos = enemyTransform.position;
         NavMesh.SamplePosition(pos, out NavMeshHit charPos, 6, _controller.navMeshFilter);
-        Debug.Log(charPos.position);
         pos = charPos.position;
-        Vector3 destinationPos = lastSeenPos;
-        NavMesh.CalculatePath(pos, destinationPos, _controller.navMeshFilter, path);
-        if (path.status != NavMeshPathStatus.PathComplete)
-        {
-            canReachPlayer = false;
-            if (NavMesh.SamplePosition(lastSeenPos, out NavMeshHit navMeshHit, 6, _controller.navMeshFilter))
-            {
-                destinationPos = navMeshHit.position;
-                NavMesh.CalculatePath(pos, destinationPos, _controller.navMeshFilter, path);
-                if (path.status != NavMeshPathStatus.PathComplete)
-                {
-                    invalidTime += Time.deltaTime;
-                    if (invalidTime >= maxInvalidTime)
-                        _controller.ChangeState(_controller.idleState);
-                    return;
-                }
-            }
-        }
-        else
-            canReachPlayer = true;
+        NavMesh.SamplePosition(lastSeenPos, out NavMeshHit navMeshHit, 6, _controller.navMeshFilter);
+        lastSeenPosOnMesh = navMeshHit.position;
+        NavMesh.CalculatePath(pos, lastSeenPosOnMesh, _controller.navMeshFilter, path);
+        canReachPlayer = true;
         
         if (path.corners.Length < 2)
             return;
         posToMoveTo = path.corners[1];
         posToMoveToLocal = posToMoveTo - enemyTransform.position;
-        
-        if (canSeePlayer)
-            lastSeenPos = playerTransform.position;
         
         float deltaAngle = Vector3.Angle(enemyTransform.forward, posToMoveToLocal);
         Vector3 rotationAxis = Vector3.Cross(enemyTransform.forward, posToMoveToLocal);
@@ -113,18 +95,50 @@ public class BasicMoveState : IEnemyState
         Quaternion deltaRotation = Quaternion.AngleAxis(deltaAngle, rotationAxis);
         enemyTransform.rotation = Quaternion.Lerp(enemyTransform.rotation, enemyTransform.rotation * deltaRotation,
             turnSpeed * Time.deltaTime);
-        
-        Vector3 velocity = Vector3.zero;
-        if (isOnGround)
-        {
-            if (velocity.y < -2f)
-                velocity.y = -2f;
-        }
-        
-        velocity.y += _controller.data.gravitySpeed * Time.deltaTime;
 
-        Vector3 movePos = enemyTransform.forward * (speed * Time.deltaTime);
-        movePos += -enemyTransform.up * velocity.y;
+        Vector3 diffPos = enemyTransform.position;
+        diffPos.y = lastSeenPosOnMesh.y;
+        distance = Vector3.Distance(diffPos, lastSeenPosOnMesh);
+        
+        Vector3 movePos = Vector3.zero;
+        if (distance >= 0.1f)
+            movePos += enemyTransform.forward * (speed * Time.deltaTime);
+        
+        Vector3 directionToCheck = Vector3.zero;
+        if (lastSeenPosOnMesh.y > enemyTransform.position.y)
+            directionToCheck = enemyTransform.up;
+        else if (lastSeenPosOnMesh.y < enemyTransform.position.y)
+            directionToCheck = -enemyTransform.up;
+        
+        if (directionToCheck.y != 0)
+        {
+            if (!Physics.Raycast(_controller.leftTransform.position, directionToCheck, out RaycastHit _, character.height, layers))
+            {
+                if (!Physics.Raycast(_controller.rightTransform.position, directionToCheck, out RaycastHit _, character.height, layers))
+                {
+                    if (!Physics.Raycast(_controller.eyesTransform.position, directionToCheck, out RaycastHit _, character.height, layers))
+                    {
+                        Vector3 flyMovement = directionToCheck * (_controller.data.gravitySpeed * Time.deltaTime);
+
+                        float amountToFly = Mathf.Abs(lastSeenPosOnMesh.y - enemyTransform.position.y);
+                        float amountFlying = Mathf.Abs(flyMovement.y);
+
+                        if (amountFlying > amountToFly)
+                        {
+                            amountFlying = amountToFly;
+                            flyMovement.y = flyMovement.y switch
+                            {
+                                < 0 => -amountFlying,
+                                > 0 => amountFlying,
+                                _ => flyMovement.y
+                            };
+                        }
+                        
+                        movePos += flyMovement;
+                    }
+                }
+            }
+        }
         
         character.Move(movePos);
     }
