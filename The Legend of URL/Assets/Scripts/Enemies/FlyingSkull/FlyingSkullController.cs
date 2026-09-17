@@ -4,8 +4,6 @@ public class FlyingSkullController : EnemyController
 {
     public Transform targetTrans;
     
-    public IEnemyState attackSweepState;
-    
     public override void Initialise(EnemyData receivedData, EnemyWaypoint[] receivedPath)
     {
         targetTrans = new GameObject().transform;
@@ -23,10 +21,8 @@ public class FlyingSkullController : EnemyController
         moveState.Initialise(this);
         lookState = new LookForPlayerState();
         lookState.Initialise(this);
-        attackState = new BasicAttackState();
+        attackState = new FlyingAttackState();
         attackState.Initialise(this);
-        attackSweepState = new FlyingAttackSweepState();
-        attackSweepState.Initialise(this);
         knockbackState = new KnockbackState();
         knockbackState.Initialise(this);
         stunState = new StunState();

@@ -14,7 +14,6 @@ public class FlyingFollowState : IEnemyState
     private float turnSpeed;
     private float followRange;
     private float forceDetectDistance;
-    private float attackRange;
     private Vector3 posToMoveToLocal;
     private Vector3 posToMoveTo;
     private Vector3 lastSeenPos;
@@ -33,7 +32,6 @@ public class FlyingFollowState : IEnemyState
         turnSpeed = _controller.data.turnSpeed;
         followRange = _controller.data.followRange;
         forceDetectDistance = _controller.data.forceDetectDistance;
-        attackRange = _controller.data.attackRadius;
         playerTransform = _controller.player.transform;
         lastSeenPos = playerTransform.position;
         layers = _controller.raycastLayers;
@@ -63,7 +61,7 @@ public class FlyingFollowState : IEnemyState
                 distance = Vector3.Distance(enemyTransform.position, lastSeenPosNavMesh.position);
                 if (distance < neededDistance)
                 {
-                    _controller.ChangeState(_controller.attackSweepState);
+                    _controller.ChangeState(_controller.attackState);
                     return;
                 }
                 break;

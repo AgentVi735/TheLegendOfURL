@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class FlyingAttackSweepState : IEnemyState
+public class FlyingAttackState : IEnemyState
 {
     private FlyingSkullController _controller;
 
