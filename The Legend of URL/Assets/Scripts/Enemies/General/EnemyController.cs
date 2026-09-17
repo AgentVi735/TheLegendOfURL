@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -64,6 +63,8 @@ public abstract class EnemyController : MonoBehaviour
     {
         idleState = new BasicPatrolState();
         idleState.Initialise(this);
+        moveState = new BasicMoveState();
+        moveState.Initialise(this);
         lookState = new LookForPlayerState();
         lookState.Initialise(this);
         attackState = new BasicAttackState();
@@ -102,7 +103,7 @@ public abstract class EnemyController : MonoBehaviour
 
     protected void OnTriggerEnter(Collider trigger)
     {
-        if (trigger.gameObject.layer != swordLayer || !canBeHit) return;
+        if (((1 << trigger?.gameObject.layer) & swordLayer.value) == 0 || !canBeHit) return;
         GetDamage(player.EnemyGetDamage());
     }
 

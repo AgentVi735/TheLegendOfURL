@@ -82,7 +82,7 @@ CharacterController:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 16384
   m_LayerOverridePriority: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
@@ -178,10 +178,10 @@ MonoBehaviour:
   lockOnRadius: 18
   lockOnLayerMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 24576
   lockOnCheckLayerMask:
     serializedVersion: 2
-    m_Bits: 1160
+    m_Bits: 25728
 --- !u!1 &4129507807256346642
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,8 +213,8 @@ Transform:
   m_GameObject: {fileID: 4129507807256346642}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.9, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.9, z: 0.7}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1329837371577812162}
@@ -731,7 +731,7 @@ Transform:
   m_GameObject: {fileID: 5985920762710596407}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.1085971e-11, y: 0.00000020277932, z: 0.0000014359969}
+  m_LocalPosition: {x: -0.0000019073486, y: -4.4448212e-12, z: -1.4097171e-11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -882,30 +882,38 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5784613207746908, guid: e027bf3db4dca5347a8aa6083fdec3d7, type: 3}
       propertyPath: m_Size.x
-      value: 0.19634254
+      value: 0.27400047
       objectReference: {fileID: 0}
     - target: {fileID: 5784613207746908, guid: e027bf3db4dca5347a8aa6083fdec3d7, type: 3}
       propertyPath: m_Size.y
-      value: 0.0464557
+      value: 0.4645936
       objectReference: {fileID: 0}
     - target: {fileID: 5784613207746908, guid: e027bf3db4dca5347a8aa6083fdec3d7, type: 3}
       propertyPath: m_Size.z
-      value: 0.99999815
+      value: 1.1813513
       objectReference: {fileID: 0}
     - target: {fileID: 5784613207746908, guid: e027bf3db4dca5347a8aa6083fdec3d7, type: 3}
       propertyPath: m_Center.x
-      value: -0.00000028639263
+      value: -0.009331532
       objectReference: {fileID: 0}
     - target: {fileID: 5784613207746908, guid: e027bf3db4dca5347a8aa6083fdec3d7, type: 3}
       propertyPath: m_Center.y
-      value: -0.00000004268479
+      value: -0.016286269
       objectReference: {fileID: 0}
     - target: {fileID: 5784613207746908, guid: e027bf3db4dca5347a8aa6083fdec3d7, type: 3}
       propertyPath: m_Center.z
-      value: -0.40243557
+      value: -0.4931119
       objectReference: {fileID: 0}
     - target: {fileID: 5784613207746908, guid: e027bf3db4dca5347a8aa6083fdec3d7, type: 3}
       propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5784613207746908, guid: e027bf3db4dca5347a8aa6083fdec3d7, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 24576
+      objectReference: {fileID: 0}
+    - target: {fileID: 5784613207746908, guid: e027bf3db4dca5347a8aa6083fdec3d7, type: 3}
+      propertyPath: m_LayerOverridePriority
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2135585049892518818, guid: e027bf3db4dca5347a8aa6083fdec3d7, type: 3}
@@ -914,19 +922,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2135585049892518818, guid: e027bf3db4dca5347a8aa6083fdec3d7, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4388671310168967386, guid: e027bf3db4dca5347a8aa6083fdec3d7, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.2468591
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4388671310168967386, guid: e027bf3db4dca5347a8aa6083fdec3d7, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.4285715
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4388671310168967386, guid: e027bf3db4dca5347a8aa6083fdec3d7, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.2531568
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4388671310168967386, guid: e027bf3db4dca5347a8aa6083fdec3d7, type: 3}
       propertyPath: m_LocalPosition.x

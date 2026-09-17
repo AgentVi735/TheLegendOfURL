@@ -15,8 +15,8 @@ MonoBehaviour:
   enemyName: Test Flying Enemy
   controllerType: 2
   prefab: {fileID: 2673913721158306445, guid: 1b0aea96593e5a843abf7fc95c758df6, type: 3}
-  health: 15
-  damage: 5
+  health: 10
+  damage: 15
   attackCooldown: 3
   attackRadius: 2
   walkSpeed: 4

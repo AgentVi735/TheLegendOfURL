@@ -201,6 +201,7 @@ MonoBehaviour:
   swordLayer:
     serializedVersion: 2
     m_Bits: 4096
+  targetTrans: {fileID: 0}
 --- !u!120 &6548717985719910291
 LineRenderer:
   serializedVersion: 3

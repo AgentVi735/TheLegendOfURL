@@ -366,7 +366,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3850063847859711435, guid: c1e4fabe060740d4a98743fbc2d396d5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6187742861341056170, guid: c1e4fabe060740d4a98743fbc2d396d5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1446,7 +1446,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3850063847859711435, guid: c1e4fabe060740d4a98743fbc2d396d5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6187742861341056170, guid: c1e4fabe060740d4a98743fbc2d396d5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7457,26 +7457,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 91028470905293608, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.0000019073486
-      objectReference: {fileID: 0}
-    - target: {fileID: 91028470905293608, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -4.4448212e-12
-      objectReference: {fileID: 0}
-    - target: {fileID: 91028470905293608, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.4097171e-11
-      objectReference: {fileID: 0}
-    - target: {fileID: 290314121052655610, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
-      propertyPath: lockOnLayerMask.m_Bits
-      value: 24576
-      objectReference: {fileID: 0}
-    - target: {fileID: 290314121052655610, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
-      propertyPath: lockOnCheckLayerMask.m_Bits
-      value: 25728
-      objectReference: {fileID: 0}
     - target: {fileID: 2295151883494553120, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
       propertyPath: m_Name
       value: Player Controller
@@ -7485,14 +7465,6 @@ PrefabInstance:
       propertyPath: hudController
       value: 
       objectReference: {fileID: 294402885}
-    - target: {fileID: 4448322957953899592, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 16384
-      objectReference: {fileID: 0}
-    - target: {fileID: 6460780336858691293, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
-      propertyPath: disableKeyboard
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8895993675663654342, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 18.1

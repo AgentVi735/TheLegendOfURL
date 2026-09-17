@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-public interface IEnemyState
+﻿public interface IEnemyState
 {
     public void Initialise(EnemyController controller);
     
