@@ -17,17 +17,18 @@ MonoBehaviour:
   prefab: {fileID: 2673913721158306445, guid: 1b0aea96593e5a843abf7fc95c758df6, type: 3}
   health: 10
   damage: 15
-  attackCooldown: 3
-  attackRadius: 2
-  walkSpeed: 4
+  attackCooldown: 0.7
+  attackRadius: 0.1
+  sweepTime: 2
+  walkSpeed: 5.9
   turnSpeed: 12
   gravitySpeed: 2
   knockbackMultiplier: 10
   knockbackSpeed: 7
-  knockbackVelocityOffset: {x: 0, y: 0.3, z: -0.35}
+  knockbackVelocityOffset: {x: 0, y: 0.4, z: -0.6}
   knockbackStunTime: 0.1
   invincibleTimeAfterHit: 0.5
-  detectDistance: 40
-  forceDetectDistance: 15
-  followRange: 25
+  detectDistance: 21.8
+  forceDetectDistance: 10.19
+  followRange: 15
   maxLookTime: 3

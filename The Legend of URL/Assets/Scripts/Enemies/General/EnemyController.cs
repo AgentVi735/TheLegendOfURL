@@ -149,6 +149,7 @@ public abstract class EnemyController : MonoBehaviour
 
     private void KillEnemy()
     {
+        transform.parent.gameObject.SetActive(false);
         Destroy(gameObject);
     }
 }

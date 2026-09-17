@@ -10,6 +10,7 @@ public class EnemyData : ScriptableObject
     public short damage;
     public float attackCooldown;
     public float attackRadius;
+    public float sweepTime;
     public float walkSpeed;
     public float turnSpeed;
     public float gravitySpeed;

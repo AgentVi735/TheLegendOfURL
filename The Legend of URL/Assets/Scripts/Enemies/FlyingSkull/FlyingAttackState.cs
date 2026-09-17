@@ -13,6 +13,7 @@ public class FlyingAttackState : IEnemyState
     private float timeSpent;
     private float totalTime;
     private float distance;
+    private float attackRange;
 
     private Quaternion enemyStartRotation;
     private Quaternion enemyEndRotation;
@@ -29,7 +30,8 @@ public class FlyingAttackState : IEnemyState
         eyesTrans = _controller.eyesTransform;
         playerTrans = _controller.player.transform;
         targetTrans = _controller.targetTrans;
-        totalTime = _controller.data.attackRadius;
+        totalTime = _controller.data.sweepTime;
+        attackRange = _controller.data.attackRadius;
         raycastLayers = _controller.raycastLayers;
     }
 
@@ -45,7 +47,7 @@ public class FlyingAttackState : IEnemyState
         enemyTrans.rotation = enemyRot;
 
         if (!hasHitPlayer && Physics.Raycast(eyesTrans.position, playerTrans.position - enemyTrans.position, out RaycastHit hit,
-                0.3f, raycastLayers) && hit.transform != null && hit.transform.CompareTag("Player"))
+                attackRange, raycastLayers) && hit.transform != null && hit.transform.CompareTag("Player"))
         {
             hasHitPlayer = true;
             _controller.player.OnHit(_controller.data.damage);
