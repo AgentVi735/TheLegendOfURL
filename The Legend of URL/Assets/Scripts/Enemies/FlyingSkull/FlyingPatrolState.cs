@@ -62,7 +62,6 @@ public class FlyingPatrolState : IEnemyState
             Vector3 destinationPos = currentWaypoint.transform.position;
             destinationPos.y = pos.y;
             NavMesh.CalculatePath(pos, destinationPos, _controller.navMeshFilter, navMeshPath);
-            Debug.Log(navMeshPath.corners.Length);
             switch (navMeshPath.corners.Length)
             {
                 case 1:

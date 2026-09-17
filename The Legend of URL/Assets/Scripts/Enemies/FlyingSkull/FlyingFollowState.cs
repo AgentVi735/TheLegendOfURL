@@ -61,7 +61,6 @@ public class FlyingFollowState : IEnemyState
                 NavMesh.SamplePosition(lastSeenPos, out NavMeshHit lastSeenPosNavMesh, 6, _controller.navMeshFilter);
                 float neededDistance = Mathf.Abs(lastSeenPos.y + _controller.player._characterController.height / 2 - lastSeenPosNavMesh.position.y);
                 distance = Vector3.Distance(enemyTransform.position, lastSeenPosNavMesh.position);
-                Debug.Log($"{neededDistance} | {distance}");
                 if (distance < neededDistance)
                 {
                     _controller.ChangeState(_controller.attackSweepState);

@@ -4441,7 +4441,7 @@ MeshCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 24648
+    m_Bits: 24896
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -7469,6 +7469,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -1.4097171e-11
       objectReference: {fileID: 0}
+    - target: {fileID: 290314121052655610, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
+      propertyPath: lockOnLayerMask.m_Bits
+      value: 24576
+      objectReference: {fileID: 0}
+    - target: {fileID: 290314121052655610, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
+      propertyPath: lockOnCheckLayerMask.m_Bits
+      value: 25728
+      objectReference: {fileID: 0}
     - target: {fileID: 2295151883494553120, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
       propertyPath: m_Name
       value: Player Controller
@@ -7483,7 +7491,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6460780336858691293, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
       propertyPath: disableKeyboard
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8895993675663654342, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
       propertyPath: m_LocalPosition.x

@@ -53,10 +53,10 @@ public class FlyingAttackSweepState : IEnemyState
         Vector3 targetPos = playerTrans.position;
         targetPos.y = enemyTrans.position.y;
         targetTrans.position = targetPos;
+        enemyTrans.LookAt(targetTrans.position);
         targetTrans.rotation = enemyTrans.rotation;
-        enemyStartRotation = Quaternion.Euler(90, enemyTrans.rotation.eulerAngles.y, 0);
+        enemyStartRotation = Quaternion.Euler(89, enemyTrans.rotation.eulerAngles.y, 0);
         enemyEndRotation = Quaternion.Euler(-90, enemyTrans.rotation.eulerAngles.y, 0);
-        Debug.Log($"{enemyStartRotation} | {enemyEndRotation}");
         targetStartRotation = Quaternion.Euler(180, enemyTrans.rotation.eulerAngles.y, 0);
         targetEndRotation = Quaternion.Euler(360, enemyTrans.rotation.eulerAngles.y, 0);
         distance = Vector3.Distance(targetTrans.position, enemyTrans.position);

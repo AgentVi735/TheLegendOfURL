@@ -18,7 +18,7 @@ MonoBehaviour:
   health: 15
   damage: 5
   attackCooldown: 3
-  attackRadius: 4
+  attackRadius: 2
   walkSpeed: 4
   turnSpeed: 12
   gravitySpeed: 2
