@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.AI;
 
 public class FlyingAttackState : IEnemyState
 {
@@ -15,6 +14,7 @@ public class FlyingAttackState : IEnemyState
     private float distance;
     private float attackRange;
 
+    private Quaternion enemyEnterRotation;
     private Quaternion enemyStartRotation;
     private Quaternion enemyEndRotation;
     private Quaternion targetStartRotation;
@@ -22,6 +22,7 @@ public class FlyingAttackState : IEnemyState
 
     private LayerMask raycastLayers;
     private bool hasHitPlayer;
+    private int state;
     
     public void Initialise(EnemyController controller)
     {
@@ -36,6 +37,36 @@ public class FlyingAttackState : IEnemyState
     }
 
     public void UpdateState()
+    {
+        switch (state)
+        {
+            case 0:
+                TurnAround(true);
+                return;
+            case 1:
+                Sweep();
+                return;
+            case 2:
+                TurnAround(false);
+                return;
+        }
+    }
+
+    private void TurnAround(bool toStart)
+    {
+        Quaternion endRot = toStart ? enemyStartRotation : enemyEnterRotation;
+        Quaternion enemyRot =  Quaternion.Lerp(enemyTrans.rotation, endRot,
+            _controller.data.turnSpeed / 2 * Time.deltaTime);
+        enemyTrans.rotation = enemyRot;
+
+        if (Mathf.Abs(Quaternion.Dot(endRot, enemyTrans.rotation)) < 0.995) return;
+        if (toStart)
+            state = 1;
+        else
+            _controller.Stun(_controller.data.attackCooldown);
+    }
+
+    private void Sweep()
     {
         float ratio = timeSpent / totalTime;
         Quaternion targetRot = Quaternion.Slerp(targetStartRotation, targetEndRotation, ratio);
@@ -56,7 +87,7 @@ public class FlyingAttackState : IEnemyState
         timeSpent += Time.deltaTime;
 
         if (timeSpent >= totalTime)
-            _controller.Stun(_controller.data.attackCooldown);
+            state = 2;
     }
 
     public void OnEnter()
@@ -66,17 +97,16 @@ public class FlyingAttackState : IEnemyState
         Vector3 targetPos = playerTrans.position;
         targetPos.y = enemyTrans.position.y;
         targetTrans.position = targetPos;
+        enemyEnterRotation = enemyTrans.rotation;
         enemyTrans.LookAt(targetTrans.position);
         targetTrans.rotation = enemyTrans.rotation;
         enemyStartRotation = Quaternion.Euler(89, enemyTrans.rotation.eulerAngles.y, 0);
         enemyEndRotation = Quaternion.Euler(-90, enemyTrans.rotation.eulerAngles.y, 0);
         targetStartRotation = Quaternion.Euler(180, enemyTrans.rotation.eulerAngles.y, 0);
         targetEndRotation = Quaternion.Euler(360, enemyTrans.rotation.eulerAngles.y, 0);
-        // distance = Vector3.Distance(targetTrans.position, enemyTrans.position);
-        NavMesh.SamplePosition(playerTrans.position, out NavMeshHit lastSeenPosNavMesh, 6, _controller.navMeshFilter);
-        distance = Mathf.Abs(playerTrans.position.y + _controller.player._characterController.height / 2 -
-                             lastSeenPosNavMesh.position.y - _controller.characterController.height / 2);
+        distance = Vector3.Distance(targetTrans.position, enemyTrans.position);
         hasHitPlayer = false;
+        state = 0;
     }
 
     public void OnExit()

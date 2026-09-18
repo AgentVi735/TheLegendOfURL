@@ -19,9 +19,9 @@ MonoBehaviour:
   damage: 15
   attackCooldown: 0.7
   attackRadius: 0.1
-  sweepTime: 2
+  sweepTime: 1.4
   walkSpeed: 5.9
-  turnSpeed: 12
+  turnSpeed: 12.3
   gravitySpeed: 2
   knockbackMultiplier: 10
   knockbackSpeed: 7
