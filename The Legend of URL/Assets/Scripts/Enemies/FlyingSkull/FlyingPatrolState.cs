@@ -57,8 +57,8 @@ public class FlyingPatrolState : IEnemyState
         {
             navMeshPath = new NavMeshPath();
             Vector3 pos = enemyTransform.position;
-            NavMesh.SamplePosition(pos, out NavMeshHit charPos, 6, _controller.navMeshFilter);
-            pos.y = charPos.position.y;
+            Vector3 charPos = _controller.GetNavMeshPosition(pos);
+            pos.y = charPos.y;
             Vector3 destinationPos = currentWaypoint.transform.position;
             destinationPos.y = pos.y;
             NavMesh.CalculatePath(pos, destinationPos, _controller.navMeshFilter, navMeshPath);

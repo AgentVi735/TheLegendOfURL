@@ -38,7 +38,7 @@ public abstract class EnemyController : MonoBehaviour
     public float stunTime;
     public LayerMask raycastLayers;
     public LayerMask swordLayer;
-    
+
     public virtual void Initialise(EnemyData receivedData, EnemyWaypoint[] receivedPath)
     {
         data = receivedData;
@@ -55,7 +55,7 @@ public abstract class EnemyController : MonoBehaviour
         Destroy(_navMeshAgent);
         waitInvincibleTimeAfterHit = new WaitForSeconds(data.invincibleTimeAfterHit);
         canBeHit = true;
-        
+
         InitialiseStates();
     }
 
@@ -83,7 +83,7 @@ public abstract class EnemyController : MonoBehaviour
     }
 
     protected void Update()
-    { 
+    {
         currentState?.UpdateState();
     }
 
@@ -110,7 +110,7 @@ public abstract class EnemyController : MonoBehaviour
     private void GetDamage(short amount)
     {
         if (!canBeHit) return;
-        
+
         health -= amount;
         if (ShouldDie())
         {
@@ -151,5 +151,36 @@ public abstract class EnemyController : MonoBehaviour
     {
         transform.parent.gameObject.SetActive(false);
         Destroy(gameObject);
+    }
+
+    public Vector3 GetNavMeshPosition(Vector3 positionToSample, float distance = 6)
+    {
+        NavMesh.SamplePosition(positionToSample, out NavMeshHit navMeshHit, distance, navMeshFilter);
+        return navMeshHit.hit ? navMeshHit.position : positionToSample;
+    }
+
+    public Vector3 GetNavMeshPosition(Vector3 positionToSample, Vector3 defaultPosition, float distance = 6)
+    {
+        NavMesh.SamplePosition(positionToSample, out NavMeshHit navMeshHit, distance, navMeshFilter);
+        return navMeshHit.hit ? navMeshHit.position : defaultPosition;
+    }
+
+    public Vector3 GetNavMeshPosition(Vector3 positionToSample, Vector3 defaultPosition, NavMeshQueryFilter filter,
+        float distance = 6)
+    {
+        NavMesh.SamplePosition(positionToSample, out NavMeshHit navMeshHit, distance, filter);
+        return navMeshHit.hit ? navMeshHit.position : defaultPosition;
+    }
+
+    public NavMeshHit GetNavMeshHit(Vector3 positionToSample, float distance = 6)
+    {
+        NavMesh.SamplePosition(positionToSample, out NavMeshHit navMeshHit, distance, navMeshFilter);
+        return navMeshHit;
+    }
+
+    public NavMeshHit GetNavMeshHit(Vector3 positionToSample, NavMeshQueryFilter filter, float distance = 6)
+    {
+        NavMesh.SamplePosition(positionToSample, out NavMeshHit navMeshHit, distance, filter);
+        return navMeshHit;
     }
 }

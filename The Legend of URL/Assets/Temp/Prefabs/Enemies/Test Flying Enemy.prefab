@@ -202,6 +202,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4096
   targetTrans: {fileID: 0}
+  targetPrefab: {fileID: 1136987610206257128, guid: e365e320cec4e4c4ebe72a0511271e75, type: 3}
 --- !u!120 &6548717985719910291
 LineRenderer:
   serializedVersion: 3

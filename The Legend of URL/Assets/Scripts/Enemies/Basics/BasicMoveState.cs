@@ -9,7 +9,6 @@ public class BasicMoveState : IEnemyState
     private Transform enemyTransform;
     private Transform eyesTransform;
     private CharacterController character;
-    private Rigidbody rb;
     private float speed;
     private float turnSpeed;
     private float followRange;
@@ -31,7 +30,7 @@ public class BasicMoveState : IEnemyState
         character = _controller.characterController;
         enemyTransform = character.transform;
         eyesTransform = _controller.eyesTransform;
-        speed = _controller.data.walkSpeed;
+        speed = _controller.data.chaseSpeed;
         turnSpeed = _controller.data.turnSpeed;
         followRange = _controller.data.followRange;
         forceDetectDistance = _controller.data.forceDetectDistance;
@@ -74,15 +73,15 @@ public class BasicMoveState : IEnemyState
         
         path = new NavMeshPath();
         Vector3 pos = enemyTransform.position;
-        NavMesh.SamplePosition(pos, out NavMeshHit charPos, 6, _controller.navMeshFilter);
-        Debug.Log(charPos.position);
-        pos = charPos.position;
+        Vector3 charPos = _controller.GetNavMeshPosition(pos);
+        pos = charPos;
         Vector3 destinationPos = lastSeenPos;
         NavMesh.CalculatePath(pos, destinationPos, _controller.navMeshFilter, path);
         if (path.status != NavMeshPathStatus.PathComplete)
         {
             canReachPlayer = false;
-            if (NavMesh.SamplePosition(lastSeenPos, out NavMeshHit navMeshHit, 6, _controller.navMeshFilter))
+            NavMeshHit navMeshHit = _controller.GetNavMeshHit(lastSeenPos);
+            if (navMeshHit.hit)
             {
                 destinationPos = navMeshHit.position;
                 NavMesh.CalculatePath(pos, destinationPos, _controller.navMeshFilter, path);

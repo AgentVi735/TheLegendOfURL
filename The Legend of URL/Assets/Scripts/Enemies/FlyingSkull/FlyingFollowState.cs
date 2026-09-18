@@ -9,7 +9,6 @@ public class FlyingFollowState : IEnemyState
     private Transform enemyTransform;
     private Transform eyesTransform;
     private CharacterController character;
-    private Rigidbody rb;
     private float speed;
     private float turnSpeed;
     private float followRange;
@@ -28,12 +27,11 @@ public class FlyingFollowState : IEnemyState
         character = _controller.characterController;
         enemyTransform = character.transform;
         eyesTransform = _controller.eyesTransform;
-        speed = _controller.data.walkSpeed;
+        speed = _controller.data.chaseSpeed;
         turnSpeed = _controller.data.turnSpeed;
         followRange = _controller.data.followRange;
         forceDetectDistance = _controller.data.forceDetectDistance;
         playerTransform = _controller.player.transform;
-        lastSeenPos = playerTransform.position;
         layers = _controller.raycastLayers;
     }
 
@@ -56,11 +54,11 @@ public class FlyingFollowState : IEnemyState
             case true:
             {
                 lastSeenPos = playerTransform.position;
-                NavMesh.SamplePosition(lastSeenPos, out NavMeshHit lastSeenPosNavMesh, 6, _controller.navMeshFilter);
+                Vector3 lastSeenPosNavMesh = _controller.GetNavMeshPosition(lastSeenPos);
                 float neededDistance =
                     Mathf.Abs(lastSeenPos.y + _controller.player._characterController.height / 2 -
-                              lastSeenPosNavMesh.position.y) - _controller.characterController.height / 2;
-                distance = Vector3.Distance(enemyTransform.position, lastSeenPosNavMesh.position);
+                              lastSeenPosNavMesh.y) - _controller.characterController.height / 2;
+                distance = Vector3.Distance(enemyTransform.position, lastSeenPosNavMesh);
                 if (distance < neededDistance)
                 {
                     _controller.ChangeState(_controller.attackState);
@@ -75,10 +73,9 @@ public class FlyingFollowState : IEnemyState
 
         path = new NavMeshPath();
         Vector3 pos = enemyTransform.position;
-        NavMesh.SamplePosition(pos, out NavMeshHit charPos, 6, _controller.navMeshFilter);
-        pos = charPos.position;
-        NavMesh.SamplePosition(lastSeenPos, out NavMeshHit navMeshHit, 6, _controller.navMeshFilter);
-        lastSeenPosOnMesh = navMeshHit.position;
+        Vector3 charPos = _controller.GetNavMeshPosition(pos);
+        pos = charPos;
+        lastSeenPosOnMesh = _controller.GetNavMeshPosition(lastSeenPos);
         NavMesh.CalculatePath(pos, lastSeenPosOnMesh, _controller.navMeshFilter, path);
         canReachPlayer = true;
         
@@ -168,6 +165,7 @@ public class FlyingFollowState : IEnemyState
     public void OnEnter()
     {
         _controller.meshRenderer.material.color = Color.darkBlue;
+        lastSeenPos = playerTransform.position;
     }
 
     public void OnExit()

@@ -56,14 +56,14 @@ public class FlyingAttackState : IEnemyState
     {
         Quaternion endRot = toStart ? enemyStartRotation : enemyEnterRotation;
         Quaternion enemyRot =  Quaternion.Lerp(enemyTrans.rotation, endRot,
-            _controller.data.turnSpeed / 2 * Time.deltaTime);
+            _controller.data.turnSpeed * Time.deltaTime);
         enemyTrans.rotation = enemyRot;
 
         if (Mathf.Abs(Quaternion.Dot(endRot, enemyTrans.rotation)) < 0.995) return;
         if (toStart)
             state = 1;
         else
-            _controller.Stun(_controller.data.attackCooldown);
+            _controller.ChangeState(_controller.stalkState);
     }
 
     private void Sweep()
@@ -92,6 +92,7 @@ public class FlyingAttackState : IEnemyState
 
     public void OnEnter()
     {
+        targetTrans.gameObject.SetActive(true);
         timeSpent = 0;
         _controller.meshRenderer.material.color = Color.darkRed;
         Vector3 targetPos = playerTrans.position;

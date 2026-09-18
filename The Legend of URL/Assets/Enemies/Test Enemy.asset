@@ -21,6 +21,7 @@ MonoBehaviour:
   attackRadius: 1.2
   sweepTime: 0
   walkSpeed: 2.5
+  chaseSpeed: 4
   turnSpeed: 9.52
   gravitySpeed: 12
   knockbackMultiplier: 10
@@ -32,3 +33,5 @@ MonoBehaviour:
   forceDetectDistance: 9.5
   followRange: 19
   maxLookTime: 7
+  stalkRange: 0
+  stalkDestinationsAmount: {x: 0, y: 0}

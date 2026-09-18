@@ -12,6 +12,7 @@ public class EnemyData : ScriptableObject
     public float attackRadius;
     public float sweepTime;
     public float walkSpeed;
+    public float chaseSpeed;
     public float turnSpeed;
     public float gravitySpeed;
     public float knockbackMultiplier;
@@ -23,4 +24,6 @@ public class EnemyData : ScriptableObject
     public float forceDetectDistance;
     public float followRange;
     public float maxLookTime;
+    public float stalkRange;
+    public Vector2Int stalkDestinationsAmount;
 }

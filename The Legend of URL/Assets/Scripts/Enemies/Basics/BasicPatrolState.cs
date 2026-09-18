@@ -56,9 +56,8 @@ public class BasicPatrolState : IEnemyState
         {
             navMeshPath = new NavMeshPath();
             Vector3 pos = enemyTransform.position;
-            NavMesh.SamplePosition(pos, out NavMeshHit charPos, 6, _controller.navMeshFilter);
-            Debug.Log(charPos.position);
-            pos = charPos.position;
+            Vector3 charPos = _controller.GetNavMeshPosition(pos);
+            pos = charPos;
             Vector3 destinationPos = currentWaypoint.transform.position;
             NavMesh.CalculatePath(pos, destinationPos, _controller.navMeshFilter, navMeshPath);
             switch (navMeshPath.corners.Length)
