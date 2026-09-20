@@ -42,14 +42,13 @@ public class PlayerController : MonoBehaviour
         attackManager.Initialise();
 
         hudController.Initialise(maxHealth);
-        
-        ToggleAllInputs(true);
     }
 
     private void ToggleCameraInput(bool toggle) => cinemachineInputController.enabled = toggle;
     private void ToggleCameraFollow(bool toggle) => cinemachineCamera.enabled = toggle;
     public void TogglePause(bool toggle) => movement.TogglePause(toggle);
     public void ToggleMovement(bool toggle) => movement.ToggleMovement(toggle);
+    public void ToggleGravity(bool toggle) => movement.ToggleGravity(toggle);
     public void ToggleRun(bool toggle) => movement.ToggleRun(toggle);
     public void ToggleJump(bool toggle) => movement.ToggleJump(toggle);
     public void ToggleAttack(bool toggle) => attackManager.ToggleAttack(toggle);
@@ -69,10 +68,11 @@ public class PlayerController : MonoBehaviour
         print("Death :3");
     }
 
-    private void ToggleAllInputs(bool toggle)
+    public void ToggleAllInputs(bool toggle)
     {
         TogglePause(toggle);
         ToggleMovement(toggle);
+        ToggleGravity(toggle);
         ToggleRun(toggle);
         ToggleJump(toggle);
         ToggleAttack(toggle);

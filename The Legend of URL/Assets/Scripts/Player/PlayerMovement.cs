@@ -1,4 +1,5 @@
 using System;
+using NUnit.Framework;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -38,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float gravitySpeed;
     public bool CanPause;
     public bool CanMove;
+    public bool HasGravity;
     public bool CanRun;
     public bool CanJump;
     private bool isOnGround;
@@ -118,30 +120,33 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        isOnGround = Physics.Raycast(transform.position, -transform.up, out RaycastHit hit,
+        isOnGround = Physics.Raycast(transform.position, -transform.up, out RaycastHit _,
             0.2f);
-        
-        Vector3 velocity = Vector3.zero;
-        if (isOnGround)
-        {
-            if (velocity.y < -2f)
-                velocity.y = -2f;
-        }
-        
-        velocity.y += gravitySpeed * Time.deltaTime;
 
         Vector3 movePos = Vector3.zero; 
-        movePos += -characterTrans.up * velocity.y;
-        if (jumpVelocity.y > 0)
+        if (HasGravity)
         {
-            Vector3 extraVelocity = jumpVelocity * (jumpSpeed * Time.deltaTime);
-            movePos += extraVelocity;
-            jumpVelocity -= extraVelocity;
-            if (jumpVelocity.y < 0.1f || (jumpVelocity.y < baseJumpVelocity.y / 3 && isOnGround))
-                jumpVelocity.y = 0;
-        }
+            Vector3 velocity = Vector3.zero;
+            if (isOnGround)
+            {
+                if (velocity.y < -2f)
+                    velocity.y = -2f;
+            }
+        
+            velocity.y += gravitySpeed * Time.deltaTime;
 
-        controller.Move(movePos);
+            movePos += -characterTrans.up * velocity.y;
+            if (jumpVelocity.y > 0)
+            {
+                Vector3 extraVelocity = jumpVelocity * (jumpSpeed * Time.deltaTime);
+                movePos += extraVelocity;
+                jumpVelocity -= extraVelocity;
+                if (jumpVelocity.y < 0.1f || (jumpVelocity.y < baseJumpVelocity.y / 3 && isOnGround))
+                    jumpVelocity.y = 0;
+            }
+
+            controller.Move(movePos);
+        }
         
         if (!CanMove) return;
         
@@ -224,6 +229,8 @@ public class PlayerMovement : MonoBehaviour
         else
             movementInput.Disable();
     }
+    
+    public void ToggleGravity(bool toggle) => HasGravity = toggle;
 
     public void ToggleRun(bool toggle)
     {

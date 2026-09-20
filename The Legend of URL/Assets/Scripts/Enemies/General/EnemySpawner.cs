@@ -9,9 +9,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private EnemyWaypoint patrolPath;
     private EnemyController enemy;
 
-    private void Awake() => SpawnEnemy();
-
-    private void SpawnEnemy()
+    public void SpawnEnemy()
     {
         List<EnemyWaypoint> path = new() { patrolPath };
         foreach (EnemyWaypoint availableWaypoint in patrolPath.availableWaypoints)
