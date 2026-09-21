@@ -1,4 +1,5 @@
-﻿using Unity.Cinemachine;
+﻿using System;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -10,18 +11,30 @@ public class PlayerController : MonoBehaviour
     public CharacterController _characterController => characterController;
     [SerializeField] private CharacterController characterController;
     [SerializeField] private CinemachineCamera cinemachineCamera;
+    [SerializeField] private CinemachineOrbitalFollow cinemachineOrbitalFollow;
     [SerializeField] private CinemachineInputAxisController cinemachineInputController;
 
     [Header("Stats")]
     [SerializeField] private short maxHealth;
     private short health;
 
+    [Header("Options")]
+    public bool CanRotate { get; private set; }
+    public bool CanCameraFollow { get; private set; }
+    public bool CanMove => movement.CanMove;
+    public bool CanRun => movement.CanRun;
+    public bool CanJump => movement.CanJump;
+    public bool CanPause => movement.CanPause;
+    public bool CanAttack => attackManager.CanAttack;
+    public bool CanLockOn => attackManager.CanLockOn;
+    public bool HasInitialised { get; private set; }
+    
 #if UNITY_EDITOR
     [Header("Editor Options")]
     [SerializeField] private int targetFrameRateEditor = -1;
 #endif
 
-    private void Awake()
+    public void Initialise()
     {
         // TODO: PUT THIS INTO A METHOD PLS
 #if UNITY_EDITOR
@@ -42,10 +55,20 @@ public class PlayerController : MonoBehaviour
         attackManager.Initialise();
 
         hudController.Initialise(maxHealth);
+
+        HasInitialised = true;
     }
 
-    private void ToggleCameraInput(bool toggle) => cinemachineInputController.enabled = toggle;
-    private void ToggleCameraFollow(bool toggle) => cinemachineCamera.enabled = toggle;
+    public void ToggleCameraInput(bool toggle)
+    {
+        CanRotate = toggle;
+        cinemachineInputController.enabled = toggle;
+    }
+    public void ToggleCameraFollow(bool toggle)
+    {
+        CanCameraFollow = toggle;
+        cinemachineCamera.enabled = toggle;
+    }
     public void TogglePause(bool toggle) => movement.TogglePause(toggle);
     public void ToggleMovement(bool toggle) => movement.ToggleMovement(toggle);
     public void ToggleGravity(bool toggle) => movement.ToggleGravity(toggle);
@@ -77,7 +100,17 @@ public class PlayerController : MonoBehaviour
         ToggleJump(toggle);
         ToggleAttack(toggle);
         ToggleLockOn(toggle);
+        ToggleCameraInput(toggle);
     }
 
     public short EnemyGetDamage() => attackManager.damage;
+
+    public void ForceRotateCamera(float rotation)
+    {
+        cinemachineCamera.OnTargetObjectWarped(transform, transform.position);
+        cinemachineCamera.ForceCameraPosition(transform.position + -transform.forward * 8,
+            Quaternion.Euler(cinemachineOrbitalFollow.VerticalAxis.Center, rotation, 0));
+    }
+
+    public void RotatePlayer(Vector3 rotation) => movement.RotatePlayer(rotation);
 }

@@ -47,7 +47,6 @@ public class FlyingStalkState : IEnemyState
         if (!CanSeePlayer())
         {
             distance = Vector3.Distance(enemyTrans.position, destinationGlobal);
-            Debug.Log(distance);
             if (distance < 0.5)
             {
                 _controller.ChangeState(_controller.lookState);

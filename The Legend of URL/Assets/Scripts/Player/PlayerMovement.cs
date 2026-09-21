@@ -1,5 +1,4 @@
 using System;
-using NUnit.Framework;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -249,4 +248,6 @@ public class PlayerMovement : MonoBehaviour
         else
             jumpInput.Disable();
     }
+
+    public void RotatePlayer(Vector3 rotation) => characterTrans.rotation = Quaternion.Euler(rotation);
 }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -8417240462691158131}
   - component: {fileID: 5008950657318779309}
   m_Layer: 8
-  m_Name: Opened Crate
+  m_Name: Crate Opened
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

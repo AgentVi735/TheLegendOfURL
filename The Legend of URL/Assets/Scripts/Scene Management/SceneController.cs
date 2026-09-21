@@ -63,19 +63,41 @@ public class SceneController : MonoBehaviour
 
     public void LoadNewScene(int idx)
     {
-        TogglePlayer(false);
+        if (playerController.HasInitialised)
+            initialisation.TogglePlayer(false);
         if (!fadeManager.IsOn)
             fadeManager.StartFade(false, () => {LoadScene(idx);});
         else
             LoadScene(idx);
     }
+    
+    public void LoadNewScene(LoadZoneData data)
+    {
+        if (playerController.HasInitialised)
+            initialisation.TogglePlayer(false);
+        if (!fadeManager.IsOn)
+            fadeManager.StartFade(false, () => {LoadScene(data);});
+        else
+            LoadScene(data);
+    }
 
     private static void LoadScene(int idx)
     {
-        if (!string.IsNullOrEmpty(currentSceneName))
-            SceneManager.UnloadSceneAsync(currentSceneName);
+        if (SceneManager.loadedSceneCount > 1)
+            SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(1));
         SceneManager.LoadScene(Instance.sceneHolder.GetSceneName(idx), LoadSceneMode.Additive);
-        Debug.Log("Finished");
+        Debug.Log("Finished loading scene");
+    }
+
+    private static void LoadScene(LoadZoneData data)
+    {
+        if (SceneManager.loadedSceneCount > 1)
+            SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(1));
+        Debug.Log(Instance.playerController.HasInitialised);
+        // if (Instance.playerController.HasInitialised)
+        //     Instance.initialisation.MovePlayer(data);
+        SceneManager.LoadScene(Instance.sceneHolder.GetSceneName(data.sceneIdx), LoadSceneMode.Additive);
+        Debug.Log("Finished loading scene");
     }
     
     private void InitialiseScene(Scene loadedScene, LoadSceneMode loadSceneMode)
@@ -89,19 +111,30 @@ public class SceneController : MonoBehaviour
         EnemySpawner[] enemySpawners = FindObjectsByType<EnemySpawner>();
         foreach (EnemySpawner spawner in enemySpawners)
             spawner.SpawnEnemy();
-        TogglePlayer(true);
+        if (playerController.HasInitialised)
+        {
+            PlayerSpawn[] spawns = FindObjectsByType<PlayerSpawn>();
+            Debug.Log(spawns.Length);
+            foreach (PlayerSpawn spawn in spawns)
+            {
+                if (!spawn.IsDefault) continue;
+                Debug.Log(spawn._data.newPosition);
+                initialisation.MovePlayer(spawn._data);
+                Debug.Log(playerController.transform.position);
+                break;
+            }
+        }
+        if (playerController.HasInitialised)
+            initialisation.TogglePlayer(true);
         fadeManager.StartFade(true);
     }
 
     private void UnloadScene(Scene unloadedScene)
     {
-        TogglePlayer(false);
-    }
-    
-    private void TogglePlayer(bool toggle)
-    {
-        playerController?.ToggleAllInputs(toggle);
+        initialisation.TogglePlayer(false);
     }
 
     private static bool IsInitScene(string sceneName) => sceneName == initSceneName;
+
+    public void LoadSceneFromData(LoadZoneData data) => LoadNewScene(data);
 }

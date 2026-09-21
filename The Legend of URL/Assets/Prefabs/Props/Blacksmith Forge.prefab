@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 244179972746326323}
   - component: {fileID: 1449218926560166041}
   - component: {fileID: 820482978781073383}
+  - component: {fileID: 5181572363728926325}
   m_Layer: 8
   m_Name: Blacksmith Forge
   m_TagString: Untagged
@@ -134,3 +135,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.78771067, y: 2.0214486, z: 0.5388798}
   m_Center: {x: -1.5659533, y: 0.9601688, z: 0.01340577}
+--- !u!114 &5181572363728926325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151227441651048107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff

@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 2881947759060108931}
   - component: {fileID: 6460780336858691293}
   - component: {fileID: 290314121052655610}
+  - component: {fileID: 6815364897948908932}
   m_Layer: 6
   m_Name: Player Controller
   m_TagString: Player
@@ -111,6 +112,7 @@ MonoBehaviour:
   hudController: {fileID: 0}
   characterController: {fileID: 4448322957953899592}
   cinemachineCamera: {fileID: 172040523102954746}
+  cinemachineOrbitalFollow: {fileID: 2409840902239551226}
   cinemachineInputController: {fileID: 5006302976836543788}
   maxHealth: 100
   targetFrameRateEditor: -1
@@ -146,6 +148,7 @@ MonoBehaviour:
   gravitySpeed: 13
   CanPause: 0
   CanMove: 0
+  HasGravity: 0
   CanRun: 0
   CanJump: 0
   disableKeyboard: 1
@@ -182,6 +185,21 @@ MonoBehaviour:
   lockOnCheckLayerMask:
     serializedVersion: 2
     m_Bits: 25728
+--- !u!114 &6815364897948908932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2295151883494553120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91f7bce0a1ce4e19aecb049d98ad0967, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHitbox
+  sceneController: {fileID: 0}
+  playerController: {fileID: 2881947759060108931}
+  loadZoneTag: LoadZone
 --- !u!1 &4129507807256346642
 GameObject:
   m_ObjectHideFlags: 0
@@ -484,8 +502,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4543504546222638235}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1521234, y: 0.0000038297303, z: -0.000000589452, w: 0.98836154}
-  m_LocalPosition: {x: -0.000059127808, y: 3.4056466, z: -7.6297355}
+  m_LocalRotation: {x: 0.15212339, y: 0.00000074123795, z: -0.00000011408744, w: 0.98836154}
+  m_LocalPosition: {x: -0.000011444092, y: 3.4056466, z: -7.6297355}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -685,7 +703,7 @@ MonoBehaviour:
         InputAction: {fileID: -5630151704836100654, guid: 052faaac586de48259a63d0c4782560b, type: 3}
         Gain: -70
         CancelDeltaTime: 0
-      InputValue: 0
+      InputValue: -0
       Driver:
         AccelTime: 0
         DecelTime: 0
@@ -731,7 +749,7 @@ Transform:
   m_GameObject: {fileID: 5985920762710596407}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0000019073486, y: -4.4448212e-12, z: -1.4097171e-11}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

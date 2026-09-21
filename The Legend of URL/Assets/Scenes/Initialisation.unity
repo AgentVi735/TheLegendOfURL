@@ -131,10 +131,66 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Controller
       objectReference: {fileID: 0}
+    - target: {fileID: 2409840902239551226, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
+      propertyPath: VerticalAxis.Value
+      value: 17.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2409840902239551226, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
+      propertyPath: HorizontalAxis.Wrap
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2409840902239551226, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
+      propertyPath: HorizontalAxis.Value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2409840902239551226, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
+      propertyPath: HorizontalAxis.Center
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2881947759060108931, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
       propertyPath: hudController
       value: 
       objectReference: {fileID: 424757325}
+    - target: {fileID: 6815364897948908932, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
+      propertyPath: sceneController
+      value: 
+      objectReference: {fileID: 5027678080424810016}
+    - target: {fileID: 6906417931468776817, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.00005722046
+      objectReference: {fileID: 0}
+    - target: {fileID: 6906417931468776817, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.4056473
+      objectReference: {fileID: 0}
+    - target: {fileID: 6906417931468776817, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.629734
+      objectReference: {fileID: 0}
+    - target: {fileID: 6906417931468776817, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.98836154
+      objectReference: {fileID: 0}
+    - target: {fileID: 6906417931468776817, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.15212347
+      objectReference: {fileID: 0}
+    - target: {fileID: 6906417931468776817, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.0000037061907
+      objectReference: {fileID: 0}
+    - target: {fileID: 6906417931468776817, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.00000057043763
+      objectReference: {fileID: 0}
+    - target: {fileID: 6906417931468776817, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 151.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6906417931468776817, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8895993675663654342, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -14.61406
@@ -639,8 +695,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15529843b02847cbbcbb29f9c622b456, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameInitialisation
+  sceneController: {fileID: 5027678080424810016}
   playerController: {fileID: 72162294}
-  playerSpawnPos: {x: 0, y: 0, z: 0}
+  playerSpawnPos: {x: 29.8, y: 0, z: -8.18}
   fadeManager: {fileID: 1048762030}
 --- !u!1001 &5027678080424810014
 PrefabInstance:
@@ -731,6 +788,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 537551532835221331, guid: c5a366400c68e6d48abae777d9afeebf, type: 3}
   m_PrefabInstance: {fileID: 5027678080424810014}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5027678080424810016 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6369266113374914111, guid: c5a366400c68e6d48abae777d9afeebf, type: 3}
+  m_PrefabInstance: {fileID: 5027678080424810014}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f21ba4f3b36c4c118019698a4adea23c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SceneController
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
