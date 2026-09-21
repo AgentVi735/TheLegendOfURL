@@ -18,13 +18,17 @@ public class SceneHolder : ScriptableObject
     private void OnValidate()
     {
         List<string> list = new();
+        List<EditorBuildSettingsScene> buildScenes = new();
         try
         {
             foreach (SceneAsset scene in scenes)
             {
-                if (!list.Contains(scene.name))
-                    list.Add(scene.name);
+                if (list.Contains(scene.name)) continue;
+                list.Add(scene.name);
+                buildScenes.Add(new EditorBuildSettingsScene(AssetDatabase.GetAssetPath(scene), true));
             }
+
+            EditorBuildSettings.scenes = buildScenes.ToArray();
         }
         catch
         {

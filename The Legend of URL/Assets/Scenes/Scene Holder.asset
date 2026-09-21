@@ -14,11 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SceneHolder
   scenes:
   - {fileID: 102900000, guid: 302440212b63dd84197643eb09ddf26c, type: 3}
-  - {fileID: 102900000, guid: 4fb1c6bd6863aec4592b9fcbf3c86dde, type: 3}
   - {fileID: 102900000, guid: 99c9720ab356a0642a771bea13969a05, type: 3}
-  - {fileID: 102900000, guid: 7570ec615405ae543b4c7387ab56e391, type: 3}
   sceneNames:
   - Initialisation
-  - Village
   - Vicky
-  - Village Test
