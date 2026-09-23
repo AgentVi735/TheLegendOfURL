@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Object References")]
+    [SerializeField] private PlayerController playerController;
     [SerializeField] private CharacterController controller;
     [SerializeField] private Transform characterTrans;
     [SerializeField] private Transform camTrans;
@@ -250,4 +251,31 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public void RotatePlayer(Vector3 rotation) => characterTrans.rotation = Quaternion.Euler(rotation);
+
+    public void LoadSaveData()
+    {
+        if (!playerController.HasInitialised) return;
+        bool canMove = playerController.CanMove;
+        bool canRotateCam = playerController.CanRotate;
+
+        if (canMove)
+            playerController.ToggleMovement(false);
+        if (canRotateCam)
+            playerController.ToggleCameraInput(false);
+
+        playerController.transform.position = SaveManager.Instance.SaveData.playerPosition;
+        playerController.RotatePlayer(SaveManager.Instance.SaveData.playerRotation);
+        playerController.ForceRotateCamera(SaveManager.Instance.SaveData.playerRotation.y);
+
+        if (canMove)
+            playerController.ToggleMovement(true);
+        if (canRotateCam)
+            playerController.ToggleCameraInput(true);
+    }
+    
+    public void SaveData()
+    {
+        SaveManager.Instance.SaveData.playerPosition = playerController.transform.position;
+        SaveManager.Instance.SaveData.playerRotation = characterTrans.rotation.eulerAngles;
+    }
 }

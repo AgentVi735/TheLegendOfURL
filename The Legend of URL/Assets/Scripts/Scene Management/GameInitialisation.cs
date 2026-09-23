@@ -11,7 +11,9 @@ public class GameInitialisation : MonoBehaviour
     {
         fadeManager.Show();
         playerController.Initialise();
-        SceneController.Instance.LoadNewScene(1);
+        SceneController.Instance.LoadNewScene(SaveManager.Instance.SaveData.doesDataExist
+            ? SaveManager.Instance.SaveData.currentSceneIdx
+            : 1);
     }
     
     public void TogglePlayer(bool toggle)

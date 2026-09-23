@@ -5,11 +5,13 @@ public class PlayerSpawn : MonoBehaviour
     public LoadZoneData _data => data;
     [SerializeField] private LoadZoneData data;
     public bool IsDefault;
+    [SerializeField] private bool automaticallyUpdate;
     
 #if UNITY_EDITOR
     private void OnValidate()
     {
-        UpdateData();
+        if (!Application.isPlaying && automaticallyUpdate)
+            UpdateData();
     }
 
     private void UpdateData()

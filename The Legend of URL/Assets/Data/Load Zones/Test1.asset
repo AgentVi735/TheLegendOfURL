@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Test1
   m_EditorClassIdentifier: Assembly-CSharp::LoadZoneData
   sceneIdx: 1
-  newPosition: {x: 23.98, y: 0, z: -13.92}
-  newRotation: {x: -0, y: 304.76233, z: 0}
-  cameraRotation: 304.7623
+  newPosition: {x: 9.03, y: 0, z: 12.6}
+  newRotation: {x: -0, y: 180, z: 0}
+  cameraRotation: 181

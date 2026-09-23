@@ -111,6 +111,7 @@ MonoBehaviour:
   attackManager: {fileID: 290314121052655610}
   hudController: {fileID: 0}
   characterController: {fileID: 4448322957953899592}
+  characterTransform: {fileID: 267672793640884527}
   cinemachineCamera: {fileID: 172040523102954746}
   cinemachineOrbitalFollow: {fileID: 2409840902239551226}
   cinemachineInputController: {fileID: 5006302976836543788}
@@ -128,6 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4ad8bee209a72144becc082ab424d82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement
+  playerController: {fileID: 0}
   controller: {fileID: 4448322957953899592}
   characterTrans: {fileID: 267672793640884527}
   camTrans: {fileID: 6906417931468776817}

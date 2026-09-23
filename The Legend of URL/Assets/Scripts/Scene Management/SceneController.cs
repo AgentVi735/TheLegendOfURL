@@ -15,9 +15,12 @@ public class SceneController : MonoBehaviour
     [SerializeField] private GameInitialisation initialisation;
     [SerializeField] private FadeManager fadeManager;
     [SerializeField] private PlayerController playerController;
+    [SerializeField] private SaveManager saveManager;
 
     private static string currentSceneName;
     private static string initSceneName;
+
+    private static LoadZoneData currentZoneData;
 
     private void Awake()
     {
@@ -35,6 +38,11 @@ public class SceneController : MonoBehaviour
             return;
         }
         
+        if (!hasInitialised)
+            Initialise();
+        saveManager.Initialise();
+        if (saveManager.SaveData.doesDataExist)
+            playerController.LoadSaveData();
         Instance = this;
         hasStartedInitialisation = false;
         onSceneLoaded += InitialiseScene;
@@ -83,6 +91,7 @@ public class SceneController : MonoBehaviour
 
     private static void LoadScene(int idx)
     {
+        currentZoneData = null;
         if (SceneManager.loadedSceneCount > 1)
             SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(1));
         SceneManager.LoadScene(Instance.sceneHolder.GetSceneName(idx), LoadSceneMode.Additive);
@@ -91,18 +100,16 @@ public class SceneController : MonoBehaviour
 
     private static void LoadScene(LoadZoneData data)
     {
+        currentZoneData = data;
         if (SceneManager.loadedSceneCount > 1)
             SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(1));
-        Debug.Log(Instance.playerController.HasInitialised);
-        // if (Instance.playerController.HasInitialised)
-        //     Instance.initialisation.MovePlayer(data);
         SceneManager.LoadScene(Instance.sceneHolder.GetSceneName(data.sceneIdx), LoadSceneMode.Additive);
         Debug.Log("Finished loading scene");
     }
     
     private void InitialiseScene(Scene loadedScene, LoadSceneMode loadSceneMode)
     {
-        Debug.Log($"{loadedScene.name} | {Instance?.gameObject.scene.name} | {hasStartedInitialisation} | {hasInitialised}");
+        bool isFirstLoad = !hasInitialised;
         if (!IsInitScene(loadedScene.name) && !hasStartedInitialisation && !hasInitialised)
         {
             hasInitialised = true;
@@ -110,22 +117,35 @@ public class SceneController : MonoBehaviour
         if (IsInitScene(loadedScene.name) || !hasInitialised || hasStartedInitialisation) return;
         EnemySpawner[] enemySpawners = FindObjectsByType<EnemySpawner>();
         foreach (EnemySpawner spawner in enemySpawners)
-            spawner.SpawnEnemy();
-        if (playerController.HasInitialised)
+        {
+            bool wasKilled = saveManager.SaveData.GetEnemyIDKilled(spawner.EnemyID);
+            if (!wasKilled)
+                spawner.SpawnEnemy();
+            else
+                spawner.gameObject.SetActive(false);
+        }
+        
+        if (currentZoneData != null)
+            Instance.initialisation.MovePlayer(currentZoneData);
+        else if (!isFirstLoad || !SaveManager.Instance.SaveData.doesDataExist)
         {
             PlayerSpawn[] spawns = FindObjectsByType<PlayerSpawn>();
-            Debug.Log(spawns.Length);
             foreach (PlayerSpawn spawn in spawns)
             {
                 if (!spawn.IsDefault) continue;
-                Debug.Log(spawn._data.newPosition);
                 initialisation.MovePlayer(spawn._data);
-                Debug.Log(playerController.transform.position);
                 break;
             }
         }
+        else if (SaveManager.Instance.SaveData.doesDataExist)
+            playerController.LoadSaveData();
+
+        SaveManager.Instance.SaveData.currentSceneIdx = loadedScene.buildIndex;
+        
         if (playerController.HasInitialised)
             initialisation.TogglePlayer(true);
+        
+        SaveManager.Instance.Save();
         fadeManager.StartFade(true);
     }
 

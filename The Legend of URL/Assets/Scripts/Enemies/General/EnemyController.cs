@@ -22,6 +22,7 @@ public abstract class EnemyController : MonoBehaviour
     public EnemyData data { get; private set; }
     public EnemyWaypoint[] patrolPath { get; private set; }
     public NavMeshQueryFilter navMeshFilter { get; private set; }
+    private string enemyID;
 
     private IEnemyState currentState;
 
@@ -39,9 +40,10 @@ public abstract class EnemyController : MonoBehaviour
     public LayerMask raycastLayers;
     public LayerMask swordLayer;
 
-    public virtual void Initialise(EnemyData receivedData, EnemyWaypoint[] receivedPath)
+    public virtual void Initialise(EnemyData receivedData, EnemyWaypoint[] receivedPath, string givenID)
     {
         data = receivedData;
+        enemyID = givenID;
         health = data.health;
         gameObject.name = data.enemyName;
         type = data.controllerType;
@@ -150,6 +152,7 @@ public abstract class EnemyController : MonoBehaviour
     private void KillEnemy()
     {
         transform.parent.gameObject.SetActive(false);
+        SaveManager.Instance.SaveData.SetEnemyIDKilled(enemyID, true);
         Destroy(gameObject);
     }
 

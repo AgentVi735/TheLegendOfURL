@@ -1,5 +1,4 @@
-﻿using System;
-using Unity.Cinemachine;
+﻿using Unity.Cinemachine;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -10,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerHUDController hudController;
     public CharacterController _characterController => characterController;
     [SerializeField] private CharacterController characterController;
+    [SerializeField] private Transform characterTransform;
     [SerializeField] private CinemachineCamera cinemachineCamera;
     [SerializeField] private CinemachineOrbitalFollow cinemachineOrbitalFollow;
     [SerializeField] private CinemachineInputAxisController cinemachineInputController;
@@ -107,10 +107,22 @@ public class PlayerController : MonoBehaviour
 
     public void ForceRotateCamera(float rotation)
     {
-        cinemachineCamera.OnTargetObjectWarped(transform, transform.position);
-        cinemachineCamera.ForceCameraPosition(transform.position + -transform.forward * 8,
+        cinemachineCamera.OnTargetObjectWarped(characterTransform, characterTransform.position);
+        cinemachineCamera.ForceCameraPosition(characterTransform.position + -characterTransform.forward * 8,
             Quaternion.Euler(cinemachineOrbitalFollow.VerticalAxis.Center, rotation, 0));
     }
 
     public void RotatePlayer(Vector3 rotation) => movement.RotatePlayer(rotation);
+
+    public void LoadSaveData()
+    {
+        health = SaveManager.Instance.SaveData.health;
+        movement.LoadSaveData();
+    }
+    
+    public void SaveData()
+    {
+        SaveManager.Instance.SaveData.health = health;
+        movement.SaveData();
+    }
 }

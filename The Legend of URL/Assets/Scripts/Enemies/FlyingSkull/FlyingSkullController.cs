@@ -8,13 +8,13 @@ public class FlyingSkullController : EnemyController
 
     public IEnemyState stalkState;
     
-    public override void Initialise(EnemyData receivedData, EnemyWaypoint[] receivedPath)
+    public override void Initialise(EnemyData receivedData, EnemyWaypoint[] receivedPath, string givenID)
     {
         NavMeshObstacle target = Instantiate(targetPrefab, transform.parent, true);
         target.radius = receivedData.stalkRange - 0.5f;
         targetTrans = target.transform;
         targetTrans.position = Vector3.zero;
-        base.Initialise(receivedData, receivedPath);
+        base.Initialise(receivedData, receivedPath, givenID);
         ChangeState(idleState);
     }
 

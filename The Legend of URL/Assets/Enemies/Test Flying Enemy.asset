@@ -34,4 +34,4 @@ MonoBehaviour:
   followRange: 15
   maxLookTime: 3
   stalkRange: 4.7
-  stalkDestinationsAmount: {x: 6, y: 12}
+  stalkDestinationsAmount: {x: 3, y: 6}
