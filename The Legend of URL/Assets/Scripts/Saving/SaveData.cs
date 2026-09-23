@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -48,6 +49,7 @@ public class SaveData : ScriptableObject
         playerPosition = Vector3.zero;
         playerRotation = Vector3.zero;
         health = 100;
+        enemyIdsKilledArray = Array.Empty<string>();
         InitialiseData();
     }
 }

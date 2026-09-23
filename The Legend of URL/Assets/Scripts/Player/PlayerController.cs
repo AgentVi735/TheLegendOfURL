@@ -117,6 +117,7 @@ public class PlayerController : MonoBehaviour
     public void LoadSaveData()
     {
         health = SaveManager.Instance.SaveData.health;
+        hudController.UpdateHealthBar(health);
         movement.LoadSaveData();
     }
     
