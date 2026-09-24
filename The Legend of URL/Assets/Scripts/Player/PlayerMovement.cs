@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float maxTurnDiff;
     [SerializeField] private float turnSpeed;
     [SerializeField] private float runTurnSpeed;
-    
+
     [Header("Options")]
     [SerializeField] private float speed;
     [SerializeField] private float strollInputMax;
@@ -34,6 +34,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpSpeed;
     [SerializeField] private Vector3 baseJumpVelocity;
     [SerializeField] private float gravitySpeed;
+    [SerializeField] private LayerMask groundLayerMask;
+    [SerializeField] private float groundRaycastDistance;
     public bool CanPause;
     public bool CanMove;
     public bool HasGravity;
@@ -125,8 +127,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        isOnGround = Physics.Raycast(characterTrans.position, -characterTrans.up, out RaycastHit _,
-            0.2f);
+        isOnGround = Physics.Raycast(transform.position, -transform.up, out RaycastHit _,
+            groundRaycastDistance, groundLayerMask);
 
         Vector3 movePos = Vector3.zero; 
         if (HasGravity)

@@ -694,18 +694,6 @@ PrefabInstance:
       propertyPath: _hudController
       value: 
       objectReference: {fileID: 959503277}
-    - target: {fileID: 6460780336858691293, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
-      propertyPath: turnSpeed
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6460780336858691293, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
-      propertyPath: runTurnSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6460780336858691293, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
-      propertyPath: disableKeyboard
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6815364897948908932, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
       propertyPath: sceneController
       value: 

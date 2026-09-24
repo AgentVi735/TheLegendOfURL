@@ -139,8 +139,8 @@ MonoBehaviour:
   runInputPath: Sprint
   jumpInputPath: Jump
   maxTurnDiff: 0.75
-  turnSpeed: 7
-  runTurnSpeed: 12.75
+  turnSpeed: 8
+  runTurnSpeed: 5
   speed: 3
   strollInputMax: 0.6
   strollSpeed: 1.6
@@ -148,9 +148,13 @@ MonoBehaviour:
   jumpSpeed: 3
   baseJumpVelocity: {x: 0, y: 9, z: 0}
   gravitySpeed: 13
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 1409
+  groundRaycastDistance: 0.2
   CanPause: 0
   CanMove: 0
-  HasGravity: 0
+  HasGravity: 1
   CanRun: 0
   CanJump: 0
   disableKeyboard: 1
