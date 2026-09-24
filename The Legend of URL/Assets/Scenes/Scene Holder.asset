@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c31f5558bb574be781266be03035c606, type: 3}
   m_Name: Scene Holder
   m_EditorClassIdentifier: Assembly-CSharp::SceneHolder
+  MainMenuSceneIdx: 0
+  InitialiseSceneIdx: 1
   scenes:
-  - {fileID: 102900000, guid: 302440212b63dd84197643eb09ddf26c, type: 3}
+  - {fileID: 102900000, guid: 44b88fae749f7bf4a80185404491fe3d, type: 3}
   - {fileID: 102900000, guid: 99c9720ab356a0642a771bea13969a05, type: 3}
   - {fileID: 102900000, guid: 7570ec615405ae543b4c7387ab56e391, type: 3}
   sceneNames:
-  - Initialisation
+  - Main Menu
   - Vicky
   - Village Test

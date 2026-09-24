@@ -10,6 +10,7 @@ public class PlayerHitbox : MonoBehaviour
     private void OnTriggerEnter(Collider collider)
     {
         if (!collider.CompareTag(loadZoneTag)) return;
+        playerController.ToggleReceiveDamage(false);
         LoadZoneData data = collider.GetComponent<LoadZone>()._data;
         sceneController.LoadSceneFromData(data);
     }

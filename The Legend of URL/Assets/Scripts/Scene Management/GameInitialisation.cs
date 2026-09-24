@@ -11,9 +11,10 @@ public class GameInitialisation : MonoBehaviour
     {
         fadeManager.Show();
         playerController.Initialise();
+        Debug.Log("Game Init Start method");
         SceneController.Instance.LoadNewScene(SaveManager.Instance.SaveData.doesDataExist
             ? SaveManager.Instance.SaveData.currentSceneIdx
-            : 1);
+            : sceneController.SceneHolder.StartGameSceneIdx );
     }
     
     public void TogglePlayer(bool toggle)

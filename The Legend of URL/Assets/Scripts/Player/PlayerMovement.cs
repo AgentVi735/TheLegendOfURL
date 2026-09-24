@@ -1,7 +1,4 @@
 using System;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -52,13 +49,8 @@ public class PlayerMovement : MonoBehaviour
 #if UNITY_EDITOR
         if (disableKeyboard)
         {
-            foreach (InputDevice inputDevice in InputSystem.devices)
-            {
-                if (inputDevice is Keyboard or Mouse)
-                    InputSystem.DisableDevice(inputDevice);
-                else
-                    InputSystem.EnableDevice(inputDevice);
-            }
+            InputSystem.DisableDevice(Mouse.current);
+            InputSystem.DisableDevice(Keyboard.current);
         }
         else
             foreach (InputDevice inputDevice in InputSystem.devices)
@@ -103,7 +95,20 @@ public class PlayerMovement : MonoBehaviour
         jumpInput.started += OnJumpPressed;
     }
 
-    private void OnDestroy() => DisposeActions();
+    private void OnDestroy()
+    {
+#if UNITY_EDITOR
+        if (disableKeyboard)
+        {
+            InputSystem.EnableDevice(Mouse.current);
+            InputSystem.EnableDevice(Keyboard.current);
+        }
+        else
+            foreach (InputDevice inputDevice in InputSystem.devices)
+                InputSystem.EnableDevice(inputDevice);
+#endif
+        DisposeActions();
+    }
 
     private void DisposeActions()
     {
@@ -120,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        isOnGround = Physics.Raycast(transform.position, -transform.up, out RaycastHit _,
+        isOnGround = Physics.Raycast(characterTrans.position, -characterTrans.up, out RaycastHit _,
             0.2f);
 
         Vector3 movePos = Vector3.zero; 
@@ -154,14 +159,15 @@ public class PlayerMovement : MonoBehaviour
         if (moveAmount == Vector2.zero) return;
         
         float deltaRot = -camTrans.rotation.eulerAngles.y;
-        Quaternion rotation = Quaternion.AngleAxis(deltaRot, Vector3.forward);
-        moveAmount = rotation * moveAmount;
+        if (deltaRot != 0)
+        {
+            Quaternion rotation = Quaternion.AngleAxis(deltaRot, Vector3.forward);
+            moveAmount = rotation * moveAmount;
+        }
         
         movePos = new Vector3(moveAmount.x, 0, moveAmount.y);
         
-        float deltaAngle = Vector3.Angle(characterTrans.forward, movePos);
-        Vector3 rotationAxis = Vector3.Cross(characterTrans.forward, movePos);
-        Quaternion deltaRotation = Quaternion.AngleAxis(deltaAngle, rotationAxis);
+        Quaternion deltaRotation = Quaternion.FromToRotation(characterTrans.forward, movePos);
         characterTrans.rotation = Quaternion.Lerp(characterTrans.rotation, characterTrans.rotation * deltaRotation,
             (isRunning ? runTurnSpeed : turnSpeed) * Time.deltaTime);
 
@@ -180,16 +186,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!CanPause) return;
         
-        Quit();
-    }
-    
-    private static void Quit()
-    {
-#if UNITY_EDITOR
-        EditorApplication.ExitPlaymode();
-#else
-        Application.Quit();
-#endif
+        playerController.ToggleAllInputs(false);
+        playerController.HudController.gameObject.SetActive(false);
+        SceneController.Instance.LoadMainMenuScene();
     }
 
     private void OnRunEntered(InputAction.CallbackContext ctx)

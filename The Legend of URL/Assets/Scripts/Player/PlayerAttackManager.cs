@@ -89,7 +89,8 @@ public class PlayerAttackManager : MonoBehaviour
         yield return waitAttackTime;
 
         AttackFinish();
-        controller.ToggleMovement(true);
+        if (controller.CanRotate)
+            controller.ToggleMovement(true);
     }
 
     private void AttackFinish()

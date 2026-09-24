@@ -16,6 +16,7 @@ public class SaveManager : MonoBehaviour
 
     public void Initialise()
     {
+        Debug.Log("Save Manager");
         if (Instance != null)
         {
             Debug.LogWarning("An instance of SaveManager already exists");

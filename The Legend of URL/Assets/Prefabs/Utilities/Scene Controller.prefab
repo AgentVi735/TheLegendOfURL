@@ -44,4 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f21ba4f3b36c4c118019698a4adea23c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneController
-  sceneHolder: {fileID: 11400000, guid: 5733ff53165a7904eb571cdd3c7bbdad, type: 2}
+  _sceneHolder: {fileID: 11400000, guid: 5733ff53165a7904eb571cdd3c7bbdad, type: 2}
+  initialisation: {fileID: 0}
+  fadeManager: {fileID: 0}
+  playerController: {fileID: 0}
+  saveManager: {fileID: 0}
+  isMainMenuController: 0

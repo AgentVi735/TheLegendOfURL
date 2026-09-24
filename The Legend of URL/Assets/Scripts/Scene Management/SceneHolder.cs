@@ -9,6 +9,8 @@ using UnityEditor;
 [CreateAssetMenu(menuName = "Scene Holder")]
 public class SceneHolder : ScriptableObject
 {
+    public int MainMenuSceneIdx = 0;
+    public int StartGameSceneIdx = 1;
 #if UNITY_EDITOR
     [SerializeField] private SceneAsset[] scenes = Array.Empty<SceneAsset>();
 #endif

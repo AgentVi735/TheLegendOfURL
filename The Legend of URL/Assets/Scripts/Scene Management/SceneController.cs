@@ -5,22 +5,28 @@ using UnityEngine.SceneManagement;
 public class SceneController : MonoBehaviour
 {
     public static SceneController Instance;
-    private static bool hasInitialised;
-    private static bool hasStartedInitialisation;
+    private static bool s_hasInitialised;
+    private static bool s_hasStartedInitialisation;
 
-    public static UnityAction<Scene, LoadSceneMode> onSceneLoaded;
-    public static UnityAction<Scene> onSceneUnloaded;
+    public static UnityAction<Scene, LoadSceneMode> s_OnSceneLoaded;
+    public static UnityAction<Scene> s_OnSceneUnloaded;
 
-    [SerializeField] private SceneHolder sceneHolder;
-    [SerializeField] private GameInitialisation initialisation;
-    [SerializeField] private FadeManager fadeManager;
-    [SerializeField] private PlayerController playerController;
-    [SerializeField] private SaveManager saveManager;
+    public SceneHolder SceneHolder => _sceneHolder;
+    [SerializeField] private SceneHolder _sceneHolder;
+    [SerializeField] private GameInitialisation _initialisation;
+    public FadeManager FadeManager => _fadeManager;
+    [SerializeField] private FadeManager _fadeManager;
+    [SerializeField] private PlayerController _playerController;
+    [SerializeField] private SaveManager _saveManager;
+    [SerializeField] private bool _isMainMenuController;
 
-    private static string currentSceneName;
-    private static string initSceneName;
+    private static string s_currentSceneName;
+    private static string s_initSceneName;
 
-    private static LoadZoneData currentZoneData;
+    private static LoadZoneData s_currentZoneData;
+
+    private static SceneHandle s_initScene;
+    private static SceneHandle s_currentScene;
 
     private void Awake()
     {
@@ -30,131 +36,182 @@ public class SceneController : MonoBehaviour
             return;
         }
         
-        if (initialisation == null)
+        if (_isMainMenuController)
+            return;
+        
+        StartupCheck();
+    }
+
+    private void StartupCheck()
+    {
+        Debug.Log($"{_initialisation} | {s_hasInitialised} | {s_hasStartedInitialisation}");
+        
+        if (_initialisation == null)
         {
             Initialise();
             if (gameObject != null)
                 Destroy(gameObject);
             return;
         }
+
+        switch (s_hasInitialised)
+        {
+            case false:
+                Initialise();
+                break;
+            case true:
+                LoadNewScene(SaveManager.Instance.SaveData.doesDataExist
+                    ? SaveManager.Instance.SaveData.currentSceneIdx
+                    : SceneHolder.StartGameSceneIdx);
+                _playerController.HudController.gameObject.SetActive(true);
+                _playerController.gameObject.SetActive(true);
+                _initialisation.gameObject.SetActive(true);
+                break;
+        }
         
-        if (!hasInitialised)
-            Initialise();
-        saveManager.Initialise();
-        if (saveManager.SaveData.doesDataExist)
-            playerController.LoadSaveData();
+        if (SaveManager.Instance == null)
+            _saveManager.Initialise();
+        if (_saveManager.SaveData.doesDataExist)
+            _playerController.LoadSaveData();
+
+        if (Instance != null) return;
         Instance = this;
-        hasStartedInitialisation = false;
-        onSceneLoaded += InitialiseScene;
-        onSceneUnloaded += UnloadScene;
-        SceneManager.sceneLoaded += onSceneLoaded;
-        SceneManager.sceneUnloaded += onSceneUnloaded;
+        s_hasStartedInitialisation = false;
+        
+        s_OnSceneLoaded += InitialiseScene;
+        s_OnSceneUnloaded += UnloadScene;
+        SceneManager.sceneLoaded += s_OnSceneLoaded;
+        SceneManager.sceneUnloaded += s_OnSceneUnloaded;
     }
 
     private void Initialise()
     {
-        if (hasStartedInitialisation || hasInitialised) return;
-        hasStartedInitialisation = true;
-        initSceneName = sceneHolder.GetSceneName(0);
+        if (s_hasStartedInitialisation || s_hasInitialised) return;
+        s_hasStartedInitialisation = true;
+        _fadeManager.Show();
+        _playerController.gameObject.SetActive(true);
+        _playerController.HudController.gameObject.SetActive(true);
+        _initialisation.gameObject.SetActive(true);
+        s_initSceneName = _sceneHolder.GetSceneName(0);
+        Debug.Log("Initialise method");
         if (!IsInitScene(SceneManager.GetActiveScene().name))
-            SceneManager.LoadScene(initSceneName, LoadSceneMode.Single);
+            SceneManager.LoadScene(s_initSceneName, LoadSceneMode.Single);
+        else
+            InitialiseScene(SceneManager.GetSceneAt(0), LoadSceneMode.Additive);
     }
 
     private void OnDestroy()
     {
         if (Instance != this) return;
-        onSceneLoaded -= InitialiseScene;
-        onSceneUnloaded -= UnloadScene;
-        SceneManager.sceneLoaded -= onSceneLoaded;
-        SceneManager.sceneUnloaded -= onSceneUnloaded;
+        s_OnSceneLoaded -= InitialiseScene;
+        s_OnSceneUnloaded -= UnloadScene;
+        SceneManager.sceneLoaded -= s_OnSceneLoaded;
+        SceneManager.sceneUnloaded -= s_OnSceneUnloaded;
     }
 
     public void LoadNewScene(int idx)
     {
-        if (playerController.HasInitialised)
-            initialisation.TogglePlayer(false);
-        if (!fadeManager.IsOn)
-            fadeManager.StartFade(false, () => {LoadScene(idx);});
+        if (_playerController.HasInitialised)
+            _initialisation.TogglePlayer(false);
+        if (!_fadeManager.IsOn)
+            _fadeManager.StartFade(false, () => {LoadScene(idx);});
         else
             LoadScene(idx);
     }
     
     public void LoadNewScene(LoadZoneData data)
     {
-        if (playerController.HasInitialised)
-            initialisation.TogglePlayer(false);
-        if (!fadeManager.IsOn)
-            fadeManager.StartFade(false, () => {LoadScene(data);});
+        if (_playerController.HasInitialised)
+            _initialisation.TogglePlayer(false);
+        if (!_fadeManager.IsOn)
+            _fadeManager.StartFade(false, () => {LoadScene(data);});
         else
             LoadScene(data);
     }
 
     private static void LoadScene(int idx)
     {
-        currentZoneData = null;
+        s_currentZoneData = null;
         if (SceneManager.loadedSceneCount > 1)
             SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(1));
-        SceneManager.LoadScene(Instance.sceneHolder.GetSceneName(idx), LoadSceneMode.Additive);
+        SceneManager.LoadScene(Instance._sceneHolder.GetSceneName(idx), LoadSceneMode.Additive);
         Debug.Log("Finished loading scene");
     }
 
     private static void LoadScene(LoadZoneData data)
     {
-        currentZoneData = data;
+        s_currentZoneData = data;
         if (SceneManager.loadedSceneCount > 1)
             SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(1));
-        SceneManager.LoadScene(Instance.sceneHolder.GetSceneName(data.sceneIdx), LoadSceneMode.Additive);
+        SceneManager.LoadScene(Instance._sceneHolder.GetSceneName(data.sceneIdx), LoadSceneMode.Additive);
         Debug.Log("Finished loading scene");
     }
     
     private void InitialiseScene(Scene loadedScene, LoadSceneMode loadSceneMode)
     {
-        bool isFirstLoad = !hasInitialised;
-        if (!IsInitScene(loadedScene.name) && !hasStartedInitialisation && !hasInitialised)
+        SceneManager.SetActiveScene(loadedScene);
+        bool isFirstLoad = !s_hasInitialised;
+        if (!IsInitScene(loadedScene.name) && !s_hasStartedInitialisation && !s_hasInitialised)
+            s_hasInitialised = true;
+        if (IsInitScene(loadedScene.name) || !s_hasInitialised || s_hasStartedInitialisation)
         {
-            hasInitialised = true;
+            _fadeManager.StartFade(true);
+            return;
         }
-        if (IsInitScene(loadedScene.name) || !hasInitialised || hasStartedInitialisation) return;
+        
         EnemySpawner[] enemySpawners = FindObjectsByType<EnemySpawner>();
         foreach (EnemySpawner spawner in enemySpawners)
         {
-            bool wasKilled = saveManager.SaveData.GetEnemyIDKilled(spawner.EnemyID);
+            bool wasKilled = _saveManager.SaveData.GetEnemyIDKilled(spawner.EnemyID);
             if (!wasKilled)
                 spawner.SpawnEnemy();
             else
                 spawner.gameObject.SetActive(false);
         }
         
-        if (currentZoneData != null)
-            Instance.initialisation.MovePlayer(currentZoneData);
+        if (s_currentZoneData != null)
+            Instance._initialisation.MovePlayer(s_currentZoneData);
         else if (!isFirstLoad || !SaveManager.Instance.SaveData.doesDataExist)
         {
             PlayerSpawn[] spawns = FindObjectsByType<PlayerSpawn>();
             foreach (PlayerSpawn spawn in spawns)
             {
                 if (!spawn.IsDefault) continue;
-                initialisation.MovePlayer(spawn._data);
+                _initialisation.MovePlayer(spawn._data);
                 break;
             }
         }
         else if (SaveManager.Instance.SaveData.doesDataExist)
-            playerController.LoadSaveData();
+            _playerController.LoadSaveData();
 
         SaveManager.Instance.SaveData.currentSceneIdx = loadedScene.buildIndex;
         
-        if (playerController.HasInitialised)
-            initialisation.TogglePlayer(true);
+        if (_playerController.HasInitialised)
+            _initialisation.TogglePlayer(true);
         
         SaveManager.Instance.Save();
-        fadeManager.StartFade(true);
+        _fadeManager.StartFade(true);
     }
 
     private void UnloadScene(Scene unloadedScene)
     {
-        initialisation.TogglePlayer(false);
+        _initialisation.TogglePlayer(false);
     }
 
-    private static bool IsInitScene(string sceneName) => sceneName == initSceneName;
+    private static bool IsInitScene(string sceneName) => sceneName == s_initSceneName;
 
     public void LoadSceneFromData(LoadZoneData data) => LoadNewScene(data);
+
+    public void StartGame()
+    {
+        StartupCheck();
+    }
+
+    public void LoadMainMenuScene()
+    {
+        _playerController.gameObject.SetActive(false);
+        _playerController.HudController.gameObject.SetActive(false);
+        _initialisation.gameObject.SetActive(false);
+        LoadNewScene(_sceneHolder.MainMenuSceneIdx);
+    }
 }

@@ -6,9 +6,10 @@ public class PlayerController : MonoBehaviour
     [Header("Player References")]
     [SerializeField] private PlayerMovement movement;
     [SerializeField] private PlayerAttackManager attackManager;
-    [SerializeField] private PlayerHUDController hudController;
-    public CharacterController _characterController => characterController;
-    [SerializeField] private CharacterController characterController;
+    public PlayerHUDController HudController => _hudController;
+    [SerializeField] private PlayerHUDController _hudController;
+    public CharacterController CharacterController => _characterController;
+    [SerializeField] private CharacterController _characterController;
     [SerializeField] private Transform characterTransform;
     [SerializeField] private CinemachineCamera cinemachineCamera;
     [SerializeField] private CinemachineOrbitalFollow cinemachineOrbitalFollow;
@@ -27,6 +28,7 @@ public class PlayerController : MonoBehaviour
     public bool CanPause => movement.CanPause;
     public bool CanAttack => attackManager.CanAttack;
     public bool CanLockOn => attackManager.CanLockOn;
+    public bool CanBeHit { get; private set; }
     public bool HasInitialised { get; private set; }
     
 #if UNITY_EDITOR
@@ -54,7 +56,7 @@ public class PlayerController : MonoBehaviour
         movement.Initialise();
         attackManager.Initialise();
 
-        hudController.Initialise(maxHealth);
+        _hudController.Initialise(maxHealth);
 
         HasInitialised = true;
     }
@@ -76,11 +78,13 @@ public class PlayerController : MonoBehaviour
     public void ToggleJump(bool toggle) => movement.ToggleJump(toggle);
     public void ToggleAttack(bool toggle) => attackManager.ToggleAttack(toggle);
     public void ToggleLockOn(bool toggle) => attackManager.ToggleLockOn(toggle);
+    public void ToggleReceiveDamage(bool toggle) => CanBeHit = toggle;
 
     public void OnHit(short receivedDamage)
     {
+        if (!CanBeHit) return;
         health -= receivedDamage;
-        hudController.UpdateHealthBar(health);
+        _hudController.UpdateHealthBar(health);
         if (health < 0)
             OnDeath();
     }
@@ -88,6 +92,7 @@ public class PlayerController : MonoBehaviour
     private void OnDeath()
     {
         ToggleAllInputs(false);
+        TogglePause(true);
         print("Death :3");
     }
 
@@ -101,6 +106,7 @@ public class PlayerController : MonoBehaviour
         ToggleAttack(toggle);
         ToggleLockOn(toggle);
         ToggleCameraInput(toggle);
+        ToggleReceiveDamage(toggle);
     }
 
     public short EnemyGetDamage() => attackManager.damage;
@@ -117,12 +123,13 @@ public class PlayerController : MonoBehaviour
     public void LoadSaveData()
     {
         health = SaveManager.Instance.SaveData.health;
-        hudController.UpdateHealthBar(health);
+        _hudController.UpdateHealthBar(health);
         movement.LoadSaveData();
     }
     
     public void SaveData()
     {
+        if (!gameObject.activeSelf) return;
         SaveManager.Instance.SaveData.health = health;
         movement.SaveData();
     }

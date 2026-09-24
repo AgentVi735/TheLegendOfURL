@@ -39,7 +39,8 @@ public class SaveData : ScriptableObject
 
     public void SaveEnemyIDsKilled()
     {
-        enemyIdsKilledArray = enemyIdsKilled.Select(enemy => enemy.Key).ToArray();
+        if (enemyIdsKilled != null)
+            enemyIdsKilledArray = enemyIdsKilled.Select(enemy => enemy.Key).ToArray();
     }
     
     public void ResetData()

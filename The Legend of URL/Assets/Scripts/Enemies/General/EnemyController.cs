@@ -149,7 +149,7 @@ public abstract class EnemyController : MonoBehaviour
         return health <= 0;
     }
 
-    private void KillEnemy()
+    protected virtual void KillEnemy()
     {
         transform.parent.gameObject.SetActive(false);
         SaveManager.Instance.SaveData.SetEnemyIDKilled(enemyID, true);

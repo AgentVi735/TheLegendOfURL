@@ -113,6 +113,7 @@ public class FlyingAttackState : IEnemyState
     public void OnExit()
     {
         enemyTrans.rotation = Quaternion.Euler(0, enemyTrans.rotation.eulerAngles.y, 0);
+        targetTrans.gameObject.SetActive(false);
     }
 
     public void OnHurt()

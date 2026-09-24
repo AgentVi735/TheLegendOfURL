@@ -14,6 +14,7 @@ public class FlyingSkullController : EnemyController
         target.radius = receivedData.stalkRange - 0.5f;
         targetTrans = target.transform;
         targetTrans.position = Vector3.zero;
+        targetTrans.gameObject.SetActive(false);
         base.Initialise(receivedData, receivedPath, givenID);
         ChangeState(idleState);
     }
@@ -34,5 +35,11 @@ public class FlyingSkullController : EnemyController
         stunState.Initialise(this);
         stalkState = new FlyingStalkState();
         stalkState.Initialise(this);
+    }
+
+    protected override void KillEnemy()
+    {
+        targetTrans.gameObject.SetActive(false);
+        base.KillEnemy();
     }
 }

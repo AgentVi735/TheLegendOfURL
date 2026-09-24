@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.ProBuilder.MeshOperations;
 using UnityEngine.UI;
 
 public class FadeManager : MonoBehaviour
@@ -28,7 +27,8 @@ public class FadeManager : MonoBehaviour
     public void StartFade(bool fadeIn, Action callback) => StartFade(fadeIn, callback, Color.black);
     public void StartFade(bool fadeIn, Action callback, Color fadeColor)
     {
-        
+        if (!gameObject.activeSelf || !IsOn)
+            Show(fadeIn ? Color.clear : fadeColor);
         if (fadeCoroutine != null) StopCoroutine(fadeCoroutine);
         fadeCoroutine = StartCoroutine(Fade(fadeIn, callback, fadeColor));
     }
@@ -38,6 +38,7 @@ public class FadeManager : MonoBehaviour
     public void Show()
     {
         fadeImage.color = startColor;
+        gameObject.SetActive(true);
         fadeImage.gameObject.SetActive(true);
         IsOn = true;
     }
@@ -45,6 +46,7 @@ public class FadeManager : MonoBehaviour
     public void Show(Color color)
     {
         fadeImage.color = color;
+        gameObject.SetActive(true);
         fadeImage.gameObject.SetActive(true);
         IsOn = true;
     }
