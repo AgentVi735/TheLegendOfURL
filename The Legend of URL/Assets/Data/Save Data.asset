@@ -12,8 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b7e12d86e2d428cbd226389be448827, type: 3}
   m_Name: Save Data
   m_EditorClassIdentifier: Assembly-CSharp::SaveData
-  doesDataExist: 0
+  doesDataExist: 1
   currentSceneIdx: 1
-  playerPosition: {x: 0, y: 0, z: 0}
-  playerRotation: {x: 0, y: 0, z: 0}
-  enemyIDsKilledArray: []
+  sfxVolume: 1
+  musicVolume: 1
+  fullscreenIdx: 0
+  mouseSensitivity: {x: 35, y: 35}
+  controllerSensitivity: {x: 100, y: 70}
+  playerPosition: {x: 23.458542, y: 0.000099897385, z: -26.390285}
+  playerRotation: {x: 0, y: 344.50647, z: 0}
+  health: 60
+  enemyIdsKilledArray:
+  - OtherTestEnemy0
+  - OtherTestEnemy1

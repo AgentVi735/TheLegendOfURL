@@ -1,5 +1,8 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
@@ -28,6 +31,9 @@ public class SceneController : MonoBehaviour
     private static SceneHandle s_initScene;
     private static SceneHandle s_currentScene;
 
+    private static InputDevice s_lastDevice;
+    public static ControlScheme ControlScheme;
+
     private void Awake()
     {
         if (Instance != null)
@@ -44,8 +50,6 @@ public class SceneController : MonoBehaviour
 
     private void StartupCheck()
     {
-        Debug.Log($"{_initialisation} | {s_hasInitialised} | {s_hasStartedInitialisation}");
-        
         if (_initialisation == null)
         {
             Initialise();
@@ -84,6 +88,11 @@ public class SceneController : MonoBehaviour
         SceneManager.sceneUnloaded += s_OnSceneUnloaded;
     }
 
+    public void InitialiseBeforeStart()
+    {
+        InputSystem.onEvent += OnDeviceChange;
+    }
+
     private void Initialise()
     {
         if (s_hasStartedInitialisation || s_hasInitialised) return;
@@ -102,6 +111,7 @@ public class SceneController : MonoBehaviour
 
     private void OnDestroy()
     {
+        InputSystem.onEvent -= OnDeviceChange;
         if (Instance != this) return;
         s_OnSceneLoaded -= InitialiseScene;
         s_OnSceneUnloaded -= UnloadScene;
@@ -213,5 +223,40 @@ public class SceneController : MonoBehaviour
         _playerController.HudController.gameObject.SetActive(false);
         _initialisation.gameObject.SetActive(false);
         LoadNewScene(_sceneHolder.MainMenuSceneIdx);
+    }
+
+    private void OnDeviceChange(InputEventPtr eventPtr, InputDevice device)
+    {
+        if (s_lastDevice == device) return;
+        if (eventPtr.type != StateEvent.Type) return;
+        
+        bool validPress = eventPtr.EnumerateChangedControls(device, 0.01F).Any();
+        if (!validPress) return;
+        
+        switch (device)
+        {
+            case Keyboard:
+            case Mouse:
+            {
+                if (ControlScheme == ControlScheme.KeyboardMouse) return;
+                ControlScheme = ControlScheme.KeyboardMouse;
+                OnControlSchemeChanged();
+                break;
+            }
+            case Gamepad:
+                if (ControlScheme == ControlScheme.Gamepad) return;
+                ControlScheme = ControlScheme.Gamepad;
+                OnControlSchemeChanged();
+                break;
+        }
+
+        s_lastDevice = device;
+    }
+
+    private void OnControlSchemeChanged()
+    {
+        Debug.Log($"Changed control scheme to {ControlScheme}");
+        
+        _playerController.OnDeviceChange(ControlScheme);
     }
 }

@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class MainMenuManager : MonoBehaviour
 {
     [Header("References")]
+    [SerializeField] private SettingsUI _settingsUI;
     [SerializeField] private Camera _camera;
 
     [Header("UI")]
@@ -23,6 +24,8 @@ public class MainMenuManager : MonoBehaviour
         if (SaveManager.Instance == null)
             FindAnyObjectByType<SaveManager>().Initialise();
         _startButton.UpdateText(SaveManager.Instance.SaveData.doesDataExist ? _continueText : _startText);
+        FindAnyObjectByType<SceneController>().InitialiseBeforeStart();
+        _settingsUI.Initialise();
     }
 
     public void StartButton()
@@ -40,7 +43,8 @@ public class MainMenuManager : MonoBehaviour
 
     public void SettingsButton()
     {
-        
+        gameObject.SetActive(false);
+        _settingsUI.ToggleVisibility(true);
     }
 
     public void QuitButton()

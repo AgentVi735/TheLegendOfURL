@@ -9,6 +9,13 @@ public class SaveData : ScriptableObject
     [Header("Generic")]
     public bool doesDataExist;
     public int currentSceneIdx = 1;
+
+    [Header("Settings")]
+    public float sfxVolume = 1;
+    public float musicVolume = 1;
+    public int fullscreenIdx;
+    public Vector2 mouseSensitivity = new(35, 35);
+    public Vector2 controllerSensitivity = new(100, 70);
     
     [Header("Player")]
     public Vector3 playerPosition;
@@ -42,10 +49,15 @@ public class SaveData : ScriptableObject
         if (enemyIdsKilled != null)
             enemyIdsKilledArray = enemyIdsKilled.Select(enemy => enemy.Key).ToArray();
     }
-    
+
     public void ResetData()
     {
         doesDataExist = false;
+        sfxVolume = 1;
+        musicVolume = 1;
+        fullscreenIdx = 0;
+        mouseSensitivity = new Vector2(35, 35);
+        controllerSensitivity = new Vector2(100, 70);
         currentSceneIdx = 1;
         playerPosition = Vector3.zero;
         playerRotation = Vector3.zero;

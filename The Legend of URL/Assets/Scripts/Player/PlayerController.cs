@@ -1,5 +1,8 @@
-﻿using Unity.Cinemachine;
+﻿using System;
+using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
 
 public class PlayerController : MonoBehaviour
 {
@@ -124,6 +127,7 @@ public class PlayerController : MonoBehaviour
     {
         health = SaveManager.Instance.SaveData.health;
         _hudController.UpdateHealthBar(health);
+        UpdateSensitivity();
         movement.LoadSaveData();
     }
     
@@ -132,5 +136,34 @@ public class PlayerController : MonoBehaviour
         if (!gameObject.activeSelf) return;
         SaveManager.Instance.SaveData.health = health;
         movement.SaveData();
+    }
+
+    public void OnDeviceChange(ControlScheme newScheme)
+    {
+        UpdateSensitivity(newScheme);
+    }
+
+    private void UpdateSensitivity()
+    {
+        Vector2 sensitivity = SceneController.ControlScheme switch
+        {
+            ControlScheme.Gamepad => SaveManager.Instance.SaveData.controllerSensitivity,
+            _ => SaveManager.Instance.SaveData.mouseSensitivity
+        };
+
+        cinemachineInputController.Controllers[0].Input.Gain = sensitivity.x;
+        cinemachineInputController.Controllers[1].Input.Gain = -sensitivity.y;
+    }
+
+    private void UpdateSensitivity(ControlScheme scheme)
+    {
+        Vector2 sensitivity = SceneController.ControlScheme switch
+        {
+            ControlScheme.Gamepad => SaveManager.Instance.SaveData.controllerSensitivity,
+            _ => SaveManager.Instance.SaveData.mouseSensitivity
+        };
+
+        cinemachineInputController.Controllers[0].Input.Gain = sensitivity.x;
+        cinemachineInputController.Controllers[1].Input.Gain = -sensitivity.y;
     }
 }
