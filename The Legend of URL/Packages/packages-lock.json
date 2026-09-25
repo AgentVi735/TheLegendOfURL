@@ -5,9 +5,10 @@
       "depth": 0,
       "source": "git",
       "dependencies": {
-        "com.unity.nuget.newtonsoft-json": "3.2.1"
+        "com.unity.nuget.newtonsoft-json": "3.2.1",
+        "com.unity.modules.unitywebrequest": "1.0.0"
       },
-      "hash": "2d115319f84879c3a0853a9b7276b1d507faeed0"
+      "hash": "fa4280c1fb4be0dedbf0cd0a9b9b4c302a71e105"
     },
     "com.heathen.gameplaytags": {
       "version": "https://codeberg.org/Heathen-Engineering/Unity-GameplayTags-Foundation.git?path=/com.heathen.gameplaytagsfoundation",
@@ -18,7 +19,7 @@
         "com.unity.mathematics": "1.2.5",
         "com.unity.nuget.newtonsoft-json": "3.2.1"
       },
-      "hash": "e5fc0fc827dbc51bbe846b8d0e0c5d8a506372b5"
+      "hash": "af3cef70373d659ac7e42cdb6b4a0ae505f9bb0e"
     },
     "com.heathen.lexiconfoundation": {
       "version": "https://codeberg.org/Heathen-Engineering/Unity-Lexicon-Localisation-Foundation.git?path=/com.heathen.lexiconfoundation",
@@ -30,7 +31,7 @@
         "com.unity.mathematics": "1.2.5",
         "com.unity.nuget.newtonsoft-json": "3.2.1"
       },
-      "hash": "7613f2de52b3a22b5ea2f1d4d867bda6fb997822"
+      "hash": "747a4504c0c131089d5a1e6eb753e1090bdf6503"
     },
     "com.heathen.oghamfoundation": {
       "version": "https://codeberg.org/Heathen-Engineering/Unity-Ogham-Storyteller-Foundation.git?path=/com.heathen.oghamfoundation",
@@ -39,7 +40,7 @@
       "dependencies": {
         "com.unity.nuget.newtonsoft-json": "3.2.1"
       },
-      "hash": "d3b1da7754c6c017fd04d20bf7f3dc2325970a81"
+      "hash": "6ac52aa283228c7e125ab14cb66a17bb6602ebae"
     },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
@@ -64,7 +65,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ai.navigation": {
-      "version": "2.0.14",
+      "version": "2.0.15",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -295,7 +296,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.timeline": {
-      "version": "1.8.12",
+      "version": "1.8.13",
       "depth": 0,
       "source": "registry",
       "dependencies": {
