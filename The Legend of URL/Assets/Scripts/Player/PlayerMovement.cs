@@ -189,6 +189,7 @@ public class PlayerMovement : MonoBehaviour
         if (!CanPause) return;
         
         playerController.ToggleAllInputs(false);
+        playerController.ToggleCursor(false);
         playerController.HudController.gameObject.SetActive(false);
         SceneController.Instance.LoadMainMenuScene();
     }

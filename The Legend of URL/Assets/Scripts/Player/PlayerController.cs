@@ -82,6 +82,11 @@ public class PlayerController : MonoBehaviour
     public void ToggleAttack(bool toggle) => attackManager.ToggleAttack(toggle);
     public void ToggleLockOn(bool toggle) => attackManager.ToggleLockOn(toggle);
     public void ToggleReceiveDamage(bool toggle) => CanBeHit = toggle;
+    public void ToggleCursor(bool toggle)
+    {
+        Cursor.visible = toggle;
+        Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Confined;
+    }
 
     public void OnHit(short receivedDamage)
     {
@@ -110,6 +115,7 @@ public class PlayerController : MonoBehaviour
         ToggleLockOn(toggle);
         ToggleCameraInput(toggle);
         ToggleReceiveDamage(toggle);
+        ToggleCursor(!toggle);
     }
 
     public short EnemyGetDamage() => attackManager.damage;

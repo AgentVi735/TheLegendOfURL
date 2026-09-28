@@ -1,17 +1,23 @@
-﻿using UnityEngine;
+﻿using UnityEditor;
+using UnityEngine;
 
 public class PlayerSpawn : MonoBehaviour
 {
     public LoadZoneData _data => data;
     [SerializeField] private LoadZoneData data;
     public bool IsDefault;
-    [SerializeField] private bool automaticallyUpdate;
+    [SerializeField] private bool update;
     
 #if UNITY_EDITOR
     private void OnValidate()
     {
-        if (!Application.isPlaying && automaticallyUpdate)
-            UpdateData();
+        if (update)
+        {
+            if (!Application.isPlaying)
+                UpdateData();
+            else
+                Debug.LogError($"Unable to update {data.name} while application is playing. Please exit the application to update {data.name}.");
+        }
     }
 
     private void UpdateData()
@@ -22,6 +28,8 @@ public class PlayerSpawn : MonoBehaviour
         data.newPosition = transform.position;
         data.newRotation = transform.rotation.eulerAngles;
         data.cameraRotation = data.newRotation.y;
+        update = false;
+        EditorUtility.SetDirty(data);
         Debug.Log($"Updated {data.name} with data from {gameObject.name} in scene {gameObject.scene.name}.");
     }
 #endif

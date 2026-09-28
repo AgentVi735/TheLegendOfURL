@@ -9,11 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: 44b88fae749f7bf4a80185404491fe3d
   - enabled: 1
-    path: Assets/Scenes/Vicky.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/Final Maps/Village Final.unity
+    guid: 89e5611c9f4970b4aa5c050d55d35333
   - enabled: 1
-    path: Assets/Scenes/Test/Village Test.unity
-    guid: 7570ec615405ae543b4c7387ab56e391
+    path: Assets/Scenes/Final Maps/Ranch Final.unity
+    guid: e3e7294f474928846ac070bebc0b946f
+  - enabled: 1
+    path: Assets/Scenes/Final Maps/Forest House Final.unity
+    guid: 95fb68292393fce41843f45669650b2e
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 8bfc2ef015f9f0e468d5ee4712ee2969, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

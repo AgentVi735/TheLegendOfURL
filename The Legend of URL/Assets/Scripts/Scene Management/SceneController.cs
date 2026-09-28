@@ -97,12 +97,14 @@ public class SceneController : MonoBehaviour
     {
         if (s_hasStartedInitialisation || s_hasInitialised) return;
         s_hasStartedInitialisation = true;
-        _fadeManager.Show();
-        _playerController.gameObject.SetActive(true);
-        _playerController.HudController.gameObject.SetActive(true);
-        _initialisation.gameObject.SetActive(true);
-        s_initSceneName = _sceneHolder.GetSceneName(0);
-        Debug.Log("Initialise method");
+        if (_isMainMenuController)
+        {
+            _fadeManager.Show();
+            _playerController.gameObject.SetActive(true);
+            _playerController.HudController.gameObject.SetActive(true);
+            _initialisation.gameObject.SetActive(true);
+        }
+        s_initSceneName = _sceneHolder.GetSceneName(_sceneHolder.MainMenuSceneIdx);
         if (!IsInitScene(SceneManager.GetActiveScene().name))
             SceneManager.LoadScene(s_initSceneName, LoadSceneMode.Single);
         else
@@ -159,6 +161,7 @@ public class SceneController : MonoBehaviour
     
     private void InitialiseScene(Scene loadedScene, LoadSceneMode loadSceneMode)
     {
+        Debug.Log($"Initialising scene {loadedScene.name}");
         SceneManager.SetActiveScene(loadedScene);
         bool isFirstLoad = !s_hasInitialised;
         if (!IsInitScene(loadedScene.name) && !s_hasStartedInitialisation && !s_hasInitialised)
@@ -181,6 +184,8 @@ public class SceneController : MonoBehaviour
         
         if (s_currentZoneData != null)
             Instance._initialisation.MovePlayer(s_currentZoneData);
+        else if (SaveManager.Instance.SaveData.doesDataExist)
+            _playerController.LoadSaveData();
         else if (!isFirstLoad || !SaveManager.Instance.SaveData.doesDataExist)
         {
             PlayerSpawn[] spawns = FindObjectsByType<PlayerSpawn>();
@@ -191,8 +196,6 @@ public class SceneController : MonoBehaviour
                 break;
             }
         }
-        else if (SaveManager.Instance.SaveData.doesDataExist)
-            _playerController.LoadSaveData();
 
         SaveManager.Instance.SaveData.currentSceneIdx = loadedScene.buildIndex;
         
@@ -219,9 +222,11 @@ public class SceneController : MonoBehaviour
 
     public void LoadMainMenuScene()
     {
+        _playerController.SaveData();
         _playerController.gameObject.SetActive(false);
         _playerController.HudController.gameObject.SetActive(false);
         _initialisation.gameObject.SetActive(false);
+        _saveManager.Save();
         LoadNewScene(_sceneHolder.MainMenuSceneIdx);
     }
 

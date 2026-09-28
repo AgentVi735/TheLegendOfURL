@@ -13,12 +13,14 @@ MonoBehaviour:
   m_Name: Scene Holder
   m_EditorClassIdentifier: Assembly-CSharp::SceneHolder
   MainMenuSceneIdx: 0
-  InitialiseSceneIdx: 1
+  StartGameSceneIdx: 1
   scenes:
   - {fileID: 102900000, guid: 44b88fae749f7bf4a80185404491fe3d, type: 3}
-  - {fileID: 102900000, guid: 99c9720ab356a0642a771bea13969a05, type: 3}
-  - {fileID: 102900000, guid: 7570ec615405ae543b4c7387ab56e391, type: 3}
+  - {fileID: 102900000, guid: 89e5611c9f4970b4aa5c050d55d35333, type: 3}
+  - {fileID: 102900000, guid: e3e7294f474928846ac070bebc0b946f, type: 3}
+  - {fileID: 102900000, guid: 95fb68292393fce41843f45669650b2e, type: 3}
   sceneNames:
   - Main Menu
-  - Vicky
-  - Village Test
+  - Village Final
+  - Ranch Final
+  - Forest House Final

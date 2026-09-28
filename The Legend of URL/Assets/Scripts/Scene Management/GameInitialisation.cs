@@ -11,7 +11,6 @@ public class GameInitialisation : MonoBehaviour
     {
         fadeManager.Show();
         playerController.Initialise();
-        Debug.Log("Game Init Start method");
         SceneController.Instance.LoadNewScene(SaveManager.Instance.SaveData.doesDataExist
             ? SaveManager.Instance.SaveData.currentSceneIdx
             : sceneController.SceneHolder.StartGameSceneIdx );

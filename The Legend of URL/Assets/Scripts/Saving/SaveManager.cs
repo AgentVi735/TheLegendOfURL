@@ -16,7 +16,6 @@ public class SaveManager : MonoBehaviour
 
     public void Initialise()
     {
-        Debug.Log("Save Manager");
         if (Instance != null)
         {
             Debug.LogWarning("An instance of SaveManager already exists");
@@ -39,6 +38,9 @@ public class SaveManager : MonoBehaviour
 
     public void Save()
     {
+        if (Instance != this)
+            return;
+        
         SaveData.doesDataExist = true;
         
         _playerController.SaveData();
