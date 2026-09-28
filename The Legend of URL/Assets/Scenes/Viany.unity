@@ -677,7 +677,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4884633223290820580, guid: 7a5afbeafa02ff044a9c484b62ebad25, type: 3}
       propertyPath: m_Name
-      value: House Water Wheel
+      value: House 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

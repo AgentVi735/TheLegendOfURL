@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 2041802098984602607}
   - component: {fileID: 7232199794474060370}
   m_Layer: 7
-  m_Name: House Water Wheel Door
+  m_Name: House 3 Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -88,7 +88,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2711839489895142848}
-  m_Mesh: {fileID: 3848410864040681978, guid: a0cd23d0942620d4187775e4345a0320, type: 3}
+  m_Mesh: {fileID: -6623936051661508560, guid: d4e7fd2c55241074baa6f188b77f66e7, type: 3}
 --- !u!23 &7232199794474060370
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -233,7 +233,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4884633223290820580}
-  m_Mesh: {fileID: -184711427413647050, guid: a0cd23d0942620d4187775e4345a0320, type: 3}
+  m_Mesh: {fileID: -3714371759313720156, guid: d4e7fd2c55241074baa6f188b77f66e7, type: 3}
 --- !u!23 &1713454928258108912
 MeshRenderer:
   m_ObjectHideFlags: 0
