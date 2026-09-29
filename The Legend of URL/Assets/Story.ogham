@@ -49,203 +49,471 @@
   "root": {
     "content": [
       {
-        "color": "#371616FB",
         "content": [
           {
-            "displayName": "Node0",
+            "color": "#371616FB",
+            "content": [
+              {
+                "displayName": "Node0",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "options": [
+                  {
+                    "target": "ForkNode0",
+                    "technicalName": "Option1",
+                    "textKey": ""
+                  }
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  208.0,
+                  244.0
+                ],
+                "technicalName": "Node0",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "Freddy Fazbear",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              },
+              {
+                "displayName": "Node1",
+                "entryOperations": [
+                  {
+                    "arithmetic": "Set",
+                    "tag": "Dialogue.Test.Freddy.HasSpokenTo"
+                  }
+                ],
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "opsExpanded": true,
+                "options": [
+                  {
+                    "target": "Node2",
+                    "technicalName": "Option1",
+                    "textKey": ""
+                  }
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  1188.66675,
+                  200.666656
+                ],
+                "technicalName": "Node1",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "b",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "a",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              },
+              {
+                "displayName": "Node2",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "options": [
+                  {
+                    "target": "Node3",
+                    "technicalName": "Option1",
+                    "textKey": ""
+                  }
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  1622.66675,
+                  215.666656
+                ],
+                "technicalName": "Node2",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "Frederick",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "RAWR",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              },
+              {
+                "displayName": "Node3",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  2056.66675,
+                  222.666656
+                ],
+                "technicalName": "Node3",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "blep",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "oki baiiii",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              },
+              {
+                "displayName": "ForkNode0",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "options": [
+                  {
+                    "conditions": [
+                      {
+                        "caseSensitive": false,
+                        "compareValue": 0,
+                        "comparison": "Equal",
+                        "exactMatch": false,
+                        "logicOp": "And",
+                        "tag": "Dialogue.Test.Freddy.HasSpokenTo"
+                      }
+                    ],
+                    "target": "Node1",
+                    "technicalName": "Route1",
+                    "textKey": "Route 1"
+                  },
+                  {
+                    "conditions": [
+                      {
+                        "caseSensitive": false,
+                        "comparison": "Equal",
+                        "exactMatch": false,
+                        "logicOp": "And",
+                        "tag": "Dialogue.Test.Freddy.HasSpokenTo"
+                      }
+                    ],
+                    "target": "Node4",
+                    "technicalName": "Route2",
+                    "textKey": "Route 2"
+                  }
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  627.161743,
+                  259.756348
+                ],
+                "technicalName": "ForkNode0",
+                "type": "ForkNode"
+              },
+              {
+                "displayName": "Node4",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  1079.00586,
+                  498.6914
+                ],
+                "technicalName": "Node4",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "Golden Freddy",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME ",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              }
+            ],
+            "displayName": "Freddy",
             "inputPins": [
+              {
+                "target": "Node0"
+              },
               {}
             ],
             "labelIds": [
               1
             ],
-            "options": [
-              {
-                "target": "Node1",
-                "technicalName": "Option1",
-                "textKey": ""
-              }
-            ],
             "outputPins": [
               {}
             ],
             "position": [
-              208.0,
-              244.0
+              80.0,
+              108.0
             ],
-            "technicalName": "Node0",
-            "templateFields": [
-              {
-                "fields": [],
-                "template": 0
-              },
-              {
-                "fields": [
-                  {
-                    "key": "Freddy Fazbear",
-                    "mode": "Literal",
-                    "templateField": "speakername",
-                    "type": "Text"
-                  },
-                  {
-                    "key": "HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR",
-                    "mode": "Literal",
-                    "templateField": "text",
-                    "type": "Text"
-                  }
-                ],
-                "template": 1
-              }
-            ],
-            "type": "ContentNode"
+            "technicalName": "Freddy",
+            "type": "Collection"
           },
           {
-            "displayName": "Node1",
+            "content": [
+              {
+                "displayName": "Fork0",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "options": [
+                  {
+                    "conditions": [
+                      {
+                        "caseSensitive": false,
+                        "compareValue": 0,
+                        "comparison": "Equal",
+                        "exactMatch": false,
+                        "logicOp": "And",
+                        "tag": "Dialogue.Test.Freddy.HasSpokenTo"
+                      }
+                    ],
+                    "target": "Node0",
+                    "technicalName": "Route1",
+                    "textKey": "Route 1"
+                  },
+                  {
+                    "conditions": [
+                      {
+                        "caseSensitive": false,
+                        "comparison": "Equal",
+                        "exactMatch": false,
+                        "logicOp": "And",
+                        "tag": "Dialogue.Test.Freddy.HasSpokenTo"
+                      }
+                    ],
+                    "target": "Node1",
+                    "technicalName": "Route2",
+                    "textKey": "Route 2"
+                  }
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  256.41626,
+                  308.923584
+                ],
+                "technicalName": "Fork0",
+                "type": "ForkNode"
+              },
+              {
+                "displayName": "Node0",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  715.1722,
+                  290.9735
+                ],
+                "technicalName": "Node0",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "Gerard",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "Talk to Freddy Fazbear before you talk to me.",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              },
+              {
+                "displayName": "Node1",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  731.0091,
+                  562.890137
+                ],
+                "technicalName": "Node1",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "Gerard",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "FIVE NIGHTS AT FREDDY'S IS THIS WHERE YOU WANNA BE",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              }
+            ],
+            "displayName": "Gerard",
             "inputPins": [
               {}
             ],
             "labelIds": [
               1
             ],
-            "options": [
-              {
-                "target": "Node2",
-                "technicalName": "Option1",
-                "textKey": ""
-              }
-            ],
             "outputPins": [
               {}
             ],
             "position": [
-              642.0,
-              244.0
+              133.42923,
+              317.169922
             ],
-            "technicalName": "Node1",
-            "templateFields": [
-              {
-                "fields": [],
-                "template": 0
-              },
-              {
-                "fields": [
-                  {
-                    "key": "b",
-                    "mode": "Literal",
-                    "templateField": "speakername",
-                    "type": "Text"
-                  },
-                  {
-                    "key": "a",
-                    "mode": "Literal",
-                    "templateField": "text",
-                    "type": "Text"
-                  }
-                ],
-                "template": 1
-              }
-            ],
-            "type": "ContentNode"
-          },
-          {
-            "displayName": "Node2",
-            "inputPins": [
-              {}
-            ],
-            "labelIds": [
-              1
-            ],
-            "options": [
-              {
-                "target": "Node3",
-                "technicalName": "Option1",
-                "textKey": ""
-              }
-            ],
-            "outputPins": [
-              {}
-            ],
-            "position": [
-              1076.0,
-              259.0
-            ],
-            "technicalName": "Node2",
-            "templateFields": [
-              {
-                "fields": [],
-                "template": 0
-              },
-              {
-                "fields": [
-                  {
-                    "key": "Frederick",
-                    "mode": "Literal",
-                    "templateField": "speakername",
-                    "type": "Text"
-                  },
-                  {
-                    "key": "RAWR",
-                    "mode": "Literal",
-                    "templateField": "text",
-                    "type": "Text"
-                  }
-                ],
-                "template": 1
-              }
-            ],
-            "type": "ContentNode"
-          },
-          {
-            "displayName": "Node3",
-            "inputPins": [
-              {}
-            ],
-            "labelIds": [
-              1
-            ],
-            "outputPins": [
-              {}
-            ],
-            "position": [
-              1510.0,
-              266.0
-            ],
-            "technicalName": "Node3",
-            "templateFields": [
-              {
-                "fields": [],
-                "template": 0
-              },
-              {
-                "fields": [
-                  {
-                    "key": "blep",
-                    "mode": "Literal",
-                    "templateField": "speakername",
-                    "type": "Text"
-                  },
-                  {
-                    "key": "oki baiiii",
-                    "mode": "Literal",
-                    "templateField": "text",
-                    "type": "Text"
-                  }
-                ],
-                "template": 1
-              }
-            ],
-            "type": "ContentNode"
+            "technicalName": "Gerard",
+            "type": "Collection"
           }
         ],
         "displayName": "TestCollection",
         "inputPins": [
           {
-            "target": "Node0"
+            "target": "Freddy"
           },
           {}
-        ],
-        "labelIds": [
-          1
         ],
         "outputPins": [
           {}
@@ -273,8 +541,8 @@
     "type": "Collection"
   },
   "viewTransform": [
-    -301.142578,
-    64.1806,
-    0.8407485
+    164.349152,
+    4.31582642,
+    0.516451657
   ]
 }

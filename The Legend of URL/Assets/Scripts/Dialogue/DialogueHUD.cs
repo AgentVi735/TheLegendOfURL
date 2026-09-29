@@ -18,7 +18,11 @@ public class DialogueHUD : MonoBehaviour
 
     [Header("Options")]
     [SerializeField] private float _textSpeed;
+    [SerializeField] private float _fastTextSpeed;
     private WaitForSeconds _waitTextSpeed;
+
+    private bool _hasFinished;
+    private bool _isFast;
     
     private OghamSession _story;
     private StoryNode _currentNode;
@@ -29,8 +33,6 @@ public class DialogueHUD : MonoBehaviour
         _controller.OnOpenStory.AddListener(OpenHUD);
         _controller.OnOpenEntry.AddListener(ShowNewEntry);
         _controller.OnCloseStory.AddListener(CloseHUD);
-
-        _waitTextSpeed = new WaitForSeconds(_textSpeed);
     }
 
     private void OnDestroy()
@@ -44,7 +46,9 @@ public class DialogueHUD : MonoBehaviour
     {
         _speakerNameText.text = "";
         _contentText.text = "";
-        ToggleContinueButton(false);
+        _hasFinished = false;
+        _isFast = false;
+        ToggleContinueImage(false);
         _hudObject.SetActive(true);
     }
 
@@ -74,7 +78,7 @@ public class DialogueHUD : MonoBehaviour
         if (string.IsNullOrEmpty(contentText))
         {
             _contentText.gameObject.SetActive(false);
-            ToggleContinueButton(true);
+            ToggleContinueImage(true);
             return;
         }
         _contentText.text = "";
@@ -84,6 +88,9 @@ public class DialogueHUD : MonoBehaviour
 
     private IEnumerator ContentTextAnimation(string givenContent)
     {
+        _hasFinished = false;
+        _isFast = false;
+        _waitTextSpeed = new WaitForSeconds(_textSpeed);
         int textLength = givenContent.Length;
         for (int i = 1; i < textLength + 1; i++)
         {
@@ -109,12 +116,30 @@ public class DialogueHUD : MonoBehaviour
             yield return _waitTextSpeed;
         }
 
-        ToggleContinueButton(true);
+        _hasFinished = true;
+        ToggleContinueImage(true);
     }
-    
-    public void ToggleContinueButton(bool toggle)
+
+    private void FastTyping()
     {
-        _continueButton.gameObject.SetActive(toggle);
+        _isFast = true;
+        _waitTextSpeed = new WaitForSeconds(_fastTextSpeed);
+    }
+
+    private void ToggleContinueImage(bool toggle)
+    {
         _continueIndicatorImage.gameObject.SetActive(toggle);
+    }
+
+    public void OnContinueButton()
+    {
+        if (_hasFinished)
+        {
+            ToggleContinueImage(false);
+            _controller.Continue();
+            _hasFinished = false;
+        }
+        else if (!_isFast)
+            FastTyping();
     }
 }

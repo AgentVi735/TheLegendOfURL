@@ -52,6 +52,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Villager Female 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 61e32375a2f4e3c4dbcead06c4e343b9, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 61e32375a2f4e3c4dbcead06c4e343b9, type: 3}
+      propertyPath: m_TagString
+      value: NPC
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -59,6 +67,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 61e32375a2f4e3c4dbcead06c4e343b9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1049043639716818363}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 61e32375a2f4e3c4dbcead06c4e343b9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5565322399224326409}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 61e32375a2f4e3c4dbcead06c4e343b9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5879773472756683011}
@@ -89,6 +100,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.96567386, y: 1.8000038, z: 0.8395245}
   m_Center: {x: -0.005410461, y: 0.8999995, z: -0.05892476}
+--- !u!114 &5565322399224326409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5748425564394341954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 213a3a40cf564977b4d028bf206c8796, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NpcController
+  _storyTag:
+    _id: 13627888193254757602
 --- !u!208 &5879773472756683011
 NavMeshObstacle:
   m_ObjectHideFlags: 0

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using Heathen.Ogham;
 using UnityEngine;
 
 public class SaveManager : MonoBehaviour
@@ -9,7 +10,8 @@ public class SaveManager : MonoBehaviour
     public SaveData SaveData => _dataObject;
     [SerializeField] private SaveData _dataObject;
 
-    [SerializeField] private string savePath;
+    [SerializeField] private string _savePath;
+    [SerializeField] private string _storySavePath;
 
     public bool CanSave;
 
@@ -32,14 +34,14 @@ public class SaveManager : MonoBehaviour
             return;
         }
         
-        if (File.Exists(Application.persistentDataPath + savePath))
+        if (File.Exists(Application.persistentDataPath + _savePath))
             LoadSave();
         else
             CreateSave();
 
         CanSave = true;
     }
-
+    
     public void Save()
     {
         if (Instance != this || !CanSave)
@@ -53,7 +55,7 @@ public class SaveManager : MonoBehaviour
         string json = JsonUtility.ToJson(SaveData);
         try
         {
-            File.WriteAllText(Application.persistentDataPath + savePath, json);
+            File.WriteAllText(Application.persistentDataPath + _savePath, json);
         }
         catch
         {
@@ -67,11 +69,10 @@ public class SaveManager : MonoBehaviour
 
     private void LoadSave()
     {
-        string json = File.ReadAllText(Application.persistentDataPath + savePath);
+        string json = File.ReadAllText(Application.persistentDataPath + _savePath);
 
         try
         {
-            // _dataObject.LoadData(JsonUtility.FromJson<SaveData>(json));
             JsonUtility.FromJsonOverwrite(json, _dataObject);
         }
         catch (Exception e)
@@ -96,10 +97,68 @@ public class SaveManager : MonoBehaviour
         Debug.Log("Creating new save data");
 #endif
         SaveData.ResetData();
+        SaveStory();
     }
 
     private void OnDestroy()
     {
         Save();
+    }
+
+    public void SaveStory()
+    {
+        if (Instance != this || !CanSave)
+            return;
+
+        OghamSaveState saveState = Storyteller.Snapshot();
+        if (saveState == null)
+        {
+            Debug.Log("Story save state is empty");
+            return;
+        }
+        string json = JsonUtility.ToJson(saveState);
+        try
+        {
+            File.WriteAllText(Application.persistentDataPath + _storySavePath, json);
+        }
+        catch
+        {
+            Debug.LogError("Story save data could not be saved");
+            return;
+        }
+#if UNITY_EDITOR
+        Debug.Log("Successfully saved story data");
+#endif
+    }
+
+    public void LoadStory()
+    {
+        if (!File.Exists(Application.persistentDataPath + _storySavePath))
+        {
+            Debug.Log("No story save file found, creating new save file...");
+            SaveStory();
+            return;
+        }
+        string json = File.ReadAllText(Application.persistentDataPath + _storySavePath);
+
+        try
+        {
+            OghamSaveState saveState = JsonUtility.FromJson<OghamSaveState>(json);
+            Storyteller.Restore(saveState);
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"Story save file failed to load with exception: {e}");
+            CreateSave();
+#if UNITY_EDITOR
+            return;
+#endif
+        }
+        
+        Storyteller.Resume();
+        
+#if UNITY_EDITOR
+        Debug.Log("Successfully loaded story data");
+#endif
     }
 }

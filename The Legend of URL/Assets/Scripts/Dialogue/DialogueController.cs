@@ -13,15 +13,11 @@ public class DialogueController : MonoBehaviour
     public UnityEvent OnOpenEntry;
     public UnityEvent OnCloseStory;
 
-    private void Awake()
-    {
-        Initialise();
-    }
-
-    private void Initialise()
+    public void Initialise()
     {
         _story = Storyteller.GetStory();
         _hud.Initialise();
+        SaveManager.Instance.LoadStory();
     }
 
     public void OpenStory(GameplayTag storyTag)
@@ -37,15 +33,14 @@ public class DialogueController : MonoBehaviour
             Debug.LogError($"Couldn't load node with tag: {storyTag}");
             return;
         }
-        
+
+        SaveManager.Instance.CanSave = false;
         OnOpenStory?.Invoke();
         OnOpenEntry?.Invoke();
     }
 
-    public void OnContinueButton()
+    public void Continue()
     {
-        _hud.ToggleContinueButton(false);
-
         if (_story.CurrentOptions.Count > 0)
             OpenNextNode();
         else
@@ -70,6 +65,9 @@ public class DialogueController : MonoBehaviour
 
     private void CloseStory()
     {
+        SaveManager.Instance.CanSave = true;
+        SaveManager.Instance.SaveStory();
+        _story.Close();
         OnCloseStory?.Invoke();
     }
 }

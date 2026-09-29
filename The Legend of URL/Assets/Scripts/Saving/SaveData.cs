@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Heathen.Ogham;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Save Data")]
@@ -63,6 +64,7 @@ public class SaveData : ScriptableObject
         playerRotation = Vector3.zero;
         health = 100;
         enemyIdsKilledArray = Array.Empty<string>();
+        Storyteller.ClearState();
         InitialiseData();
     }
 }

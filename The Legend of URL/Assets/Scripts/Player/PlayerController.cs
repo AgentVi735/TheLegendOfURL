@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.LowLevel;
 
@@ -21,7 +23,13 @@ public class PlayerController : MonoBehaviour
     [Header("Stats")]
     [SerializeField] private short maxHealth;
     private short health;
+    private Collider[] interactColliders;
 
+    [Header("Input")]
+    [SerializeField] private InputActionAsset inputActionAsset;
+    private InputAction interactInput;
+    [SerializeField] private string interactInputPath;
+    
     [Header("Options")]
     public bool CanRotate { get; private set; }
     public bool CanCameraFollow { get; private set; }
@@ -32,7 +40,12 @@ public class PlayerController : MonoBehaviour
     public bool CanAttack => attackManager.CanAttack;
     public bool CanLockOn => attackManager.CanLockOn;
     public bool CanBeHit { get; private set; }
+    public bool CanInteract { get; private set; }
     public bool HasInitialised { get; private set; }
+    [SerializeField] private float interactRadius;
+    [SerializeField] private LayerMask interactLayerMask;
+    [SerializeField] private int maxInteractColliders = 1;
+    [SerializeField] private string npcTag;
     
 #if UNITY_EDITOR
     [Header("Editor Options")]
@@ -53,8 +66,21 @@ public class PlayerController : MonoBehaviour
             QualitySettings.vSyncCount = 1;
             Application.targetFrameRate = -1;
         }
-#endif        
+#endif
         health = maxHealth;
+        interactColliders = new Collider[maxInteractColliders];
+        SceneController.Instance.DialogueController.OnOpenStory.AddListener(() => { ToggleAllInputs(false);});
+        SceneController.Instance.DialogueController.OnCloseStory.AddListener(() => { ToggleAllInputs(true);});
+        
+        interactInput = inputActionAsset.FindAction(interactInputPath);
+        if (interactInput == null)
+        {
+            Debug.LogError($"InteractInputPath is invalid on object {gameObject.name}");
+            gameObject.SetActive(false);
+            return;
+        }
+
+        interactInput.started += OnInteractPressed;
         
         movement.Initialise();
         attackManager.Initialise();
@@ -62,6 +88,16 @@ public class PlayerController : MonoBehaviour
         _hudController.Initialise(maxHealth);
 
         HasInitialised = true;
+    }
+
+    private void OnDestroy()
+    {
+        if (interactInput != null)
+            interactInput.started -= OnInteractPressed;
+
+        if (SceneController.Instance?.DialogueController == null) return;
+        SceneController.Instance.DialogueController.OnOpenStory.RemoveListener(() => { ToggleAllInputs(false);});
+        SceneController.Instance.DialogueController.OnCloseStory.RemoveListener(() => { ToggleAllInputs(true);});
     }
 
     public void ToggleCameraInput(bool toggle)
@@ -87,6 +123,7 @@ public class PlayerController : MonoBehaviour
         Cursor.visible = toggle;
         Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Confined;
     }
+    public void ToggleInteract(bool toggle) => CanInteract = toggle;
 
     public void OnHit(short receivedDamage)
     {
@@ -104,6 +141,25 @@ public class PlayerController : MonoBehaviour
         print("Death :3");
     }
 
+    private void OnInteractPressed(InputAction.CallbackContext ctx)
+    {
+        if (!CanInteract) return;
+        
+        int hitCount = Physics.OverlapSphereNonAlloc(transform.position, interactRadius, interactColliders,
+            interactLayerMask);
+        if (hitCount <= 0) return;
+        int idx = -1;
+        foreach (Collider collider in interactColliders)
+        {
+            idx++;
+            if (collider == null)
+                continue;
+            Debug.Log($"Index: {idx} | Collider: {collider.name} | Distance: {Vector3.Distance(transform.position, collider.transform.position)}");
+            if (collider.CompareTag(npcTag))
+                InteractWithNpc(collider.gameObject);
+        }
+    }
+
     public void ToggleAllInputs(bool toggle)
     {
         TogglePause(toggle);
@@ -114,8 +170,16 @@ public class PlayerController : MonoBehaviour
         ToggleAttack(toggle);
         ToggleLockOn(toggle);
         ToggleCameraInput(toggle);
+        ToggleCameraFollow(toggle);
         ToggleReceiveDamage(toggle);
+        ToggleInteract(toggle);
         ToggleCursor(!toggle);
+    }
+    
+    private void InteractWithNpc(GameObject npcObject)
+    {
+        NpcController npcController = npcObject.GetComponent<NpcController>();
+        npcController.StartStory();
     }
 
     public short EnemyGetDamage() => attackManager.damage;
