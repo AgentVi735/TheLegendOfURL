@@ -11,6 +11,8 @@ public class SaveManager : MonoBehaviour
 
     [SerializeField] private string savePath;
 
+    public bool CanSave;
+
     [Header("References")]
     [SerializeField] private PlayerController _playerController;
 
@@ -34,11 +36,13 @@ public class SaveManager : MonoBehaviour
             LoadSave();
         else
             CreateSave();
+
+        CanSave = true;
     }
 
     public void Save()
     {
-        if (Instance != this)
+        if (Instance != this || !CanSave)
             return;
         
         SaveData.doesDataExist = true;

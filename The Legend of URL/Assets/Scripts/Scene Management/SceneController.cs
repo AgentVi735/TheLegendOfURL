@@ -21,6 +21,8 @@ public class SceneController : MonoBehaviour
     [SerializeField] private FadeManager _fadeManager;
     [SerializeField] private PlayerController _playerController;
     [SerializeField] private SaveManager _saveManager;
+    public DialogueController DialogueController => _dialogueController;
+    [SerializeField] private DialogueController _dialogueController;
     [SerializeField] private bool _isMainMenuController;
 
     private static string s_currentSceneName;
