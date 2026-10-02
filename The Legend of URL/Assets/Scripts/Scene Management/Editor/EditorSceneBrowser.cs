@@ -13,7 +13,7 @@ internal static class EditorSceneBrowser
     [MenuItem("Scenes/Maps/Forest")]
     private static void OpenForest() => OpenScene("Assets/Scenes/Final Maps/Forest House Final.unity");
     [MenuItem("Scenes/Maps/Ravine")]
-    private static void Openavine() => OpenScene("Assets/Scenes/Maps/Ravine Bridge Final.unity");
+    private static void OpenRavine() => OpenScene("Assets/Scenes/Final Maps/Ravine Bridge Final.unity");
     
     [MenuItem("Scenes/Editor/Village")]
     private static void OpenEditorVillage() => OpenScene("Assets/Scenes/Maps/Village.unity");

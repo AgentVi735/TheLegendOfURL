@@ -19,8 +19,10 @@ MonoBehaviour:
   - {fileID: 102900000, guid: 89e5611c9f4970b4aa5c050d55d35333, type: 3}
   - {fileID: 102900000, guid: e3e7294f474928846ac070bebc0b946f, type: 3}
   - {fileID: 102900000, guid: 95fb68292393fce41843f45669650b2e, type: 3}
+  - {fileID: 102900000, guid: 5bcec5eedc18e4b43a7876e2d6970322, type: 3}
   sceneNames:
   - Main Menu
   - Village Final
   - Ranch Final
   - Forest House Final
+  - Ravine Bridge Final
