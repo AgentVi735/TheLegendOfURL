@@ -32,6 +32,7 @@ public class MainMenuManager : MonoBehaviour
     public void StartButton()
     {
         Destroy(_camera.gameObject);
+        Destroy(_settingsUI.gameObject);
         Destroy(gameObject);
         if (SceneController.Instance != null)
             FindAnyObjectByType<FadeManager>(FindObjectsInactive.Include).StartFade(false, SceneController.Instance.StartGame);

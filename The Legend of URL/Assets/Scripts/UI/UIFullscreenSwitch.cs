@@ -9,6 +9,7 @@ public class UIFullscreenSwitch : MonoBehaviour
 
     [SerializeField] private FullScreenMode _currentSelectedMode;
     [SerializeField] private FullScreenMode[] _modes;
+    [SerializeField] private string[] _modeStrings;
     private int _idx;
 
     public void SetCurrent(FullScreenMode mode)
@@ -39,6 +40,6 @@ public class UIFullscreenSwitch : MonoBehaviour
     {
         _currentSelectedMode = mode;
         Screen.fullScreenMode = _currentSelectedMode;
-        _text.text = mode.ToString();
+        _text.text = _modeStrings[_idx];
     }
 }

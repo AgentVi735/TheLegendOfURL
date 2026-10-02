@@ -12,6 +12,8 @@ internal static class EditorSceneBrowser
     private static void OpenRanch() => OpenScene("Assets/Scenes/Final Maps/Ranch Final.unity");
     [MenuItem("Scenes/Maps/Forest")]
     private static void OpenForest() => OpenScene("Assets/Scenes/Final Maps/Forest House Final.unity");
+    [MenuItem("Scenes/Maps/Ravine")]
+    private static void Openavine() => OpenScene("Assets/Scenes/Maps/Ravine Bridge Final.unity");
     
     [MenuItem("Scenes/Editor/Village")]
     private static void OpenEditorVillage() => OpenScene("Assets/Scenes/Maps/Village.unity");
@@ -19,6 +21,8 @@ internal static class EditorSceneBrowser
     private static void OpenEditorRanch() => OpenScene("Assets/Scenes/Maps/Ranch.unity");
     [MenuItem("Scenes/Editor/Forest")]
     private static void OpenEditorForest() => OpenScene("Assets/Scenes/Maps/Forest House.unity");
+    [MenuItem("Scenes/Editor/Ravine")]
+    private static void OpenEditorRavine() => OpenScene("Assets/Scenes/Maps/Ravine Bridge.unity");
 
     private static void OpenScene(string scenePath)
     {
