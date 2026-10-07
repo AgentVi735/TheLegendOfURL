@@ -2,7 +2,7 @@
 //   Generated from the Ogham project tree by OghamNodeTreeStoryGenerator. DO NOT EDIT.
 //   Edit the .ogham file(s) and click Build in Window ▸ Heathen ▸ Storyteller.
 // </auto-generated>
-// ogham-hash:0x4AFCB3102F0A5679  // staleness marker — do not edit
+// ogham-hash:0x2ACA7A5582727149  // staleness marker — do not edit
 using System.Collections.Generic;
 using Heathen.GameplayTags;
 using Heathen.Ogham;
@@ -19,25 +19,21 @@ namespace Heathen.Ogham.Generated
             new CompiledTagEntry { Id = 0x7F138A20428CE29CUL, ParentId = 0x9FE7B5B67A2764C0UL, Name = "Dialogue.Test" },
             new CompiledTagEntry { Id = 0x8F594BCE432BED05UL, ParentId = 0x954D8E6815ECD1DCUL, Name = "Root.TestCollection" },
             new CompiledTagEntry { Id = 0x4C905FF94B9E874EUL, ParentId = 0x7F138A20428CE29CUL, Name = "Dialogue.Test.Freddy" },
-            new CompiledTagEntry { Id = 0xADF2A3CDE3A9E5D0UL, ParentId = 0x8F594BCE432BED05UL, Name = "Root.TestCollection.Freddy" },
-            new CompiledTagEntry { Id = 0x1CC650F08BAA7185UL, ParentId = 0x8F594BCE432BED05UL, Name = "Root.TestCollection.Gerard" },
+            new CompiledTagEntry { Id = 0xEE9E05099B229505UL, ParentId = 0x8F594BCE432BED05UL, Name = "Root.TestCollection.Daniek" },
+            new CompiledTagEntry { Id = 0x4B7B241B26C2346AUL, ParentId = 0x8F594BCE432BED05UL, Name = "Root.TestCollection.Tim" },
             new CompiledTagEntry { Id = 0x306D433CDC60205DUL, ParentId = 0x4C905FF94B9E874EUL, Name = "Dialogue.Test.Freddy.HasSpokenTo" },
-            new CompiledTagEntry { Id = 0xACC164979F2FEA90UL, ParentId = 0xADF2A3CDE3A9E5D0UL, Name = "Root.TestCollection.Freddy.ForkNode0" },
-            new CompiledTagEntry { Id = 0xBD1FFC1BADB094E2UL, ParentId = 0xADF2A3CDE3A9E5D0UL, Name = "Root.TestCollection.Freddy.Node0" },
-            new CompiledTagEntry { Id = 0x3AD62164C7185A83UL, ParentId = 0xADF2A3CDE3A9E5D0UL, Name = "Root.TestCollection.Freddy.Node1" },
-            new CompiledTagEntry { Id = 0xED9E736BC7DEC7A5UL, ParentId = 0xADF2A3CDE3A9E5D0UL, Name = "Root.TestCollection.Freddy.Node2" },
-            new CompiledTagEntry { Id = 0xD1E4FB4B92DE4347UL, ParentId = 0xADF2A3CDE3A9E5D0UL, Name = "Root.TestCollection.Freddy.Node3" },
-            new CompiledTagEntry { Id = 0xA6A170D31148734CUL, ParentId = 0xADF2A3CDE3A9E5D0UL, Name = "Root.TestCollection.Freddy.Node4" },
-            new CompiledTagEntry { Id = 0x685FCE30FE498B2BUL, ParentId = 0x1CC650F08BAA7185UL, Name = "Root.TestCollection.Gerard.Fork0" },
-            new CompiledTagEntry { Id = 0x91EC2F94DB195F03UL, ParentId = 0x1CC650F08BAA7185UL, Name = "Root.TestCollection.Gerard.Node0" },
-            new CompiledTagEntry { Id = 0x143BD35B343FC4B8UL, ParentId = 0x1CC650F08BAA7185UL, Name = "Root.TestCollection.Gerard.Node1" },
-            new CompiledTagEntry { Id = 0x0102E5E3C4D2A1F5UL, ParentId = 0xACC164979F2FEA90UL, Name = "Root.TestCollection.Freddy.ForkNode0.Route1" },
-            new CompiledTagEntry { Id = 0x36D1812D6915B9FFUL, ParentId = 0xACC164979F2FEA90UL, Name = "Root.TestCollection.Freddy.ForkNode0.Route2" },
-            new CompiledTagEntry { Id = 0xC44D4D8F34987869UL, ParentId = 0xBD1FFC1BADB094E2UL, Name = "Root.TestCollection.Freddy.Node0.Option1" },
-            new CompiledTagEntry { Id = 0x8E7EDE9BF11CFCB7UL, ParentId = 0x3AD62164C7185A83UL, Name = "Root.TestCollection.Freddy.Node1.Option1" },
-            new CompiledTagEntry { Id = 0xBD7B497E999D20C7UL, ParentId = 0xED9E736BC7DEC7A5UL, Name = "Root.TestCollection.Freddy.Node2.Option1" },
-            new CompiledTagEntry { Id = 0x2928181D8A1A7353UL, ParentId = 0x685FCE30FE498B2BUL, Name = "Root.TestCollection.Gerard.Fork0.Route1" },
-            new CompiledTagEntry { Id = 0x5A2276C9ED193204UL, ParentId = 0x685FCE30FE498B2BUL, Name = "Root.TestCollection.Gerard.Fork0.Route2" },
+            new CompiledTagEntry { Id = 0x501BB4DE76012D7CUL, ParentId = 0xEE9E05099B229505UL, Name = "Root.TestCollection.Daniek.ForkNode0" },
+            new CompiledTagEntry { Id = 0xC80087B49E05C452UL, ParentId = 0xEE9E05099B229505UL, Name = "Root.TestCollection.Daniek.Node0" },
+            new CompiledTagEntry { Id = 0xDA38CD06D0093202UL, ParentId = 0xEE9E05099B229505UL, Name = "Root.TestCollection.Daniek.Node1" },
+            new CompiledTagEntry { Id = 0x79041D42E96D018DUL, ParentId = 0xEE9E05099B229505UL, Name = "Root.TestCollection.Daniek.Node4" },
+            new CompiledTagEntry { Id = 0xE41987D171CFA7E2UL, ParentId = 0x4B7B241B26C2346AUL, Name = "Root.TestCollection.Tim.Fork0" },
+            new CompiledTagEntry { Id = 0x889CD94FBBA5CDD1UL, ParentId = 0x4B7B241B26C2346AUL, Name = "Root.TestCollection.Tim.Node0" },
+            new CompiledTagEntry { Id = 0x893D7CB9B9A74474UL, ParentId = 0x4B7B241B26C2346AUL, Name = "Root.TestCollection.Tim.Node1" },
+            new CompiledTagEntry { Id = 0x1A8343DA92B94D21UL, ParentId = 0x501BB4DE76012D7CUL, Name = "Root.TestCollection.Daniek.ForkNode0.Route1" },
+            new CompiledTagEntry { Id = 0x9F0FD893EB3F06C7UL, ParentId = 0x501BB4DE76012D7CUL, Name = "Root.TestCollection.Daniek.ForkNode0.Route2" },
+            new CompiledTagEntry { Id = 0x86F9985619FD6CDDUL, ParentId = 0xC80087B49E05C452UL, Name = "Root.TestCollection.Daniek.Node0.Option1" },
+            new CompiledTagEntry { Id = 0x1D2A59171F461AC9UL, ParentId = 0xE41987D171CFA7E2UL, Name = "Root.TestCollection.Tim.Fork0.Route1" },
+            new CompiledTagEntry { Id = 0x28E75DAB5391BE90UL, ParentId = 0xE41987D171CFA7E2UL, Name = "Root.TestCollection.Tim.Fork0.Route2" },
         };
 
         /// <summary>Registers this story's baked tags and manifest at load (tag-addressed; no SO, no file read).</summary>
@@ -57,74 +53,42 @@ namespace Heathen.Ogham.Generated
                 {
                     new OghamEntryManifest
                     {
-                        TagPath = "Root.TestCollection.Freddy.Node0",
+                        TagPath = "Root.TestCollection.Daniek.Node0",
                         ContentKeys = new List<OghamContentManifest>
                         {
-                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Freddy Fazbear" },
-                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Daniek" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Hallo??" },
                         },
                         Options = new List<OghamOptionManifest>
                         {
                             new OghamOptionManifest
                             {
-                                TagPath = "Root.TestCollection.Freddy.Node0.Option1", TargetEntryPath = "Root.TestCollection.Freddy.ForkNode0", TextMode = "Literal", TextKey = "",
+                                TagPath = "Root.TestCollection.Daniek.Node0.Option1", TargetEntryPath = "Root.TestCollection.Daniek.ForkNode0", TextMode = "Literal", TextKey = "",
                             },
                         },
                     },
                     new OghamEntryManifest
                     {
-                        TagPath = "Root.TestCollection.Freddy.Node1",
+                        TagPath = "Root.TestCollection.Daniek.Node1",
                         ContentKeys = new List<OghamContentManifest>
                         {
-                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "b" },
-                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "a" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Daniek" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "I don't know." },
                         },
                         EntryOperations = new List<OghamOperationManifest>
                         {
                             new OghamOperationManifest { TagPath = "Dialogue.Test.Freddy.HasSpokenTo", Arithmetic = "Set", Value = 1UL, ValueTag = "", ValueType = "Unsigned", ValueString = "", TechnicalName = "", Collection = "", ProviderParams = null },
                         },
-                        Options = new List<OghamOptionManifest>
-                        {
-                            new OghamOptionManifest
-                            {
-                                TagPath = "Root.TestCollection.Freddy.Node1.Option1", TargetEntryPath = "Root.TestCollection.Freddy.Node2", TextMode = "Literal", TextKey = "",
-                            },
-                        },
                     },
                     new OghamEntryManifest
                     {
-                        TagPath = "Root.TestCollection.Freddy.Node2",
-                        ContentKeys = new List<OghamContentManifest>
-                        {
-                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Frederick" },
-                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "RAWR" },
-                        },
-                        Options = new List<OghamOptionManifest>
-                        {
-                            new OghamOptionManifest
-                            {
-                                TagPath = "Root.TestCollection.Freddy.Node2.Option1", TargetEntryPath = "Root.TestCollection.Freddy.Node3", TextMode = "Literal", TextKey = "",
-                            },
-                        },
-                    },
-                    new OghamEntryManifest
-                    {
-                        TagPath = "Root.TestCollection.Freddy.Node3",
-                        ContentKeys = new List<OghamContentManifest>
-                        {
-                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "blep" },
-                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "oki baiiii" },
-                        },
-                    },
-                    new OghamEntryManifest
-                    {
-                        TagPath = "Root.TestCollection.Freddy.ForkNode0",
+                        TagPath = "Root.TestCollection.Daniek.ForkNode0",
                         Mode = "Fork",
                         Options = new List<OghamOptionManifest>
                         {
                             new OghamOptionManifest
                             {
-                                TagPath = "Root.TestCollection.Freddy.ForkNode0.Route1", TargetEntryPath = "Root.TestCollection.Freddy.Node1", TextMode = "Literal", TextKey = "Route 1",
+                                TagPath = "Root.TestCollection.Daniek.ForkNode0.Route1", TargetEntryPath = "Root.TestCollection.Daniek.Node1", TextMode = "Literal", TextKey = "Route 1",
                                 Conditions = new List<OghamConditionManifest>
                                 {
                                     new OghamConditionManifest { TagPath = "Dialogue.Test.Freddy.HasSpokenTo", Comparison = "Equal", CompareValue = 0UL, CompareTagPath = "", CompareValueType = "Unsigned", CompareString = "", CaseSensitive = false, ExactMatch = false, LogicOp = "And", Negate = false, Unresolved = false, TechnicalName = "", Expect = true, Collection = "", ProviderParams = null },
@@ -132,7 +96,7 @@ namespace Heathen.Ogham.Generated
                             },
                             new OghamOptionManifest
                             {
-                                TagPath = "Root.TestCollection.Freddy.ForkNode0.Route2", TargetEntryPath = "Root.TestCollection.Freddy.Node4", TextMode = "Literal", TextKey = "Route 2",
+                                TagPath = "Root.TestCollection.Daniek.ForkNode0.Route2", TargetEntryPath = "Root.TestCollection.Daniek.Node4", TextMode = "Literal", TextKey = "Route 2",
                                 Conditions = new List<OghamConditionManifest>
                                 {
                                     new OghamConditionManifest { TagPath = "Dialogue.Test.Freddy.HasSpokenTo", Comparison = "Equal", CompareValue = 1UL, CompareTagPath = "", CompareValueType = "Unsigned", CompareString = "", CaseSensitive = false, ExactMatch = false, LogicOp = "And", Negate = false, Unresolved = false, TechnicalName = "", Expect = true, Collection = "", ProviderParams = null },
@@ -142,22 +106,22 @@ namespace Heathen.Ogham.Generated
                     },
                     new OghamEntryManifest
                     {
-                        TagPath = "Root.TestCollection.Freddy.Node4",
+                        TagPath = "Root.TestCollection.Daniek.Node4",
                         ContentKeys = new List<OghamContentManifest>
                         {
-                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Golden Freddy" },
-                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME " },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Daniek" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Doei druif." },
                         },
                     },
                     new OghamEntryManifest
                     {
-                        TagPath = "Root.TestCollection.Gerard.Fork0",
+                        TagPath = "Root.TestCollection.Tim.Fork0",
                         Mode = "Fork",
                         Options = new List<OghamOptionManifest>
                         {
                             new OghamOptionManifest
                             {
-                                TagPath = "Root.TestCollection.Gerard.Fork0.Route1", TargetEntryPath = "Root.TestCollection.Gerard.Node0", TextMode = "Literal", TextKey = "Route 1",
+                                TagPath = "Root.TestCollection.Tim.Fork0.Route1", TargetEntryPath = "Root.TestCollection.Tim.Node0", TextMode = "Literal", TextKey = "Route 1",
                                 Conditions = new List<OghamConditionManifest>
                                 {
                                     new OghamConditionManifest { TagPath = "Dialogue.Test.Freddy.HasSpokenTo", Comparison = "Equal", CompareValue = 0UL, CompareTagPath = "", CompareValueType = "Unsigned", CompareString = "", CaseSensitive = false, ExactMatch = false, LogicOp = "And", Negate = false, Unresolved = false, TechnicalName = "", Expect = true, Collection = "", ProviderParams = null },
@@ -165,7 +129,7 @@ namespace Heathen.Ogham.Generated
                             },
                             new OghamOptionManifest
                             {
-                                TagPath = "Root.TestCollection.Gerard.Fork0.Route2", TargetEntryPath = "Root.TestCollection.Gerard.Node1", TextMode = "Literal", TextKey = "Route 2",
+                                TagPath = "Root.TestCollection.Tim.Fork0.Route2", TargetEntryPath = "Root.TestCollection.Tim.Node1", TextMode = "Literal", TextKey = "Route 2",
                                 Conditions = new List<OghamConditionManifest>
                                 {
                                     new OghamConditionManifest { TagPath = "Dialogue.Test.Freddy.HasSpokenTo", Comparison = "Equal", CompareValue = 1UL, CompareTagPath = "", CompareValueType = "Unsigned", CompareString = "", CaseSensitive = false, ExactMatch = false, LogicOp = "And", Negate = false, Unresolved = false, TechnicalName = "", Expect = true, Collection = "", ProviderParams = null },
@@ -175,20 +139,20 @@ namespace Heathen.Ogham.Generated
                     },
                     new OghamEntryManifest
                     {
-                        TagPath = "Root.TestCollection.Gerard.Node0",
+                        TagPath = "Root.TestCollection.Tim.Node0",
                         ContentKeys = new List<OghamContentManifest>
                         {
-                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Gerard" },
-                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Talk to Freddy Fazbear before you talk to me." },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Tim" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Talk to Daniek before you talk to me." },
                         },
                     },
                     new OghamEntryManifest
                     {
-                        TagPath = "Root.TestCollection.Gerard.Node1",
+                        TagPath = "Root.TestCollection.Tim.Node1",
                         ContentKeys = new List<OghamContentManifest>
                         {
-                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Gerard" },
-                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "FIVE NIGHTS AT FREDDY'S IS THIS WHERE YOU WANNA BE" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Tim" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "I'm gonna date your mother." },
                         },
                     },
                 },

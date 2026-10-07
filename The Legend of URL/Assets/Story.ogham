@@ -84,13 +84,13 @@
                   {
                     "fields": [
                       {
-                        "key": "Freddy Fazbear",
+                        "key": "Daniek",
                         "mode": "Literal",
                         "templateField": "speakername",
                         "type": "Text"
                       },
                       {
-                        "key": "HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR HAR",
+                        "key": "Hallo??",
                         "mode": "Literal",
                         "templateField": "text",
                         "type": "Text"
@@ -116,13 +116,6 @@
                   1
                 ],
                 "opsExpanded": true,
-                "options": [
-                  {
-                    "target": "Node2",
-                    "technicalName": "Option1",
-                    "textKey": ""
-                  }
-                ],
                 "outputPins": [
                   {}
                 ],
@@ -139,102 +132,13 @@
                   {
                     "fields": [
                       {
-                        "key": "b",
+                        "key": "Daniek",
                         "mode": "Literal",
                         "templateField": "speakername",
                         "type": "Text"
                       },
                       {
-                        "key": "a",
-                        "mode": "Literal",
-                        "templateField": "text",
-                        "type": "Text"
-                      }
-                    ],
-                    "template": 1
-                  }
-                ],
-                "type": "ContentNode"
-              },
-              {
-                "displayName": "Node2",
-                "inputPins": [
-                  {}
-                ],
-                "labelIds": [
-                  1
-                ],
-                "options": [
-                  {
-                    "target": "Node3",
-                    "technicalName": "Option1",
-                    "textKey": ""
-                  }
-                ],
-                "outputPins": [
-                  {}
-                ],
-                "position": [
-                  1622.66675,
-                  215.666656
-                ],
-                "technicalName": "Node2",
-                "templateFields": [
-                  {
-                    "fields": [],
-                    "template": 0
-                  },
-                  {
-                    "fields": [
-                      {
-                        "key": "Frederick",
-                        "mode": "Literal",
-                        "templateField": "speakername",
-                        "type": "Text"
-                      },
-                      {
-                        "key": "RAWR",
-                        "mode": "Literal",
-                        "templateField": "text",
-                        "type": "Text"
-                      }
-                    ],
-                    "template": 1
-                  }
-                ],
-                "type": "ContentNode"
-              },
-              {
-                "displayName": "Node3",
-                "inputPins": [
-                  {}
-                ],
-                "labelIds": [
-                  1
-                ],
-                "outputPins": [
-                  {}
-                ],
-                "position": [
-                  2056.66675,
-                  222.666656
-                ],
-                "technicalName": "Node3",
-                "templateFields": [
-                  {
-                    "fields": [],
-                    "template": 0
-                  },
-                  {
-                    "fields": [
-                      {
-                        "key": "blep",
-                        "mode": "Literal",
-                        "templateField": "speakername",
-                        "type": "Text"
-                      },
-                      {
-                        "key": "oki baiiii",
+                        "key": "I don't know.",
                         "mode": "Literal",
                         "templateField": "text",
                         "type": "Text"
@@ -318,13 +222,13 @@
                   {
                     "fields": [
                       {
-                        "key": "Golden Freddy",
+                        "key": "Daniek",
                         "mode": "Literal",
                         "templateField": "speakername",
                         "type": "Text"
                       },
                       {
-                        "key": "IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME IT'S ME ",
+                        "key": "Doei druif.",
                         "mode": "Literal",
                         "templateField": "text",
                         "type": "Text"
@@ -336,7 +240,7 @@
                 "type": "ContentNode"
               }
             ],
-            "displayName": "Freddy",
+            "displayName": "Daniek",
             "inputPins": [
               {
                 "target": "Node0"
@@ -353,7 +257,7 @@
               80.0,
               108.0
             ],
-            "technicalName": "Freddy",
+            "technicalName": "Daniek",
             "type": "Collection"
           },
           {
@@ -431,13 +335,13 @@
                   {
                     "fields": [
                       {
-                        "key": "Gerard",
+                        "key": "Tim",
                         "mode": "Literal",
                         "templateField": "speakername",
                         "type": "Text"
                       },
                       {
-                        "key": "Talk to Freddy Fazbear before you talk to me.",
+                        "key": "Talk to Daniek before you talk to me.",
                         "mode": "Literal",
                         "templateField": "text",
                         "type": "Text"
@@ -472,13 +376,13 @@
                   {
                     "fields": [
                       {
-                        "key": "Gerard",
+                        "key": "Tim",
                         "mode": "Literal",
                         "templateField": "speakername",
                         "type": "Text"
                       },
                       {
-                        "key": "FIVE NIGHTS AT FREDDY'S IS THIS WHERE YOU WANNA BE",
+                        "key": "I'm gonna date your mother.",
                         "mode": "Literal",
                         "templateField": "text",
                         "type": "Text"
@@ -490,7 +394,7 @@
                 "type": "ContentNode"
               }
             ],
-            "displayName": "Gerard",
+            "displayName": "Tim",
             "inputPins": [
               {}
             ],
@@ -504,14 +408,14 @@
               133.42923,
               317.169922
             ],
-            "technicalName": "Gerard",
+            "technicalName": "Tim",
             "type": "Collection"
           }
         ],
         "displayName": "TestCollection",
         "inputPins": [
           {
-            "target": "Freddy"
+            "target": "Daniek"
           },
           {}
         ],
@@ -541,8 +445,8 @@
     "type": "Collection"
   },
   "viewTransform": [
-    164.349152,
-    4.31582642,
-    0.516451657
+    72.67993,
+    -36.7716675,
+    0.8041892
   ]
 }

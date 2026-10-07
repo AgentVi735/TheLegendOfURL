@@ -24,12 +24,20 @@ public class GameInitialisation : MonoBehaviour
 
     public void MovePlayer(LoadZoneData data)
     {
+        Debug.Log($"Moving player with pos: {data.newPosition}");
         if (!playerController.HasInitialised) return;
+        
+        bool wasActive = playerController.isActiveAndEnabled;
+        playerController.gameObject.SetActive(false);
+        
         bool canMove = playerController.CanMove;
         bool canRotateCam = playerController.CanRotate;
 
         if (canMove)
+        {
             playerController.ToggleMovement(false);
+            playerController.ToggleGravity(false);
+        }
         if (canRotateCam)
             playerController.ToggleCameraInput(false);
 
@@ -38,8 +46,16 @@ public class GameInitialisation : MonoBehaviour
         playerController.ForceRotateCamera(data.cameraRotation);
 
         if (canMove)
+        {
             playerController.ToggleMovement(true);
+            playerController.ToggleGravity(true);
+        }
         if (canRotateCam)
             playerController.ToggleCameraInput(true);
+        
+        if (wasActive)
+            playerController.gameObject.SetActive(true);
+        
+        Debug.Log($"Player is now at {playerController.transform.position}");
     }
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1898591255136640565}
   - component: {fileID: 3352590411603495809}
   - component: {fileID: 2467681570736742804}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: House Water Wheel 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 7004197747506437418}
   - component: {fileID: 3075782338118902039}
   - component: {fileID: 8932616175335918156}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Water Wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 4629244123497365138}
   - component: {fileID: 7335441214890479384}
   - component: {fileID: 4560961083077614565}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: House Water Wheel Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}

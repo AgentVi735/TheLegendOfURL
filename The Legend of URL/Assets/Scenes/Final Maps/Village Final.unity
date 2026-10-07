@@ -220,6 +220,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 31866722853897631, guid: b7829ec3c0fa74244bfa89d195e4a569, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2218110270031942019, guid: b7829ec3c0fa74244bfa89d195e4a569, type: 3}
       propertyPath: m_Name
       value: World_Village
@@ -263,6 +267,14 @@ PrefabInstance:
     - target: {fileID: 3068255665271829464, guid: b7829ec3c0fa74244bfa89d195e4a569, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5588704446055845053, guid: b7829ec3c0fa74244bfa89d195e4a569, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8342287823357235374, guid: b7829ec3c0fa74244bfa89d195e4a569, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6188711204490372176, guid: b7829ec3c0fa74244bfa89d195e4a569, type: 3}
@@ -909,6 +921,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5565322399224326409, guid: 6f4e413e159501446ab6c98e9c421951, type: 3}
+      propertyPath: _storyTag._id
+      value: 14411668017400628306
+      objectReference: {fileID: 0}
     - target: {fileID: 5748425564394341954, guid: 6f4e413e159501446ab6c98e9c421951, type: 3}
       propertyPath: m_Name
       value: Villager Female 1
@@ -969,7 +985,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5565322399224326409, guid: 6f4e413e159501446ab6c98e9c421951, type: 3}
       propertyPath: _storyTag._id
-      value: 7520956612552002347
+      value: 16436317648692684770
       objectReference: {fileID: 0}
     - target: {fileID: 5748425564394341954, guid: 6f4e413e159501446ab6c98e9c421951, type: 3}
       propertyPath: m_Name

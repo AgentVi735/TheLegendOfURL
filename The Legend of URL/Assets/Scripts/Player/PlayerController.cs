@@ -195,6 +195,7 @@ public class PlayerController : MonoBehaviour
 
     public void LoadSaveData()
     {
+        Debug.Log("Loading player save");
         health = SaveManager.Instance.SaveData.health;
         _hudController.UpdateHealthBar(health);
         UpdateSensitivity();

@@ -163,7 +163,7 @@ public class SceneController : MonoBehaviour
     
     private void InitialiseScene(Scene loadedScene, LoadSceneMode loadSceneMode)
     {
-        Debug.Log($"Initialising scene {loadedScene.name}");
+        Debug.Log($"Initialising scene {loadedScene.name} | Current status = {loadedScene.isLoaded}");
         SceneManager.SetActiveScene(loadedScene);
         bool isFirstLoad = !s_hasInitialised;
         if (!IsInitScene(loadedScene.name) && !s_hasStartedInitialisation && !s_hasInitialised)
@@ -183,7 +183,7 @@ public class SceneController : MonoBehaviour
             else
                 spawner.gameObject.SetActive(false);
         }
-        
+
         if (s_currentZoneData != null)
             Instance._initialisation.MovePlayer(s_currentZoneData);
         else if (SaveManager.Instance.SaveData.doesDataExist)
@@ -206,6 +206,8 @@ public class SceneController : MonoBehaviour
         
         SaveManager.Instance.Save();
         _fadeManager.StartFade(true);
+        
+        Debug.Log($"After initialising scene, player is now at {_playerController.transform.position}");
     }
 
     private void UnloadScene(Scene unloadedScene)

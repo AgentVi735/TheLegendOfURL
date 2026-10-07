@@ -257,11 +257,18 @@ public class PlayerMovement : MonoBehaviour
     public void LoadSaveData()
     {
         if (!playerController.HasInitialised) return;
+        
+        bool wasActive = playerController.isActiveAndEnabled;
+        playerController.gameObject.SetActive(false);
+        
         bool canMove = playerController.CanMove;
         bool canRotateCam = playerController.CanRotate;
 
         if (canMove)
+        {
             playerController.ToggleMovement(false);
+            playerController.ToggleGravity(false);
+        }
         if (canRotateCam)
             playerController.ToggleCameraInput(false);
 
@@ -270,9 +277,15 @@ public class PlayerMovement : MonoBehaviour
         playerController.ForceRotateCamera(SaveManager.Instance.SaveData.playerRotation.y);
 
         if (canMove)
+        {
             playerController.ToggleMovement(true);
+            playerController.ToggleGravity(true);
+        }
         if (canRotateCam)
             playerController.ToggleCameraInput(true);
+        
+        if (wasActive)
+            playerController.gameObject.SetActive(true);
     }
     
     public void SaveData()
