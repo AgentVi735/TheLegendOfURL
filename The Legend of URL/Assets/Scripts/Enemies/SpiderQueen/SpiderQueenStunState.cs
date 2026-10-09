@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 
-public class StunState : IEnemyState
+public class SpiderQueenStunState : IEnemyState
 {
-    private EnemyController _controller;
+    private SpiderQueenController _controller;
     
     private float timeSpent;
     private float stunTime;
     
     public void Initialise(EnemyController controller)
     {
-        _controller = controller;
+        _controller = (SpiderQueenController) controller;
     }
 
     public void UpdateState()
@@ -17,7 +17,7 @@ public class StunState : IEnemyState
         timeSpent += Time.deltaTime;
 
         if (timeSpent >= stunTime)
-            _controller.ChangeState(_controller.lookState);
+            _controller.GetNewState();
     }
 
     public void OnEnter()

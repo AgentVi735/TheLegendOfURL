@@ -94,7 +94,8 @@ public class FlyingAttackState : IEnemyState
     {
         targetTrans.gameObject.SetActive(true);
         timeSpent = 0;
-        _controller.meshRenderer.material.color = Color.darkRed;
+        if (_controller.meshRenderer != null)
+            _controller.meshRenderer.material.color = Color.darkRed;
         Vector3 targetPos = playerTrans.position;
         targetPos.y = enemyTrans.position.y;
         targetTrans.position = targetPos;

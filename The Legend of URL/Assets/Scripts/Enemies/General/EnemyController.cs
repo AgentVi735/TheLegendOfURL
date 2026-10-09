@@ -18,7 +18,6 @@ public abstract class EnemyController : MonoBehaviour
     public PlayerController player { get; private set; }
 
     private short health { get; set; }
-    protected EnemyControllerType type;
     public EnemyData data { get; private set; }
     public EnemyWaypoint[] patrolPath { get; private set; }
     public NavMeshQueryFilter navMeshFilter { get; private set; }
@@ -46,8 +45,8 @@ public abstract class EnemyController : MonoBehaviour
         enemyID = givenID;
         health = data.health;
         gameObject.name = data.enemyName;
-        type = data.controllerType;
-        patrolPath = receivedPath;
+        if (receivedPath != null)
+            patrolPath = receivedPath;
         player = FindAnyObjectByType<PlayerController>();
         navMeshFilter = new NavMeshQueryFilter
         {
@@ -109,7 +108,7 @@ public abstract class EnemyController : MonoBehaviour
         GetDamage(player.EnemyGetDamage());
     }
 
-    private void GetDamage(short amount)
+    protected virtual void GetDamage(short amount)
     {
         if (!canBeHit) return;
 
@@ -138,7 +137,7 @@ public abstract class EnemyController : MonoBehaviour
         ChangeState(knockbackState);
     }
 
-    public void Stun(float time)
+    public virtual void Stun(float time)
     {
         stunTime = time;
         ChangeState(stunState);

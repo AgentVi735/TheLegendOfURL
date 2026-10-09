@@ -4,12 +4,14 @@ using UnityEngine;
 public class EnemyData : ScriptableObject
 {
     public string enemyName;
-    public EnemyControllerType controllerType;
     public EnemyController prefab;
     public short health;
     public short damage;
     public float attackCooldown;
     public float attackRadius;
+    public float attackChargeTime;
+    public float interruptStunTime;
+    public float maxDamageDuringStun;
     public float sweepTime;
     public float walkSpeed;
     public float chaseSpeed;

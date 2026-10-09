@@ -96,7 +96,8 @@ public class LookForPlayerState : IEnemyState
 
     public void OnEnter()
     {
-        _controller.meshRenderer.material.color = Color.yellow;
+        if (_controller.meshRenderer != null)
+            _controller.meshRenderer.material.color = Color.yellow;
         timeSpent = 0;
         GetPlayerDirection();
     }

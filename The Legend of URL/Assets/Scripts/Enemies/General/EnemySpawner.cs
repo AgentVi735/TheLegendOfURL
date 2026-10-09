@@ -19,16 +19,20 @@ public class EnemySpawner : MonoBehaviour
             gameObject.SetActive(false);
             return;
         }
-        
-        List<EnemyWaypoint> path = new() { patrolPath };
-        foreach (EnemyWaypoint availableWaypoint in patrolPath.availableWaypoints)
+
+        List<EnemyWaypoint> path = new();
+        if (patrolPath != null)
         {
-            if (!path.Contains(availableWaypoint))
-                path.Add(availableWaypoint);
+            path.Add(patrolPath);
+            foreach (EnemyWaypoint availableWaypoint in patrolPath.availableWaypoints)
+            {
+                if (!path.Contains(availableWaypoint))
+                    path.Add(availableWaypoint);
+            }
         }
 
         Vector3 spawnPos = (spawnTrans != null ? spawnTrans.position : transform.position) + spawnOffset;
         enemy = Instantiate(enemyToSpawn.prefab, spawnPos, transform.rotation, transform);
-        enemy.Initialise(enemyToSpawn, path.ToArray(), EnemyID);
+        enemy.Initialise(enemyToSpawn, patrolPath != null ? path.ToArray() : null, EnemyID);
     }
 }

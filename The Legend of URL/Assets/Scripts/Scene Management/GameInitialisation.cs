@@ -20,6 +20,7 @@ public class GameInitialisation : MonoBehaviour
     public void TogglePlayer(bool toggle)
     {
         playerController?.ToggleAllInputs(toggle);
+        playerController?.HudController.gameObject.SetActive(toggle);
     }
 
     public void MovePlayer(LoadZoneData data)

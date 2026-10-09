@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-public class BasicAttackState : IEnemyState
+﻿public class SpiderQueenAttackState : IEnemyState
 {
     private EnemyController _controller;
     
@@ -15,10 +13,8 @@ public class BasicAttackState : IEnemyState
 
     public void OnEnter()
     {
-        if (_controller.meshRenderer != null)
-            _controller.meshRenderer.material.color = Color.darkCyan;
         _controller.player.OnHit(_controller.data.damage);
-        _controller.Stun(_controller.data.attackCooldown);
+        _controller.ChangeState(_controller.moveState);
     }
 
     public void OnExit()

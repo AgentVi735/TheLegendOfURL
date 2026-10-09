@@ -1513,6 +1513,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3068587198094385142, guid: 9821005e27d28124884f6af0f337f784, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5447143272530145510, guid: 9821005e27d28124884f6af0f337f784, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -1532,6 +1536,14 @@ PrefabInstance:
     - target: {fileID: 5447143272530145510, guid: 9821005e27d28124884f6af0f337f784, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5668963620665197242, guid: 9821005e27d28124884f6af0f337f784, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5668963620665197242, guid: 9821005e27d28124884f6af0f337f784, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6002695430161959638, guid: 9821005e27d28124884f6af0f337f784, type: 3}
       propertyPath: m_fontAsset

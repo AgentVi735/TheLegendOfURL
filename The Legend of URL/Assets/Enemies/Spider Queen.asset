@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea26bcb2333e416ea3dd515459db160d, type: 3}
+  m_Name: Spider Queen
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyData
+  enemyName: Spider Queen
+  prefab: {fileID: 6961365221439129243, guid: 9fc6bcc2a3ab00c45920cb7f497e37d6, type: 3}
+  health: 250
+  damage: 10
+  attackCooldown: 0.8
+  attackRadius: 1.7
+  attackChargeTime: 0.8
+  interruptStunTime: 3
+  maxDamageDuringStun: 30
+  sweepTime: 0
+  walkSpeed: 2.5
+  chaseSpeed: 4
+  turnSpeed: 9.52
+  gravitySpeed: 12
+  knockbackMultiplier: 6
+  knockbackSpeed: 10
+  knockbackVelocityOffset: {x: 0, y: 0.3, z: -0.35}
+  knockbackStunTime: 0.1
+  invincibleTimeAfterHit: 0.5
+  detectDistance: 22.1
+  forceDetectDistance: 9.5
+  followRange: 19
+  maxLookTime: 7
+  stalkRange: 0
+  stalkDestinationsAmount: {x: 0, y: 0}

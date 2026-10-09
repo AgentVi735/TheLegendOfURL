@@ -23,6 +23,11 @@ internal static class EditorSceneBrowser
     private static void OpenEditorForest() => OpenScene("Assets/Scenes/Maps/Forest House.unity");
     [MenuItem("Scenes/Editor/Ravine")]
     private static void OpenEditorRavine() => OpenScene("Assets/Scenes/Maps/Ravine Bridge.unity");
+    
+    [MenuItem("Scenes/Vicky/Main")]
+    private static void OpenVickyMain() => OpenScene("Assets/Scenes/Vicky.unity");
+    [MenuItem("Scenes/Vicky/Boss")]
+    private static void OpenVickyBoss() => OpenScene("Assets/Scenes/Boss Test.unity");
 
     private static void OpenScene(string scenePath)
     {

@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: 44b88fae749f7bf4a80185404491fe3d
   - enabled: 1
+    path: Assets/Scenes/Boss Test.unity
+    guid: a1150f5dfda1f75479f48ef967128b1a
+  - enabled: 1
     path: Assets/Scenes/Final Maps/Village Final.unity
     guid: 89e5611c9f4970b4aa5c050d55d35333
   - enabled: 1

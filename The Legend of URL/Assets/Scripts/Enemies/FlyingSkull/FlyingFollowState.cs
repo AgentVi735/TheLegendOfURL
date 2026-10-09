@@ -164,7 +164,8 @@ public class FlyingFollowState : IEnemyState
 
     public void OnEnter()
     {
-        _controller.meshRenderer.material.color = Color.darkBlue;
+        if (_controller.meshRenderer != null)
+            _controller.meshRenderer.material.color = Color.darkBlue;
         lastSeenPos = playerTransform.position;
     }
 

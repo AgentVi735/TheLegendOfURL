@@ -208,7 +208,8 @@ public class FlyingPatrolState : IEnemyState
 
     public void OnEnter()
     {
-        _controller.meshRenderer.material.color = Color.green;
+        if (_controller.meshRenderer != null)
+            _controller.meshRenderer.material.color = Color.green;
         pathIdx = -1;
 
         float closestPosDiff = 0;
