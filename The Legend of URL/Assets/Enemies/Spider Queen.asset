@@ -24,12 +24,13 @@ MonoBehaviour:
   sweepTime: 0
   walkSpeed: 2.5
   chaseSpeed: 4
-  turnSpeed: 9.52
+  turnSpeed: 4.72
+  movementTurnSpeed: 9.34
   gravitySpeed: 12
-  knockbackMultiplier: 6
-  knockbackSpeed: 10
-  knockbackVelocityOffset: {x: 0, y: 0.3, z: -0.35}
-  knockbackStunTime: 0.1
+  knockbackMultiplier: 0
+  knockbackSpeed: 0
+  knockbackVelocityOffset: {x: 0, y: 0, z: 0}
+  knockbackStunTime: 0
   invincibleTimeAfterHit: 0.5
   detectDistance: 22.1
   forceDetectDistance: 9.5

@@ -23,7 +23,7 @@ public abstract class EnemyController : MonoBehaviour
     public NavMeshQueryFilter navMeshFilter { get; private set; }
     private string enemyID;
 
-    private IEnemyState currentState;
+    protected IEnemyState currentState;
 
     public IEnemyState idleState;
     public IEnemyState moveState;
@@ -78,6 +78,8 @@ public abstract class EnemyController : MonoBehaviour
 
     public virtual void ChangeState(IEnemyState newState)
     {
+        if (newState == null)
+            return;
         currentState?.OnExit();
         currentState = newState;
         currentState.OnEnter();
@@ -133,6 +135,16 @@ public abstract class EnemyController : MonoBehaviour
     private void GetKnockback()
     {
         hitVelocity = transform.TransformDirection(data.knockbackVelocityOffset);
+        float angle = (player.transform.eulerAngles - transform.eulerAngles).y;
+        
+        Vector3 direction = new(
+            Mathf.Cos(angle * Mathf.Deg2Rad), 
+            0, 
+            Mathf.Sin(angle * Mathf.Deg2Rad)
+        );
+        
+        Debug.Log($"{direction} | {hitVelocity}");
+        
         hitVelocity *= data.knockbackMultiplier;
         ChangeState(knockbackState);
     }

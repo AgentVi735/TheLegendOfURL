@@ -1,5 +1,10 @@
-﻿public class SpiderQueenController : EnemyController
+﻿using UnityEngine;
+
+public class SpiderQueenController : EnemyController
 {
+    public Transform MovementTrans => movementTrans;
+    [SerializeField] private Transform movementTrans;
+    
     private SpiderQueenPhase phase;
     public bool isCharging;
     public bool isStunned;
@@ -28,10 +33,10 @@
         attackChargeState.Initialise(this);
         attackState = new SpiderQueenAttackState();
         attackState.Initialise(this);
-        knockbackState = new KnockbackState();
-        knockbackState.Initialise(this);
         stunState = new SpiderQueenStunState();
         stunState.Initialise(this);
+        crawlToCeilingState = new SpiderQueenMoveToCeilingState();
+        crawlToCeilingState.Initialise(this);
     }
 
     public void GetNewState()
@@ -41,7 +46,11 @@
             default:
             case SpiderQueenPhase.None:
             case SpiderQueenPhase.Main:
-                ChangeState(moveState);
+                Debug.Log($"{currentState} | {stunState}");
+                if (currentState == stunState)
+                    WalkToCeiling();
+                else
+                    ChangeState(moveState);
                 break;
             case SpiderQueenPhase.Drop:
             case SpiderQueenPhase.Final:
@@ -80,6 +89,15 @@
 
     private void WalkToCeiling()
     {
-        ChangeState(walkOnCeilingState);
+        Debug.Log("cleing");
+        ChangeState(crawlToCeilingState);
+    }
+
+    public override void ChangeState(IEnemyState newState)
+    {
+        if (newState == null)
+            return;
+        Debug.Log(newState);
+        base.ChangeState(newState);
     }
 }

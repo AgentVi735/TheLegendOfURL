@@ -14,6 +14,9 @@ public class SaveManager : MonoBehaviour
     [SerializeField] private string _storySavePath;
 
     public bool CanSave;
+#if UNITY_EDITOR
+    [SerializeField] private bool CanSaveInEditor;
+#endif
 
     [Header("References")]
     [SerializeField] private PlayerController _playerController;
@@ -55,6 +58,10 @@ public class SaveManager : MonoBehaviour
         string json = JsonUtility.ToJson(SaveData);
         try
         {
+#if UNITY_EDITOR
+            if (!CanSaveInEditor)
+                return;
+#endif
             File.WriteAllText(Application.persistentDataPath + _savePath, json);
         }
         catch
@@ -69,6 +76,10 @@ public class SaveManager : MonoBehaviour
 
     private void LoadSave()
     {
+#if UNITY_EDITOR
+        if (!CanSaveInEditor)
+            return;
+#endif
         string json = File.ReadAllText(Application.persistentDataPath + _savePath);
 
         try
@@ -103,6 +114,11 @@ public class SaveManager : MonoBehaviour
     private void OnDestroy()
     {
         Save();
+        
+#if UNITY_EDITOR
+        if (!CanSaveInEditor)
+            SaveData.ResetData();
+#endif
     }
 
     public void SaveStory()
@@ -119,6 +135,10 @@ public class SaveManager : MonoBehaviour
         string json = JsonUtility.ToJson(saveState);
         try
         {
+#if UNITY_EDITOR
+            if (!CanSaveInEditor)
+                return;
+#endif
             File.WriteAllText(Application.persistentDataPath + _storySavePath, json);
         }
         catch
@@ -133,6 +153,10 @@ public class SaveManager : MonoBehaviour
 
     public void LoadStory()
     {
+#if UNITY_EDITOR
+        if (!CanSaveInEditor)
+            return;
+#endif
         if (!File.Exists(Application.persistentDataPath + _storySavePath))
         {
             Debug.Log("No story save file found, creating new save file...");

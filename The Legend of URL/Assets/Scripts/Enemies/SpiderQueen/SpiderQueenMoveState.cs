@@ -4,12 +4,15 @@ using UnityEngine.AI;
 public class SpiderQueenMoveState : IEnemyState
 {
     private SpiderQueenController _controller;
-    
+
+    private Transform movementTransform;
     private Transform playerTransform;
     private Transform enemyTransform;
     private Transform eyesTransform;
     private CharacterController character;
     private float speed;
+    private float turnSpeed;
+    private float movementTurnSpeed;
     private float followRange;
     private float attackRange;
     private Vector3 posToMoveToLocal;
@@ -24,9 +27,12 @@ public class SpiderQueenMoveState : IEnemyState
     {
         _controller = (SpiderQueenController) controller;
         character = _controller.characterController;
+        movementTransform = _controller.MovementTrans;
         enemyTransform = character.transform;
         eyesTransform = _controller.eyesTransform;
         speed = _controller.data.chaseSpeed;
+        turnSpeed = _controller.data.turnSpeed;
+        movementTurnSpeed = _controller.data.movementTurnSpeed;
         followRange = _controller.data.followRange;
         attackRange = _controller.data.attackRadius;
         playerTransform = _controller.player.transform;
@@ -72,8 +78,12 @@ public class SpiderQueenMoveState : IEnemyState
             return;
         posToMoveTo = path.corners[1];
         posToMoveToLocal = posToMoveTo - enemyTransform.position;
-
-        enemyTransform.LookAt(playerTransform.position);
+        
+        Vector3 posToLookAt = posToMoveToLocal;
+        posToLookAt.y = 0;
+        Quaternion deltaRotation = Quaternion.FromToRotation(movementTransform.forward, posToLookAt);
+        movementTransform.rotation = Quaternion.Lerp(movementTransform.rotation, movementTransform.rotation * deltaRotation,
+            movementTurnSpeed * Time.deltaTime);
 
         Vector3 velocity = Vector3.zero;
         if (isOnGround)
@@ -84,10 +94,15 @@ public class SpiderQueenMoveState : IEnemyState
 
         velocity.y += _controller.data.gravitySpeed * Time.deltaTime;
 
-        Vector3 movePos = enemyTransform.forward * (speed * Time.deltaTime);
-        movePos += -enemyTransform.up * velocity.y;
+        Vector3 movePos = movementTransform.forward * (speed * Time.deltaTime);
+        movePos += -movementTransform.up * velocity.y;
 
         character.Move(movePos);
+        Vector3 playerPos = playerTransform.position - enemyTransform.position;
+        playerPos.y = 0;
+        deltaRotation = Quaternion.FromToRotation(enemyTransform.forward, playerPos);
+        enemyTransform.rotation = Quaternion.Lerp(enemyTransform.rotation, enemyTransform.rotation * deltaRotation,
+            turnSpeed * Time.deltaTime);
     }
 
     public void OnEnter()

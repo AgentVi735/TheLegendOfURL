@@ -16,6 +16,7 @@ public class EnemyData : ScriptableObject
     public float walkSpeed;
     public float chaseSpeed;
     public float turnSpeed;
+    public float movementTurnSpeed;
     public float gravitySpeed;
     public float knockbackMultiplier;
     public float knockbackSpeed;
