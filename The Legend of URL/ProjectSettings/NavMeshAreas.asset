@@ -69,12 +69,12 @@ NavMeshProjectSettings:
     cost: 1
   - name: 
     cost: 1
-  m_LastAgentTypeID: -334000983
+  m_LastAgentTypeID: 1479372276
   m_Settings:
   - serializedVersion: 3
     agentTypeID: 0
     agentRadius: 0.5
-    agentHeight: 2
+    agentHeight: 0.5
     agentSlope: 23.3
     agentClimb: 0.4
     ledgeDropHeight: 0
@@ -126,6 +126,6 @@ NavMeshProjectSettings:
     debug:
       m_Flags: 0
   m_SettingNames:
-  - Humanoid
+  - Spider
   - Flying
   - Spider Queen

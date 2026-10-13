@@ -179,7 +179,7 @@ public class SceneController : MonoBehaviour
         {
             bool wasKilled = _saveManager.SaveData.GetEnemyIDKilled(spawner.EnemyID);
             if (!wasKilled)
-                spawner.SpawnEnemy();
+                spawner.TrySpawnOnStart();
             else
                 spawner.gameObject.SetActive(false);
         }

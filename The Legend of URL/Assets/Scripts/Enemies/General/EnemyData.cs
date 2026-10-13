@@ -12,6 +12,7 @@ public class EnemyData : ScriptableObject
     public float attackChargeTime;
     public float interruptStunTime;
     public float maxDamageDuringStun;
+    public float screamAnimationDuration;
     public float sweepTime;
     public float walkSpeed;
     public float chaseSpeed;
@@ -29,4 +30,6 @@ public class EnemyData : ScriptableObject
     public float maxLookTime;
     public float stalkRange;
     public Vector2Int stalkDestinationsAmount;
+    public Vector2Int minionSpawnAmount;
+    public float minionSpawnCooldown;
 }

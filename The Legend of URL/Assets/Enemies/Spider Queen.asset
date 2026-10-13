@@ -21,6 +21,7 @@ MonoBehaviour:
   attackChargeTime: 0.8
   interruptStunTime: 3
   maxDamageDuringStun: 30
+  screamAnimationDuration: 1
   sweepTime: 0
   walkSpeed: 2.5
   chaseSpeed: 4
@@ -38,3 +39,5 @@ MonoBehaviour:
   maxLookTime: 7
   stalkRange: 0
   stalkDestinationsAmount: {x: 0, y: 0}
+  minionSpawnAmount: {x: 2, y: 4}
+  minionSpawnCooldown: 45

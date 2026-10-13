@@ -3,15 +3,20 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private EnemyData enemyToSpawn;
+    [SerializeField] protected EnemyData enemyToSpawn;
     public string EnemyID => _enemyID;
     [SerializeField] private string _enemyID;
-    [SerializeField] private Transform spawnTrans;
-    [SerializeField] private Vector3 spawnOffset;
+    [SerializeField] protected Transform spawnTrans;
+    [SerializeField] protected Vector3 spawnOffset;
     [SerializeField] private EnemyWaypoint patrolPath;
-    private EnemyController enemy;
+    protected EnemyController enemy;
 
-    public void SpawnEnemy()
+    public virtual void TrySpawnOnStart()
+    {
+        SpawnEnemy();
+    }
+    
+    public virtual void SpawnEnemy()
     {
         if (string.IsNullOrEmpty(_enemyID))
         {

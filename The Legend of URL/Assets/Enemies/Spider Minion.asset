@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea26bcb2333e416ea3dd515459db160d, type: 3}
+  m_Name: Spider Minion
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyData
+  enemyName: Spider Minion
+  prefab: {fileID: 5534585668717527919, guid: 2b81338f48c99774abc5b93afa49920f, type: 3}
+  health: 5
+  damage: 5
+  attackCooldown: 0.8
+  attackRadius: 1.2
+  attackChargeTime: 0
+  interruptStunTime: 0
+  maxDamageDuringStun: 0
+  screamAnimationDuration: 0
+  sweepTime: 0
+  walkSpeed: 2.5
+  chaseSpeed: 3
+  turnSpeed: 6.16
+  movementTurnSpeed: 0
+  gravitySpeed: 12
+  knockbackMultiplier: 10
+  knockbackSpeed: 7
+  knockbackVelocityOffset: {x: 0, y: 0.3, z: -0.35}
+  knockbackStunTime: 0.1
+  invincibleTimeAfterHit: 0.5
+  detectDistance: 22.1
+  forceDetectDistance: 0
+  followRange: 19
+  maxLookTime: 0
+  stalkRange: 0
+  stalkDestinationsAmount: {x: 0, y: 0}
+  minionSpawnAmount: {x: 0, y: 0}
