@@ -450,7 +450,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 888175683124302321, guid: ba010dbfb7c83d54da04449433867273, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.78
+      value: -1.45
       objectReference: {fileID: 0}
     - target: {fileID: 888175683124302321, guid: ba010dbfb7c83d54da04449433867273, type: 3}
       propertyPath: m_LocalPosition.y
@@ -458,7 +458,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 888175683124302321, guid: ba010dbfb7c83d54da04449433867273, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.21
       objectReference: {fileID: 0}
     - target: {fileID: 888175683124302321, guid: ba010dbfb7c83d54da04449433867273, type: 3}
       propertyPath: m_LocalRotation.w
@@ -492,6 +492,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Regular Spider
       objectReference: {fileID: 0}
+    - target: {fileID: 6735155253296122435, guid: ba010dbfb7c83d54da04449433867273, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c1e4761d08b19cf44a97cd43005a5a8c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -610,6 +614,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5910517170511004718, guid: 7457951ebad962e4eae12ff2ec094703, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4f71f7618d400754cadb76fa96ffbb60, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -741,9 +749,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Baby Spider
       objectReference: {fileID: 0}
+    - target: {fileID: 5886988460223219752, guid: 2739679689e8ff046a59d763d3734a79, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f13b828d71239ec4682fb3bfd2344fe0, type: 2}
     - target: {fileID: 7518290167703774394, guid: 2739679689e8ff046a59d763d3734a79, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.121605486
+      value: 10.63
       objectReference: {fileID: 0}
     - target: {fileID: 7518290167703774394, guid: 2739679689e8ff046a59d763d3734a79, type: 3}
       propertyPath: m_LocalPosition.y
