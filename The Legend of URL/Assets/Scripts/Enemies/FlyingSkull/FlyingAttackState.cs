@@ -92,10 +92,9 @@ public class FlyingAttackState : IEnemyState
 
     public void OnEnter()
     {
+        _controller.Animator.SetBool("isDiving", true);
         targetTrans.gameObject.SetActive(true);
         timeSpent = 0;
-        if (_controller.meshRenderer != null)
-            _controller.meshRenderer.material.color = Color.darkRed;
         Vector3 targetPos = playerTrans.position;
         targetPos.y = enemyTrans.position.y;
         targetTrans.position = targetPos;
@@ -113,6 +112,7 @@ public class FlyingAttackState : IEnemyState
 
     public void OnExit()
     {
+        _controller.Animator.SetBool("isDiving", false);
         enemyTrans.rotation = Quaternion.Euler(0, enemyTrans.rotation.eulerAngles.y, 0);
         targetTrans.gameObject.SetActive(false);
     }

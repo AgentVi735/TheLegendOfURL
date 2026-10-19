@@ -23,8 +23,6 @@ public class SpiderQueenStunState : IEnemyState
     public void OnEnter()
     {
         _controller.Animator.SetBool("isStunned", true);
-        if (_controller.meshRenderer != null)
-            _controller.meshRenderer.material.color = Color.red;
         timeSpent = 0;
         stunTime = _controller.stunTime;
     }

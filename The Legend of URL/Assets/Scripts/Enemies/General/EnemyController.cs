@@ -6,8 +6,6 @@ public abstract class EnemyController : MonoBehaviour
 {
     public CharacterController characterController => _characterController;
     [SerializeField] private CharacterController _characterController;
-    public MeshRenderer meshRenderer => _meshRenderer;
-    [SerializeField] private MeshRenderer _meshRenderer;
     [SerializeField] private NavMeshAgent _navMeshAgent;
     public Transform eyesTransform => _eyesTransform;
     [SerializeField] private Transform _eyesTransform;

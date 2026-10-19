@@ -209,8 +209,6 @@ public class FlyingStalkState : IEnemyState
 
     public void OnEnter()
     {
-        if (_controller.meshRenderer != null)
-            _controller.meshRenderer.material.color = Color.forestGreen;
         Vector3 targetPos = playerTrans.position;
         Vector3 charPos = _controller.GetNavMeshPosition(targetPos, enemyTrans.position);
         targetPos.y = charPos.y;

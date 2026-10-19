@@ -15,8 +15,7 @@ public class BasicAttackState : IEnemyState
 
     public void OnEnter()
     {
-        if (_controller.meshRenderer != null)
-            _controller.meshRenderer.material.color = Color.darkCyan;
+        _controller.Animator.SetTrigger("attack");
         _controller.player.OnHit(_controller.data.damage);
         _controller.Stun(_controller.data.attackCooldown);
     }

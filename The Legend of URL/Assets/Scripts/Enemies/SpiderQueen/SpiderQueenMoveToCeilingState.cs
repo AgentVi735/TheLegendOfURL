@@ -101,8 +101,6 @@ public class SpiderQueenMoveToCeilingState : IEnemyState
 
     public void OnEnter()
     {
-        if (_controller.meshRenderer != null)
-            _controller.meshRenderer.material.color = Color.darkBlue;
     }
 
     public void OnExit()

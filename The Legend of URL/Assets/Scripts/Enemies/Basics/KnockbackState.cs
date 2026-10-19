@@ -46,8 +46,6 @@ public class KnockbackState : IEnemyState
 
     public void OnEnter()
     {
-        if (_controller.meshRenderer != null)
-            _controller.meshRenderer.material.color = Color.blueViolet;
     }
 
     public void OnExit()
