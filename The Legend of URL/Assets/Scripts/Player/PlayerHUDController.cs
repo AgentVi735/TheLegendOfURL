@@ -1,4 +1,8 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.DualShock;
+using UnityEngine.InputSystem.Switch;
+using UnityEngine.InputSystem.XInput;
 using UnityEngine.UI;
 
 public class PlayerHUDController : MonoBehaviour
@@ -8,6 +12,14 @@ public class PlayerHUDController : MonoBehaviour
     
     [Header("UI References")]
     [SerializeField] private Slider healthBar;
+    [SerializeField] private Image interactButtonImage;
+    [SerializeField] private RectTransform interactButtonTransform;
+
+    [Header("Interact Button Sprites")]
+    [SerializeField] private Sprite keyboardInteractSprite;
+    [SerializeField] private Sprite switchInteractSprite;
+    [SerializeField] private Sprite psInteractSprite;
+    [SerializeField] private Sprite xboxInteractSprite;
 
     public void Initialise(int maxHealth)
     {
@@ -19,5 +31,28 @@ public class PlayerHUDController : MonoBehaviour
     public void UpdateHealthBar(int health)
     {
         healthBar.value = health >= 0 ? health : 0;
+    }
+
+    public void SetInteractButtonPosition(Vector3 pos)
+    {
+        interactButtonTransform.position = pos;
+    }
+
+    public void ToggleInteractButton(bool toggle) => interactButtonTransform.gameObject.SetActive(toggle);
+
+    public void SetInteractButtonSprite(ControlScheme controlScheme)
+    {
+        if (controlScheme == ControlScheme.Gamepad)
+        {
+            interactButtonImage.sprite = Gamepad.current switch
+            {
+                DualShockGamepad _ => psInteractSprite,
+                XInputController _ => xboxInteractSprite,
+                SwitchProControllerHID _ => switchInteractSprite,
+                _ => interactButtonImage.sprite
+            };
+        }
+        else
+            interactButtonImage.sprite = keyboardInteractSprite;
     }
 }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1898591255136640565}
   - component: {fileID: 3352590411603495809}
   - component: {fileID: 2467681570736742804}
+  - component: {fileID: 3376908004163950405}
   m_Layer: 7
   m_Name: House Water Wheel 1
   m_TagString: Untagged
@@ -93,6 +94,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3376908004163950405
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1871799317861565883}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.9897842, y: 6.6164536, z: 5.494634}
+  m_Center: {x: -1.0225717, y: 2.0409546, z: 0.000037908554}
 --- !u!1 &2860669813133236648
 GameObject:
   m_ObjectHideFlags: 0

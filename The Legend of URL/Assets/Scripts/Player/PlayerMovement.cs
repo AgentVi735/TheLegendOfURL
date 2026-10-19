@@ -154,7 +154,7 @@ public class PlayerMovement : MonoBehaviour
 
             controller.Move(movePos);
         }
-        
+
         if (!CanMove) return;
         
         Vector2 moveAmount = movementInput.ReadValue<Vector2>();

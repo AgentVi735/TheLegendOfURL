@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private CinemachineCamera cinemachineCamera;
     [SerializeField] private CinemachineOrbitalFollow cinemachineOrbitalFollow;
     [SerializeField] private CinemachineInputAxisController cinemachineInputController;
+    [SerializeField] private Camera _camera;
     public AudioPlayer AudioPlayer => _audioPlayer;
     [SerializeField] private AudioPlayer _audioPlayer;
 
@@ -48,6 +49,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask interactLayerMask;
     [SerializeField] private int maxInteractColliders = 1;
     [SerializeField] private string npcTag;
+    private Transform closestNpcObject;
     
 #if UNITY_EDITOR
     [Header("Editor Options")]
@@ -143,23 +145,58 @@ public class PlayerController : MonoBehaviour
         print("Death :3");
     }
 
-    private void OnInteractPressed(InputAction.CallbackContext ctx)
+    private void Update()
+    {
+        if (CanMove && CanRotate && CanInteract)
+            CheckForInteractions();
+        else
+            _hudController.ToggleInteractButton(false);
+    }
+
+    private void CheckForInteractions()
     {
         if (!CanInteract) return;
         
         int hitCount = Physics.OverlapSphereNonAlloc(transform.position, interactRadius, interactColliders,
             interactLayerMask);
-        if (hitCount <= 0) return;
-        int idx = -1;
+        if (hitCount <= 0)
+        {
+            closestNpcObject = null;
+            _hudController.ToggleInteractButton(false);
+            return;
+        }
+
         foreach (Collider collider in interactColliders)
         {
-            idx++;
             if (collider == null)
                 continue;
-            Debug.Log($"Index: {idx} | Collider: {collider.name} | Distance: {Vector3.Distance(transform.position, collider.transform.position)}");
             if (collider.CompareTag(npcTag))
-                InteractWithNpc(collider.gameObject);
+                closestNpcObject = collider.transform;
         }
+
+        if (closestNpcObject == null)
+        {
+            _hudController.ToggleInteractButton(false);
+            return;
+        }
+
+        Vector2 buttonPos = _camera.WorldToScreenPoint(closestNpcObject.position);
+        _hudController.SetInteractButtonPosition(buttonPos);
+        _hudController.ToggleInteractButton(true);
+    }
+
+    private void OnInteractPressed(InputAction.CallbackContext ctx)
+    {
+        if (!CanInteract) return;
+        
+        if (closestNpcObject == null)
+        {
+            CheckForInteractions();
+            if (closestNpcObject == null)
+                return;
+        }
+        
+        InteractWithNpc(closestNpcObject.gameObject);
     }
 
     public void ToggleAllInputs(bool toggle)
@@ -214,6 +251,7 @@ public class PlayerController : MonoBehaviour
     public void OnDeviceChange(ControlScheme newScheme)
     {
         UpdateSensitivity(newScheme);
+        _hudController.SetInteractButtonSprite(newScheme);
     }
 
     private void UpdateSensitivity()
