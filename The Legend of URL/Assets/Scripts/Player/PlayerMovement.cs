@@ -42,9 +42,14 @@ public class PlayerMovement : MonoBehaviour
     public bool CanRun;
     public bool CanJump;
     private bool isOnGround;
+    private bool isJumping;
 #if UNITY_EDITOR
     public bool disableKeyboard;
 #endif
+    
+    private float walkAnimTarget = 0f;
+    [SerializeField] private float walkAnimSmoothing = 0.03f;
+    private float walkAnimCurrent = 0f;
 
     public void Initialise()
     {
@@ -130,7 +135,7 @@ public class PlayerMovement : MonoBehaviour
         isOnGround = Physics.Raycast(transform.position, -transform.up, out RaycastHit _,
             groundRaycastDistance, groundLayerMask);
 
-        Vector3 movePos = Vector3.zero; 
+        Vector3 movePos = Vector3.zero;
         if (HasGravity)
         {
             Vector3 velocity = Vector3.zero;
@@ -139,7 +144,7 @@ public class PlayerMovement : MonoBehaviour
                 if (velocity.y < -2f)
                     velocity.y = -2f;
             }
-        
+
             velocity.y += gravitySpeed * Time.deltaTime;
 
             movePos += -characterTrans.up * velocity.y;
@@ -149,39 +154,70 @@ public class PlayerMovement : MonoBehaviour
                 movePos += extraVelocity;
                 jumpVelocity -= extraVelocity;
                 if (jumpVelocity.y < 0.1f || (jumpVelocity.y < baseJumpVelocity.y / 3 && isOnGround))
+                {
                     jumpVelocity.y = 0;
+                    ToggleMovement(false);
+                    playerController.Animator.SetTrigger("land");
+                }
             }
 
             controller.Move(movePos);
         }
 
-        if (!CanMove) return;
-        
+        if (!CanMove)
+        {
+            StopWalkAnimation();
+            return;
+        }
+
         Vector2 moveAmount = movementInput.ReadValue<Vector2>();
-        if (moveAmount == Vector2.zero) return;
-        
+        if (moveAmount == Vector2.zero)
+        {
+            StopWalkAnimation();
+            return;
+        }
+
         float deltaRot = -camTrans.rotation.eulerAngles.y;
         if (deltaRot != 0)
         {
             Quaternion rotation = Quaternion.AngleAxis(deltaRot, Vector3.forward);
             moveAmount = rotation * moveAmount;
         }
-        
+
         movePos = new Vector3(moveAmount.x, 0, moveAmount.y);
-        
+
         Quaternion deltaRotation = Quaternion.FromToRotation(characterTrans.forward, movePos);
         characterTrans.rotation = Quaternion.Lerp(characterTrans.rotation, characterTrans.rotation * deltaRotation,
             (isRunning ? runTurnSpeed : turnSpeed) * Time.deltaTime);
 
         float amtX = Math.Abs(moveAmount.x);
         float amtY = Math.Abs(moveAmount.y);
-        
+
         float highestInputAmt = Math.Max(amtX, amtY);
         float currentSpeed = speed;
         if (!isRunning && highestInputAmt < strollInputMax)
             currentSpeed = strollSpeed;
-        
+
         controller.Move(characterTrans.forward * (currentSpeed * Time.deltaTime));
+
+        WalkAnimation(highestInputAmt);
+    }
+
+    private void WalkAnimation(float moveSpeed)
+    {
+        walkAnimTarget = moveSpeed;
+        
+        walkAnimCurrent = Mathf.Lerp(walkAnimCurrent, walkAnimTarget, walkAnimSmoothing);
+        
+        playerController.Animator.SetFloat("walkSpeed", walkAnimCurrent);
+    }
+
+    private void StopWalkAnimation()
+    {
+        walkAnimTarget = 0;
+        walkAnimCurrent = 0;
+        
+        playerController.Animator.SetFloat("walkSpeed", walkAnimCurrent);
     }
 
     private void OnPausePressed(InputAction.CallbackContext ctx)
@@ -198,6 +234,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isRunning || !CanRun) return;
         isRunning = true;
+        playerController.Animator.SetBool("isRunning", true);
         speed += runModifier;
     }
 
@@ -205,13 +242,28 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!isRunning) return;
         isRunning = false;
+        playerController.Animator.SetBool("isRunning", false);
         speed -= runModifier;
     }
 
     private void OnJumpPressed(InputAction.CallbackContext ctx)
     {
-        if (!isOnGround || jumpVelocity.y > 0) return;
+        if (!isOnGround || jumpVelocity.y > 0 || isJumping) return;
+        isJumping = true;
+        ToggleMovement(false);
+        playerController.Animator.SetTrigger("jump");
+    }
+
+    public void FinishPreJump()
+    {
         jumpVelocity += baseJumpVelocity;
+        ToggleMovement(true);
+    }
+
+    public void FinishLanding()
+    {
+        ToggleMovement(true);
+        isJumping = false;
     }
     
     public void TogglePause(bool toggle)

@@ -11,8 +11,6 @@ public class PlayerAttackManager : MonoBehaviour
     [SerializeField] private Transform characterTransform;
     [SerializeField] private Transform cameraTarget;
     [SerializeField] private BoxCollider swordCollider;
-    [SerializeField] private Animator swordAnimator; // TODO: TEMPORARY, THIS WILL GET REPLACED WITH PLAYER ANIMATOR
-    [SerializeField] private string swordAnimationPath; // TODO: TEMPORARY
 
     [Header("Input")]
     [SerializeField] private InputActionAsset inputActionAsset;
@@ -84,7 +82,7 @@ public class PlayerAttackManager : MonoBehaviour
         isAttacking = true;
         controller.ToggleMovement(false);
         swordCollider.enabled = true;
-        swordAnimator.SetTrigger(swordAnimationPath);
+        controller.Animator.SetTrigger("attack");
         controller.AudioPlayer.PlayClip(1);
 
         yield return waitAttackTime;

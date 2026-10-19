@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Camera _camera;
     public AudioPlayer AudioPlayer => _audioPlayer;
     [SerializeField] private AudioPlayer _audioPlayer;
+    public Animator Animator => _animator;
+    [SerializeField] private Animator _animator;
 
     [Header("Stats")]
     [SerializeField] private short maxHealth;
