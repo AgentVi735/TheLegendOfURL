@@ -112,11 +112,11 @@ Material:
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
     - _Fog_Density: 40.2
-    - _Fog_Ripple_Density: 0.38
-    - _Fog_Ripple_Speed: 3.2
-    - _Fog_Speed: 0.01
-    - _Fog_Wave_Scale: 391
-    - _Fog_Wave_Speed: 0.001
+    - _Fog_Ripple_Density: 0.99
+    - _Fog_Ripple_Speed: 1.35
+    - _Fog_Speed: 0.005
+    - _Fog_Wave_Scale: 0
+    - _Fog_Wave_Speed: 0
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0

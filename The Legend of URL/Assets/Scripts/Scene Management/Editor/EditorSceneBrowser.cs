@@ -14,6 +14,8 @@ internal static class EditorSceneBrowser
     private static void OpenForest() => OpenScene("Assets/Scenes/Final Maps/Forest House Final.unity");
     [MenuItem("Scenes/Maps/Ravine")]
     private static void OpenRavine() => OpenScene("Assets/Scenes/Final Maps/Ravine Bridge Final.unity");
+    [MenuItem("Scenes/Maps/Swamp")]
+    private static void OpenSwamp() => OpenScene("Assets/Scenes/Final Maps/Swamp Final.unity");
     
     [MenuItem("Scenes/Editor/Village")]
     private static void OpenEditorVillage() => OpenScene("Assets/Scenes/Maps/Village.unity");
@@ -23,6 +25,8 @@ internal static class EditorSceneBrowser
     private static void OpenEditorForest() => OpenScene("Assets/Scenes/Maps/Forest House.unity");
     [MenuItem("Scenes/Editor/Ravine")]
     private static void OpenEditorRavine() => OpenScene("Assets/Scenes/Maps/Ravine Bridge.unity");
+    [MenuItem("Scenes/Editor/Swamp")]
+    private static void OpenEditorSwamp() => OpenScene("Assets/Scenes/Maps/Swamp.unity");
     
     [MenuItem("Scenes/Vicky/Main")]
     private static void OpenVickyMain() => OpenScene("Assets/Scenes/Vicky.unity");
