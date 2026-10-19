@@ -16,6 +16,8 @@ public abstract class EnemyController : MonoBehaviour
     public Transform leftTransform => _leftTransform;
     [SerializeField] private Transform _leftTransform;
     public PlayerController player { get; private set; }
+    public Animator Animator => _animator;
+    [SerializeField] private Animator _animator;
 
     private short health { get; set; }
     public EnemyData data { get; private set; }

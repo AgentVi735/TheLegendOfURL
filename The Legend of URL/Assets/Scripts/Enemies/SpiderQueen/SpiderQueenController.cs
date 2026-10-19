@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Linq;
+using Unity.Collections;
 using UnityEngine;
 
 public class SpiderQueenController : EnemyController
@@ -28,6 +29,15 @@ public class SpiderQueenController : EnemyController
     private IEnemyState screamState;
     private IEnemyState dropState;
     
+    private float walkAnimTargetX = 0f;
+    private float walkAnimTargetY = 0f;
+    [SerializeField] private float walkAnimSmoothing = 0.03f;
+    private float walkAnimCurrentX = 0f;
+    private float walkAnimCurrentY = 0f;
+
+    [SerializeField] private float blockAnimationTime;
+    private WaitForSeconds waitBlockAnimationTime;
+    
     public override void Initialise(EnemyData receivedData, EnemyWaypoint[] receivedPath, string givenID)
     {
         base.Initialise(receivedData, receivedPath, givenID);
@@ -37,6 +47,7 @@ public class SpiderQueenController : EnemyController
         minionSpawners = FindObjectsByType<SpiderMinionSpawner>();
         Debug.Log(minionSpawners.Length);
         waitMinionSpawnCooldown = new WaitForSeconds(data.minionSpawnCooldown);
+        waitBlockAnimationTime = new WaitForSeconds(blockAnimationTime);
         isSpawnCooldownFinished = true;
         areAllMinionsDead = true;
     }
@@ -86,9 +97,13 @@ public class SpiderQueenController : EnemyController
         if (isScreaming)
             return;
         
+        Animator.SetTrigger("gotHit");
+
+        Debug.Log($"{currentState} | {isCharging} | {isStunned}");
         switch (isCharging)
         {
             case false when !isStunned:
+                StartCoroutine(BlockAnimation());
                 return;
             case false when isStunned:
                 damageDoneWhileStunned += amount;
@@ -104,6 +119,15 @@ public class SpiderQueenController : EnemyController
         }
         
         base.GetDamage(amount);
+    }
+
+    private IEnumerator BlockAnimation()
+    {
+        Animator.SetBool("block", true);
+
+        yield return waitBlockAnimationTime;
+
+        Animator.SetBool("block", false);
     }
     
     public override void Stun(float time)
@@ -165,5 +189,38 @@ public class SpiderQueenController : EnemyController
         if (minionCount != 0) return;
         areAllMinionsDead = true;
         Scream();
+    }
+
+    public void WalkAnimation()
+    {
+        walkAnimTargetX = 0f;
+        walkAnimTargetY = 0f;
+        
+        Vector3 movePosForward = movementTrans.forward;
+
+        walkAnimTargetX = movePosForward.x;
+        walkAnimTargetY = movePosForward.z;
+        
+        walkAnimCurrentX = Mathf.Lerp(walkAnimCurrentX, walkAnimTargetX, walkAnimSmoothing);
+        walkAnimCurrentY = Mathf.Lerp(walkAnimCurrentY, walkAnimTargetY, walkAnimSmoothing);
+        
+        Animator.SetFloat("walkX", walkAnimCurrentX);
+        Animator.SetFloat("walkY", walkAnimCurrentY);
+    }
+
+    public void StopWalkAnimation()
+    {
+        walkAnimTargetX = 0;
+        walkAnimTargetY = 0;
+        walkAnimCurrentX = 0;
+        walkAnimCurrentY = 0;
+        
+        Animator.SetFloat("walkX", walkAnimCurrentX);
+        Animator.SetFloat("walkY", walkAnimCurrentY);
+    }
+
+    public void FinishAttackAnimation()
+    {
+        ChangeState(moveState);
     }
 }

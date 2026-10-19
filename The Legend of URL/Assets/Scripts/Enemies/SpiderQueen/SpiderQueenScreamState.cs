@@ -23,6 +23,7 @@ public class SpiderQueenScreamState : IEnemyState
 
     public void OnEnter()
     {
+        _controller.Animator.SetTrigger("scream");
         _controller.isScreaming = true;
         timeSpent = 0;
         screamTime = _controller.data.screamAnimationDuration;

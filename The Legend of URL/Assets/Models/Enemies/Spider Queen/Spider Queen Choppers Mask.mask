@@ -1,0 +1,371 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Spider Queen Choppers Mask
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Abdomen
+    m_Weight: 0
+  - m_Path: Armature
+    m_Weight: 0
+  - m_Path: Armature/ROOT
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/abdomen01
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/abdomen01/abdomen02
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/abdomen01/abdomen02/abdomen03
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/abdomen01/abdomen02/abdomen03/abdomen04
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/abdomen01/abdomen02/abdomen03/abdomen04/abdomen04_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/leg.B.L.01
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/leg.B.L.01/leg.B.L.02
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/leg.B.L.01/leg.B.L.02/leg.B.L.003
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/leg.B.L.01/leg.B.L.02/leg.B.L.003/leg.B.L.003_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/leg.B.R.01
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/leg.B.R.01/leg.B.R.02
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/leg.B.R.01/leg.B.R.02/leg.B.R.003
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/leg.B.R.01/leg.B.R.02/leg.B.R.003/leg.B.R.003_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/leg.F.L.01
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/leg.F.L.01/leg.F.L.02
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/leg.F.L.01/leg.F.L.02/leg.F.L.03
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/leg.F.L.01/leg.F.L.02/leg.F.L.03/leg.F.L.03_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/leg.F.R.01
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/leg.F.R.01/leg.F.R.02
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/leg.F.R.01/leg.F.R.02/leg.F.R.03
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/leg.F.R.01/leg.F.R.02/leg.F.R.03/leg.F.R.03_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/leg.M.L.01
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/leg.M.L.01/leg.M.L.02
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/leg.M.L.01/leg.M.L.02/leg.M.L.03
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/leg.M.L.01/leg.M.L.02/leg.M.L.03/leg.M.L.03_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/leg.M.R.01
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/leg.M.R.01/leg.M.R.02
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/leg.M.R.01/leg.M.R.02/leg.M.R.03
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/leg.M.R.01/leg.M.R.02/leg.M.R.03/leg.M.R.03_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/Spine01.001
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/Spine01.001/Chopper01.L
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/Spine01.001/Chopper01.L/Chopper02.L
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/Spine01.001/Chopper01.L/Chopper02.L/Chopper02.L_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/Spine01.001/Chopper01.R
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/Spine01.001/Chopper01.R/Chopper02.R
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/Spine01.001/Chopper01.R/Chopper02.R/Chopper02.R_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/Spine01.001/eye
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/Spine01.001/eye/eye_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/Spine01.001/eyelid.L
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/Spine01.001/eyelid.L/eyelid.L_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/Spine01.001/eyelid.R
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/Spine01.001/eyelid.R/eyelid.R_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/Spine01.001/Spine01
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/Spine01.001/Spine01/Spine02
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/Spine01.001/Spine01/Spine02/Spine03
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/Spine01.001/Spine01/Spine02/Spine03/breast.L
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/Spine01.001/Spine01/Spine02/Spine03/breast.L/breast.L_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/Spine01.001/Spine01/Spine02/Spine03/breast.R
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/Spine01.001/Spine01/Spine02/Spine03/breast.R/breast.R_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/Spine01.001/Spine01/Spine02/Spine03/Neck
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/Spine01.001/Spine01/Spine02/Spine03/Neck/Head
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/Spine01.001/Spine01/Spine02/Spine03/Neck/Head/ponytail01
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/Spine01.001/Spine01/Spine02/Spine03/Neck/Head/ponytail01/ponytail02
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/Spine01.001/Spine01/Spine02/Spine03/Neck/Head/ponytail01/ponytail02/ponytail03
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/Spine01.001/Spine01/Spine02/Spine03/Neck/Head/ponytail01/ponytail02/ponytail03/ponytail04
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/Spine01.001/Spine01/Spine02/Spine03/Neck/Head/ponytail01/ponytail02/ponytail03/ponytail04/ponytail05
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/Spine01.001/Spine01/Spine02/Spine03/Neck/Head/ponytail01/ponytail02/ponytail03/ponytail04/ponytail05/ponytail05_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/Spine01.001/Spine01/Spine02/Spine03/shoulder.L
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/Spine01.001/Spine01/Spine02/Spine03/shoulder.L/upper-arm.L
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/Spine01.001/Spine01/Spine02/Spine03/shoulder.L/upper-arm.L/forearm.L
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/Spine01.001/Spine01/Spine02/Spine03/shoulder.L/upper-arm.L/forearm.L/forearm.L_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/Spine01.001/Spine01/Spine02/Spine03/shoulder.R
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/Spine01.001/Spine01/Spine02/Spine03/shoulder.R/upper-arm.R
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/Spine01.001/Spine01/Spine02/Spine03/shoulder.R/upper-arm.R/forearm.R
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL - body/Spine01.002/Spine01.001/Spine01/Spine02/Spine03/shoulder.R/upper-arm.R/forearm.R/forearm.R_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.L
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.L/hand.L
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.L/hand.L/CTRL-finger.thumb.L
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.L/hand.L/CTRL-finger.thumb.L/CTRL-finger.thumb.L_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.L/hand.L/finger.index00.L
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.L/hand.L/finger.index00.L/CTRL-finger.index
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.L/hand.L/finger.index00.L/CTRL-finger.index/CTRL-finger.index_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.L/hand.L/finger.index00.L/finger.index01.L
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.L/hand.L/finger.index00.L/finger.index01.L/finger.index02.L
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.L/hand.L/finger.index00.L/finger.index01.L/finger.index02.L/finger.index03.L
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.L/hand.L/finger.index00.L/finger.index01.L/finger.index02.L/finger.index03.L/finger.index03.L_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.L/hand.L/finger.middle00.L
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.L/hand.L/finger.middle00.L/CTRLfinger.middle.L
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.L/hand.L/finger.middle00.L/CTRLfinger.middle.L/CTRLfinger.middle.L_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.L/hand.L/finger.middle00.L/finger.middle01.L
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.L/hand.L/finger.middle00.L/finger.middle01.L/finger.middle02.L
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.L/hand.L/finger.middle00.L/finger.middle01.L/finger.middle02.L/finger.middle03.L
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.L/hand.L/finger.middle00.L/finger.middle01.L/finger.middle02.L/finger.middle03.L/finger.middle03.L_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.L/hand.L/finger.pinky00.L
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.L/hand.L/finger.pinky00.L/CTRLfinger.pinky.L
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.L/hand.L/finger.pinky00.L/CTRLfinger.pinky.L/CTRLfinger.pinky.L_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.L/hand.L/finger.pinky00.L/finger.pinky01.L
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.L/hand.L/finger.pinky00.L/finger.pinky01.L/finger.pinky02.L
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.L/hand.L/finger.pinky00.L/finger.pinky01.L/finger.pinky02.L/finger.pinky03.L
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.L/hand.L/finger.pinky00.L/finger.pinky01.L/finger.pinky02.L/finger.pinky03.L/finger.pinky03.L_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.L/hand.L/finger.ring00.L
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.L/hand.L/finger.ring00.L/CTRLfinger.ring.L
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.L/hand.L/finger.ring00.L/CTRLfinger.ring.L/CTRLfinger.ring.L_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.L/hand.L/finger.ring00.L/finger.ring01.L
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.L/hand.L/finger.ring00.L/finger.ring01.L/finger.ring02.L
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.L/hand.L/finger.ring00.L/finger.ring01.L/finger.ring02.L/finger.ring03.L
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.L/hand.L/finger.ring00.L/finger.ring01.L/finger.ring02.L/finger.ring03.L/finger.ring03.L_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.L/hand.L/finger.thumb01.L
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.L/hand.L/finger.thumb01.L/finger.thumb02.L
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.L/hand.L/finger.thumb01.L/finger.thumb02.L/finger.thumb03.L
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.L/hand.L/finger.thumb01.L/finger.thumb02.L/finger.thumb03.L/finger.thumb03.L_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.R
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.R/hand.R
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.R/hand.R/CTRL-finger.thumb.R
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.R/hand.R/CTRL-finger.thumb.R/CTRL-finger.thumb.R_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.R/hand.R/finger.index00.R
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.R/hand.R/finger.index00.R/finger.index01.R
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.R/hand.R/finger.index00.R/finger.index01.R/finger.index02.R
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.R/hand.R/finger.index00.R/finger.index01.R/finger.index02.R/finger.index03.R
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.R/hand.R/finger.index00.R/finger.index01.R/finger.index02.R/finger.index03.R/finger.index03.R_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.R/hand.R/finger.middle00.R
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.R/hand.R/finger.middle00.R/CTRLfinger.middle.R
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.R/hand.R/finger.middle00.R/CTRLfinger.middle.R/CTRLfinger.middle.R_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.R/hand.R/finger.middle00.R/finger.middle01.R
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.R/hand.R/finger.middle00.R/finger.middle01.R/finger.middle02.R
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.R/hand.R/finger.middle00.R/finger.middle01.R/finger.middle02.R/finger.middle03.R
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.R/hand.R/finger.middle00.R/finger.middle01.R/finger.middle02.R/finger.middle03.R/finger.middle03.R_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.R/hand.R/finger.pinky00.R
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.R/hand.R/finger.pinky00.R/CTRLfinger.pinky.R
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.R/hand.R/finger.pinky00.R/CTRLfinger.pinky.R/CTRLfinger.pinky.R_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.R/hand.R/finger.pinky00.R/finger.pinky01.R
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.R/hand.R/finger.pinky00.R/finger.pinky01.R/finger.pinky02.R
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.R/hand.R/finger.pinky00.R/finger.pinky01.R/finger.pinky02.R/finger.pinky03.R
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.R/hand.R/finger.pinky00.R/finger.pinky01.R/finger.pinky02.R/finger.pinky03.R/finger.pinky03.R_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.R/hand.R/finger.ring00.R
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.R/hand.R/finger.ring00.R/CTRLfinger.ring.R
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.R/hand.R/finger.ring00.R/CTRLfinger.ring.R/CTRLfinger.ring.R_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.R/hand.R/finger.ring00.R/finger.ring01.R
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.R/hand.R/finger.ring00.R/finger.ring01.R/finger.ring02.R
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.R/hand.R/finger.ring00.R/finger.ring01.R/finger.ring02.R/finger.ring03.R
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.R/hand.R/finger.ring00.R/finger.ring01.R/finger.ring02.R/finger.ring03.R/finger.ring03.R_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.R/hand.R/finger.thumb01.R
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.R/hand.R/finger.thumb01.R/finger.thumb02.R
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.R/hand.R/finger.thumb01.R/finger.thumb02.R/finger.thumb03.R
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-hand.R/hand.R/finger.thumb01.R/finger.thumb02.R/finger.thumb03.R/finger.thumb03.R_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-leg.B.L
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-leg.B.L/CTRL-leg.B.L_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-leg.B.R
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-leg.B.R/CTRL-leg.B.R_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-leg.F.L
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-leg.F.L/CTRL-leg.F.L_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-leg.F.R
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-leg.F.R/CTRL-leg.F.R_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-leg.M.L
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-leg.M.L/CTRL-leg.M.L_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-leg.M.R
+    m_Weight: 1
+  - m_Path: Armature/ROOT/CTRL-leg.M.R/CTRL-leg.M.R_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/PT-arm.L
+    m_Weight: 1
+  - m_Path: Armature/ROOT/PT-arm.L/PT-arm.L_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/PT-arm.R
+    m_Weight: 1
+  - m_Path: Armature/ROOT/PT-arm.R/PT-arm.R_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/PT-leg.B.L
+    m_Weight: 1
+  - m_Path: Armature/ROOT/PT-leg.B.L/PT-leg.B.L_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/PT-leg.B.R
+    m_Weight: 1
+  - m_Path: Armature/ROOT/PT-leg.B.R/PT-leg.B.R_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/PT-leg.F.L
+    m_Weight: 1
+  - m_Path: Armature/ROOT/PT-leg.F.L/PT-leg.F.L_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/PT-leg.F.R
+    m_Weight: 1
+  - m_Path: Armature/ROOT/PT-leg.F.R/PT-leg.F.R_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/PT-leg.M.L
+    m_Weight: 1
+  - m_Path: Armature/ROOT/PT-leg.M.L/PT-leg.M.L_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/PT-leg.M.R
+    m_Weight: 1
+  - m_Path: Armature/ROOT/PT-leg.M.R/PT-leg.M.R_end
+    m_Weight: 1
+  - m_Path: Armature/ROOT/TARGET - eye
+    m_Weight: 1
+  - m_Path: Armature/ROOT/TARGET - eye/TARGET - eye_end
+    m_Weight: 1
+  - m_Path: Back Legs
+    m_Weight: 0
+  - m_Path: Choppers
+    m_Weight: 1
+  - m_Path: Eyeball
+    m_Weight: 0
+  - m_Path: Fangs
+    m_Weight: 0
+  - m_Path: Front Legs
+    m_Weight: 0
+  - m_Path: Main Body
+    m_Weight: 0
+  - m_Path: Main Hair
+    m_Weight: 0
+  - m_Path: Middle Legs
+    m_Weight: 0
+  - m_Path: Ponytail
+    m_Weight: 0

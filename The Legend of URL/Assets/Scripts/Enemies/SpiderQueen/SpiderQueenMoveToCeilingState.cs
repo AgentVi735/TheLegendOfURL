@@ -95,6 +95,8 @@ public class SpiderQueenMoveToCeilingState : IEnemyState
         deltaRotation = Quaternion.FromToRotation(enemyTransform.forward, playerPos);
         enemyTransform.rotation = Quaternion.Lerp(enemyTransform.rotation, enemyTransform.rotation * deltaRotation,
             turnSpeed * Time.deltaTime);
+        
+        _controller.WalkAnimation();
     }
 
     public void OnEnter()
@@ -105,6 +107,7 @@ public class SpiderQueenMoveToCeilingState : IEnemyState
 
     public void OnExit()
     {
+        _controller.StopWalkAnimation();
     }
 
     public void OnHurt()

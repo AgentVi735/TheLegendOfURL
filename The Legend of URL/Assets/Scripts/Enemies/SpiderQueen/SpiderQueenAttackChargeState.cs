@@ -22,6 +22,7 @@ public class SpiderQueenAttackChargeState : IEnemyState
 
     public void OnEnter()
     {
+        _controller.Animator.SetTrigger("chargeAttack");
         _controller.isCharging = true;
         timeSpent = 0;
         chargeTime = _controller.data.attackChargeTime;

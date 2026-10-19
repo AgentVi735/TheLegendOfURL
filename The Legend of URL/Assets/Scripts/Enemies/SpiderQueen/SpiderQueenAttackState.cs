@@ -21,10 +21,10 @@ public class SpiderQueenAttackState : IEnemyState
 
     public void OnEnter()
     {
+        _controller.Animator.SetTrigger("attack");
         float distance = Vector3.Distance(enemyTransform.position, playerTransform.position);
         if (distance <= attackRange)
             _controller.player.OnHit(_controller.data.damage);
-        _controller.ChangeState(_controller.moveState);
     }
 
     public void OnExit()

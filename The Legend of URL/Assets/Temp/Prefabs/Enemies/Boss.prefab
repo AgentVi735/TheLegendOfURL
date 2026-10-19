@@ -80,6 +80,7 @@ MonoBehaviour:
   _eyesTransform: {fileID: 5579425560779346164}
   _rightTransform: {fileID: 0}
   _leftTransform: {fileID: 0}
+  _animator: {fileID: 5941568688709064691}
   hitVelocity: {x: 0, y: 0, z: 0}
   stunTime: 0
   raycastLayers:
@@ -91,6 +92,9 @@ MonoBehaviour:
   movementTrans: {fileID: 8938910514486967708}
   isCharging: 0
   isStunned: 0
+  isScreaming: 0
+  walkAnimSmoothing: 0.03
+  blockAnimationTime: 0.6
 --- !u!195 &1476070819956099717
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -183,6 +187,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8877640195773346123}
     m_Modifications:
+    - target: {fileID: 1749699219882352930, guid: 7a91bd501cbb7de4b96c4259876fc30a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 3f41a16ec8354424a9eea62761628b79, type: 2}
     - target: {fileID: 1755832276828036960, guid: 7a91bd501cbb7de4b96c4259876fc30a, type: 3}
       propertyPath: m_Name
       value: Spider Queen
@@ -234,6 +242,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1755832276828036960, guid: 7a91bd501cbb7de4b96c4259876fc30a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2067920351477541013}
+    - targetCorrespondingSourceObject: {fileID: 1755832276828036960, guid: 7a91bd501cbb7de4b96c4259876fc30a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7439683893069042180}
   m_SourcePrefab: {fileID: 100100000, guid: 7a91bd501cbb7de4b96c4259876fc30a, type: 3}
 --- !u!1 &5936139251019934129 stripped
 GameObject:
@@ -261,6 +272,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.1359925, y: 3.3309572, z: 3.8312821}
   m_Center: {x: -0.067950964, y: 1.6654786, z: -1.1605961}
+--- !u!114 &7439683893069042180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5936139251019934129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f39ac106bc84081a2fac91aa25371ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpiderQueenObject
+  _controller: {fileID: 6961365221439129243}
+--- !u!95 &5941568688709064691 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1749699219882352930, guid: 7a91bd501cbb7de4b96c4259876fc30a, type: 3}
+  m_PrefabInstance: {fileID: 5349325372297836241}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8597388654154664060 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4426071394389278381, guid: 7a91bd501cbb7de4b96c4259876fc30a, type: 3}

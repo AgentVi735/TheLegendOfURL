@@ -22,6 +22,7 @@ public class SpiderQueenStunState : IEnemyState
 
     public void OnEnter()
     {
+        _controller.Animator.SetBool("isStunned", true);
         if (_controller.meshRenderer != null)
             _controller.meshRenderer.material.color = Color.red;
         timeSpent = 0;
@@ -30,6 +31,8 @@ public class SpiderQueenStunState : IEnemyState
 
     public void OnExit()
     {
+        _controller.Animator.SetBool("isStunned", false);
+        _controller.isStunned = false;
     }
 
     public void OnHurt()
