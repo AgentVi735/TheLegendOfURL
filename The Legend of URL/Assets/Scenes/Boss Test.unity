@@ -750,7 +750,7 @@ PrefabInstance:
     - target: {fileID: 7547371031362439692, guid: 9e940d0a598381c41ae2cb06758b7f2a, type: 3}
       propertyPath: data
       value: 
-      objectReference: {fileID: 11400000, guid: 579ee1b56db19454196c13d0930d288e, type: 2}
+      objectReference: {fileID: 11400000, guid: 5626336280c2d3f47882c854a033ad19, type: 2}
     - target: {fileID: 7547371031362439692, guid: 9e940d0a598381c41ae2cb06758b7f2a, type: 3}
       propertyPath: update
       value: 0
