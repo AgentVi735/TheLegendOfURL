@@ -36,6 +36,8 @@ public class SaveData : ScriptableObject
 
     public bool GetEnemyIDKilled(string id)
     {
+        if (enemyIdsKilled == null)
+            return false;
         return doesDataExist && enemyIdsKilled.GetValueOrDefault(id, false);
     }
 

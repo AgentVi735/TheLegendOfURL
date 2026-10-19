@@ -23,6 +23,8 @@ public class SceneController : MonoBehaviour
     [SerializeField] private SaveManager _saveManager;
     public DialogueController DialogueController => _dialogueController;
     [SerializeField] private DialogueController _dialogueController;
+    public AudioManager AudioManager => _audioManager;
+    [SerializeField] private AudioManager _audioManager;
     [SerializeField] private bool _isMainMenuController;
 
     private static string s_currentSceneName;
@@ -83,6 +85,8 @@ public class SceneController : MonoBehaviour
         if (Instance != null) return;
         Instance = this;
         s_hasStartedInitialisation = false;
+        
+        _audioManager.Initialise();
         
         s_OnSceneLoaded += InitialiseScene;
         s_OnSceneUnloaded += UnloadScene;

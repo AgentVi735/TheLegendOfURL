@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,9 +28,11 @@ public class UISlider : MonoBehaviour
         {
             case SliderType.SFX:
                 SaveManager.Instance.SaveData.sfxVolume = value / _volumeMultiplier;
+                SceneController.Instance?.AudioManager?.UpdateSfxVolume();
                 break;
             case SliderType.Music:
                 SaveManager.Instance.SaveData.musicVolume = value / _volumeMultiplier;
+                SceneController.Instance?.AudioManager?.UpdateMusicVolume();
                 break;
             case SliderType.MouseSensitivityX:
                 SaveManager.Instance.SaveData.mouseSensitivity.x = value;
@@ -42,6 +45,9 @@ public class UISlider : MonoBehaviour
                 break;
             case SliderType.ControllerSensitivityY:
                 SaveManager.Instance.SaveData.controllerSensitivity.y = value;
+                break;
+            case SliderType.None:
+            default:
                 break;
         }
 

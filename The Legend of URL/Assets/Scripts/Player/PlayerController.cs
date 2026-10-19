@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private CinemachineCamera cinemachineCamera;
     [SerializeField] private CinemachineOrbitalFollow cinemachineOrbitalFollow;
     [SerializeField] private CinemachineInputAxisController cinemachineInputController;
+    public AudioPlayer AudioPlayer => _audioPlayer;
+    [SerializeField] private AudioPlayer _audioPlayer;
 
     [Header("Stats")]
     [SerializeField] private short maxHealth;
