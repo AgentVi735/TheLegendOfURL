@@ -85,6 +85,7 @@ public class PlayerAttackManager : MonoBehaviour
         controller.ToggleMovement(false);
         swordCollider.enabled = true;
         swordAnimator.SetTrigger(swordAnimationPath);
+        controller.AudioPlayer.PlayClip(1);
 
         yield return waitAttackTime;
 

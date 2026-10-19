@@ -9,7 +9,7 @@ public class MainMenuManager : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private SettingsUI _settingsUI;
-    [SerializeField] private Camera _camera;
+    [SerializeField] private GameObject _objectsToRemove;
 
     [Header("UI")]
     [SerializeField] private UIButton _startButton;
@@ -31,7 +31,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void StartButton()
     {
-        Destroy(_camera.gameObject);
+        Destroy(_objectsToRemove);
         Destroy(_settingsUI.gameObject);
         Destroy(gameObject);
         if (SceneController.Instance != null)
