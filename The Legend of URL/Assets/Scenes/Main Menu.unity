@@ -3562,6 +3562,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3068587198094385142, guid: 9821005e27d28124884f6af0f337f784, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5668963620665197242, guid: 9821005e27d28124884f6af0f337f784, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.702
+      objectReference: {fileID: 0}
+    - target: {fileID: 5668963620665197242, guid: 9821005e27d28124884f6af0f337f784, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7493740746687770178, guid: 9821005e27d28124884f6af0f337f784, type: 3}
       propertyPath: _controller
       value: 
@@ -3569,6 +3581,10 @@ PrefabInstance:
     - target: {fileID: 8168259121658602467, guid: 9821005e27d28124884f6af0f337f784, type: 3}
       propertyPath: m_Name
       value: HUD Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8168259121658602467, guid: 9821005e27d28124884f6af0f337f784, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9064496752732568423, guid: 9821005e27d28124884f6af0f337f784, type: 3}
       propertyPath: controller
