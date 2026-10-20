@@ -204,6 +204,8 @@ public class SpiderQueenMoveToCeilingState : IEnemyState
         }
 
         currentWallPoint = wallPoints[idx];
+        
+        _controller.AudioPlayer.TryPlayPersistentClip(0, true);
     }
 
     public void OnExit()

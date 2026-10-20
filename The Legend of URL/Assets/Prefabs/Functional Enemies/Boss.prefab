@@ -83,7 +83,7 @@ MonoBehaviour:
   _rightTransform: {fileID: 0}
   _leftTransform: {fileID: 0}
   _animator: {fileID: 5941568688709064691}
-  _audioPlayer: {fileID: 0}
+  _audioPlayer: {fileID: -844135255017871975}
   hitVelocity: {x: 0, y: 0, z: 0}
   stunTime: 0
   raycastLayers:
@@ -137,6 +137,8 @@ MonoBehaviour:
   _clips:
   - {fileID: 8300000, guid: 6dadfc3c72268ac40bbf7a9e5a4a3da1, type: 3}
   - {fileID: 8300000, guid: cd1ac111b07f8c44fbc843fb86722366, type: 3}
+  - {fileID: 8300000, guid: 9b3d2716e0a57054e8d8c890312177c5, type: 3}
+  - {fileID: 8300000, guid: 041f81518322cc042afb055608be89cc, type: 3}
 --- !u!82 &-4501218149786314235
 AudioSource:
   m_ObjectHideFlags: 0
@@ -158,8 +160,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 5
-  MaxDistance: 15
+  MinDistance: 20
+  MaxDistance: 50
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -194,7 +196,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -255,8 +257,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 5
-  MaxDistance: 15
+  MinDistance: 20
+  MaxDistance: 50
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -291,7 +293,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

@@ -165,6 +165,7 @@ public class FlyingFollowState : IEnemyState
     public void OnEnter()
     {
         lastSeenPos = playerTransform.position;
+        _controller.AudioPlayer.TryPlayPersistentClip(0, true);
     }
 
     public void OnExit()

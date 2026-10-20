@@ -220,6 +220,8 @@ public class FlyingStalkState : IEnemyState
         isParentedToPlayer = true;
         previousPlayerPos = playerTrans.position;
         currentPlayerPos = previousPlayerPos;
+        
+        _controller.AudioPlayer.TryPlayPersistentClip(0, true);
     }
 
     public void OnExit()

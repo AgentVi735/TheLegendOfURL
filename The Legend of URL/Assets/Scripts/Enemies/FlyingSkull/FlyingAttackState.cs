@@ -92,6 +92,9 @@ public class FlyingAttackState : IEnemyState
 
     public void OnEnter()
     {
+        _controller.AudioPlayer.StopPersistentAudio();
+        _controller.AudioPlayer.PlayClip(1);
+        
         _controller.Animator.SetBool("isDiving", true);
         targetTrans.gameObject.SetActive(true);
         timeSpent = 0;

@@ -8684,6 +8684,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SFX Slider
       objectReference: {fileID: 0}
+    - target: {fileID: 4873711827920105766, guid: f44729e8402689d44b2aceddb37d48c1, type: 3}
+      propertyPath: m_WholeNumbers
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5388430092998680120, guid: f44729e8402689d44b2aceddb37d48c1, type: 3}
       propertyPath: m_fontAsset
       value: 

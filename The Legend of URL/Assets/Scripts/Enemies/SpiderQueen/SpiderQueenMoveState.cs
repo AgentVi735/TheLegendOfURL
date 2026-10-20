@@ -109,6 +109,7 @@ public class SpiderQueenMoveState : IEnemyState
 
     public void OnEnter()
     {
+        _controller.AudioPlayer.TryPlayPersistentClip(0, true);
     }
 
     public void OnExit()

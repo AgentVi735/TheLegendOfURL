@@ -22,6 +22,7 @@ public class SpiderQueenAttackChargeState : IEnemyState
 
     public void OnEnter()
     {
+        _controller.AudioPlayer.StopPersistentAudio();
         _controller.Animator.SetTrigger("chargeAttack");
         _controller.isCharging = true;
         timeSpent = 0;

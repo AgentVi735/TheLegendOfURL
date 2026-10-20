@@ -23,6 +23,8 @@ public class SpiderQueenScreamState : IEnemyState
 
     public void OnEnter()
     {
+        _controller.AudioPlayer.StopPersistentAudio();
+        _controller.AudioPlayer.PlayClip(1);
         _controller.Animator.SetTrigger("scream");
         _controller.isScreaming = true;
         timeSpent = 0;

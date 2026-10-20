@@ -120,6 +120,7 @@ public class SceneController : MonoBehaviour
         if (_playerController.HasInitialised)
         {
             _audioListenerTransform.SetParent(transform);
+            _audioListenerTransform.localPosition = Vector3.zero;
             _initialisation.TogglePlayer(false);
         }
         if (!_fadeManager.IsOn)
@@ -133,6 +134,7 @@ public class SceneController : MonoBehaviour
         if (_playerController.HasInitialised)
         {
             _audioListenerTransform.SetParent(transform);
+            _audioListenerTransform.localPosition = Vector3.zero;
             _initialisation.TogglePlayer(false);
         }
         if (!_fadeManager.IsOn)
@@ -203,6 +205,7 @@ public class SceneController : MonoBehaviour
         {
             _initialisation.TogglePlayer(true);
             _audioListenerTransform.SetParent(_playerController.transform);
+            _audioListenerTransform.localPosition = Vector3.zero;
             _playerController.ToggleAllInputs(true);
         }
         
@@ -215,6 +218,7 @@ public class SceneController : MonoBehaviour
     private void UnloadScene(Scene unloadedScene)
     {
         _audioListenerTransform.SetParent(transform);
+        _audioListenerTransform.localPosition = Vector3.zero;
         _initialisation.TogglePlayer(false);
     }
 
@@ -245,6 +249,7 @@ public class SceneController : MonoBehaviour
     {
         _playerController.SaveData();
         _audioListenerTransform.SetParent(transform);
+        _audioListenerTransform.localPosition = Vector3.zero;
         _playerController.gameObject.SetActive(false);
         _playerController.HudController.gameObject.SetActive(false);
         _initialisation.gameObject.SetActive(false);
