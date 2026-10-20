@@ -11963,70 +11963,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8310872306276004804, guid: 3dfa3c0793b1f7042951280917671656, type: 3}
   m_PrefabInstance: {fileID: 1540632282}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1547767035
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1547767037}
-  - component: {fileID: 1547767036}
-  m_Layer: 0
-  m_Name: Flying NavMesh
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1547767036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1547767035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
-  m_SerializedVersion: 0
-  m_AgentTypeID: -1372625422
-  m_CollectObjects: 3
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 1409
-  m_UseGeometry: 1
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: fae4f1bc01c60a843a0871012369515f, type: 2}
-  m_BuildHeightMesh: 0
---- !u!4 &1547767037
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1547767035}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.87461, y: -0, z: -4.60992}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1561571373
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14735,70 +14671,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3dfa3c0793b1f7042951280917671656, type: 3}
---- !u!1 &1997823430
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1997823432}
-  - component: {fileID: 1997823431}
-  m_Layer: 0
-  m_Name: Spider NavMesh
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1997823431
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1997823430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
-  m_SerializedVersion: 0
-  m_AgentTypeID: 0
-  m_CollectObjects: 3
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 1409
-  m_UseGeometry: 1
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 90e1ab49167543c47829f0b764184bdb, type: 2}
-  m_BuildHeightMesh: 0
---- !u!4 &1997823432
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1997823430}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.87461, y: -0, z: -4.60992}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2000159688
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16552,6 +16424,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b99b618c9f740ad418c081b0f5a08bdc, type: 3}
+--- !u!1001 &5190330302433207897
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4608694306030796047, guid: ed1cd39e0852ca242a2e4bcb0c47b70e, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: fae4f1bc01c60a843a0871012369515f, type: 2}
+    - target: {fileID: 8141408110912913186, guid: ed1cd39e0852ca242a2e4bcb0c47b70e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.87461
+      objectReference: {fileID: 0}
+    - target: {fileID: 8141408110912913186, guid: ed1cd39e0852ca242a2e4bcb0c47b70e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8141408110912913186, guid: ed1cd39e0852ca242a2e4bcb0c47b70e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.60992
+      objectReference: {fileID: 0}
+    - target: {fileID: 8141408110912913186, guid: ed1cd39e0852ca242a2e4bcb0c47b70e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8141408110912913186, guid: ed1cd39e0852ca242a2e4bcb0c47b70e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8141408110912913186, guid: ed1cd39e0852ca242a2e4bcb0c47b70e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8141408110912913186, guid: ed1cd39e0852ca242a2e4bcb0c47b70e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8141408110912913186, guid: ed1cd39e0852ca242a2e4bcb0c47b70e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8141408110912913186, guid: ed1cd39e0852ca242a2e4bcb0c47b70e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8141408110912913186, guid: ed1cd39e0852ca242a2e4bcb0c47b70e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8686933617424893482, guid: ed1cd39e0852ca242a2e4bcb0c47b70e, type: 3}
+      propertyPath: m_Name
+      value: Flying NavMesh
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ed1cd39e0852ca242a2e4bcb0c47b70e, type: 3}
 --- !u!1001 &5545831821736681055
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16674,6 +16607,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e940d0a598381c41ae2cb06758b7f2a, type: 3}
+--- !u!1001 &5765800637671498664
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1222515796031890768, guid: 1a5f1dd45182e114bb23d81e0a2c2e21, type: 3}
+      propertyPath: m_Name
+      value: Spider NavMesh
+      objectReference: {fileID: 0}
+    - target: {fileID: 6616957861664996588, guid: 1a5f1dd45182e114bb23d81e0a2c2e21, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.87461
+      objectReference: {fileID: 0}
+    - target: {fileID: 6616957861664996588, guid: 1a5f1dd45182e114bb23d81e0a2c2e21, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6616957861664996588, guid: 1a5f1dd45182e114bb23d81e0a2c2e21, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.60992
+      objectReference: {fileID: 0}
+    - target: {fileID: 6616957861664996588, guid: 1a5f1dd45182e114bb23d81e0a2c2e21, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6616957861664996588, guid: 1a5f1dd45182e114bb23d81e0a2c2e21, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6616957861664996588, guid: 1a5f1dd45182e114bb23d81e0a2c2e21, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6616957861664996588, guid: 1a5f1dd45182e114bb23d81e0a2c2e21, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6616957861664996588, guid: 1a5f1dd45182e114bb23d81e0a2c2e21, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6616957861664996588, guid: 1a5f1dd45182e114bb23d81e0a2c2e21, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6616957861664996588, guid: 1a5f1dd45182e114bb23d81e0a2c2e21, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874199061942604665, guid: 1a5f1dd45182e114bb23d81e0a2c2e21, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: 90e1ab49167543c47829f0b764184bdb, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1a5f1dd45182e114bb23d81e0a2c2e21, type: 3}
 --- !u!1001 &6282850138353314281
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17067,9 +17061,9 @@ SceneRoots:
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 2108322683}
-  - {fileID: 1997823432}
+  - {fileID: 5765800637671498664}
   - {fileID: 961860860}
-  - {fileID: 1547767037}
+  - {fileID: 5190330302433207897}
   - {fileID: 53080001}
   - {fileID: 284401316}
   - {fileID: 112545819}
