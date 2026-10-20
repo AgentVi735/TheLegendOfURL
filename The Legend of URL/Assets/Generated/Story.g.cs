@@ -2,7 +2,7 @@
 //   Generated from the Ogham project tree by OghamNodeTreeStoryGenerator. DO NOT EDIT.
 //   Edit the .ogham file(s) and click Build in Window ▸ Heathen ▸ Storyteller.
 // </auto-generated>
-// ogham-hash:0x2ACA7A5582727149  // staleness marker — do not edit
+// ogham-hash:0xB19FD8CF7DDA1A28  // staleness marker — do not edit
 using System.Collections.Generic;
 using Heathen.GameplayTags;
 using Heathen.Ogham;
@@ -17,11 +17,19 @@ namespace Heathen.Ogham.Generated
             new CompiledTagEntry { Id = 0x9FE7B5B67A2764C0UL, ParentId = 0x0000000000000000UL, Name = "Dialogue" },
             new CompiledTagEntry { Id = 0x954D8E6815ECD1DCUL, ParentId = 0x0000000000000000UL, Name = "Root" },
             new CompiledTagEntry { Id = 0x7F138A20428CE29CUL, ParentId = 0x9FE7B5B67A2764C0UL, Name = "Dialogue.Test" },
+            new CompiledTagEntry { Id = 0x112C08F73336E1ABUL, ParentId = 0x954D8E6815ECD1DCUL, Name = "Root.CutsceneDialogue" },
             new CompiledTagEntry { Id = 0x8F594BCE432BED05UL, ParentId = 0x954D8E6815ECD1DCUL, Name = "Root.TestCollection" },
             new CompiledTagEntry { Id = 0x4C905FF94B9E874EUL, ParentId = 0x7F138A20428CE29CUL, Name = "Dialogue.Test.Freddy" },
+            new CompiledTagEntry { Id = 0xCCE5D82874EA96ECUL, ParentId = 0x112C08F73336E1ABUL, Name = "Root.CutsceneDialogue.Intro" },
             new CompiledTagEntry { Id = 0xEE9E05099B229505UL, ParentId = 0x8F594BCE432BED05UL, Name = "Root.TestCollection.Daniek" },
             new CompiledTagEntry { Id = 0x4B7B241B26C2346AUL, ParentId = 0x8F594BCE432BED05UL, Name = "Root.TestCollection.Tim" },
             new CompiledTagEntry { Id = 0x306D433CDC60205DUL, ParentId = 0x4C905FF94B9E874EUL, Name = "Dialogue.Test.Freddy.HasSpokenTo" },
+            new CompiledTagEntry { Id = 0x23ABAA4FEAFB8649UL, ParentId = 0xCCE5D82874EA96ECUL, Name = "Root.CutsceneDialogue.Intro.N0" },
+            new CompiledTagEntry { Id = 0x60628F5DC4E8001CUL, ParentId = 0xCCE5D82874EA96ECUL, Name = "Root.CutsceneDialogue.Intro.N1" },
+            new CompiledTagEntry { Id = 0x019FA7C66A524D04UL, ParentId = 0xCCE5D82874EA96ECUL, Name = "Root.CutsceneDialogue.Intro.N2" },
+            new CompiledTagEntry { Id = 0x5E494B121D52FA99UL, ParentId = 0xCCE5D82874EA96ECUL, Name = "Root.CutsceneDialogue.Intro.N3" },
+            new CompiledTagEntry { Id = 0x2F979D9858D7899EUL, ParentId = 0xCCE5D82874EA96ECUL, Name = "Root.CutsceneDialogue.Intro.N4" },
+            new CompiledTagEntry { Id = 0x22BB35702839F33EUL, ParentId = 0xCCE5D82874EA96ECUL, Name = "Root.CutsceneDialogue.Intro.N5" },
             new CompiledTagEntry { Id = 0x501BB4DE76012D7CUL, ParentId = 0xEE9E05099B229505UL, Name = "Root.TestCollection.Daniek.ForkNode0" },
             new CompiledTagEntry { Id = 0xC80087B49E05C452UL, ParentId = 0xEE9E05099B229505UL, Name = "Root.TestCollection.Daniek.Node0" },
             new CompiledTagEntry { Id = 0xDA38CD06D0093202UL, ParentId = 0xEE9E05099B229505UL, Name = "Root.TestCollection.Daniek.Node1" },
@@ -29,6 +37,11 @@ namespace Heathen.Ogham.Generated
             new CompiledTagEntry { Id = 0xE41987D171CFA7E2UL, ParentId = 0x4B7B241B26C2346AUL, Name = "Root.TestCollection.Tim.Fork0" },
             new CompiledTagEntry { Id = 0x889CD94FBBA5CDD1UL, ParentId = 0x4B7B241B26C2346AUL, Name = "Root.TestCollection.Tim.Node0" },
             new CompiledTagEntry { Id = 0x893D7CB9B9A74474UL, ParentId = 0x4B7B241B26C2346AUL, Name = "Root.TestCollection.Tim.Node1" },
+            new CompiledTagEntry { Id = 0x01E2DB4720841595UL, ParentId = 0x23ABAA4FEAFB8649UL, Name = "Root.CutsceneDialogue.Intro.N0.Option1" },
+            new CompiledTagEntry { Id = 0x2711F56866A1A91FUL, ParentId = 0x60628F5DC4E8001CUL, Name = "Root.CutsceneDialogue.Intro.N1.Option1" },
+            new CompiledTagEntry { Id = 0x3B26D163D835DB8CUL, ParentId = 0x019FA7C66A524D04UL, Name = "Root.CutsceneDialogue.Intro.N2.Option1" },
+            new CompiledTagEntry { Id = 0x1C4B7CF2BD2567A8UL, ParentId = 0x5E494B121D52FA99UL, Name = "Root.CutsceneDialogue.Intro.N3.Option1" },
+            new CompiledTagEntry { Id = 0x4BC3186C81A45EC5UL, ParentId = 0x2F979D9858D7899EUL, Name = "Root.CutsceneDialogue.Intro.N4.Option2" },
             new CompiledTagEntry { Id = 0x1A8343DA92B94D21UL, ParentId = 0x501BB4DE76012D7CUL, Name = "Root.TestCollection.Daniek.ForkNode0.Route1" },
             new CompiledTagEntry { Id = 0x9F0FD893EB3F06C7UL, ParentId = 0x501BB4DE76012D7CUL, Name = "Root.TestCollection.Daniek.ForkNode0.Route2" },
             new CompiledTagEntry { Id = 0x86F9985619FD6CDDUL, ParentId = 0xC80087B49E05C452UL, Name = "Root.TestCollection.Daniek.Node0.Option1" },
@@ -153,6 +166,95 @@ namespace Heathen.Ogham.Generated
                         {
                             new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Tim" },
                             new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "I'm gonna date your mother." },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.CutsceneDialogue.Intro.N0",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Within the center of these lands... Lies a prosperous kingdom... " },
+                        },
+                        Options = new List<OghamOptionManifest>
+                        {
+                            new OghamOptionManifest
+                            {
+                                TagPath = "Root.CutsceneDialogue.Intro.N0.Option1", TargetEntryPath = "Root.CutsceneDialogue.Intro.N1", TextMode = "Literal", TextKey = "",
+                            },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.CutsceneDialogue.Intro.N1",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "...The Holy Land of Marijoa..." },
+                        },
+                        Options = new List<OghamOptionManifest>
+                        {
+                            new OghamOptionManifest
+                            {
+                                TagPath = "Root.CutsceneDialogue.Intro.N1.Option1", TargetEntryPath = "Root.CutsceneDialogue.Intro.N2", TextMode = "Literal", TextKey = "",
+                            },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.CutsceneDialogue.Intro.N2",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "A Kingdom without a king... It serves as the Vocal point of the world and as the headquarters of the World Government..." },
+                        },
+                        Options = new List<OghamOptionManifest>
+                        {
+                            new OghamOptionManifest
+                            {
+                                TagPath = "Root.CutsceneDialogue.Intro.N2.Option1", TargetEntryPath = "Root.CutsceneDialogue.Intro.N3", TextMode = "Literal", TextKey = "",
+                            },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.CutsceneDialogue.Intro.N3",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "My dream is to enlist into the armies of the World Government and to protect the people of the world..." },
+                        },
+                        Options = new List<OghamOptionManifest>
+                        {
+                            new OghamOptionManifest
+                            {
+                                TagPath = "Root.CutsceneDialogue.Intro.N3.Option1", TargetEntryPath = "Root.CutsceneDialogue.Intro.N4", TextMode = "Literal", TextKey = "",
+                            },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.CutsceneDialogue.Intro.N4",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "I've been training hard to meet their expectations... But the mayor won't allow me to travel to Marijoa to enlist... He believes it's too dangerous... " },
+                        },
+                        Options = new List<OghamOptionManifest>
+                        {
+                            new OghamOptionManifest
+                            {
+                                TagPath = "Root.CutsceneDialogue.Intro.N4.Option2", TargetEntryPath = "Root.CutsceneDialogue.Intro.N5", TextMode = "Literal", TextKey = "",
+                            },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.CutsceneDialogue.Intro.N5",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Instead he has me working as the blacksmith's apprentice... " },
                         },
                     },
                 },

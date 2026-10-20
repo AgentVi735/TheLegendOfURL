@@ -1288,7 +1288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NpcController
   _storyTag:
-    _id: 14411668017400628306
+    _id: 16361673480851002481
 --- !u!1 &2020951830
 GameObject:
   m_ObjectHideFlags: 0

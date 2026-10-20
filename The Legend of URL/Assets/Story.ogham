@@ -428,6 +428,324 @@
         ],
         "technicalName": "TestCollection",
         "type": "Collection"
+      },
+      {
+        "content": [
+          {
+            "content": [
+              {
+                "displayName": "N0",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "options": [
+                  {
+                    "target": "N1",
+                    "technicalName": "Option1",
+                    "textKey": ""
+                  }
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  146.0841,
+                  278.68573
+                ],
+                "technicalName": "N0",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "Within the center of these lands... Lies a prosperous kingdom... ",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              },
+              {
+                "displayName": "N1",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "options": [
+                  {
+                    "target": "N2",
+                    "technicalName": "Option1",
+                    "textKey": ""
+                  }
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  634.682434,
+                  289.764771
+                ],
+                "technicalName": "N1",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "...The Holy Land of Marijoa...",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              },
+              {
+                "displayName": "N2",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "options": [
+                  {
+                    "target": "N3",
+                    "technicalName": "Option1",
+                    "textKey": ""
+                  }
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  1063.48218,
+                  296.164734
+                ],
+                "technicalName": "N2",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "A Kingdom without a king... It serves as the Vocal point of the world and as the headquarters of the World Government...",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              },
+              {
+                "displayName": "N3",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "options": [
+                  {
+                    "target": "N4",
+                    "technicalName": "Option1",
+                    "textKey": ""
+                  }
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  1473.2373,
+                  299.631439
+                ],
+                "technicalName": "N3",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "My dream is to enlist into the armies of the World Government and to protect the people of the world...",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              },
+              {
+                "displayName": "N4",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "options": [
+                  {
+                    "target": "N5",
+                    "technicalName": "Option2",
+                    "textKey": ""
+                  }
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  1897.85327,
+                  298.036957
+                ],
+                "technicalName": "N4",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "I've been training hard to meet their expectations... But the mayor won't allow me to travel to Marijoa to enlist... He believes it's too dangerous... ",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              },
+              {
+                "displayName": "N5",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  2328.555,
+                  302.5454
+                ],
+                "technicalName": "N5",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "Instead he has me working as the blacksmith's apprentice... ",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              }
+            ],
+            "displayName": "Intro",
+            "inputPins": [
+              {}
+            ],
+            "labelIds": [
+              1
+            ],
+            "outputPins": [
+              {}
+            ],
+            "position": [
+              229.512634,
+              390.68576
+            ],
+            "technicalName": "Intro",
+            "type": "Collection"
+          }
+        ],
+        "displayName": "CutsceneDialogue",
+        "inputPins": [
+          {}
+        ],
+        "outputPins": [
+          {}
+        ],
+        "position": [
+          69.51265,
+          318.68573
+        ],
+        "technicalName": "CutsceneDialogue",
+        "type": "Collection"
       }
     ],
     "displayName": "Root",
@@ -445,8 +763,8 @@
     "type": "Collection"
   },
   "viewTransform": [
-    -54.2516479,
-    92.56821,
-    0.700000048
+    152.456512,
+    -31.1348877,
+    0.843841553
   ]
 }
