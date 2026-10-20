@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LoadZoneData
   sceneIdx: 4
   newPosition: {x: 152.37, y: 43.0141, z: 46.91}
-  newRotation: {x: -0, y: 112.4377, z: -0}
-  cameraRotation: 112.4377
+  newRotation: {x: 0, y: 275.6846, z: 0}
+  cameraRotation: 275.6846

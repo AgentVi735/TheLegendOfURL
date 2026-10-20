@@ -111,6 +111,7 @@ public class PlayerController : MonoBehaviour
     {
         CanRotate = toggle;
         cinemachineInputController.enabled = toggle;
+        Debug.Log($"Cam input is {toggle}");
     }
     public void ToggleCameraFollow(bool toggle)
     {
@@ -153,6 +154,7 @@ public class PlayerController : MonoBehaviour
         health += lifestealHealth;
         if (health > 100)
             health = 100;
+        _hudController.UpdateHealthBar(health);
     }
 
     private void Update()

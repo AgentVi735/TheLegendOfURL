@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,11 +12,19 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private EnemyWaypoint patrolPath;
     protected EnemyController enemy;
 
+#if UNITY_EDITOR
+    private void OnValidate()
+    {
+        if (Application.isPlaying) return;
+        gameObject.name = $"EnemySpawner ({EnemyID})";
+    }
+#endif
+
     public virtual void TrySpawnOnStart()
     {
         SpawnEnemy();
     }
-    
+
     public virtual void SpawnEnemy()
     {
         if (string.IsNullOrEmpty(_enemyID))

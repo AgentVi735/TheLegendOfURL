@@ -25,8 +25,6 @@ public class PlayerAttackManager : MonoBehaviour
     [Header("Options")]
     public bool CanAttack;
     private bool isAttacking;
-    [SerializeField] private float attackTime;
-    private WaitForSeconds waitAttackTime;
     public bool CanLockOn;
     [SerializeField] private float lockOnRadius;
     [SerializeField] private LayerMask lockOnLayerMask;
@@ -59,8 +57,6 @@ public class PlayerAttackManager : MonoBehaviour
         
         attackInput.started += OnAttackInput;
         lockOnInput.started += OnLockOnInput;
-
-        waitAttackTime = new WaitForSeconds(attackTime);
     }
 
     private void OnDestroy()
@@ -74,28 +70,20 @@ public class PlayerAttackManager : MonoBehaviour
     private void OnAttackInput(InputAction.CallbackContext ctx)
     {
         if (!CanAttack || isAttacking) return;
-        StartCoroutine(Attack());
-    }
-
-    private IEnumerator Attack()
-    {
+        
         isAttacking = true;
         controller.ToggleMovement(false);
         swordCollider.enabled = true;
         controller.Animator.SetTrigger("attack");
         controller.AudioPlayer.PlayClip(1);
-
-        yield return waitAttackTime;
-
-        AttackFinish();
-        if (controller.CanRotate)
-            controller.ToggleMovement(true);
     }
 
-    private void AttackFinish()
+    public void AttackFinish()
     {
         swordCollider.enabled = false;
         isAttacking = false;
+        if (controller.CanRotate)
+            controller.ToggleMovement(true);
     }
     
     private void OnLockOnInput(InputAction.CallbackContext ctx)
@@ -152,7 +140,8 @@ public class PlayerAttackManager : MonoBehaviour
         else
         {
             attackInput.Disable();
-            AttackFinish();
+            if (isAttacking)
+                AttackFinish();
         }
     }
 

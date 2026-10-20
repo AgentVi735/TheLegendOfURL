@@ -6,9 +6,12 @@ public class AudioManager : MonoBehaviour
     private AudioPlayer[] _playersInScene;
     [SerializeField] private AudioPlayer _musicSource;
     private bool isPlayingBossMusic;
+    
+    public bool isInitialised { get; private set; }
 
     public void Initialise()
     {
+        isInitialised = true;
         _musicSource.Initialise(SaveManager.Instance.SaveData.musicVolume);
         SceneController.s_OnSceneLoaded += OnChangeScene;
         PlayMainMusic();
@@ -43,6 +46,7 @@ public class AudioManager : MonoBehaviour
 
     public void GoBackToMainMusic()
     {
+        Debug.Log($"is playing boss music? {isPlayingBossMusic}");
         if (isPlayingBossMusic)
             PlayMainMusic();
     }

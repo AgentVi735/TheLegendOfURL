@@ -3,6 +3,8 @@
 [RequireComponent(typeof(AudioSource))]
 public class AudioPlayer : MonoBehaviour
 {
+    public AudioSource AudioSource => _audioSource;
+    public AudioSource PersistentAudioSource => _persistentAudioSource;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioSource _persistentAudioSource;
 
@@ -10,8 +12,10 @@ public class AudioPlayer : MonoBehaviour
 
     public void Initialise(float volume)
     {
-        _audioSource.volume = volume;
-        _persistentAudioSource.volume = volume;
+        if (_audioSource != null)
+            _audioSource.volume = volume;
+        if (_persistentAudioSource != null)
+            _persistentAudioSource.volume = volume;
     }
     
     public void PlayClip(int index, bool isPersistent = false, bool loop = false)
@@ -31,6 +35,12 @@ public class AudioPlayer : MonoBehaviour
         
         if (isPersistent)
         {
+            if (_persistentAudioSource == null)
+            {
+                Debug.LogError($"Persistent Audio Source in AudioPlayer on {gameObject.name}");
+                return;
+            }
+            
             if (_persistentAudioSource.isPlaying)
                 _persistentAudioSource.Stop();
             _persistentAudioSource.clip = clip;
@@ -39,6 +49,12 @@ public class AudioPlayer : MonoBehaviour
         }
         else
         {
+            if (_audioSource == null)
+            {
+                Debug.LogError($"Audio Source in AudioPlayer on {gameObject.name}");
+                return;
+            }
+            
             _audioSource.PlayOneShot(clip);
         }
     }

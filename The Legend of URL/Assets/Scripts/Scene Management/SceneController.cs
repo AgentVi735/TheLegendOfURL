@@ -86,8 +86,6 @@ public class SceneController : MonoBehaviour
         Instance = this;
         s_hasStartedInitialisation = false;
         
-        _audioManager.Initialise();
-        
         s_OnSceneLoaded += InitialiseScene;
         s_OnSceneUnloaded += UnloadScene;
         SceneManager.sceneLoaded += s_OnSceneLoaded;
@@ -97,6 +95,9 @@ public class SceneController : MonoBehaviour
     public void InitialiseBeforeStart()
     {
         InputSystem.onEvent += OnDeviceChange;
+        
+        if (!_audioManager.isInitialised)
+            _audioManager.Initialise();
     }
 
     private void Initialise()
@@ -204,9 +205,12 @@ public class SceneController : MonoBehaviour
         }
 
         SaveManager.Instance.SaveData.currentSceneIdx = loadedScene.buildIndex;
-        
+
         if (_playerController.HasInitialised)
+        {
             _initialisation.TogglePlayer(true);
+            _playerController.ToggleAllInputs(true);
+        }
         
         SaveManager.Instance.Save();
         _fadeManager.StartFade(true);
