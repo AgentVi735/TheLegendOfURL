@@ -341,7 +341,6 @@ public class SpiderQueenMoveToCeilingState : IEnemyState
         Vector3 enemyPos = enemyTransform.position;
         enemyPos.y = 0;
         float distance = Vector3.Distance(playerPos, enemyPos);
-        Debug.Log(distance);
         if (distance < 1.8)
         {
             _controller.player.OnHit(_controller.data.shockwaveDamage);
