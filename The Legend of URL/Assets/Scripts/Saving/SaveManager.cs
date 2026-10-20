@@ -119,6 +119,8 @@ public class SaveManager : MonoBehaviour
 #endif
         
         SaveData.ResetSave();
+        Save();
+        SaveStory();
     }
 
     private void OnDestroy()
