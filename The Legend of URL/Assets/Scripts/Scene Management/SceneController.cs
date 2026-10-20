@@ -25,6 +25,7 @@ public class SceneController : MonoBehaviour
     [SerializeField] private DialogueController _dialogueController;
     public AudioManager AudioManager => _audioManager;
     [SerializeField] private AudioManager _audioManager;
+    [SerializeField] private Transform _audioListenerTransform;
     [SerializeField] private bool _isMainMenuController;
 
     private static string s_currentSceneName;
@@ -46,22 +47,12 @@ public class SceneController : MonoBehaviour
             return;
         }
         
-        if (_isMainMenuController)
-            return;
-        
         StartupCheck();
     }
 
     private void StartupCheck()
     {
-        if (_initialisation == null)
-        {
-            Initialise();
-            if (gameObject != null)
-                Destroy(gameObject);
-            return;
-        }
-
+        Debug.Log($"Has initialised? {s_hasInitialised}");
         switch (s_hasInitialised)
         {
             case false:
@@ -79,6 +70,7 @@ public class SceneController : MonoBehaviour
         
         if (SaveManager.Instance == null)
             _saveManager.Initialise();
+        DialogueController.Initialise();
         if (_saveManager.SaveData.doesDataExist)
             _playerController.LoadSaveData();
 
@@ -105,12 +97,7 @@ public class SceneController : MonoBehaviour
         if (s_hasStartedInitialisation || s_hasInitialised) return;
         s_hasStartedInitialisation = true;
         if (_isMainMenuController)
-        {
             _fadeManager.Show();
-            _playerController.gameObject.SetActive(true);
-            _playerController.HudController.gameObject.SetActive(true);
-            _initialisation.gameObject.SetActive(true);
-        }
         s_initSceneName = _sceneHolder.GetSceneName(_sceneHolder.MainMenuSceneIdx);
         if (!IsInitScene(SceneManager.GetActiveScene().name))
             SceneManager.LoadScene(s_initSceneName, LoadSceneMode.Single);
@@ -131,7 +118,10 @@ public class SceneController : MonoBehaviour
     public void LoadNewScene(int idx)
     {
         if (_playerController.HasInitialised)
+        {
+            _audioListenerTransform.SetParent(transform);
             _initialisation.TogglePlayer(false);
+        }
         if (!_fadeManager.IsOn)
             _fadeManager.StartFade(false, () => {LoadScene(idx);});
         else
@@ -141,7 +131,10 @@ public class SceneController : MonoBehaviour
     public void LoadNewScene(LoadZoneData data)
     {
         if (_playerController.HasInitialised)
+        {
+            _audioListenerTransform.SetParent(transform);
             _initialisation.TogglePlayer(false);
+        }
         if (!_fadeManager.IsOn)
             _fadeManager.StartFade(false, () => {LoadScene(data);});
         else
@@ -168,8 +161,8 @@ public class SceneController : MonoBehaviour
     
     private void InitialiseScene(Scene loadedScene, LoadSceneMode loadSceneMode)
     {
-        Debug.Log($"Initialising scene {loadedScene.name} | Current status = {loadedScene.isLoaded}");
-        SceneManager.SetActiveScene(loadedScene);
+        if (loadedScene.isLoaded)
+            SceneManager.SetActiveScene(loadedScene);
         bool isFirstLoad = !s_hasInitialised;
         if (!IsInitScene(loadedScene.name) && !s_hasStartedInitialisation && !s_hasInitialised)
             s_hasInitialised = true;
@@ -209,6 +202,7 @@ public class SceneController : MonoBehaviour
         if (_playerController.HasInitialised)
         {
             _initialisation.TogglePlayer(true);
+            _audioListenerTransform.SetParent(_playerController.transform);
             _playerController.ToggleAllInputs(true);
         }
         
@@ -220,6 +214,7 @@ public class SceneController : MonoBehaviour
 
     private void UnloadScene(Scene unloadedScene)
     {
+        _audioListenerTransform.SetParent(transform);
         _initialisation.TogglePlayer(false);
     }
 
@@ -229,13 +224,27 @@ public class SceneController : MonoBehaviour
 
     public void StartGame()
     {
+        _playerController.HudController.gameObject.SetActive(true);
+        _playerController.gameObject.SetActive(true);
+        _initialisation.gameObject.SetActive(true);
+
+        if (_initialisation.hasInitialised)
+        {
+            LoadNewScene(SaveManager.Instance.SaveData.doesDataExist
+                ? SaveManager.Instance.SaveData.currentSceneIdx
+                : SceneHolder.StartGameSceneIdx);
+        }
+        
+        if (_saveManager.SaveData.doesDataExist)
+            _playerController.LoadSaveData();
+        
         _playerController.UpdateHealth();
-        StartupCheck();
     }
 
     public void LoadMainMenuScene()
     {
         _playerController.SaveData();
+        _audioListenerTransform.SetParent(transform);
         _playerController.gameObject.SetActive(false);
         _playerController.HudController.gameObject.SetActive(false);
         _initialisation.gameObject.SetActive(false);

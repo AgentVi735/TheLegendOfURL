@@ -40,13 +40,7 @@ public class MainMenuManager : MonoBehaviour
         Destroy(_objectsToRemove);
         Destroy(_settingsUI.gameObject);
         Destroy(gameObject);
-        if (SceneController.Instance != null)
-            FindAnyObjectByType<FadeManager>(FindObjectsInactive.Include).StartFade(false, SceneController.Instance.StartGame);
-        else
-        {
-            SceneController sceneController = FindAnyObjectByType<SceneController>();
-            FindAnyObjectByType<FadeManager>(FindObjectsInactive.Include).StartFade(false, sceneController.StartGame);
-        }
+        SceneController.Instance.FadeManager.StartFade(false, SceneController.Instance.StartGame);
     }
 
     public void SettingsButton()

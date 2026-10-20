@@ -9,6 +9,7 @@ public class SpiderQueenController : EnemyController
     [SerializeField] private Transform movementTrans;
 
     private SpiderMinionSpawner[] minionSpawners;
+    public SpiderQueenWallPoint[] wallPoints { get; private set; }
     
     private SpiderQueenPhase phase;
     public bool isCharging;
@@ -40,12 +41,12 @@ public class SpiderQueenController : EnemyController
     
     public override void Initialise(EnemyData receivedData, EnemyWaypoint[] receivedPath, string givenID)
     {
+        wallPoints = FindObjectsByType<SpiderQueenWallPoint>();
         base.Initialise(receivedData, receivedPath, givenID);
         maxHealth = data.health;
         phase = SpiderQueenPhase.Main;
         ChangeState(moveState);
         minionSpawners = FindObjectsByType<SpiderMinionSpawner>();
-        Debug.Log(minionSpawners.Length);
         waitMinionSpawnCooldown = new WaitForSeconds(data.minionSpawnCooldown);
         waitBlockAnimationTime = new WaitForSeconds(blockAnimationTime);
         isSpawnCooldownFinished = true;
@@ -78,12 +79,7 @@ public class SpiderQueenController : EnemyController
             case SpiderQueenPhase.Main:
                 Debug.Log(currentState);
                 if (currentState == stunState)
-                {
-                    if (!isAllowedToScream) // TODO: TEMPORARY
-                        Scream();
-                    else
-                        WalkToCeiling();
-                }
+                    WalkToCeiling();
                 else
                     ChangeState(moveState);
                 break;

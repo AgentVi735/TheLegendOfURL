@@ -133,7 +133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3850063847859711435, guid: c1e4fabe060740d4a98743fbc2d396d5, type: 3}
       propertyPath: m_Name
-      value: Enemy Spawner (Boss)
+      value: EnemySpawner (TestEnemyQueen)
       objectReference: {fileID: 0}
     - target: {fileID: 3850063847859711435, guid: c1e4fabe060740d4a98743fbc2d396d5, type: 3}
       propertyPath: m_IsActive
@@ -235,7 +235,7 @@ GameObject:
   - component: {fileID: 210142243}
   - component: {fileID: 210142244}
   m_Layer: 0
-  m_Name: Spawner0
+  m_Name: EnemySpawner ()
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -274,6 +274,38 @@ MonoBehaviour:
   spawnTrans: {fileID: 1272314058}
   spawnOffset: {x: 0, y: 0, z: 0}
   patrolPath: {fileID: 0}
+--- !u!1 &253457556
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 253457557}
+  m_Layer: 0
+  m_Name: WallPoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &253457557
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253457556}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 941033603}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &404480496
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,7 +317,7 @@ GameObject:
   - component: {fileID: 404480497}
   - component: {fileID: 404480498}
   m_Layer: 0
-  m_Name: Spawner2
+  m_Name: EnemySpawner ()
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -596,6 +628,37 @@ MonoBehaviour:
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
+--- !u!1 &684388270
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 684388271}
+  m_Layer: 0
+  m_Name: RoofPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &684388271
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684388270}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 7.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 941033603}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &721445743
 GameObject:
   m_ObjectHideFlags: 0
@@ -607,7 +670,7 @@ GameObject:
   - component: {fileID: 721445744}
   - component: {fileID: 721445745}
   m_Layer: 0
-  m_Name: Spawner3
+  m_Name: EnemySpawner ()
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -764,6 +827,53 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e940d0a598381c41ae2cb06758b7f2a, type: 3}
+--- !u!1 &941033602
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 941033603}
+  - component: {fileID: 941033604}
+  m_Layer: 0
+  m_Name: WallPoint 0
+  m_TagString: Untagged
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &941033603
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941033602}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.093183175, z: -0, w: 0.995649}
+  m_LocalPosition: {x: -14.14, y: 0, z: 16.57}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 684388271}
+  m_Father: {fileID: 253457557}
+  m_LocalEulerAnglesHint: {x: 0, y: -10.694, z: 0}
+--- !u!114 &941033604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941033602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8767d2ee7c7d47b2a560596977af8141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpiderQueenWallPoint
+  groundPoint: {fileID: 941033603}
+  roofPoint: {fileID: 684388271}
 --- !u!1 &1137676825
 GameObject:
   m_ObjectHideFlags: 0
@@ -1097,7 +1207,7 @@ GameObject:
   - component: {fileID: 1958081309}
   - component: {fileID: 1958081310}
   m_Layer: 0
-  m_Name: Spawner1
+  m_Name: EnemySpawner ()
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1271,3 +1381,4 @@ SceneRoots:
   - {fileID: 468653658}
   - {fileID: 1274105082}
   - {fileID: 430462181}
+  - {fileID: 253457557}

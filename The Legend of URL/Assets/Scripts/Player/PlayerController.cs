@@ -111,7 +111,6 @@ public class PlayerController : MonoBehaviour
     {
         CanRotate = toggle;
         cinemachineInputController.enabled = toggle;
-        Debug.Log($"Cam input is {toggle}");
     }
     public void ToggleCameraFollow(bool toggle)
     {

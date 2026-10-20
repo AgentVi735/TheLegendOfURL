@@ -130,7 +130,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AudioPlayer
   _audioSource: {fileID: 8444612029165275379}
   _persistentAudioSource: {fileID: 3130430085196672969}
-  _clips: []
+  _clips:
+  - {fileID: 8300000, guid: 7ea60a8c89026034aaa75c4b7a20ca55, type: 3}
+  - {fileID: 8300000, guid: 33f82a3388018f24fb969b0d02d33072, type: 3}
 --- !u!82 &8444612029165275379
 AudioSource:
   m_ObjectHideFlags: 0
@@ -152,10 +154,10 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 5
+  MaxDistance: 15
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -249,10 +251,10 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 5
+  MaxDistance: 15
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0

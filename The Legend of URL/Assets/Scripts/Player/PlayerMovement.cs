@@ -279,7 +279,6 @@ public class PlayerMovement : MonoBehaviour
     
     public void ToggleMovement(bool toggle)
     {
-        Debug.Log($"Movement {toggle}");
         CanMove = toggle;
         if (toggle)
             movementInput.Enable();

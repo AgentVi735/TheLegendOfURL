@@ -28,11 +28,11 @@ public class UISlider : MonoBehaviour
         {
             case SliderType.SFX:
                 SaveManager.Instance.SaveData.sfxVolume = value / _volumeMultiplier;
-                SceneController.Instance?.AudioManager?.UpdateSfxVolume();
+                SceneController.Instance.AudioManager.UpdateSfxVolume();
                 break;
             case SliderType.Music:
                 SaveManager.Instance.SaveData.musicVolume = value / _volumeMultiplier;
-                SceneController.Instance?.AudioManager?.UpdateMusicVolume();
+                SceneController.Instance.AudioManager.UpdateMusicVolume();
                 break;
             case SliderType.MouseSensitivityX:
                 SaveManager.Instance.SaveData.mouseSensitivity.x = value;

@@ -6,12 +6,14 @@ public class GameInitialisation : MonoBehaviour
     [SerializeField] private PlayerController playerController;
     [SerializeField] private Vector3 playerSpawnPos;
     [SerializeField] private FadeManager fadeManager;
+    
+    public bool hasInitialised { get; private set; }
 
     private void Start()
     {
+        hasInitialised = true;
         fadeManager.Show();
         playerController.Initialise();
-        sceneController.DialogueController.Initialise();
         SceneController.Instance.LoadNewScene(SaveManager.Instance.SaveData.doesDataExist
             ? SaveManager.Instance.SaveData.currentSceneIdx
             : sceneController.SceneHolder.StartGameSceneIdx );
