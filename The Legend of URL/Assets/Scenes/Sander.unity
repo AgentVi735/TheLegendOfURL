@@ -565,6 +565,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: ca5d0f9f46a3f864ca287e1830c96693, type: 2}
+    - target: {fileID: -3523565134262989609, guid: 811774a4266b84d4d83fd7bd9ecd8d0d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: bbd85ae4359e82a4c8cc870c6a6d1519, type: 2}
     - target: {fileID: 919132149155446097, guid: 811774a4266b84d4d83fd7bd9ecd8d0d, type: 3}
       propertyPath: m_Name
       value: Female NPC 2
@@ -573,6 +577,14 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: bbd85ae4359e82a4c8cc870c6a6d1519, type: 2}
+    - target: {fileID: 2869941719553850564, guid: 811774a4266b84d4d83fd7bd9ecd8d0d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: bbd85ae4359e82a4c8cc870c6a6d1519, type: 2}
+    - target: {fileID: 2869941719553850564, guid: 811774a4266b84d4d83fd7bd9ecd8d0d, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ca5d0f9f46a3f864ca287e1830c96693, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -642,6 +654,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Female NPC 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3118866838888332905, guid: c000fbd4141f8bc43893fec5cf5d9961, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ff94a683a58551b4c8c54e1637c2d0d3, type: 2}
+    - target: {fileID: 3118866838888332905, guid: c000fbd4141f8bc43893fec5cf5d9961, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b4a738d89b975d04cbee418dc3d52514, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -655,6 +675,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3241340881435808451, guid: f2f9e956051ea15499f561924cc54187, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 0c981fbb90de60047afeddc976edb817, type: 2}
+    - target: {fileID: 3241340881435808451, guid: f2f9e956051ea15499f561924cc54187, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: fa1b6ab8608f43649959965b4577d5bf, type: 2}
+    - target: {fileID: 5409161650557552243, guid: f2f9e956051ea15499f561924cc54187, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 0c981fbb90de60047afeddc976edb817, type: 2}
     - target: {fileID: 8622887673531976345, guid: f2f9e956051ea15499f561924cc54187, type: 3}
       propertyPath: m_Name
       value: Male NPC 1
