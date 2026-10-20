@@ -12,6 +12,7 @@ public class PlayerHUDController : MonoBehaviour
     
     [Header("UI References")]
     [SerializeField] private Slider healthBar;
+    [SerializeField] private Slider bossHealthBar;
     [SerializeField] private Image interactButtonImage;
     [SerializeField] private RectTransform interactButtonTransform;
 
@@ -54,5 +55,20 @@ public class PlayerHUDController : MonoBehaviour
         }
         else
             interactButtonImage.sprite = keyboardInteractSprite;
+    }
+
+    public void ToggleBossHealthBar(bool toggle)
+    {
+        bossHealthBar.gameObject.SetActive(toggle);
+    }
+
+    public void SetBossMaxHealth(short max)
+    {
+        bossHealthBar.maxValue = max;
+    }
+    
+    public void UpdateBossHealth(short health)
+    {
+        bossHealthBar.value = health >= 0 ? health : 0;
     }
 }

@@ -2,6 +2,5 @@
 {
     None,
     Main,
-    Drop,
     Final
 }

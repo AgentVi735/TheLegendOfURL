@@ -19,7 +19,7 @@ public abstract class EnemyController : MonoBehaviour
     public AudioPlayer AudioPlayer => _audioPlayer;
     [SerializeField] private AudioPlayer _audioPlayer;
 
-    private short health { get; set; }
+    protected short health;
     public EnemyData data { get; private set; }
     public EnemyWaypoint[] patrolPath { get; private set; }
     public NavMeshQueryFilter navMeshFilter { get; private set; }
@@ -137,16 +137,6 @@ public abstract class EnemyController : MonoBehaviour
     private void GetKnockback()
     {
         hitVelocity = transform.TransformDirection(data.knockbackVelocityOffset);
-        float angle = (player.transform.eulerAngles - transform.eulerAngles).y;
-        
-        Vector3 direction = new(
-            Mathf.Cos(angle * Mathf.Deg2Rad), 
-            0, 
-            Mathf.Sin(angle * Mathf.Deg2Rad)
-        );
-        
-        Debug.Log($"{direction} | {hitVelocity}");
-        
         hitVelocity *= data.knockbackMultiplier;
         ChangeState(knockbackState);
     }

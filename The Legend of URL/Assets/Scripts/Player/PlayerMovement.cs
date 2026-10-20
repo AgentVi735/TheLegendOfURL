@@ -220,6 +220,11 @@ public class PlayerMovement : MonoBehaviour
         playerController.Animator.SetFloat("walkSpeed", walkAnimCurrent);
     }
 
+    public void Pause()
+    {
+        OnPausePressed(new InputAction.CallbackContext());
+    }
+    
     private void OnPausePressed(InputAction.CallbackContext ctx)
     {
         if (!CanPause) return;

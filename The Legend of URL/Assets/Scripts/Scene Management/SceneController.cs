@@ -239,10 +239,9 @@ public class SceneController : MonoBehaviour
                 : SceneHolder.StartGameSceneIdx);
         }
         
+        Debug.Log($"does save data exist? {_saveManager.SaveData.doesDataExist}");
         if (_saveManager.SaveData.doesDataExist)
             _playerController.LoadSaveData();
-        
-        _playerController.UpdateHealth();
     }
 
     public void LoadMainMenuScene()

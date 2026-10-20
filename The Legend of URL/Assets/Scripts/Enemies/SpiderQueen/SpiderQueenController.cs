@@ -5,13 +5,16 @@ using UnityEngine;
 
 public class SpiderQueenController : EnemyController
 {
+    public Transform ModelTransform => _modelTransform;
+    [SerializeField] private Transform _modelTransform;
     public Transform MovementTrans => movementTrans;
     [SerializeField] private Transform movementTrans;
+    public LineRenderer LineRenderer => _lineRenderer;
+    [SerializeField] private LineRenderer _lineRenderer;
 
     private SpiderMinionSpawner[] minionSpawners;
     public SpiderQueenWallPoint[] wallPoints { get; private set; }
     
-    private SpiderQueenPhase phase;
     public bool isCharging;
     public bool isStunned;
     public bool isScreaming;
@@ -20,7 +23,6 @@ public class SpiderQueenController : EnemyController
     private bool areAllMinionsDead;
     private int minionCount;
 
-    private short maxHealth;
     private short damageDoneWhileStunned;
     private WaitForSeconds waitMinionSpawnCooldown;
 
@@ -38,19 +40,22 @@ public class SpiderQueenController : EnemyController
 
     [SerializeField] private float blockAnimationTime;
     private WaitForSeconds waitBlockAnimationTime;
+
+    [SerializeField] private LayerMask playerLayer;
     
     public override void Initialise(EnemyData receivedData, EnemyWaypoint[] receivedPath, string givenID)
     {
         wallPoints = FindObjectsByType<SpiderQueenWallPoint>();
         base.Initialise(receivedData, receivedPath, givenID);
-        maxHealth = data.health;
-        phase = SpiderQueenPhase.Main;
         ChangeState(moveState);
         minionSpawners = FindObjectsByType<SpiderMinionSpawner>();
         waitMinionSpawnCooldown = new WaitForSeconds(data.minionSpawnCooldown);
         waitBlockAnimationTime = new WaitForSeconds(blockAnimationTime);
         isSpawnCooldownFinished = true;
         areAllMinionsDead = true;
+        player.HudController.SetBossMaxHealth(data.health);
+        player.HudController.UpdateBossHealth(health);
+        player.HudController.ToggleBossHealthBar(true);
         SceneController.Instance.AudioManager.PlayBossMusic();
     }
 
@@ -72,23 +77,12 @@ public class SpiderQueenController : EnemyController
 
     public void GetNewState()
     {
-        switch (phase)
-        {
-            default:
-            case SpiderQueenPhase.None:
-            case SpiderQueenPhase.Main:
-                Debug.Log(currentState);
-                if (currentState == stunState)
-                    WalkToCeiling();
-                else
-                    ChangeState(moveState);
-                break;
-            case SpiderQueenPhase.Drop:
-            case SpiderQueenPhase.Final:
-                break;
-        }
+        if (currentState == stunState)
+            WalkToCeiling();
+        else
+            ChangeState(moveState);
     }
-
+    
     protected override void GetDamage(short amount)
     {
         if (isScreaming)
@@ -96,7 +90,6 @@ public class SpiderQueenController : EnemyController
         
         Animator.SetTrigger("gotHit");
 
-        Debug.Log($"{currentState} | {isCharging} | {isStunned}");
         switch (isCharging)
         {
             case false when !isStunned:
@@ -116,6 +109,15 @@ public class SpiderQueenController : EnemyController
         }
         
         base.GetDamage(amount);
+        player.HudController.UpdateBossHealth(health);
+        
+        switch (isAllowedToScream)
+        {
+            case false when health < data.health / 2:
+            case true:
+                Scream();
+                break;
+        }
     }
 
     private IEnumerator BlockAnimation()
@@ -136,7 +138,6 @@ public class SpiderQueenController : EnemyController
 
     private void WalkToCeiling()
     {
-        Debug.Log("cleing");
         ChangeState(crawlToCeilingState);
     }
 
@@ -177,7 +178,6 @@ public class SpiderQueenController : EnemyController
         isSpawnCooldownFinished = false;
         yield return waitMinionSpawnCooldown;
         isSpawnCooldownFinished = true;
-        Scream();
     }
 
     public void OnMinionKilled()
@@ -219,5 +219,17 @@ public class SpiderQueenController : EnemyController
     public void FinishAttackAnimation()
     {
         ChangeState(moveState);
+    }
+
+    public void FinishLandAnimation()
+    {
+        ChangeState(moveState);
+    }
+    
+    protected override void KillEnemy()
+    {
+        Destroy(gameObject);
+        player.HudController.ToggleBossHealthBar(false);
+        player.Pause();
     }
 }

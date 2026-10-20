@@ -107,6 +107,11 @@ public class PlayerController : MonoBehaviour
         SceneController.Instance.DialogueController.OnCloseStory.RemoveListener(() => { ToggleAllInputs(true);});
     }
 
+    public void Pause()
+    {
+        movement.Pause();
+    }
+
     public void ToggleCameraInput(bool toggle)
     {
         CanRotate = toggle;

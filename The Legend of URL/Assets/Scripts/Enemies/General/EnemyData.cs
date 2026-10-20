@@ -7,6 +7,7 @@ public class EnemyData : ScriptableObject
     public EnemyController prefab;
     public short health;
     public short damage;
+    public short shockwaveDamage;
     public float attackCooldown;
     public float attackRadius;
     public float attackChargeTime;

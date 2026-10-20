@@ -3551,6 +3551,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1913954996}
     m_Modifications:
+    - target: {fileID: 254786027386313827, guid: 9821005e27d28124884f6af0f337f784, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.702
+      objectReference: {fileID: 0}
+    - target: {fileID: 254786027386313827, guid: 9821005e27d28124884f6af0f337f784, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2758377289073456740, guid: 9821005e27d28124884f6af0f337f784, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -3630,10 +3638,6 @@ PrefabInstance:
     - target: {fileID: 2758377289073456740, guid: 9821005e27d28124884f6af0f337f784, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3068587198094385142, guid: 9821005e27d28124884f6af0f337f784, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5668963620665197242, guid: 9821005e27d28124884f6af0f337f784, type: 3}
       propertyPath: m_AnchorMax.x
@@ -4084,6 +4088,18 @@ PrefabInstance:
     - target: {fileID: 4129507807256346642, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4448322957953899592, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
+      propertyPath: m_Height
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4448322957953899592, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
+      propertyPath: m_Radius
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4448322957953899592, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
+      propertyPath: m_Center.y
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 6460780336858691293, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
       propertyPath: characterTrans

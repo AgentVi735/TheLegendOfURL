@@ -16,6 +16,7 @@ MonoBehaviour:
   prefab: {fileID: 6961365221439129243, guid: 9fc6bcc2a3ab00c45920cb7f497e37d6, type: 3}
   health: 250
   damage: 10
+  shockwaveDamage: 20
   attackCooldown: 0.8
   attackRadius: 1.7
   attackChargeTime: 0.8
@@ -40,4 +41,4 @@ MonoBehaviour:
   stalkRange: 0
   stalkDestinationsAmount: {x: 0, y: 0}
   minionSpawnAmount: {x: 2, y: 4}
-  minionSpawnCooldown: 45
+  minionSpawnCooldown: 20
