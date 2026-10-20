@@ -17,6 +17,40 @@ public class AudioPlayer : MonoBehaviour
         if (_persistentAudioSource != null)
             _persistentAudioSource.volume = volume;
     }
+
+    public void TryPlayPersistentClip(int index, bool loop = false)
+    {
+        if (index >= _clips.Length)
+        {
+            Debug.LogError($"{index} is higher than amount of audioClips in {gameObject.name}");
+            return;
+        }
+        
+        AudioClip clip = _clips[index];
+        if (clip == null)
+        {
+            Debug.LogError($"Audio clip in {gameObject.name} could not be loaded with index {index}");
+            return;
+        }
+        
+        if (_persistentAudioSource == null)
+        {
+            Debug.LogError($"Persistent Audio Source in AudioPlayer on {gameObject.name}");
+            return;
+        }
+
+        if (_persistentAudioSource.isPlaying)
+        {
+            if (_persistentAudioSource.clip == clip)
+                return;
+            else
+                _persistentAudioSource.Stop();
+        }
+        
+        _persistentAudioSource.clip = clip;
+        _persistentAudioSource.loop = loop;
+        _persistentAudioSource.Play();
+    }
     
     public void PlayClip(int index, bool isPersistent = false, bool loop = false)
     {

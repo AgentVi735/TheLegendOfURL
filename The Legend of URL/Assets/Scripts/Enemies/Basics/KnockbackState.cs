@@ -46,6 +46,7 @@ public class KnockbackState : IEnemyState
 
     public void OnEnter()
     {
+        _controller.AudioPlayer.StopPersistentAudio();
     }
 
     public void OnExit()

@@ -201,6 +201,8 @@ public class BasicPatrolState : IEnemyState
 
         if (closestPosIdx != -1)
             currentWaypoint = path[closestPosIdx];
+        
+        _controller.AudioPlayer.TryPlayPersistentClip(0, true);
     }
 
     public void OnExit()

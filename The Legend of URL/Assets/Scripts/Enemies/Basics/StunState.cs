@@ -24,6 +24,7 @@ public class StunState : IEnemyState
     {
         timeSpent = 0;
         stunTime = _controller.stunTime;
+        _controller.AudioPlayer.StopPersistentAudio();
     }
 
     public void OnExit()

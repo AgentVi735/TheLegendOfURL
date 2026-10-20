@@ -98,6 +98,7 @@ public class LookForPlayerState : IEnemyState
     {
         timeSpent = 0;
         GetPlayerDirection();
+        _controller.AudioPlayer.StopPersistentAudio();
     }
 
     public void OnExit()

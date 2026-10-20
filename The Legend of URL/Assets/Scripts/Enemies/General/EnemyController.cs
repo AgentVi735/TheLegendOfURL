@@ -16,6 +16,8 @@ public abstract class EnemyController : MonoBehaviour
     public PlayerController player { get; private set; }
     public Animator Animator => _animator;
     [SerializeField] private Animator _animator;
+    public AudioPlayer AudioPlayer => _audioPlayer;
+    [SerializeField] private AudioPlayer _audioPlayer;
 
     private short health { get; set; }
     public EnemyData data { get; private set; }
