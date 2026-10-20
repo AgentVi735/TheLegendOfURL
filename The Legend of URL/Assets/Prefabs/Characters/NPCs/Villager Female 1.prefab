@@ -1,91 +1,47 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &4830087827422378771
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 61e32375a2f4e3c4dbcead06c4e343b9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 61e32375a2f4e3c4dbcead06c4e343b9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 61e32375a2f4e3c4dbcead06c4e343b9, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 61e32375a2f4e3c4dbcead06c4e343b9, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 61e32375a2f4e3c4dbcead06c4e343b9, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 61e32375a2f4e3c4dbcead06c4e343b9, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 61e32375a2f4e3c4dbcead06c4e343b9, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 61e32375a2f4e3c4dbcead06c4e343b9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 61e32375a2f4e3c4dbcead06c4e343b9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 61e32375a2f4e3c4dbcead06c4e343b9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 61e32375a2f4e3c4dbcead06c4e343b9, type: 3}
-      propertyPath: m_Name
-      value: Villager Female 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 61e32375a2f4e3c4dbcead06c4e343b9, type: 3}
-      propertyPath: m_Layer
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 61e32375a2f4e3c4dbcead06c4e343b9, type: 3}
-      propertyPath: m_TagString
-      value: NPC
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 61e32375a2f4e3c4dbcead06c4e343b9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1049043639716818363}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 61e32375a2f4e3c4dbcead06c4e343b9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5565322399224326409}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 61e32375a2f4e3c4dbcead06c4e343b9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5879773472756683011}
-  m_SourcePrefab: {fileID: 100100000, guid: 61e32375a2f4e3c4dbcead06c4e343b9, type: 3}
---- !u!1 &5748425564394341954 stripped
+--- !u!1 &3969358649718202454
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 61e32375a2f4e3c4dbcead06c4e343b9, type: 3}
-  m_PrefabInstance: {fileID: 4830087827422378771}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &1049043639716818363
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8237658524015329321}
+  - component: {fileID: 4656542974994252863}
+  - component: {fileID: 8338916663227279504}
+  - component: {fileID: 2986750566222304957}
+  m_Layer: 0
+  m_Name: Villager Female 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8237658524015329321
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3969358649718202454}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 712047048462083683}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4656542974994252863
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5748425564394341954}
+  m_GameObject: {fileID: 3969358649718202454}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -100,13 +56,13 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.96567386, y: 1.8000038, z: 0.8395245}
   m_Center: {x: -0.005410461, y: 0.8999995, z: -0.05892476}
---- !u!114 &5565322399224326409
+--- !u!114 &8338916663227279504
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5748425564394341954}
+  m_GameObject: {fileID: 3969358649718202454}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 213a3a40cf564977b4d028bf206c8796, type: 3}
@@ -114,13 +70,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NpcController
   _storyTag:
     _id: 13627888193254757602
---- !u!208 &5879773472756683011
+--- !u!208 &2986750566222304957
 NavMeshObstacle:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5748425564394341954}
+  m_GameObject: {fileID: 3969358649718202454}
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
@@ -130,3 +86,73 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: -0.005410461, y: 0.8999995, z: -0.05892476}
   m_TimeToStationary: 0.5
+--- !u!1001 &1038935657676784008
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8237658524015329321}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: c000fbd4141f8bc43893fec5cf5d9961, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.14504
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c000fbd4141f8bc43893fec5cf5d9961, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.91229
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c000fbd4141f8bc43893fec5cf5d9961, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.36084
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c000fbd4141f8bc43893fec5cf5d9961, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c000fbd4141f8bc43893fec5cf5d9961, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c000fbd4141f8bc43893fec5cf5d9961, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c000fbd4141f8bc43893fec5cf5d9961, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c000fbd4141f8bc43893fec5cf5d9961, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c000fbd4141f8bc43893fec5cf5d9961, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c000fbd4141f8bc43893fec5cf5d9961, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: c000fbd4141f8bc43893fec5cf5d9961, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ff94a683a58551b4c8c54e1637c2d0d3, type: 2}
+    - target: {fileID: -7511558181221131132, guid: c000fbd4141f8bc43893fec5cf5d9961, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b4a738d89b975d04cbee418dc3d52514, type: 2}
+    - target: {fileID: 919132149155446097, guid: c000fbd4141f8bc43893fec5cf5d9961, type: 3}
+      propertyPath: m_Name
+      value: Female NPC 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c000fbd4141f8bc43893fec5cf5d9961, type: 3}
+--- !u!4 &712047048462083683 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c000fbd4141f8bc43893fec5cf5d9961, type: 3}
+  m_PrefabInstance: {fileID: 1038935657676784008}
+  m_PrefabAsset: {fileID: 0}
