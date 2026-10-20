@@ -21,6 +21,7 @@
     
     protected override void KillEnemy()
     {
+        player.OnEnemyKill();
         queenController.OnMinionKilled();
         Destroy(gameObject);
     }

@@ -4039,6 +4039,14 @@ PrefabInstance:
       propertyPath: swordAnimationPath
       value: Attack
       objectReference: {fileID: 0}
+    - target: {fileID: 768315578929588119, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: eebd680c24b5c704ab94218e71a55ac2, type: 2}
+    - target: {fileID: 768315578929588119, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 27f24a4e52023f34bbcb911cf0ae6d10, type: 2}
     - target: {fileID: 2295151883494553120, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
       propertyPath: m_Name
       value: Player Controller
@@ -4067,6 +4075,10 @@ PrefabInstance:
       propertyPath: characterTransform
       value: 
       objectReference: {fileID: 2951496709421401238}
+    - target: {fileID: 3034969510893557021, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: eebd680c24b5c704ab94218e71a55ac2, type: 2}
     - target: {fileID: 4129507807256346642, guid: b1371f7d9acc92641a819711b74edeb9, type: 3}
       propertyPath: m_IsActive
       value: 0
