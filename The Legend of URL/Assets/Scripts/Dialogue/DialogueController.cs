@@ -15,6 +15,7 @@ public class DialogueController : MonoBehaviour
 
     public void Initialise()
     {
+        OghamStoryCatalog.Build();
         _story = Storyteller.GetStory();
         _hud.Initialise();
         SaveManager.Instance.LoadStory();

@@ -67,7 +67,7 @@ public class SceneController : MonoBehaviour
                 _initialisation.gameObject.SetActive(true);
                 break;
         }
-        
+
         if (SaveManager.Instance == null)
             _saveManager.Initialise();
         DialogueController.Initialise();
