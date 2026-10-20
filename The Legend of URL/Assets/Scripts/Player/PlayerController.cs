@@ -188,11 +188,16 @@ public class PlayerController : MonoBehaviour
                 closestCollider = collider;
         }
 
+        closestNpc = closestCollider?.GetComponent<NpcController>();
+
         if (closestCollider?.transform == null)
         {
             _hudController.ToggleInteractButton(false);
             return;
         }
+
+        if (closestNpc == null)
+            return;
 
         Vector3 npcPos = closestNpc.InteractButtonPosition + closestNpc.transform.position;
         Vector2 buttonPos = _camera.WorldToScreenPoint(npcPos);
