@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Swamp-Boss
   m_EditorClassIdentifier: Assembly-CSharp::LoadZoneData
   sceneIdx: 6
-  newPosition: {x: -0.09, y: 0.124, z: -16.28}
-  newRotation: {x: -0, y: 356.15808, z: 0}
-  cameraRotation: 356.15808
+  newPosition: {x: -0.407, y: 0.124, z: 17.913}
+  newRotation: {x: -0, y: 176.15814, z: 0}
+  cameraRotation: 176.15814
