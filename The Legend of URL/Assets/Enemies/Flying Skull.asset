@@ -10,19 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea26bcb2333e416ea3dd515459db160d, type: 3}
-  m_Name: Test Flying Enemy
+  m_Name: Flying Skull
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  enemyName: Test Flying Enemy
-  controllerType: 2
+  enemyName: Flying Skull
   prefab: {fileID: 2673913721158306445, guid: 1b0aea96593e5a843abf7fc95c758df6, type: 3}
   health: 10
   damage: 15
   attackCooldown: 0.7
   attackRadius: 0.1
+  attackChargeTime: 0
+  interruptStunTime: 0
+  maxDamageDuringStun: 0
+  screamAnimationDuration: 0
   sweepTime: 1.4
   walkSpeed: 3
   chaseSpeed: 6
   turnSpeed: 12.3
+  movementTurnSpeed: 0
   gravitySpeed: 2
   knockbackMultiplier: 10
   knockbackSpeed: 7
@@ -35,3 +39,5 @@ MonoBehaviour:
   maxLookTime: 3
   stalkRange: 4.7
   stalkDestinationsAmount: {x: 3, y: 6}
+  minionSpawnAmount: {x: 0, y: 0}
+  minionSpawnCooldown: 0

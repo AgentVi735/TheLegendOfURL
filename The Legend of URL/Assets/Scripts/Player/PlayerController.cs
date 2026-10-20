@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private short maxHealth;
     private short health;
     private Collider[] interactColliders;
+    [SerializeField] private short lifestealHealth;
 
     [Header("Input")]
     [SerializeField] private InputActionAsset inputActionAsset;
@@ -147,6 +148,13 @@ public class PlayerController : MonoBehaviour
         print("Death :3");
     }
 
+    public void OnEnemyKill()
+    {
+        health += lifestealHealth;
+        if (health > 100)
+            health = 100;
+    }
+
     private void Update()
     {
         if (CanMove && CanRotate && CanInteract)
@@ -217,7 +225,7 @@ public class PlayerController : MonoBehaviour
         ToggleCursor(!toggle);
     }
     
-    private void InteractWithNpc(GameObject npcObject)
+    private static void InteractWithNpc(GameObject npcObject)
     {
         NpcController npcController = npcObject.GetComponent<NpcController>();
         npcController.StartStory();
@@ -252,23 +260,11 @@ public class PlayerController : MonoBehaviour
 
     public void OnDeviceChange(ControlScheme newScheme)
     {
-        UpdateSensitivity(newScheme);
+        UpdateSensitivity();
         _hudController.SetInteractButtonSprite(newScheme);
     }
 
     private void UpdateSensitivity()
-    {
-        Vector2 sensitivity = SceneController.ControlScheme switch
-        {
-            ControlScheme.Gamepad => SaveManager.Instance.SaveData.controllerSensitivity,
-            _ => SaveManager.Instance.SaveData.mouseSensitivity
-        };
-
-        cinemachineInputController.Controllers[0].Input.Gain = sensitivity.x;
-        cinemachineInputController.Controllers[1].Input.Gain = -sensitivity.y;
-    }
-
-    private void UpdateSensitivity(ControlScheme scheme)
     {
         Vector2 sensitivity = SceneController.ControlScheme switch
         {

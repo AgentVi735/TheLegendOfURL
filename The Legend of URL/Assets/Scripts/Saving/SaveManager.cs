@@ -50,7 +50,8 @@ public class SaveManager : MonoBehaviour
         if (Instance != this || !CanSave)
             return;
         
-        SaveData.doesDataExist = true;
+        if (SaveData.currentSceneIdx != 0)
+            SaveData.doesDataExist = true;
         
         _playerController.SaveData();
         SaveData.SaveEnemyIDsKilled();
@@ -109,6 +110,15 @@ public class SaveManager : MonoBehaviour
 #endif
         SaveData.ResetData();
         SaveStory();
+    }
+
+    public void ResetSave()
+    {
+#if UNITY_EDITOR
+        Debug.Log("Resetting save data");
+#endif
+        
+        SaveData.ResetSave();
     }
 
     private void OnDestroy()

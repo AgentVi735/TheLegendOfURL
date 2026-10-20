@@ -42,6 +42,12 @@ public class SettingsUI : MonoBehaviour
     {
         gameObject.SetActive(false);
         SaveManager.Instance.Save();
-        _mainMenu.gameObject.SetActive(true);
+        _mainMenu.Show();
+    }
+
+    public void ResetButton()
+    {
+        SaveManager.Instance.ResetSave();
+        BackButton();
     }
 }

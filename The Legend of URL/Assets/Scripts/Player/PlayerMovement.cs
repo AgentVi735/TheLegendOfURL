@@ -251,6 +251,7 @@ public class PlayerMovement : MonoBehaviour
         if (!isOnGround || jumpVelocity.y > 0 || isJumping) return;
         isJumping = true;
         ToggleMovement(false);
+        playerController.ToggleAttack(false);
         playerController.Animator.SetTrigger("jump");
     }
 
@@ -263,6 +264,7 @@ public class PlayerMovement : MonoBehaviour
     public void FinishLanding()
     {
         ToggleMovement(true);
+        playerController.ToggleAttack(true);
         isJumping = false;
     }
     

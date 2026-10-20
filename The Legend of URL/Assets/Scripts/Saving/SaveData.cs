@@ -61,7 +61,19 @@ public class SaveData : ScriptableObject
         fullscreenIdx = 0;
         mouseSensitivity = new Vector2(35, 35);
         controllerSensitivity = new Vector2(100, 70);
-        currentSceneIdx = 1;
+        currentSceneIdx = 0;
+        playerPosition = Vector3.zero;
+        playerRotation = Vector3.zero;
+        health = 100;
+        enemyIdsKilledArray = Array.Empty<string>();
+        Storyteller.ClearState();
+        InitialiseData();
+    }
+
+    public void ResetSave()
+    {
+        doesDataExist = false;
+        currentSceneIdx = 0;
         playerPosition = Vector3.zero;
         playerRotation = Vector3.zero;
         health = 100;

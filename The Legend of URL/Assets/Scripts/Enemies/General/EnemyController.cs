@@ -165,6 +165,7 @@ public abstract class EnemyController : MonoBehaviour
         transform.parent.gameObject.SetActive(false);
         if (!string.IsNullOrEmpty(enemyID))
             SaveManager.Instance.SaveData.SetEnemyIDKilled(enemyID, true);
+        player.OnEnemyKill();
         Destroy(gameObject);
     }
 

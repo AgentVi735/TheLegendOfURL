@@ -29,6 +29,12 @@ public class MainMenuManager : MonoBehaviour
         _settingsUI.Initialise();
     }
 
+    public void Show()
+    {
+        _startButton.UpdateText(SaveManager.Instance.SaveData.doesDataExist ? _continueText : _startText);
+        gameObject.SetActive(true);
+    }
+    
     public void StartButton()
     {
         Destroy(_objectsToRemove);

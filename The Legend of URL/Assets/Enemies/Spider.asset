@@ -10,19 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea26bcb2333e416ea3dd515459db160d, type: 3}
-  m_Name: Test Enemy
+  m_Name: Spider
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  enemyName: Test Enemy
-  controllerType: 1
+  enemyName: Spider
   prefab: {fileID: 1411090755591761608, guid: 7c8dee0c89502c24da1b183fbaa8f56b, type: 3}
-  health: 20
-  damage: 10
+  health: 10
+  damage: 5
   attackCooldown: 0.8
   attackRadius: 1.2
+  attackChargeTime: 0
+  interruptStunTime: 0
+  maxDamageDuringStun: 0
+  screamAnimationDuration: 0
   sweepTime: 0
   walkSpeed: 2.5
   chaseSpeed: 4
   turnSpeed: 9.52
+  movementTurnSpeed: 0
   gravitySpeed: 12
   knockbackMultiplier: 10
   knockbackSpeed: 7
@@ -35,3 +39,5 @@ MonoBehaviour:
   maxLookTime: 7
   stalkRange: 0
   stalkDestinationsAmount: {x: 0, y: 0}
+  minionSpawnAmount: {x: 0, y: 0}
+  minionSpawnCooldown: 0
