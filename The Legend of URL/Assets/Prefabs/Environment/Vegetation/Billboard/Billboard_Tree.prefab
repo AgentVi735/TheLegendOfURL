@@ -67,7 +67,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 8163316b24d09f5468f32c941363d0ad, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 21f4982017133d04dbf014e9b457f519, type: 2}
+      objectReference: {fileID: 2100000, guid: 51cf2caf1a938c948bec053706e11e56, type: 2}
     - target: {fileID: 919132149155446097, guid: 8163316b24d09f5468f32c941363d0ad, type: 3}
       propertyPath: m_Name
       value: Billboard_Tree

@@ -7189,7 +7189,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7097587302284411135, guid: 85ba759ce0dda0149ae3a01cf34fb143, type: 3}
       propertyPath: m_text
-      value: Reset
+      value: Reset Progress
       objectReference: {fileID: 0}
     - target: {fileID: 7097587302284411135, guid: 85ba759ce0dda0149ae3a01cf34fb143, type: 3}
       propertyPath: m_fontSize
