@@ -51,6 +51,7 @@ public class UIButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if (_button == null) return;
         if (lerpCoroutine != null)
             StopCoroutine(lerpCoroutine);
         _text.fontMaterial = _defaultMat;
