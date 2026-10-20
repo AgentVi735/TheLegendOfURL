@@ -229,6 +229,7 @@ public class SceneController : MonoBehaviour
 
     public void StartGame()
     {
+        _playerController.UpdateHealth();
         StartupCheck();
     }
 

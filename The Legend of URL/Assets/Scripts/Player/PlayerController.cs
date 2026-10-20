@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask interactLayerMask;
     [SerializeField] private int maxInteractColliders = 1;
     [SerializeField] private string npcTag;
-    private Transform closestNpcObject;
+    private NpcController closestNpc;
     
 #if UNITY_EDITOR
     [Header("Editor Options")]
@@ -173,42 +173,47 @@ public class PlayerController : MonoBehaviour
             interactLayerMask);
         if (hitCount <= 0)
         {
-            closestNpcObject = null;
+            closestNpc = null;
             _hudController.ToggleInteractButton(false);
             return;
         }
 
+        Collider closestCollider = null;
+        
         foreach (Collider collider in interactColliders)
         {
             if (collider == null)
                 continue;
             if (collider.CompareTag(npcTag))
-                closestNpcObject = collider.transform;
+                closestCollider = collider;
         }
 
-        if (closestNpcObject == null)
+        if (closestCollider?.transform == null)
         {
             _hudController.ToggleInteractButton(false);
             return;
         }
 
-        Vector2 buttonPos = _camera.WorldToScreenPoint(closestNpcObject.position);
+        Vector3 npcPos = closestNpc.InteractButtonPosition + closestNpc.transform.position;
+        Vector2 buttonPos = _camera.WorldToScreenPoint(npcPos);
         _hudController.SetInteractButtonPosition(buttonPos);
         _hudController.ToggleInteractButton(true);
     }
 
+    public void UpdateHealth() => HudController.UpdateHealthBar(health);
+    
     private void OnInteractPressed(InputAction.CallbackContext ctx)
     {
         if (!CanInteract) return;
         
-        if (closestNpcObject == null)
+        if (closestNpc == null)
         {
             CheckForInteractions();
-            if (closestNpcObject == null)
+            if (closestNpc == null)
                 return;
         }
         
-        InteractWithNpc(closestNpcObject.gameObject);
+        closestNpc.StartStory();
     }
 
     public void ToggleAllInputs(bool toggle)
@@ -225,12 +230,6 @@ public class PlayerController : MonoBehaviour
         ToggleReceiveDamage(toggle);
         ToggleInteract(toggle);
         ToggleCursor(!toggle);
-    }
-    
-    private static void InteractWithNpc(GameObject npcObject)
-    {
-        NpcController npcController = npcObject.GetComponent<NpcController>();
-        npcController.StartStory();
     }
 
     public short EnemyGetDamage() => attackManager.damage;
