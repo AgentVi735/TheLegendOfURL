@@ -88,7 +88,7 @@ public class SceneController : MonoBehaviour
     {
         InputSystem.onEvent += OnDeviceChange;
         
-        if (!_audioManager.isInitialised)
+        if (!_audioManager.IsInitialised)
             _audioManager.Initialise();
     }
 

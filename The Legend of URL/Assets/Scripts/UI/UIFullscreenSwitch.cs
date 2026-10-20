@@ -34,6 +34,7 @@ public class UIFullscreenSwitch : MonoBehaviour
         if (_idx >= _modes.Length)
             _idx = 0;
         UpdateCurrent(_modes[_idx]);
+        SceneController.Instance.AudioManager.PlayUIClickSfx();
     }
 
     private void UpdateCurrent(FullScreenMode mode)

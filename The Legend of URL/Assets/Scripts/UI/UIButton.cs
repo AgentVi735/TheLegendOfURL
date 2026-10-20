@@ -55,5 +55,6 @@ public class UIButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         if (lerpCoroutine != null)
             StopCoroutine(lerpCoroutine);
         _text.fontMaterial = _defaultMat;
+        SceneController.Instance.AudioManager.PlayUIClickSfx();
     }
 }

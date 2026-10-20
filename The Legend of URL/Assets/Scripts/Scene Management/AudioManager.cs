@@ -5,13 +5,14 @@ public class AudioManager : MonoBehaviour
 {
     private AudioPlayer[] _playersInScene;
     [SerializeField] private AudioPlayer _musicSource;
-    private bool isPlayingBossMusic;
+    [SerializeField] private AudioPlayer _uiSource;
+    private bool _isPlayingBossMusic;
     
-    public bool isInitialised { get; private set; }
+    public bool IsInitialised { get; private set; }
 
     public void Initialise()
     {
-        isInitialised = true;
+        IsInitialised = true;
         _musicSource.Initialise(SaveManager.Instance.SaveData.musicVolume);
         SceneController.s_OnSceneLoaded += OnChangeScene;
         PlayMainMusic();
@@ -46,20 +47,22 @@ public class AudioManager : MonoBehaviour
 
     public void GoBackToMainMusic()
     {
-        Debug.Log($"is playing boss music? {isPlayingBossMusic}");
-        if (isPlayingBossMusic)
+        Debug.Log($"is playing boss music? {_isPlayingBossMusic}");
+        if (_isPlayingBossMusic)
             PlayMainMusic();
     }
 
     private void PlayMainMusic()
     {
         _musicSource.PlayClip(0, true, true);
-        isPlayingBossMusic = false;
+        _isPlayingBossMusic = false;
     }
 
     public void PlayBossMusic()
     {
         _musicSource.PlayClip(1, true, true);
-        isPlayingBossMusic = true;
+        _isPlayingBossMusic = true;
     }
+
+    public void PlayUIClickSfx() => _uiSource.PlayClip(0);
 }
