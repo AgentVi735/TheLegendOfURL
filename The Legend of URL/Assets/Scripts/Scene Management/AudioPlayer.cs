@@ -14,7 +14,7 @@ public class AudioPlayer : MonoBehaviour
         _persistentAudioSource.volume = volume;
     }
     
-    public void PlayClip(int index, bool isPersistent = false)
+    public void PlayClip(int index, bool isPersistent = false, bool loop = false)
     {
         if (index >= _clips.Length)
         {
@@ -34,6 +34,7 @@ public class AudioPlayer : MonoBehaviour
             if (_persistentAudioSource.isPlaying)
                 _persistentAudioSource.Stop();
             _persistentAudioSource.clip = clip;
+            _persistentAudioSource.loop = loop;
             _persistentAudioSource.Play();
         }
         else

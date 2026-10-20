@@ -236,6 +236,7 @@ public class SceneController : MonoBehaviour
         _initialisation.gameObject.SetActive(false);
         _saveManager.Save();
         LoadNewScene(_sceneHolder.MainMenuSceneIdx);
+        _audioManager.GoBackToMainMusic();
     }
 
     private void OnDeviceChange(InputEventPtr eventPtr, InputDevice device)

@@ -50,6 +50,7 @@ public class SpiderQueenController : EnemyController
         waitBlockAnimationTime = new WaitForSeconds(blockAnimationTime);
         isSpawnCooldownFinished = true;
         areAllMinionsDead = true;
+        SceneController.Instance.AudioManager.PlayBossMusic();
     }
 
     protected override void InitialiseStates()
