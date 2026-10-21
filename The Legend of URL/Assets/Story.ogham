@@ -2532,7 +2532,7 @@
                         "type": "Text"
                       },
                       {
-                        "key": "Ranch ↑",
+                        "key": "Ranch up ahead",
                         "mode": "Literal",
                         "templateField": "text",
                         "type": "Text"
@@ -2715,7 +2715,7 @@
                         "type": "Text"
                       },
                       {
-                        "key": "← Riversplit Village\nRiversplit Forest →",
+                        "key": "<- Riversplit Village\nRiversplit Forest ->",
                         "mode": "Literal",
                         "templateField": "text",
                         "type": "Text"
@@ -2776,7 +2776,7 @@
                         "type": "Text"
                       },
                       {
-                        "key": "                                                                              \n\n\n                                                                                  ---BEWARE---\n                                                                             FORBIDDEN WOODS",
+                        "key": "BEWARE\nFORBIDDEN WOODS UP AHEAD\nENTER AT YOUR OWN RISK",
                         "mode": "Literal",
                         "templateField": "text",
                         "type": "Text"
@@ -2836,8 +2836,8 @@
     "type": "Collection"
   },
   "viewTransform": [
-    -110.748291,
-    -177.482071,
-    0.583070934
+    238.051727,
+    16.2370453,
+    0.405212581
   ]
 }

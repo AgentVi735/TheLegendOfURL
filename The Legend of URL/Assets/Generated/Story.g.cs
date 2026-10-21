@@ -2,7 +2,7 @@
 //   Generated from the Ogham project tree by OghamNodeTreeStoryGenerator. DO NOT EDIT.
 //   Edit the .ogham file(s) and click Build in Window ▸ Heathen ▸ Storyteller.
 // </auto-generated>
-// ogham-hash:0xA0DB718DED265C44  // staleness marker — do not edit
+// ogham-hash:0x4D492B6664120679  // staleness marker — do not edit
 using System.Collections.Generic;
 using Heathen.GameplayTags;
 using Heathen.Ogham;
@@ -844,7 +844,7 @@ namespace Heathen.Ogham.Generated
                         ContentKeys = new List<OghamContentManifest>
                         {
                             new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Sign" },
-                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Ranch ↑" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Ranch up ahead" },
                         },
                     },
                     new OghamEntryManifest
@@ -871,7 +871,7 @@ namespace Heathen.Ogham.Generated
                         ContentKeys = new List<OghamContentManifest>
                         {
                             new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Sign" },
-                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "← Riversplit Village\nRiversplit Forest →" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "<- Riversplit Village\nRiversplit Forest ->" },
                         },
                     },
                     new OghamEntryManifest
@@ -880,7 +880,7 @@ namespace Heathen.Ogham.Generated
                         ContentKeys = new List<OghamContentManifest>
                         {
                             new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Sign" },
-                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "                                                                              \n\n\n                                                                                  ---BEWARE---\n                                                                             FORBIDDEN WOODS" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "BEWARE\nFORBIDDEN WOODS UP AHEAD\nENTER AT YOUR OWN RISK" },
                         },
                     },
                 },
