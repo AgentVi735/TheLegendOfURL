@@ -3685,6 +3685,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1945759462814412218, guid: 9821005e27d28124884f6af0f337f784, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1945759462814412218, guid: 9821005e27d28124884f6af0f337f784, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2758377289073456740, guid: 9821005e27d28124884f6af0f337f784, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -3781,6 +3789,14 @@ PrefabInstance:
       propertyPath: _controller
       value: 
       objectReference: {fileID: 2121307235}
+    - target: {fileID: 7916135486199950814, guid: 9821005e27d28124884f6af0f337f784, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7916135486199950814, guid: 9821005e27d28124884f6af0f337f784, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8168259121658602467, guid: 9821005e27d28124884f6af0f337f784, type: 3}
       propertyPath: m_Name
       value: HUD Canvas
