@@ -2,7 +2,7 @@
 //   Generated from the Ogham project tree by OghamNodeTreeStoryGenerator. DO NOT EDIT.
 //   Edit the .ogham file(s) and click Build in Window ▸ Heathen ▸ Storyteller.
 // </auto-generated>
-// ogham-hash:0xFBA447521B31ED59  // staleness marker — do not edit
+// ogham-hash:0x7A0D991350278A02  // staleness marker — do not edit
 using System.Collections.Generic;
 using Heathen.GameplayTags;
 using Heathen.Ogham;
@@ -19,6 +19,7 @@ namespace Heathen.Ogham.Generated
             new CompiledTagEntry { Id = 0xA028F27A9B7B0FB3UL, ParentId = 0x0000000000000000UL, Name = "Unlocks" },
             new CompiledTagEntry { Id = 0x76950A82C9089AD0UL, ParentId = 0x9FE7B5B67A2764C0UL, Name = "Dialogue.Elsie" },
             new CompiledTagEntry { Id = 0x3A999AFF03667795UL, ParentId = 0x9FE7B5B67A2764C0UL, Name = "Dialogue.Mayor" },
+            new CompiledTagEntry { Id = 0x4EF68C4B2F87CDF3UL, ParentId = 0x9FE7B5B67A2764C0UL, Name = "Dialogue.Mikey" },
             new CompiledTagEntry { Id = 0xA345C1E419416F96UL, ParentId = 0x9FE7B5B67A2764C0UL, Name = "Dialogue.Russel" },
             new CompiledTagEntry { Id = 0x7F138A20428CE29CUL, ParentId = 0x9FE7B5B67A2764C0UL, Name = "Dialogue.Test" },
             new CompiledTagEntry { Id = 0x112C08F73336E1ABUL, ParentId = 0x954D8E6815ECD1DCUL, Name = "Root.CutsceneDialogue" },
@@ -27,6 +28,7 @@ namespace Heathen.Ogham.Generated
             new CompiledTagEntry { Id = 0xF91F6BF32CD64AEEUL, ParentId = 0xA028F27A9B7B0FB3UL, Name = "Unlocks.Combat" },
             new CompiledTagEntry { Id = 0x49C7AFDFDBD8E3C6UL, ParentId = 0x76950A82C9089AD0UL, Name = "Dialogue.Elsie.TalkCount" },
             new CompiledTagEntry { Id = 0x56F6AA7EB3FF6437UL, ParentId = 0x3A999AFF03667795UL, Name = "Dialogue.Mayor.TalkCount" },
+            new CompiledTagEntry { Id = 0xA1AAA1A61803A791UL, ParentId = 0x4EF68C4B2F87CDF3UL, Name = "Dialogue.Mikey.TalkCount" },
             new CompiledTagEntry { Id = 0x9E66B50E685CBA94UL, ParentId = 0xA345C1E419416F96UL, Name = "Dialogue.Russel.TalkCount" },
             new CompiledTagEntry { Id = 0x4C905FF94B9E874EUL, ParentId = 0x7F138A20428CE29CUL, Name = "Dialogue.Test.Freddy" },
             new CompiledTagEntry { Id = 0xCCE5D82874EA96ECUL, ParentId = 0x112C08F73336E1ABUL, Name = "Root.CutsceneDialogue.Intro" },
@@ -372,11 +374,15 @@ namespace Heathen.Ogham.Generated
                         {
                             new OghamOptionManifest
                             {
-                                TagPath = "Root.NPCDialogue.Mikey.FN0.Route1", TargetEntryPath = "Root.NPCDialogue.Mikey.N0", TextMode = "Literal", TextKey = "Route 1",
+                                TagPath = "Root.NPCDialogue.Mikey.FN0.Route2", TargetEntryPath = "Root.NPCDialogue.Mikey.N0_1", TextMode = "Literal", TextKey = "Route 2",
+                                Conditions = new List<OghamConditionManifest>
+                                {
+                                    new OghamConditionManifest { TagPath = "Dialogue.Mikey.TalkCount", Comparison = "Equal", CompareValue = 1UL, CompareTagPath = "", CompareValueType = "Unsigned", CompareString = "", CaseSensitive = false, ExactMatch = false, LogicOp = "And", Negate = false, Unresolved = false, TechnicalName = "", Expect = true, Collection = "", ProviderParams = null },
+                                },
                             },
                             new OghamOptionManifest
                             {
-                                TagPath = "Root.NPCDialogue.Mikey.FN0.Route2", TargetEntryPath = "Root.NPCDialogue.Mikey.N0_1", TextMode = "Literal", TextKey = "Route 2",
+                                TagPath = "Root.NPCDialogue.Mikey.FN0.Route1", TargetEntryPath = "Root.NPCDialogue.Mikey.N0", TextMode = "Literal", TextKey = "Route 1",
                             },
                         },
                     },
@@ -435,6 +441,10 @@ namespace Heathen.Ogham.Generated
                         {
                             new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Rohan" },
                             new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Thank you, Mikey." },
+                        },
+                        EntryOperations = new List<OghamOperationManifest>
+                        {
+                            new OghamOperationManifest { TagPath = "Dialogue.Mikey.TalkCount", Arithmetic = "Set", Value = 1UL, ValueTag = "", ValueType = "Unsigned", ValueString = "", TechnicalName = "", Collection = "", ProviderParams = null },
                         },
                     },
                     new OghamEntryManifest
@@ -544,15 +554,15 @@ namespace Heathen.Ogham.Generated
                         {
                             new OghamOptionManifest
                             {
-                                TagPath = "Root.NPCDialogue.Russel.FN0.Route2", TargetEntryPath = "Root.NPCDialogue.Russel.N0", TextMode = "Literal", TextKey = "Route 2",
-                            },
-                            new OghamOptionManifest
-                            {
                                 TagPath = "Root.NPCDialogue.Russel.FN0.Route1", TargetEntryPath = "Root.NPCDialogue.Russel.N0_1", TextMode = "Literal", TextKey = "Route 1",
                                 Conditions = new List<OghamConditionManifest>
                                 {
                                     new OghamConditionManifest { TagPath = "Dialogue.Elsie.TalkCount", Comparison = "Equal", CompareValue = 1UL, CompareTagPath = "", CompareValueType = "Unsigned", CompareString = "", CaseSensitive = false, ExactMatch = false, LogicOp = "And", Negate = false, Unresolved = false, TechnicalName = "", Expect = true, Collection = "", ProviderParams = null },
                                 },
+                            },
+                            new OghamOptionManifest
+                            {
+                                TagPath = "Root.NPCDialogue.Russel.FN0.Route2", TargetEntryPath = "Root.NPCDialogue.Russel.N0", TextMode = "Literal", TextKey = "Route 2",
                             },
                         },
                     },
@@ -639,8 +649,8 @@ namespace Heathen.Ogham.Generated
                         TagPath = "Root.NPCDialogue.Russel.N0",
                         ContentKeys = new List<OghamContentManifest>
                         {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Russel" },
                             new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Good morning champ. I don't need any help right now." },
-                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "" },
                         },
                     },
                     new OghamEntryManifest

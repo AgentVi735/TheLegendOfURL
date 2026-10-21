@@ -857,14 +857,23 @@
                 ],
                 "options": [
                   {
-                    "target": "N0",
-                    "technicalName": "Route1",
-                    "textKey": "Route 1"
-                  },
-                  {
+                    "conditions": [
+                      {
+                        "caseSensitive": false,
+                        "comparison": "Equal",
+                        "exactMatch": false,
+                        "logicOp": "And",
+                        "tag": "Dialogue.Mikey.TalkCount"
+                      }
+                    ],
                     "target": "N0_1",
                     "technicalName": "Route2",
                     "textKey": "Route 2"
+                  },
+                  {
+                    "target": "N0",
+                    "technicalName": "Route1",
+                    "textKey": "Route 1"
                   }
                 ],
                 "outputPins": [
@@ -1023,12 +1032,19 @@
               },
               {
                 "displayName": "N3",
+                "entryOperations": [
+                  {
+                    "arithmetic": "Set",
+                    "tag": "Dialogue.Mikey.TalkCount"
+                  }
+                ],
                 "inputPins": [
                   {}
                 ],
                 "labelIds": [
                   1
                 ],
+                "opsExpanded": true,
                 "outputPins": [
                   {}
                 ],
@@ -1425,11 +1441,6 @@
                 ],
                 "options": [
                   {
-                    "target": "N0",
-                    "technicalName": "Route2",
-                    "textKey": "Route 2"
-                  },
-                  {
                     "conditions": [
                       {
                         "caseSensitive": false,
@@ -1442,6 +1453,11 @@
                     "target": "N0_1",
                     "technicalName": "Route1",
                     "textKey": "Route 1"
+                  },
+                  {
+                    "target": "N0",
+                    "technicalName": "Route2",
+                    "textKey": "Route 2"
                   }
                 ],
                 "outputPins": [
@@ -1722,13 +1738,13 @@
                   {
                     "fields": [
                       {
-                        "key": "Good morning champ. I don't need any help right now.",
+                        "key": "Russel",
                         "mode": "Literal",
                         "templateField": "speakername",
                         "type": "Text"
                       },
                       {
-                        "key": "",
+                        "key": "Good morning champ. I don't need any help right now.",
                         "mode": "Literal",
                         "templateField": "text",
                         "type": "Text"
@@ -2453,7 +2469,7 @@
     "type": "Collection"
   },
   "viewTransform": [
-    237.6517,
+    238.051727,
     16.2370453,
     0.405212581
   ]
