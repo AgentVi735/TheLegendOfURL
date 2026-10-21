@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 9ca22510633fbfd4399f1704cd9d5c72, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -515,6 +515,26 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: ab4b4ac098283c3408f48d053caf645b, type: 2}
+    - target: {fileID: 4127037420431979604, guid: b7829ec3c0fa74244bfa89d195e4a569, type: 3}
+      propertyPath: m_Size.y
+      value: 3.4321527
+      objectReference: {fileID: 0}
+    - target: {fileID: 4127037420431979604, guid: b7829ec3c0fa74244bfa89d195e4a569, type: 3}
+      propertyPath: m_Size.z
+      value: 1.1916537
+      objectReference: {fileID: 0}
+    - target: {fileID: 4127037420431979604, guid: b7829ec3c0fa74244bfa89d195e4a569, type: 3}
+      propertyPath: m_Center.x
+      value: -0.00000007243365
+      objectReference: {fileID: 0}
+    - target: {fileID: 4127037420431979604, guid: b7829ec3c0fa74244bfa89d195e4a569, type: 3}
+      propertyPath: m_Center.y
+      value: 1.7160754
+      objectReference: {fileID: 0}
+    - target: {fileID: 4127037420431979604, guid: b7829ec3c0fa74244bfa89d195e4a569, type: 3}
+      propertyPath: m_Center.z
+      value: -0.22082599
+      objectReference: {fileID: 0}
     - target: {fileID: 4142129673845366933, guid: b7829ec3c0fa74244bfa89d195e4a569, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -559,6 +579,26 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: ab4b4ac098283c3408f48d053caf645b, type: 2}
+    - target: {fileID: 7691114415476633227, guid: b7829ec3c0fa74244bfa89d195e4a569, type: 3}
+      propertyPath: m_Size.x
+      value: 0.7500041
+      objectReference: {fileID: 0}
+    - target: {fileID: 7691114415476633227, guid: b7829ec3c0fa74244bfa89d195e4a569, type: 3}
+      propertyPath: m_Size.y
+      value: 0.34367213
+      objectReference: {fileID: 0}
+    - target: {fileID: 7691114415476633227, guid: b7829ec3c0fa74244bfa89d195e4a569, type: 3}
+      propertyPath: m_Center.x
+      value: -0.0000000062737517
+      objectReference: {fileID: 0}
+    - target: {fileID: 7691114415476633227, guid: b7829ec3c0fa74244bfa89d195e4a569, type: 3}
+      propertyPath: m_Center.y
+      value: 0.13066714
+      objectReference: {fileID: 0}
+    - target: {fileID: 7691114415476633227, guid: b7829ec3c0fa74244bfa89d195e4a569, type: 3}
+      propertyPath: m_Center.z
+      value: -0.0000000045792805
+      objectReference: {fileID: 0}
     - target: {fileID: 8342287823357235374, guid: b7829ec3c0fa74244bfa89d195e4a569, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -1073,6 +1113,7 @@ PrefabInstance:
     - {fileID: 5929684624519471569, guid: b7829ec3c0fa74244bfa89d195e4a569, type: 3}
     - {fileID: 863947803595770867, guid: b7829ec3c0fa74244bfa89d195e4a569, type: 3}
     - {fileID: 7331587565539685719, guid: b7829ec3c0fa74244bfa89d195e4a569, type: 3}
+    - {fileID: 7691114415476633227, guid: b7829ec3c0fa74244bfa89d195e4a569, type: 3}
     m_RemovedGameObjects:
     - {fileID: 7197095737172642676, guid: b7829ec3c0fa74244bfa89d195e4a569, type: 3}
     m_AddedGameObjects:
