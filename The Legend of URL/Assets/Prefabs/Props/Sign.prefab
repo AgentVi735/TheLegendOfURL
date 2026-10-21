@@ -151,7 +151,7 @@ MonoBehaviour:
   _audioPlayer: {fileID: 1485618327705808088}
   _storyTag:
     _id: 0
-  _interactButtonPosition: {x: 0, y: 2.5, z: 0}
+  _interactButtonPosition: {x: 0, y: 1.75, z: 0}
 --- !u!114 &1485618327705808088
 MonoBehaviour:
   m_ObjectHideFlags: 0
