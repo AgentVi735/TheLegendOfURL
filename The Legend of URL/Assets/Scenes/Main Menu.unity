@@ -1427,6 +1427,10 @@ PrefabInstance:
       value: Return Button
       objectReference: {fileID: 0}
     - target: {fileID: 6317978572786161514, guid: 85ba759ce0dda0149ae3a01cf34fb143, type: 3}
+      propertyPath: m_Navigation.m_SelectOnUp
+      value: 
+      objectReference: {fileID: 1890267393}
+    - target: {fileID: 6317978572786161514, guid: 85ba759ce0dda0149ae3a01cf34fb143, type: 3}
       propertyPath: m_Navigation.m_SelectOnDown
       value: 
       objectReference: {fileID: 6915510397431244209}
@@ -3913,6 +3917,10 @@ PrefabInstance:
       propertyPath: m_Navigation.m_SelectOnUp
       value: 
       objectReference: {fileID: 127794849}
+    - target: {fileID: 6317978572786161514, guid: 85ba759ce0dda0149ae3a01cf34fb143, type: 3}
+      propertyPath: m_Navigation.m_SelectOnDown
+      value: 
+      objectReference: {fileID: 1549472150162541635}
     - target: {fileID: 6317978572786161514, guid: 85ba759ce0dda0149ae3a01cf34fb143, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -7374,6 +7382,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 723637766}
     - target: {fileID: 6317978572786161514, guid: 85ba759ce0dda0149ae3a01cf34fb143, type: 3}
+      propertyPath: m_Navigation.m_SelectOnDown
+      value: 
+      objectReference: {fileID: 201167407}
+    - target: {fileID: 6317978572786161514, guid: 85ba759ce0dda0149ae3a01cf34fb143, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -8796,6 +8808,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Start Button
       objectReference: {fileID: 0}
+    - target: {fileID: 6317978572786161514, guid: 85ba759ce0dda0149ae3a01cf34fb143, type: 3}
+      propertyPath: m_Navigation.m_SelectOnUp
+      value: 
+      objectReference: {fileID: 971882315}
     - target: {fileID: 6317978572786161514, guid: 85ba759ce0dda0149ae3a01cf34fb143, type: 3}
       propertyPath: m_Navigation.m_SelectOnDown
       value: 
