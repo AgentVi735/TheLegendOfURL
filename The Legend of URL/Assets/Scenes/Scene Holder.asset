@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Scene Holder
   m_EditorClassIdentifier: Assembly-CSharp::SceneHolder
   MainMenuSceneIdx: 0
-  StartGameSceneIdx: 4
+  StartGameSceneIdx: 3
   scenes:
   - {fileID: 102900000, guid: 44b88fae749f7bf4a80185404491fe3d, type: 3}
   - {fileID: 102900000, guid: 89e5611c9f4970b4aa5c050d55d35333, type: 3}
