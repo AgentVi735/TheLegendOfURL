@@ -405,8 +405,8 @@
               {}
             ],
             "position": [
-              133.42923,
-              317.169922
+              66.2292,
+              316.103271
             ],
             "technicalName": "Tim",
             "type": "Collection"
@@ -548,8 +548,8 @@
                   {}
                 ],
                 "position": [
-                  1063.48218,
-                  296.164734
+                  1051.8457,
+                  285.982941
                 ],
                 "technicalName": "N2",
                 "templateFields": [
@@ -596,8 +596,8 @@
                   {}
                 ],
                 "position": [
-                  1473.2373,
-                  299.631439
+                  1468.87366,
+                  286.540558
                 ],
                 "technicalName": "N3",
                 "templateFields": [
@@ -636,7 +636,7 @@
                 "options": [
                   {
                     "target": "N5",
-                    "technicalName": "Option2",
+                    "technicalName": "Option1",
                     "textKey": ""
                   }
                 ],
@@ -644,8 +644,8 @@
                   {}
                 ],
                 "position": [
-                  1897.85327,
-                  298.036957
+                  1886.21692,
+                  283.4915
                 ],
                 "technicalName": "N4",
                 "templateFields": [
@@ -681,12 +681,19 @@
                 "labelIds": [
                   1
                 ],
+                "options": [
+                  {
+                    "target": "N6",
+                    "technicalName": "Option1",
+                    "textKey": ""
+                  }
+                ],
                 "outputPins": [
                   {}
                 ],
                 "position": [
-                  2328.555,
-                  302.5454
+                  2300.9187,
+                  286.545441
                 ],
                 "technicalName": "N5",
                 "templateFields": [
@@ -704,6 +711,95 @@
                       },
                       {
                         "key": "Instead he has me working as the blacksmith's apprentice... ",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              },
+              {
+                "displayName": "N6",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "options": [
+                  {
+                    "target": "N7",
+                    "technicalName": "Option1",
+                    "textKey": ""
+                  }
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  2723.71729,
+                  286.646545
+                ],
+                "technicalName": "N6",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "I will keep training until the mayor finally allows me to travel to Marijoa. No matter wha- ",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              },
+              {
+                "displayName": "N7",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  3187.535,
+                  289.871582
+                ],
+                "technicalName": "N7",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "Hey, wake up!",
                         "mode": "Literal",
                         "templateField": "text",
                         "type": "Text"
@@ -746,6 +842,677 @@
         ],
         "technicalName": "CutsceneDialogue",
         "type": "Collection"
+      },
+      {
+        "content": [
+          {
+            "content": [
+              {
+                "displayName": "FN0",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "options": [
+                  {
+                    "target": "N0",
+                    "technicalName": "Route1",
+                    "textKey": "Route 1"
+                  },
+                  {
+                    "target": "N0_1",
+                    "technicalName": "Route2",
+                    "textKey": "Route 2"
+                  }
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  -228.72937,
+                  401.254059
+                ],
+                "technicalName": "FN0",
+                "type": "ForkNode"
+              },
+              {
+                "displayName": "N0",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "options": [
+                  {
+                    "target": "N1",
+                    "technicalName": "Option1",
+                    "textKey": ""
+                  }
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  212.194946,
+                  366.842316
+                ],
+                "technicalName": "N0",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "Mikey",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "Jeez man. I've been yelling at ya for minutes now! How dozed off were ya?",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              },
+              {
+                "displayName": "N1",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "options": [
+                  {
+                    "target": "N2",
+                    "technicalName": "Option1",
+                    "textKey": ""
+                  }
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  647.421753,
+                  367.917847
+                ],
+                "technicalName": "N1",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "Rohan",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "I'm sorry Mikey. I must have been really fast asleep.",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              },
+              {
+                "displayName": "N2",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "options": [
+                  {
+                    "target": "N3",
+                    "technicalName": "Option1",
+                    "textKey": ""
+                  }
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  1096.56482,
+                  382.255524
+                ],
+                "technicalName": "N2",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "Mikey",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "Anyway, Miss Elsie wanted to speak to you. She is over at her ranch, like always.",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              },
+              {
+                "displayName": "N3",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  1522.95435,
+                  387.3464
+                ],
+                "technicalName": "N3",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "Rohan",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "Thank you, Mikey.",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              },
+              {
+                "displayName": "N0.1",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  215.556442,
+                  624.6825
+                ],
+                "technicalName": "N0_1",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "Mikey",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "What are you waiting for? Go on to Miss Elsie.",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              }
+            ],
+            "displayName": "Mikey",
+            "inputPins": [
+              {}
+            ],
+            "labelIds": [
+              1
+            ],
+            "outputPins": [
+              {}
+            ],
+            "position": [
+              104.03154,
+              392.013428
+            ],
+            "technicalName": "Mikey",
+            "type": "Collection"
+          },
+          {
+            "content": [
+              {
+                "displayName": "FN0",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "options": [
+                  {
+                    "target": "N0",
+                    "technicalName": "Route1",
+                    "textKey": "Route 1"
+                  },
+                  {
+                    "target": "N0_1",
+                    "technicalName": "Route2",
+                    "textKey": "Route 2"
+                  }
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  150.295929,
+                  407.277618
+                ],
+                "technicalName": "FN0",
+                "type": "ForkNode"
+              },
+              {
+                "displayName": "N0",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "options": [
+                  {
+                    "target": "N1",
+                    "technicalName": "Option1",
+                    "textKey": ""
+                  }
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  568.1614,
+                  402.424683
+                ],
+                "technicalName": "N0",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "Elsie",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "Good morning, Rohan. How are you?",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              },
+              {
+                "displayName": "N1",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "options": [
+                  {
+                    "target": "N2",
+                    "technicalName": "Option1",
+                    "textKey": ""
+                  }
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  1023.55634,
+                  404.239838
+                ],
+                "technicalName": "N1",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "Rohan",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "I'm fine Miss Elsie. I overslept a little. Mikey was kind of mad at me for having to wait outside my house. ",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              },
+              {
+                "displayName": "N2",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "options": [
+                  {
+                    "target": "N3",
+                    "technicalName": "Option1",
+                    "textKey": ""
+                  }
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  1452.12781,
+                  407.668335
+                ],
+                "technicalName": "N2",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "Elsie",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "Oh that boy gets mad about everything, don't mind him. ",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              },
+              {
+                "displayName": "N3",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  1888.69934,
+                  401.954
+                ],
+                "technicalName": "N3",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "I wanted to ask you to help me with pulling out these melons but i'll handle these on my own. Instead, check up on Russel for me at the blacksmith.",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              },
+              {
+                "displayName": "N0.1",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  570.984863,
+                  636.2398
+                ],
+                "technicalName": "N0_1",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "Elsie",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "Check up on Russel for me please.",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              }
+            ],
+            "displayName": "Elsie",
+            "inputPins": [
+              {}
+            ],
+            "labelIds": [
+              1
+            ],
+            "outputPins": [
+              {}
+            ],
+            "position": [
+              408.6757,
+              390.0877
+            ],
+            "technicalName": "Elsie",
+            "type": "Collection"
+          },
+          {
+            "content": [
+              {
+                "displayName": "FN0",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "options": [
+                  {
+                    "target": "N0",
+                    "technicalName": "Route1",
+                    "textKey": "Route 1"
+                  }
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  337.374817,
+                  356.128021
+                ],
+                "technicalName": "FN0",
+                "type": "ForkNode"
+              },
+              {
+                "displayName": "N0",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  779.7276,
+                  354.7835
+                ],
+                "technicalName": "N0",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "Russel",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              }
+            ],
+            "displayName": "Russel",
+            "inputPins": [
+              {}
+            ],
+            "labelIds": [
+              1
+            ],
+            "outputPins": [
+              {}
+            ],
+            "position": [
+              689.139465,
+              389.1632
+            ],
+            "technicalName": "Russel",
+            "type": "Collection"
+          }
+        ],
+        "displayName": "NPCDialogue",
+        "inputPins": [
+          {}
+        ],
+        "outputPins": [
+          {}
+        ],
+        "position": [
+          76.18739,
+          525.312134
+        ],
+        "technicalName": "NPCDialogue",
+        "type": "Collection"
+      },
+      {
+        "content": [],
+        "displayName": "Signs",
+        "inputPins": [
+          {}
+        ],
+        "outputPins": [
+          {}
+        ],
+        "position": [
+          81.13803,
+          719.940552
+        ],
+        "technicalName": "Signs",
+        "type": "Collection"
       }
     ],
     "displayName": "Root",
@@ -763,8 +1530,8 @@
     "type": "Collection"
   },
   "viewTransform": [
-    152.456512,
-    -31.1348877,
-    0.843841553
+    237.6517,
+    16.2370453,
+    0.405212581
   ]
 }
