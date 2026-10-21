@@ -2,7 +2,7 @@
 //   Generated from the Ogham project tree by OghamNodeTreeStoryGenerator. DO NOT EDIT.
 //   Edit the .ogham file(s) and click Build in Window ▸ Heathen ▸ Storyteller.
 // </auto-generated>
-// ogham-hash:0xB19FD8CF7DDA1A28  // staleness marker — do not edit
+// ogham-hash:0xFBA447521B31ED59  // staleness marker — do not edit
 using System.Collections.Generic;
 using Heathen.GameplayTags;
 using Heathen.Ogham;
@@ -16,11 +16,28 @@ namespace Heathen.Ogham.Generated
         {
             new CompiledTagEntry { Id = 0x9FE7B5B67A2764C0UL, ParentId = 0x0000000000000000UL, Name = "Dialogue" },
             new CompiledTagEntry { Id = 0x954D8E6815ECD1DCUL, ParentId = 0x0000000000000000UL, Name = "Root" },
+            new CompiledTagEntry { Id = 0xA028F27A9B7B0FB3UL, ParentId = 0x0000000000000000UL, Name = "Unlocks" },
+            new CompiledTagEntry { Id = 0x76950A82C9089AD0UL, ParentId = 0x9FE7B5B67A2764C0UL, Name = "Dialogue.Elsie" },
+            new CompiledTagEntry { Id = 0x3A999AFF03667795UL, ParentId = 0x9FE7B5B67A2764C0UL, Name = "Dialogue.Mayor" },
+            new CompiledTagEntry { Id = 0xA345C1E419416F96UL, ParentId = 0x9FE7B5B67A2764C0UL, Name = "Dialogue.Russel" },
             new CompiledTagEntry { Id = 0x7F138A20428CE29CUL, ParentId = 0x9FE7B5B67A2764C0UL, Name = "Dialogue.Test" },
             new CompiledTagEntry { Id = 0x112C08F73336E1ABUL, ParentId = 0x954D8E6815ECD1DCUL, Name = "Root.CutsceneDialogue" },
+            new CompiledTagEntry { Id = 0xCD9DD65467CAFCC7UL, ParentId = 0x954D8E6815ECD1DCUL, Name = "Root.NPCDialogue" },
             new CompiledTagEntry { Id = 0x8F594BCE432BED05UL, ParentId = 0x954D8E6815ECD1DCUL, Name = "Root.TestCollection" },
+            new CompiledTagEntry { Id = 0xF91F6BF32CD64AEEUL, ParentId = 0xA028F27A9B7B0FB3UL, Name = "Unlocks.Combat" },
+            new CompiledTagEntry { Id = 0x49C7AFDFDBD8E3C6UL, ParentId = 0x76950A82C9089AD0UL, Name = "Dialogue.Elsie.TalkCount" },
+            new CompiledTagEntry { Id = 0x56F6AA7EB3FF6437UL, ParentId = 0x3A999AFF03667795UL, Name = "Dialogue.Mayor.TalkCount" },
+            new CompiledTagEntry { Id = 0x9E66B50E685CBA94UL, ParentId = 0xA345C1E419416F96UL, Name = "Dialogue.Russel.TalkCount" },
             new CompiledTagEntry { Id = 0x4C905FF94B9E874EUL, ParentId = 0x7F138A20428CE29CUL, Name = "Dialogue.Test.Freddy" },
             new CompiledTagEntry { Id = 0xCCE5D82874EA96ECUL, ParentId = 0x112C08F73336E1ABUL, Name = "Root.CutsceneDialogue.Intro" },
+            new CompiledTagEntry { Id = 0xE294F685CDFAD0DAUL, ParentId = 0xCD9DD65467CAFCC7UL, Name = "Root.NPCDialogue.Christene" },
+            new CompiledTagEntry { Id = 0x6BF58A3E8E471370UL, ParentId = 0xCD9DD65467CAFCC7UL, Name = "Root.NPCDialogue.Colin" },
+            new CompiledTagEntry { Id = 0x0429C715CD4CC139UL, ParentId = 0xCD9DD65467CAFCC7UL, Name = "Root.NPCDialogue.Elsie" },
+            new CompiledTagEntry { Id = 0x00D053B2AD72B929UL, ParentId = 0xCD9DD65467CAFCC7UL, Name = "Root.NPCDialogue.Jockey" },
+            new CompiledTagEntry { Id = 0x65D321649071FE8AUL, ParentId = 0xCD9DD65467CAFCC7UL, Name = "Root.NPCDialogue.Mayor" },
+            new CompiledTagEntry { Id = 0xBFB6B2F9AE066A50UL, ParentId = 0xCD9DD65467CAFCC7UL, Name = "Root.NPCDialogue.Mikey" },
+            new CompiledTagEntry { Id = 0x071018DA2C038254UL, ParentId = 0xCD9DD65467CAFCC7UL, Name = "Root.NPCDialogue.Russel" },
+            new CompiledTagEntry { Id = 0x879AFE2E3DB4F185UL, ParentId = 0xCD9DD65467CAFCC7UL, Name = "Root.NPCDialogue.Shary" },
             new CompiledTagEntry { Id = 0xEE9E05099B229505UL, ParentId = 0x8F594BCE432BED05UL, Name = "Root.TestCollection.Daniek" },
             new CompiledTagEntry { Id = 0x4B7B241B26C2346AUL, ParentId = 0x8F594BCE432BED05UL, Name = "Root.TestCollection.Tim" },
             new CompiledTagEntry { Id = 0x306D433CDC60205DUL, ParentId = 0x4C905FF94B9E874EUL, Name = "Dialogue.Test.Freddy.HasSpokenTo" },
@@ -30,6 +47,39 @@ namespace Heathen.Ogham.Generated
             new CompiledTagEntry { Id = 0x5E494B121D52FA99UL, ParentId = 0xCCE5D82874EA96ECUL, Name = "Root.CutsceneDialogue.Intro.N3" },
             new CompiledTagEntry { Id = 0x2F979D9858D7899EUL, ParentId = 0xCCE5D82874EA96ECUL, Name = "Root.CutsceneDialogue.Intro.N4" },
             new CompiledTagEntry { Id = 0x22BB35702839F33EUL, ParentId = 0xCCE5D82874EA96ECUL, Name = "Root.CutsceneDialogue.Intro.N5" },
+            new CompiledTagEntry { Id = 0x504B2B99D13BD7A1UL, ParentId = 0xCCE5D82874EA96ECUL, Name = "Root.CutsceneDialogue.Intro.N6" },
+            new CompiledTagEntry { Id = 0xDEBC66B610023B8DUL, ParentId = 0xCCE5D82874EA96ECUL, Name = "Root.CutsceneDialogue.Intro.N7" },
+            new CompiledTagEntry { Id = 0x9CC0FAE5F915EB18UL, ParentId = 0xE294F685CDFAD0DAUL, Name = "Root.NPCDialogue.Christene.N0" },
+            new CompiledTagEntry { Id = 0x6576DA1769B266A1UL, ParentId = 0x6BF58A3E8E471370UL, Name = "Root.NPCDialogue.Colin.N0" },
+            new CompiledTagEntry { Id = 0x2B360E917E1247B9UL, ParentId = 0x0429C715CD4CC139UL, Name = "Root.NPCDialogue.Elsie.FN0" },
+            new CompiledTagEntry { Id = 0x2954B2BF8AB4DF4FUL, ParentId = 0x0429C715CD4CC139UL, Name = "Root.NPCDialogue.Elsie.N0" },
+            new CompiledTagEntry { Id = 0x6C9164BD042C15DCUL, ParentId = 0x0429C715CD4CC139UL, Name = "Root.NPCDialogue.Elsie.N0_1" },
+            new CompiledTagEntry { Id = 0xD4924161ABEF461EUL, ParentId = 0x0429C715CD4CC139UL, Name = "Root.NPCDialogue.Elsie.N1" },
+            new CompiledTagEntry { Id = 0xCA27050D13FD6932UL, ParentId = 0x0429C715CD4CC139UL, Name = "Root.NPCDialogue.Elsie.N2" },
+            new CompiledTagEntry { Id = 0x1F8724A12817812DUL, ParentId = 0x0429C715CD4CC139UL, Name = "Root.NPCDialogue.Elsie.N3" },
+            new CompiledTagEntry { Id = 0x0AB48958EDC255A5UL, ParentId = 0x00D053B2AD72B929UL, Name = "Root.NPCDialogue.Jockey.N0" },
+            new CompiledTagEntry { Id = 0x3869A968DF8FA87CUL, ParentId = 0x65D321649071FE8AUL, Name = "Root.NPCDialogue.Mayor.FN0" },
+            new CompiledTagEntry { Id = 0x34ADBD5AE006EFD9UL, ParentId = 0x65D321649071FE8AUL, Name = "Root.NPCDialogue.Mayor.N0" },
+            new CompiledTagEntry { Id = 0x15EEE2AF8A15A303UL, ParentId = 0x65D321649071FE8AUL, Name = "Root.NPCDialogue.Mayor.N0_1" },
+            new CompiledTagEntry { Id = 0x323BB0F2722BAAFCUL, ParentId = 0x65D321649071FE8AUL, Name = "Root.NPCDialogue.Mayor.N0_2" },
+            new CompiledTagEntry { Id = 0xE59CD58F7860F2DCUL, ParentId = 0x65D321649071FE8AUL, Name = "Root.NPCDialogue.Mayor.N1" },
+            new CompiledTagEntry { Id = 0x8733829398B2CF44UL, ParentId = 0x65D321649071FE8AUL, Name = "Root.NPCDialogue.Mayor.N1_2" },
+            new CompiledTagEntry { Id = 0xE5C4816307ED0FF2UL, ParentId = 0x65D321649071FE8AUL, Name = "Root.NPCDialogue.Mayor.N2_2" },
+            new CompiledTagEntry { Id = 0xDBF27353CB5E5788UL, ParentId = 0x65D321649071FE8AUL, Name = "Root.NPCDialogue.Mayor.N3_2" },
+            new CompiledTagEntry { Id = 0x7FC283F9261D5611UL, ParentId = 0xBFB6B2F9AE066A50UL, Name = "Root.NPCDialogue.Mikey.FN0" },
+            new CompiledTagEntry { Id = 0x1D8BDFA9DC00BD8AUL, ParentId = 0xBFB6B2F9AE066A50UL, Name = "Root.NPCDialogue.Mikey.N0" },
+            new CompiledTagEntry { Id = 0xB468460682D08CF4UL, ParentId = 0xBFB6B2F9AE066A50UL, Name = "Root.NPCDialogue.Mikey.N0_1" },
+            new CompiledTagEntry { Id = 0xFE1C54C4C23681E4UL, ParentId = 0xBFB6B2F9AE066A50UL, Name = "Root.NPCDialogue.Mikey.N1" },
+            new CompiledTagEntry { Id = 0xDA22BFD96D72D250UL, ParentId = 0xBFB6B2F9AE066A50UL, Name = "Root.NPCDialogue.Mikey.N2" },
+            new CompiledTagEntry { Id = 0xA1292EFF381FBC18UL, ParentId = 0xBFB6B2F9AE066A50UL, Name = "Root.NPCDialogue.Mikey.N3" },
+            new CompiledTagEntry { Id = 0xD54ADB2927104165UL, ParentId = 0x071018DA2C038254UL, Name = "Root.NPCDialogue.Russel.FN0" },
+            new CompiledTagEntry { Id = 0x56B0C8868A10BB52UL, ParentId = 0x071018DA2C038254UL, Name = "Root.NPCDialogue.Russel.N0" },
+            new CompiledTagEntry { Id = 0x089B6EE08FDE2123UL, ParentId = 0x071018DA2C038254UL, Name = "Root.NPCDialogue.Russel.N0_1" },
+            new CompiledTagEntry { Id = 0xAEF37BCF5CA49AC1UL, ParentId = 0x071018DA2C038254UL, Name = "Root.NPCDialogue.Russel.N1_1" },
+            new CompiledTagEntry { Id = 0xCB94F8A1648CEEF7UL, ParentId = 0x071018DA2C038254UL, Name = "Root.NPCDialogue.Russel.N2_1" },
+            new CompiledTagEntry { Id = 0xB99166F2347BC80AUL, ParentId = 0x071018DA2C038254UL, Name = "Root.NPCDialogue.Russel.N3_1" },
+            new CompiledTagEntry { Id = 0xB380A80021243CC0UL, ParentId = 0x071018DA2C038254UL, Name = "Root.NPCDialogue.Russel.N4_1" },
+            new CompiledTagEntry { Id = 0xABA973336950BDFEUL, ParentId = 0x879AFE2E3DB4F185UL, Name = "Root.NPCDialogue.Shary.N0" },
             new CompiledTagEntry { Id = 0x501BB4DE76012D7CUL, ParentId = 0xEE9E05099B229505UL, Name = "Root.TestCollection.Daniek.ForkNode0" },
             new CompiledTagEntry { Id = 0xC80087B49E05C452UL, ParentId = 0xEE9E05099B229505UL, Name = "Root.TestCollection.Daniek.Node0" },
             new CompiledTagEntry { Id = 0xDA38CD06D0093202UL, ParentId = 0xEE9E05099B229505UL, Name = "Root.TestCollection.Daniek.Node1" },
@@ -41,7 +91,32 @@ namespace Heathen.Ogham.Generated
             new CompiledTagEntry { Id = 0x2711F56866A1A91FUL, ParentId = 0x60628F5DC4E8001CUL, Name = "Root.CutsceneDialogue.Intro.N1.Option1" },
             new CompiledTagEntry { Id = 0x3B26D163D835DB8CUL, ParentId = 0x019FA7C66A524D04UL, Name = "Root.CutsceneDialogue.Intro.N2.Option1" },
             new CompiledTagEntry { Id = 0x1C4B7CF2BD2567A8UL, ParentId = 0x5E494B121D52FA99UL, Name = "Root.CutsceneDialogue.Intro.N3.Option1" },
-            new CompiledTagEntry { Id = 0x4BC3186C81A45EC5UL, ParentId = 0x2F979D9858D7899EUL, Name = "Root.CutsceneDialogue.Intro.N4.Option2" },
+            new CompiledTagEntry { Id = 0x2EA956DD928EE294UL, ParentId = 0x2F979D9858D7899EUL, Name = "Root.CutsceneDialogue.Intro.N4.Option1" },
+            new CompiledTagEntry { Id = 0x2A2282D2DD15D5F2UL, ParentId = 0x22BB35702839F33EUL, Name = "Root.CutsceneDialogue.Intro.N5.Option1" },
+            new CompiledTagEntry { Id = 0x470F802880F5FEF8UL, ParentId = 0x504B2B99D13BD7A1UL, Name = "Root.CutsceneDialogue.Intro.N6.Option1" },
+            new CompiledTagEntry { Id = 0xFBCFC8B2A0B8B42FUL, ParentId = 0x2B360E917E1247B9UL, Name = "Root.NPCDialogue.Elsie.FN0.Route1" },
+            new CompiledTagEntry { Id = 0xAD8F3B10CDB94BAEUL, ParentId = 0x2B360E917E1247B9UL, Name = "Root.NPCDialogue.Elsie.FN0.Route2" },
+            new CompiledTagEntry { Id = 0x4E1FBCD8E6F29B81UL, ParentId = 0x2954B2BF8AB4DF4FUL, Name = "Root.NPCDialogue.Elsie.N0.Option1" },
+            new CompiledTagEntry { Id = 0x3448DFE26AEF36DBUL, ParentId = 0xD4924161ABEF461EUL, Name = "Root.NPCDialogue.Elsie.N1.Option1" },
+            new CompiledTagEntry { Id = 0xDA33C77E0924772CUL, ParentId = 0xCA27050D13FD6932UL, Name = "Root.NPCDialogue.Elsie.N2.Option1" },
+            new CompiledTagEntry { Id = 0xC9932DA9A98B6B3EUL, ParentId = 0x3869A968DF8FA87CUL, Name = "Root.NPCDialogue.Mayor.FN0.Route1" },
+            new CompiledTagEntry { Id = 0x1C2F04BFB5383040UL, ParentId = 0x3869A968DF8FA87CUL, Name = "Root.NPCDialogue.Mayor.FN0.Route2" },
+            new CompiledTagEntry { Id = 0x957957CB96CA4699UL, ParentId = 0x3869A968DF8FA87CUL, Name = "Root.NPCDialogue.Mayor.FN0.Route3" },
+            new CompiledTagEntry { Id = 0x518863E88DD33EBDUL, ParentId = 0x34ADBD5AE006EFD9UL, Name = "Root.NPCDialogue.Mayor.N0.Option1" },
+            new CompiledTagEntry { Id = 0xDCF6971AA7C2A6FBUL, ParentId = 0x323BB0F2722BAAFCUL, Name = "Root.NPCDialogue.Mayor.N0_2.Option1" },
+            new CompiledTagEntry { Id = 0x3DAEEE628834D0F3UL, ParentId = 0x8733829398B2CF44UL, Name = "Root.NPCDialogue.Mayor.N1_2.Option1" },
+            new CompiledTagEntry { Id = 0x775FE568D0149107UL, ParentId = 0xE5C4816307ED0FF2UL, Name = "Root.NPCDialogue.Mayor.N2_2.Option1" },
+            new CompiledTagEntry { Id = 0x1722C50152374F54UL, ParentId = 0x7FC283F9261D5611UL, Name = "Root.NPCDialogue.Mikey.FN0.Route1" },
+            new CompiledTagEntry { Id = 0x003EAD83AC18A466UL, ParentId = 0x7FC283F9261D5611UL, Name = "Root.NPCDialogue.Mikey.FN0.Route2" },
+            new CompiledTagEntry { Id = 0xAF2287ABB9FB0CB0UL, ParentId = 0x1D8BDFA9DC00BD8AUL, Name = "Root.NPCDialogue.Mikey.N0.Option1" },
+            new CompiledTagEntry { Id = 0xE8CFC7D2C40E04D9UL, ParentId = 0xFE1C54C4C23681E4UL, Name = "Root.NPCDialogue.Mikey.N1.Option1" },
+            new CompiledTagEntry { Id = 0x1B6A7A26218628C0UL, ParentId = 0xDA22BFD96D72D250UL, Name = "Root.NPCDialogue.Mikey.N2.Option1" },
+            new CompiledTagEntry { Id = 0x311E8E50794348D4UL, ParentId = 0xD54ADB2927104165UL, Name = "Root.NPCDialogue.Russel.FN0.Route1" },
+            new CompiledTagEntry { Id = 0xE22A9A9B31636B45UL, ParentId = 0xD54ADB2927104165UL, Name = "Root.NPCDialogue.Russel.FN0.Route2" },
+            new CompiledTagEntry { Id = 0x550216450F678095UL, ParentId = 0x089B6EE08FDE2123UL, Name = "Root.NPCDialogue.Russel.N0_1.Option1" },
+            new CompiledTagEntry { Id = 0x67B9458E207F342DUL, ParentId = 0xAEF37BCF5CA49AC1UL, Name = "Root.NPCDialogue.Russel.N1_1.Option1" },
+            new CompiledTagEntry { Id = 0xE6232B0F7F508609UL, ParentId = 0xCB94F8A1648CEEF7UL, Name = "Root.NPCDialogue.Russel.N2_1.Option1" },
+            new CompiledTagEntry { Id = 0xDC73E372B2253DDCUL, ParentId = 0xB99166F2347BC80AUL, Name = "Root.NPCDialogue.Russel.N3_1.Option1" },
             new CompiledTagEntry { Id = 0x1A8343DA92B94D21UL, ParentId = 0x501BB4DE76012D7CUL, Name = "Root.TestCollection.Daniek.ForkNode0.Route1" },
             new CompiledTagEntry { Id = 0x9F0FD893EB3F06C7UL, ParentId = 0x501BB4DE76012D7CUL, Name = "Root.TestCollection.Daniek.ForkNode0.Route2" },
             new CompiledTagEntry { Id = 0x86F9985619FD6CDDUL, ParentId = 0xC80087B49E05C452UL, Name = "Root.TestCollection.Daniek.Node0.Option1" },
@@ -244,7 +319,7 @@ namespace Heathen.Ogham.Generated
                         {
                             new OghamOptionManifest
                             {
-                                TagPath = "Root.CutsceneDialogue.Intro.N4.Option2", TargetEntryPath = "Root.CutsceneDialogue.Intro.N5", TextMode = "Literal", TextKey = "",
+                                TagPath = "Root.CutsceneDialogue.Intro.N4.Option1", TargetEntryPath = "Root.CutsceneDialogue.Intro.N5", TextMode = "Literal", TextKey = "",
                             },
                         },
                     },
@@ -255,6 +330,480 @@ namespace Heathen.Ogham.Generated
                         {
                             new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "" },
                             new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Instead he has me working as the blacksmith's apprentice... " },
+                        },
+                        Options = new List<OghamOptionManifest>
+                        {
+                            new OghamOptionManifest
+                            {
+                                TagPath = "Root.CutsceneDialogue.Intro.N5.Option1", TargetEntryPath = "Root.CutsceneDialogue.Intro.N6", TextMode = "Literal", TextKey = "",
+                            },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.CutsceneDialogue.Intro.N6",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "I will keep training until the mayor finally allows me to travel to Marijoa. No matter wha- " },
+                        },
+                        Options = new List<OghamOptionManifest>
+                        {
+                            new OghamOptionManifest
+                            {
+                                TagPath = "Root.CutsceneDialogue.Intro.N6.Option1", TargetEntryPath = "Root.CutsceneDialogue.Intro.N7", TextMode = "Literal", TextKey = "",
+                            },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.CutsceneDialogue.Intro.N7",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Hey, wake up!" },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.NPCDialogue.Mikey.FN0",
+                        Mode = "Fork",
+                        Options = new List<OghamOptionManifest>
+                        {
+                            new OghamOptionManifest
+                            {
+                                TagPath = "Root.NPCDialogue.Mikey.FN0.Route1", TargetEntryPath = "Root.NPCDialogue.Mikey.N0", TextMode = "Literal", TextKey = "Route 1",
+                            },
+                            new OghamOptionManifest
+                            {
+                                TagPath = "Root.NPCDialogue.Mikey.FN0.Route2", TargetEntryPath = "Root.NPCDialogue.Mikey.N0_1", TextMode = "Literal", TextKey = "Route 2",
+                            },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.NPCDialogue.Mikey.N0",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Mikey" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Jeez man. I've been yelling at ya for minutes now! How dozed off were ya?" },
+                        },
+                        Options = new List<OghamOptionManifest>
+                        {
+                            new OghamOptionManifest
+                            {
+                                TagPath = "Root.NPCDialogue.Mikey.N0.Option1", TargetEntryPath = "Root.NPCDialogue.Mikey.N1", TextMode = "Literal", TextKey = "",
+                            },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.NPCDialogue.Mikey.N1",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Rohan" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "I'm sorry Mikey. I must have been really fast asleep." },
+                        },
+                        Options = new List<OghamOptionManifest>
+                        {
+                            new OghamOptionManifest
+                            {
+                                TagPath = "Root.NPCDialogue.Mikey.N1.Option1", TargetEntryPath = "Root.NPCDialogue.Mikey.N2", TextMode = "Literal", TextKey = "",
+                            },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.NPCDialogue.Mikey.N2",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Mikey" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Anyway, Miss Elsie wanted to speak to you. She is over at her ranch, like always." },
+                        },
+                        Options = new List<OghamOptionManifest>
+                        {
+                            new OghamOptionManifest
+                            {
+                                TagPath = "Root.NPCDialogue.Mikey.N2.Option1", TargetEntryPath = "Root.NPCDialogue.Mikey.N3", TextMode = "Literal", TextKey = "",
+                            },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.NPCDialogue.Mikey.N3",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Rohan" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Thank you, Mikey." },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.NPCDialogue.Mikey.N0_1",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Mikey" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "What are you waiting for? Go on to Miss Elsie." },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.NPCDialogue.Elsie.FN0",
+                        Mode = "Fork",
+                        Options = new List<OghamOptionManifest>
+                        {
+                            new OghamOptionManifest
+                            {
+                                TagPath = "Root.NPCDialogue.Elsie.FN0.Route1", TargetEntryPath = "Root.NPCDialogue.Elsie.N0", TextMode = "Literal", TextKey = "Route 1",
+                            },
+                            new OghamOptionManifest
+                            {
+                                TagPath = "Root.NPCDialogue.Elsie.FN0.Route2", TargetEntryPath = "Root.NPCDialogue.Elsie.N0_1", TextMode = "Literal", TextKey = "Route 2",
+                                Conditions = new List<OghamConditionManifest>
+                                {
+                                    new OghamConditionManifest { TagPath = "Dialogue.Elsie.TalkCount", Comparison = "Equal", CompareValue = 1UL, CompareTagPath = "", CompareValueType = "Unsigned", CompareString = "", CaseSensitive = false, ExactMatch = false, LogicOp = "And", Negate = false, Unresolved = false, TechnicalName = "", Expect = true, Collection = "", ProviderParams = null },
+                                },
+                            },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.NPCDialogue.Elsie.N0",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Elsie" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Good morning, Rohan. How are you?" },
+                        },
+                        Options = new List<OghamOptionManifest>
+                        {
+                            new OghamOptionManifest
+                            {
+                                TagPath = "Root.NPCDialogue.Elsie.N0.Option1", TargetEntryPath = "Root.NPCDialogue.Elsie.N1", TextMode = "Literal", TextKey = "",
+                            },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.NPCDialogue.Elsie.N1",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Rohan" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "I'm fine Miss Elsie. I overslept a little. Mikey was kind of mad at me for having to wait outside my house. " },
+                        },
+                        Options = new List<OghamOptionManifest>
+                        {
+                            new OghamOptionManifest
+                            {
+                                TagPath = "Root.NPCDialogue.Elsie.N1.Option1", TargetEntryPath = "Root.NPCDialogue.Elsie.N2", TextMode = "Literal", TextKey = "",
+                            },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.NPCDialogue.Elsie.N2",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Elsie" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Oh that boy gets mad about everything, don't mind him. " },
+                        },
+                        Options = new List<OghamOptionManifest>
+                        {
+                            new OghamOptionManifest
+                            {
+                                TagPath = "Root.NPCDialogue.Elsie.N2.Option1", TargetEntryPath = "Root.NPCDialogue.Elsie.N3", TextMode = "Literal", TextKey = "",
+                            },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.NPCDialogue.Elsie.N3",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "I wanted to ask you to help me with pulling out these melons but i'll handle these on my own. Instead, check up on Russel for me at the blacksmith." },
+                        },
+                        EntryOperations = new List<OghamOperationManifest>
+                        {
+                            new OghamOperationManifest { TagPath = "Dialogue.Elsie.TalkCount", Arithmetic = "Set", Value = 1UL, ValueTag = "", ValueType = "Unsigned", ValueString = "", TechnicalName = "", Collection = "", ProviderParams = null },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.NPCDialogue.Elsie.N0_1",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Elsie" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Check up on Russel for me please." },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.NPCDialogue.Russel.FN0",
+                        Mode = "Fork",
+                        Options = new List<OghamOptionManifest>
+                        {
+                            new OghamOptionManifest
+                            {
+                                TagPath = "Root.NPCDialogue.Russel.FN0.Route2", TargetEntryPath = "Root.NPCDialogue.Russel.N0", TextMode = "Literal", TextKey = "Route 2",
+                            },
+                            new OghamOptionManifest
+                            {
+                                TagPath = "Root.NPCDialogue.Russel.FN0.Route1", TargetEntryPath = "Root.NPCDialogue.Russel.N0_1", TextMode = "Literal", TextKey = "Route 1",
+                                Conditions = new List<OghamConditionManifest>
+                                {
+                                    new OghamConditionManifest { TagPath = "Dialogue.Elsie.TalkCount", Comparison = "Equal", CompareValue = 1UL, CompareTagPath = "", CompareValueType = "Unsigned", CompareString = "", CaseSensitive = false, ExactMatch = false, LogicOp = "And", Negate = false, Unresolved = false, TechnicalName = "", Expect = true, Collection = "", ProviderParams = null },
+                                },
+                            },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.NPCDialogue.Russel.N0_1",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Russel" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Hey there champ. Mind lending me a hand over here?" },
+                        },
+                        Options = new List<OghamOptionManifest>
+                        {
+                            new OghamOptionManifest
+                            {
+                                TagPath = "Root.NPCDialogue.Russel.N0_1.Option1", TargetEntryPath = "Root.NPCDialogue.Russel.N1_1", TextMode = "Literal", TextKey = "",
+                            },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.NPCDialogue.Russel.N1_1",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Rohan" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Good morning Russel. What can I do?" },
+                        },
+                        Options = new List<OghamOptionManifest>
+                        {
+                            new OghamOptionManifest
+                            {
+                                TagPath = "Root.NPCDialogue.Russel.N1_1.Option1", TargetEntryPath = "Root.NPCDialogue.Russel.N2_1", TextMode = "Literal", TextKey = "",
+                            },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.NPCDialogue.Russel.N2_1",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Russel" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "I finished the sword that's suppossed to be delivered to the Kingdom of Marijoa tomorrow. Now I heard you wanted to travel over there but you're not going there to enlist! I will allow you to deliver this sword and nothing else." },
+                        },
+                        Options = new List<OghamOptionManifest>
+                        {
+                            new OghamOptionManifest
+                            {
+                                TagPath = "Root.NPCDialogue.Russel.N2_1.Option1", TargetEntryPath = "Root.NPCDialogue.Russel.N3_1", TextMode = "Literal", TextKey = "",
+                            },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.NPCDialogue.Russel.N3_1",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Also, the mayor looked a little stressed when I saw him this morning. Maybe you should go talk to him. " },
+                        },
+                        Options = new List<OghamOptionManifest>
+                        {
+                            new OghamOptionManifest
+                            {
+                                TagPath = "Root.NPCDialogue.Russel.N3_1.Option1", TargetEntryPath = "Root.NPCDialogue.Russel.N4_1", TextMode = "Literal", TextKey = "",
+                            },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.NPCDialogue.Russel.N4_1",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Anyway, here is the sword." },
+                        },
+                        EntryOperations = new List<OghamOperationManifest>
+                        {
+                            new OghamOperationManifest { TagPath = "Unlocks.Combat", Arithmetic = "Set", Value = 1UL, ValueTag = "", ValueType = "Unsigned", ValueString = "", TechnicalName = "", Collection = "", ProviderParams = null },
+                            new OghamOperationManifest { TagPath = "Dialogue.Russel.TalkCount", Arithmetic = "Set", Value = 1UL, ValueTag = "", ValueType = "Unsigned", ValueString = "", TechnicalName = "", Collection = "", ProviderParams = null },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.NPCDialogue.Russel.N0",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Good morning champ. I don't need any help right now." },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "" },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.NPCDialogue.Mayor.FN0",
+                        Mode = "Fork",
+                        Options = new List<OghamOptionManifest>
+                        {
+                            new OghamOptionManifest
+                            {
+                                TagPath = "Root.NPCDialogue.Mayor.FN0.Route3", TargetEntryPath = "Root.NPCDialogue.Mayor.N0_2", TextMode = "Literal", TextKey = "Route 3",
+                                Conditions = new List<OghamConditionManifest>
+                                {
+                                    new OghamConditionManifest { TagPath = "Dialogue.Russel.TalkCount", Comparison = "Equal", CompareValue = 1UL, CompareTagPath = "", CompareValueType = "Unsigned", CompareString = "", CaseSensitive = false, ExactMatch = false, LogicOp = "And", Negate = false, Unresolved = false, TechnicalName = "", Expect = true, Collection = "", ProviderParams = null },
+                                },
+                            },
+                            new OghamOptionManifest
+                            {
+                                TagPath = "Root.NPCDialogue.Mayor.FN0.Route1", TargetEntryPath = "Root.NPCDialogue.Mayor.N0", TextMode = "Literal", TextKey = "Route 1",
+                                Conditions = new List<OghamConditionManifest>
+                                {
+                                    new OghamConditionManifest { TagPath = "Dialogue.Mayor.TalkCount", Comparison = "Equal", CompareValue = 0UL, CompareTagPath = "", CompareValueType = "Unsigned", CompareString = "", CaseSensitive = false, ExactMatch = false, LogicOp = "And", Negate = false, Unresolved = false, TechnicalName = "", Expect = true, Collection = "", ProviderParams = null },
+                                },
+                            },
+                            new OghamOptionManifest
+                            {
+                                TagPath = "Root.NPCDialogue.Mayor.FN0.Route2", TargetEntryPath = "Root.NPCDialogue.Mayor.N0_1", TextMode = "Literal", TextKey = "Route 2",
+                                Conditions = new List<OghamConditionManifest>
+                                {
+                                    new OghamConditionManifest { TagPath = "Dialogue.Mayor.TalkCount", Comparison = "Equal", CompareValue = 1UL, CompareTagPath = "", CompareValueType = "Unsigned", CompareString = "", CaseSensitive = false, ExactMatch = false, LogicOp = "And", Negate = false, Unresolved = false, TechnicalName = "", Expect = true, Collection = "", ProviderParams = null },
+                                },
+                            },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.NPCDialogue.Mayor.N0",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Mayor" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Good morning Rohan. Lovely day isn't it? I'm sure everyone in town thinks the same." },
+                        },
+                        Options = new List<OghamOptionManifest>
+                        {
+                            new OghamOptionManifest
+                            {
+                                TagPath = "Root.NPCDialogue.Mayor.N0.Option1", TargetEntryPath = "Root.NPCDialogue.Mayor.N1", TextMode = "Literal", TextKey = "",
+                            },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.NPCDialogue.Mayor.N1",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Now I heard Miss Elsie wanted to speak to you at the ranch, off you go then." },
+                        },
+                        EntryOperations = new List<OghamOperationManifest>
+                        {
+                            new OghamOperationManifest { TagPath = "Dialogue.Mayor.TalkCount", Arithmetic = "Set", Value = 1UL, ValueTag = "", ValueType = "Unsigned", ValueString = "", TechnicalName = "", Collection = "", ProviderParams = null },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.NPCDialogue.Mayor.N0_1",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Mayor" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "I'm sure you can talk to some folk in town." },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.NPCDialogue.Mayor.N0_2",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Mayor" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Rohan, please help me! " },
+                        },
+                        Options = new List<OghamOptionManifest>
+                        {
+                            new OghamOptionManifest
+                            {
+                                TagPath = "Root.NPCDialogue.Mayor.N0_2.Option1", TargetEntryPath = "Root.NPCDialogue.Mayor.N1_2", TextMode = "Literal", TextKey = "",
+                            },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.NPCDialogue.Mayor.N1_2",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "My daughter was playing in the woods and got taken by a dangerous monster!" },
+                        },
+                        Options = new List<OghamOptionManifest>
+                        {
+                            new OghamOptionManifest
+                            {
+                                TagPath = "Root.NPCDialogue.Mayor.N1_2.Option1", TargetEntryPath = "Root.NPCDialogue.Mayor.N2_2", TextMode = "Literal", TextKey = "",
+                            },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.NPCDialogue.Mayor.N2_2",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Please Rohan, I'm begging you! Please save her." },
+                        },
+                        Options = new List<OghamOptionManifest>
+                        {
+                            new OghamOptionManifest
+                            {
+                                TagPath = "Root.NPCDialogue.Mayor.N2_2.Option1", TargetEntryPath = "Root.NPCDialogue.Mayor.N3_2", TextMode = "Literal", TextKey = "",
+                            },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.NPCDialogue.Mayor.N3_2",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Rohan" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Don't worry, I'll save her!" },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.NPCDialogue.Christene.N0",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Christene" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "This is the perfect season to harvest our famous square melons." },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.NPCDialogue.Jockey.N0",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Jockey" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Don't wander too far off in the woods. Its filled with spiders. " },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.NPCDialogue.Shary.N0",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Shary" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "They say that the Holy Land of Marijoa is surrounded by enormous fields of flowers. " },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.NPCDialogue.Colin.N0",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Colin" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "I always love to fish at the pond next to the ranch. Some beautiful salmon swim in there." },
                         },
                     },
                 },

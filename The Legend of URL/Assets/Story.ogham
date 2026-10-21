@@ -1138,6 +1138,15 @@
                     "textKey": "Route 1"
                   },
                   {
+                    "conditions": [
+                      {
+                        "caseSensitive": false,
+                        "comparison": "Equal",
+                        "exactMatch": false,
+                        "logicOp": "And",
+                        "tag": "Dialogue.Elsie.TalkCount"
+                      }
+                    ],
                     "target": "N0_1",
                     "technicalName": "Route2",
                     "textKey": "Route 2"
@@ -1299,12 +1308,19 @@
               },
               {
                 "displayName": "N3",
+                "entryOperations": [
+                  {
+                    "arithmetic": "Set",
+                    "tag": "Dialogue.Elsie.TalkCount"
+                  }
+                ],
                 "inputPins": [
                   {}
                 ],
                 "labelIds": [
                   1
                 ],
+                "opsExpanded": true,
                 "outputPins": [
                   {}
                 ],
@@ -1410,6 +1426,20 @@
                 "options": [
                   {
                     "target": "N0",
+                    "technicalName": "Route2",
+                    "textKey": "Route 2"
+                  },
+                  {
+                    "conditions": [
+                      {
+                        "caseSensitive": false,
+                        "comparison": "Equal",
+                        "exactMatch": false,
+                        "logicOp": "And",
+                        "tag": "Dialogue.Elsie.TalkCount"
+                      }
+                    ],
+                    "target": "N0_1",
                     "technicalName": "Route1",
                     "textKey": "Route 1"
                   }
@@ -1425,6 +1455,250 @@
                 "type": "ForkNode"
               },
               {
+                "displayName": "N0.1",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "options": [
+                  {
+                    "target": "N1_1",
+                    "technicalName": "Option1",
+                    "textKey": ""
+                  }
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  768.548767,
+                  631.768555
+                ],
+                "technicalName": "N0_1",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "Russel",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "Hey there champ. Mind lending me a hand over here?",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              },
+              {
+                "displayName": "N1.1",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "options": [
+                  {
+                    "target": "N2_1",
+                    "technicalName": "Option1",
+                    "textKey": ""
+                  }
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  1206.72009,
+                  640.7998
+                ],
+                "technicalName": "N1_1",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "Rohan",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "Good morning Russel. What can I do?",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              },
+              {
+                "displayName": "N2.1",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "options": [
+                  {
+                    "target": "N3_1",
+                    "technicalName": "Option1",
+                    "textKey": ""
+                  }
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  1649.25476,
+                  577.2688
+                ],
+                "technicalName": "N2_1",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "Russel",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "I finished the sword that's suppossed to be delivered to the Kingdom of Marijoa tomorrow. Now I heard you wanted to travel over there but you're not going there to enlist! I will allow you to deliver this sword and nothing else.",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              },
+              {
+                "displayName": "N3.1",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "options": [
+                  {
+                    "target": "N4_1",
+                    "technicalName": "Option1",
+                    "textKey": ""
+                  }
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  2147.07251,
+                  585.116943
+                ],
+                "technicalName": "N3_1",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "Also, the mayor looked a little stressed when I saw him this morning. Maybe you should go talk to him. ",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              },
+              {
+                "displayName": "N4.1",
+                "entryOperations": [
+                  {
+                    "arithmetic": "Set",
+                    "tag": "Unlocks.Combat"
+                  },
+                  {
+                    "arithmetic": "Set",
+                    "tag": "Dialogue.Russel.TalkCount"
+                  }
+                ],
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "opsExpanded": true,
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  2604.27954,
+                  599.240356
+                ],
+                "technicalName": "N4_1",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "Anyway, here is the sword.",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              },
+              {
                 "displayName": "N0",
                 "inputPins": [
                   {}
@@ -1436,8 +1710,8 @@
                   {}
                 ],
                 "position": [
-                  779.7276,
-                  354.7835
+                  763.361755,
+                  356.321136
                 ],
                 "technicalName": "N0",
                 "templateFields": [
@@ -1448,7 +1722,7 @@
                   {
                     "fields": [
                       {
-                        "key": "Russel",
+                        "key": "Good morning champ. I don't need any help right now.",
                         "mode": "Literal",
                         "templateField": "speakername",
                         "type": "Text"
@@ -1477,10 +1751,659 @@
               {}
             ],
             "position": [
-              689.139465,
-              389.1632
+              402.5365,
+              598.6532
             ],
             "technicalName": "Russel",
+            "type": "Collection"
+          },
+          {
+            "content": [
+              {
+                "displayName": "FN0",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "options": [
+                  {
+                    "conditions": [
+                      {
+                        "caseSensitive": false,
+                        "comparison": "Equal",
+                        "exactMatch": false,
+                        "logicOp": "And",
+                        "tag": "Dialogue.Russel.TalkCount"
+                      }
+                    ],
+                    "target": "N0_2",
+                    "technicalName": "Route3",
+                    "textKey": "Route 3"
+                  },
+                  {
+                    "conditions": [
+                      {
+                        "caseSensitive": false,
+                        "compareValue": 0,
+                        "comparison": "Equal",
+                        "exactMatch": false,
+                        "logicOp": "And",
+                        "tag": "Dialogue.Mayor.TalkCount"
+                      }
+                    ],
+                    "target": "N0",
+                    "technicalName": "Route1",
+                    "textKey": "Route 1"
+                  },
+                  {
+                    "conditions": [
+                      {
+                        "caseSensitive": false,
+                        "comparison": "Equal",
+                        "exactMatch": false,
+                        "logicOp": "And",
+                        "tag": "Dialogue.Mayor.TalkCount"
+                      }
+                    ],
+                    "target": "N0_1",
+                    "technicalName": "Route2",
+                    "textKey": "Route 2"
+                  }
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  281.6067,
+                  603.6259
+                ],
+                "technicalName": "FN0",
+                "type": "ForkNode"
+              },
+              {
+                "displayName": "N0",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "options": [
+                  {
+                    "target": "N1",
+                    "technicalName": "Option1",
+                    "textKey": ""
+                  }
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  779.6653,
+                  598.5403
+                ],
+                "technicalName": "N0",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "Mayor",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "Good morning Rohan. Lovely day isn't it? I'm sure everyone in town thinks the same.",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              },
+              {
+                "displayName": "N1",
+                "entryOperations": [
+                  {
+                    "arithmetic": "Set",
+                    "tag": "Dialogue.Mayor.TalkCount"
+                  }
+                ],
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "opsExpanded": true,
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  1192.72534,
+                  601.6745
+                ],
+                "technicalName": "N1",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "Now I heard Miss Elsie wanted to speak to you at the ranch, off you go then.",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              },
+              {
+                "displayName": "N0.1",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  776.370544,
+                  841.3006
+                ],
+                "technicalName": "N0_1",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "Mayor",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "I'm sure you can talk to some folk in town.",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              },
+              {
+                "displayName": "N0.2",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "options": [
+                  {
+                    "target": "N1_2",
+                    "technicalName": "Option1",
+                    "textKey": ""
+                  }
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  774.1987,
+                  1054.85181
+                ],
+                "technicalName": "N0_2",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "Mayor",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "Rohan, please help me! ",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              },
+              {
+                "displayName": "N1.2",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "options": [
+                  {
+                    "target": "N2_2",
+                    "technicalName": "Option1",
+                    "textKey": ""
+                  }
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  1191.26538,
+                  1059.11853
+                ],
+                "technicalName": "N1_2",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "My daughter was playing in the woods and got taken by a dangerous monster!",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              },
+              {
+                "displayName": "N2.2",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "options": [
+                  {
+                    "target": "N3_2",
+                    "technicalName": "Option1",
+                    "textKey": ""
+                  }
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  1605.70361,
+                  1057.09973
+                ],
+                "technicalName": "N2_2",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "Please Rohan, I'm begging you! Please save her.",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              },
+              {
+                "displayName": "N3.2",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  2027.86646,
+                  1070.099
+                ],
+                "technicalName": "N3_2",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "Rohan",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "Don't worry, I'll save her!",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              }
+            ],
+            "displayName": "Mayor",
+            "inputPins": [
+              {}
+            ],
+            "labelIds": [
+              1
+            ],
+            "outputPins": [
+              {}
+            ],
+            "position": [
+              108.431335,
+              594.2034
+            ],
+            "technicalName": "Mayor",
+            "type": "Collection"
+          },
+          {
+            "content": [
+              {
+                "displayName": "N0",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  114.59201,
+                  886.083069
+                ],
+                "technicalName": "N0",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "Christene",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "This is the perfect season to harvest our famous square melons.",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              }
+            ],
+            "displayName": "Christene",
+            "inputPins": [
+              {}
+            ],
+            "labelIds": [
+              1
+            ],
+            "outputPins": [
+              {}
+            ],
+            "position": [
+              109.512253,
+              923.334534
+            ],
+            "technicalName": "Christene",
+            "type": "Collection"
+          },
+          {
+            "content": [
+              {
+                "displayName": "N0",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  360.6965,
+                  870.4443
+                ],
+                "technicalName": "N0",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "Jockey",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "Don't wander too far off in the woods. Its filled with spiders. ",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              }
+            ],
+            "displayName": "Jockey",
+            "inputPins": [
+              {}
+            ],
+            "labelIds": [
+              1
+            ],
+            "outputPins": [
+              {}
+            ],
+            "position": [
+              412.604248,
+              921.641235
+            ],
+            "technicalName": "Jockey",
+            "type": "Collection"
+          },
+          {
+            "content": [
+              {
+                "displayName": "N0",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  258.8379,
+                  1092.39941
+                ],
+                "technicalName": "N0",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "Shary",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "They say that the Holy Land of Marijoa is surrounded by enormous fields of flowers. ",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              }
+            ],
+            "displayName": "Shary",
+            "inputPins": [
+              {}
+            ],
+            "labelIds": [
+              1
+            ],
+            "outputPins": [
+              {}
+            ],
+            "position": [
+              111.038208,
+              1132.24121
+            ],
+            "technicalName": "Shary",
+            "type": "Collection"
+          },
+          {
+            "content": [
+              {
+                "displayName": "N0",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  267.834351,
+                  1080.8324
+                ],
+                "technicalName": "N0",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "Colin",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "I always love to fish at the pond next to the ranch. Some beautiful salmon swim in there.",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              }
+            ],
+            "displayName": "Colin",
+            "inputPins": [
+              {}
+            ],
+            "labelIds": [
+              1
+            ],
+            "outputPins": [
+              {}
+            ],
+            "position": [
+              414.3489,
+              1129.67041
+            ],
+            "technicalName": "Colin",
             "type": "Collection"
           }
         ],
