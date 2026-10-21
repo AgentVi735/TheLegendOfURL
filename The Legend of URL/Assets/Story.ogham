@@ -2438,7 +2438,374 @@
         "type": "Collection"
       },
       {
-        "content": [],
+        "content": [
+          {
+            "content": [
+              {
+                "displayName": "N0",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  353.11264,
+                  491.085754
+                ],
+                "technicalName": "N0",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "Sign",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "BlackSmith",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              }
+            ],
+            "displayName": "Blacksmith",
+            "inputPins": [
+              {}
+            ],
+            "labelIds": [
+              1
+            ],
+            "outputPins": [
+              {}
+            ],
+            "position": [
+              295.512634,
+              485.485779
+            ],
+            "technicalName": "Blacksmith",
+            "type": "Collection"
+          },
+          {
+            "content": [
+              {
+                "displayName": "N0",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  632.3126,
+                  531.885742
+                ],
+                "technicalName": "N0",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "Sign",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "Ranch ↑",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              }
+            ],
+            "displayName": "Ranch",
+            "inputPins": [
+              {}
+            ],
+            "labelIds": [
+              1
+            ],
+            "outputPins": [
+              {}
+            ],
+            "position": [
+              597.9126,
+              481.485718
+            ],
+            "technicalName": "Ranch",
+            "type": "Collection"
+          },
+          {
+            "content": [
+              {
+                "displayName": "N0",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  862.843262,
+                  474.565918
+                ],
+                "technicalName": "N0",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "Sign",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "Mayor's House ↑",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              }
+            ],
+            "displayName": "Mayor's House",
+            "inputPins": [
+              {}
+            ],
+            "labelIds": [
+              1
+            ],
+            "outputPins": [
+              {}
+            ],
+            "position": [
+              920.842957,
+              478.565979
+            ],
+            "technicalName": "Mayor_s_House",
+            "type": "Collection"
+          },
+          {
+            "content": [
+              {
+                "displayName": "N0",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  425.996124,
+                  772.546631
+                ],
+                "technicalName": "N0",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "Sign",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "Rohan's House",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              }
+            ],
+            "displayName": "Rohan's House",
+            "inputPins": [
+              {}
+            ],
+            "labelIds": [
+              1
+            ],
+            "outputPins": [
+              {}
+            ],
+            "position": [
+              292.8431,
+              708.565857
+            ],
+            "technicalName": "Rohan_s_House",
+            "type": "Collection"
+          },
+          {
+            "content": [
+              {
+                "displayName": "N0",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  596.349,
+                  689.7231
+                ],
+                "technicalName": "N0",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "Sign",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "← Riversplit Village\nRiversplit Forest →",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              }
+            ],
+            "displayName": "ForestSplit",
+            "inputPins": [
+              {}
+            ],
+            "labelIds": [
+              1
+            ],
+            "outputPins": [
+              {}
+            ],
+            "position": [
+              608.584351,
+              712.3113
+            ],
+            "technicalName": "ForestSplit",
+            "type": "Collection"
+          },
+          {
+            "content": [
+              {
+                "displayName": "N0",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  824.627136,
+                  720.806335
+                ],
+                "technicalName": "N0",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "Sign",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "                                                                              \n\n\n                                                                                  ---BEWARE---\n                                                                             FORBIDDEN WOODS",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              }
+            ],
+            "displayName": "Forbidden Woods",
+            "inputPins": [
+              {}
+            ],
+            "labelIds": [
+              1
+            ],
+            "outputPins": [
+              {}
+            ],
+            "position": [
+              935.0686,
+              712.4946
+            ],
+            "technicalName": "Forbidden_Woods",
+            "type": "Collection"
+          }
+        ],
         "displayName": "Signs",
         "inputPins": [
           {}
@@ -2469,8 +2836,8 @@
     "type": "Collection"
   },
   "viewTransform": [
-    238.051727,
-    16.2370453,
-    0.405212581
+    -110.748291,
+    -177.482071,
+    0.583070934
   ]
 }

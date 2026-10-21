@@ -2,7 +2,7 @@
 //   Generated from the Ogham project tree by OghamNodeTreeStoryGenerator. DO NOT EDIT.
 //   Edit the .ogham file(s) and click Build in Window ▸ Heathen ▸ Storyteller.
 // </auto-generated>
-// ogham-hash:0x7A0D991350278A02  // staleness marker — do not edit
+// ogham-hash:0xA0DB718DED265C44  // staleness marker — do not edit
 using System.Collections.Generic;
 using Heathen.GameplayTags;
 using Heathen.Ogham;
@@ -24,6 +24,7 @@ namespace Heathen.Ogham.Generated
             new CompiledTagEntry { Id = 0x7F138A20428CE29CUL, ParentId = 0x9FE7B5B67A2764C0UL, Name = "Dialogue.Test" },
             new CompiledTagEntry { Id = 0x112C08F73336E1ABUL, ParentId = 0x954D8E6815ECD1DCUL, Name = "Root.CutsceneDialogue" },
             new CompiledTagEntry { Id = 0xCD9DD65467CAFCC7UL, ParentId = 0x954D8E6815ECD1DCUL, Name = "Root.NPCDialogue" },
+            new CompiledTagEntry { Id = 0x0E776B03ABC45F4DUL, ParentId = 0x954D8E6815ECD1DCUL, Name = "Root.Signs" },
             new CompiledTagEntry { Id = 0x8F594BCE432BED05UL, ParentId = 0x954D8E6815ECD1DCUL, Name = "Root.TestCollection" },
             new CompiledTagEntry { Id = 0xF91F6BF32CD64AEEUL, ParentId = 0xA028F27A9B7B0FB3UL, Name = "Unlocks.Combat" },
             new CompiledTagEntry { Id = 0x49C7AFDFDBD8E3C6UL, ParentId = 0x76950A82C9089AD0UL, Name = "Dialogue.Elsie.TalkCount" },
@@ -40,6 +41,12 @@ namespace Heathen.Ogham.Generated
             new CompiledTagEntry { Id = 0xBFB6B2F9AE066A50UL, ParentId = 0xCD9DD65467CAFCC7UL, Name = "Root.NPCDialogue.Mikey" },
             new CompiledTagEntry { Id = 0x071018DA2C038254UL, ParentId = 0xCD9DD65467CAFCC7UL, Name = "Root.NPCDialogue.Russel" },
             new CompiledTagEntry { Id = 0x879AFE2E3DB4F185UL, ParentId = 0xCD9DD65467CAFCC7UL, Name = "Root.NPCDialogue.Shary" },
+            new CompiledTagEntry { Id = 0x2869E67E9EC9B362UL, ParentId = 0x0E776B03ABC45F4DUL, Name = "Root.Signs.Blacksmith" },
+            new CompiledTagEntry { Id = 0xA0953E41DB0A3CB9UL, ParentId = 0x0E776B03ABC45F4DUL, Name = "Root.Signs.Forbidden_Woods" },
+            new CompiledTagEntry { Id = 0x6EE631DAA51F8F6AUL, ParentId = 0x0E776B03ABC45F4DUL, Name = "Root.Signs.ForestSplit" },
+            new CompiledTagEntry { Id = 0xE1698B53ACA5ED0EUL, ParentId = 0x0E776B03ABC45F4DUL, Name = "Root.Signs.Mayor_s_House" },
+            new CompiledTagEntry { Id = 0x138F5DB66DF4A573UL, ParentId = 0x0E776B03ABC45F4DUL, Name = "Root.Signs.Ranch" },
+            new CompiledTagEntry { Id = 0x9A265A305F03182FUL, ParentId = 0x0E776B03ABC45F4DUL, Name = "Root.Signs.Rohan_s_House" },
             new CompiledTagEntry { Id = 0xEE9E05099B229505UL, ParentId = 0x8F594BCE432BED05UL, Name = "Root.TestCollection.Daniek" },
             new CompiledTagEntry { Id = 0x4B7B241B26C2346AUL, ParentId = 0x8F594BCE432BED05UL, Name = "Root.TestCollection.Tim" },
             new CompiledTagEntry { Id = 0x306D433CDC60205DUL, ParentId = 0x4C905FF94B9E874EUL, Name = "Dialogue.Test.Freddy.HasSpokenTo" },
@@ -82,6 +89,12 @@ namespace Heathen.Ogham.Generated
             new CompiledTagEntry { Id = 0xB99166F2347BC80AUL, ParentId = 0x071018DA2C038254UL, Name = "Root.NPCDialogue.Russel.N3_1" },
             new CompiledTagEntry { Id = 0xB380A80021243CC0UL, ParentId = 0x071018DA2C038254UL, Name = "Root.NPCDialogue.Russel.N4_1" },
             new CompiledTagEntry { Id = 0xABA973336950BDFEUL, ParentId = 0x879AFE2E3DB4F185UL, Name = "Root.NPCDialogue.Shary.N0" },
+            new CompiledTagEntry { Id = 0x9DBE8D2FBF0DE1A3UL, ParentId = 0x2869E67E9EC9B362UL, Name = "Root.Signs.Blacksmith.N0" },
+            new CompiledTagEntry { Id = 0xD791AB118C045027UL, ParentId = 0xA0953E41DB0A3CB9UL, Name = "Root.Signs.Forbidden_Woods.N0" },
+            new CompiledTagEntry { Id = 0xBB85839A74645BF3UL, ParentId = 0x6EE631DAA51F8F6AUL, Name = "Root.Signs.ForestSplit.N0" },
+            new CompiledTagEntry { Id = 0xC288D0BF53325277UL, ParentId = 0xE1698B53ACA5ED0EUL, Name = "Root.Signs.Mayor_s_House.N0" },
+            new CompiledTagEntry { Id = 0xB4734546C7CF8EC1UL, ParentId = 0x138F5DB66DF4A573UL, Name = "Root.Signs.Ranch.N0" },
+            new CompiledTagEntry { Id = 0x539F7EC5ADB7DD47UL, ParentId = 0x9A265A305F03182FUL, Name = "Root.Signs.Rohan_s_House.N0" },
             new CompiledTagEntry { Id = 0x501BB4DE76012D7CUL, ParentId = 0xEE9E05099B229505UL, Name = "Root.TestCollection.Daniek.ForkNode0" },
             new CompiledTagEntry { Id = 0xC80087B49E05C452UL, ParentId = 0xEE9E05099B229505UL, Name = "Root.TestCollection.Daniek.Node0" },
             new CompiledTagEntry { Id = 0xDA38CD06D0093202UL, ParentId = 0xEE9E05099B229505UL, Name = "Root.TestCollection.Daniek.Node1" },
@@ -814,6 +827,60 @@ namespace Heathen.Ogham.Generated
                         {
                             new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Colin" },
                             new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "I always love to fish at the pond next to the ranch. Some beautiful salmon swim in there." },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.Signs.Blacksmith.N0",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Sign" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "BlackSmith" },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.Signs.Ranch.N0",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Sign" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Ranch ↑" },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.Signs.Mayor_s_House.N0",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Sign" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Mayor's House ↑" },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.Signs.Rohan_s_House.N0",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Sign" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Rohan's House" },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.Signs.ForestSplit.N0",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Sign" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "← Riversplit Village\nRiversplit Forest →" },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.Signs.Forbidden_Woods.N0",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Sign" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "                                                                              \n\n\n                                                                                  ---BEWARE---\n                                                                             FORBIDDEN WOODS" },
                         },
                     },
                 },
