@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1138106583857533505}
   - component: {fileID: 7221920294715112210}
   - component: {fileID: 8636943878324346002}
-  - component: {fileID: 3111844224253102275}
+  - component: {fileID: 8023823576474123080}
   m_Layer: 8
   m_Name: Swamp_Tree_2
   m_TagString: Untagged
@@ -93,8 +93,8 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3111844224253102275
-BoxCollider:
+--- !u!136 &8023823576474123080
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -111,9 +111,11 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.6456037, y: 0.6247757, z: 10.3093405}
-  m_Center: {x: -0.03368497, y: -0.02451387, z: 2.723812}
+  serializedVersion: 2
+  m_Radius: 1.5
+  m_Height: 10
+  m_Direction: 2
+  m_Center: {x: 0.13, y: 0, z: 2.1}
 --- !u!1 &7570628964746950887
 GameObject:
   m_ObjectHideFlags: 0
