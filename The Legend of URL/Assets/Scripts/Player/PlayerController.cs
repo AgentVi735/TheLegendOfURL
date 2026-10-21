@@ -144,6 +144,7 @@ public class PlayerController : MonoBehaviour
         if (!CanBeHit) return;
         health -= receivedDamage;
         _hudController.UpdateHealthBar(health);
+        _audioPlayer.PlayClip(0);
         if (health < 0)
             OnDeath();
     }

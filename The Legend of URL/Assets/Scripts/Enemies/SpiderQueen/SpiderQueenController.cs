@@ -124,6 +124,7 @@ public class SpiderQueenController : EnemyController
     private IEnumerator BlockAnimation()
     {
         Animator.SetBool("block", true);
+        AudioPlayer.PlayClip(4);
 
         yield return waitBlockAnimationTime;
 
