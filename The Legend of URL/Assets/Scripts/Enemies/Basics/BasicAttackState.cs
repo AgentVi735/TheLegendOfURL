@@ -2,6 +2,7 @@
 
 public class BasicAttackState : IEnemyState
 {
+    private static readonly int attackAnim = Animator.StringToHash("attack");
     private EnemyController _controller;
     
     public void Initialise(EnemyController controller)
@@ -16,7 +17,7 @@ public class BasicAttackState : IEnemyState
     public void OnEnter()
     {
         _controller.AudioPlayer.PlayClip(1);
-        _controller.Animator.SetTrigger("attack");
+        _controller.Animator.SetTrigger(attackAnim);
         _controller.player.OnHit(_controller.data.damage);
         _controller.Stun(_controller.data.attackCooldown);
     }

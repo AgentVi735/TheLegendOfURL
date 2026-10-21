@@ -2,6 +2,7 @@
 
 public class SpiderQueenScreamState : IEnemyState
 {
+    private static readonly int screamAnim = Animator.StringToHash("scream");
     private SpiderQueenController _controller;
     
     private float timeSpent;
@@ -25,7 +26,7 @@ public class SpiderQueenScreamState : IEnemyState
     {
         _controller.AudioPlayer.StopPersistentAudio();
         _controller.AudioPlayer.PlayClip(1);
-        _controller.Animator.SetTrigger("scream");
+        _controller.Animator.SetTrigger(screamAnim);
         _controller.isScreaming = true;
         timeSpent = 0;
         screamTime = _controller.data.screamAnimationDuration;

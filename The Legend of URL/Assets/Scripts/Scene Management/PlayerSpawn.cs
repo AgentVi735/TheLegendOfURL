@@ -11,13 +11,11 @@ public class PlayerSpawn : MonoBehaviour
 #if UNITY_EDITOR
     private void OnValidate()
     {
-        if (update)
-        {
-            if (!Application.isPlaying)
-                UpdateData();
-            else
-                Debug.LogError($"Unable to update {data.name} while application is playing. Please exit the application to update {data.name}.");
-        }
+        if (!update) return;
+        if (!Application.isPlaying)
+            UpdateData();
+        else
+            Debug.LogError($"Unable to update {data.name} while application is playing. Please exit the application to update {data.name}.");
     }
 
     private void UpdateData()

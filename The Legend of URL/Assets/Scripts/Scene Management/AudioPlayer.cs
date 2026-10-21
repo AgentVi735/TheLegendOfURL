@@ -3,8 +3,6 @@
 [RequireComponent(typeof(AudioSource))]
 public class AudioPlayer : MonoBehaviour
 {
-    public AudioSource AudioSource => _audioSource;
-    public AudioSource PersistentAudioSource => _persistentAudioSource;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioSource _persistentAudioSource;
 
@@ -43,8 +41,8 @@ public class AudioPlayer : MonoBehaviour
         {
             if (_persistentAudioSource.clip == clip)
                 return;
-            else
-                _persistentAudioSource.Stop();
+            
+            _persistentAudioSource.Stop();
         }
         
         _persistentAudioSource.clip = clip;

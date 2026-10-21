@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections;
-using Unity.Cinemachine;
+﻿using Unity.Cinemachine;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.LowLevel;
 
 public class PlayerController : MonoBehaviour
 {
@@ -38,15 +34,9 @@ public class PlayerController : MonoBehaviour
     
     [Header("Options")]
     public bool CanRotate { get; private set; }
-    public bool CanCameraFollow { get; private set; }
     public bool CanMove => movement.CanMove;
-    public bool CanRun => movement.CanRun;
-    public bool CanJump => movement.CanJump;
-    public bool CanPause => movement.CanPause;
-    public bool CanAttack => attackManager.CanAttack;
-    public bool CanLockOn => attackManager.CanLockOn;
-    public bool CanBeHit { get; private set; }
-    public bool CanInteract { get; private set; }
+    private bool CanBeHit { get; set; }
+    private bool CanInteract { get; set; }
     public bool HasInitialised { get; private set; }
     [SerializeField] private float interactRadius;
     [SerializeField] private LayerMask interactLayerMask;
@@ -59,10 +49,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int targetFrameRateEditor = -1;
 #endif
 
-    public void Initialise()
-    {
-        // TODO: PUT THIS INTO A METHOD PLS
 #if UNITY_EDITOR
+    private void EditorChangeFrameRate()
+    {
         if (targetFrameRateEditor > 0)
         {
             QualitySettings.vSyncCount = 0;
@@ -73,6 +62,13 @@ public class PlayerController : MonoBehaviour
             QualitySettings.vSyncCount = 1;
             Application.targetFrameRate = -1;
         }
+    }
+#endif
+    
+    public void Initialise()
+    {
+#if UNITY_EDITOR
+        EditorChangeFrameRate();
 #endif
         health = maxHealth;
         interactColliders = new Collider[maxInteractColliders];
@@ -117,25 +113,22 @@ public class PlayerController : MonoBehaviour
         CanRotate = toggle;
         cinemachineInputController.enabled = toggle;
     }
-    public void ToggleCameraFollow(bool toggle)
-    {
-        CanCameraFollow = toggle;
-        cinemachineCamera.enabled = toggle;
-    }
-    public void TogglePause(bool toggle) => movement.TogglePause(toggle);
+
+    private void ToggleCameraFollow(bool toggle) => cinemachineCamera.enabled = toggle;
+    private void TogglePause(bool toggle) => movement.TogglePause(toggle);
     public void ToggleMovement(bool toggle) => movement.ToggleMovement(toggle);
     public void ToggleGravity(bool toggle) => movement.ToggleGravity(toggle);
-    public void ToggleRun(bool toggle) => movement.ToggleRun(toggle);
-    public void ToggleJump(bool toggle) => movement.ToggleJump(toggle);
+    private void ToggleRun(bool toggle) => movement.ToggleRun(toggle);
+    private void ToggleJump(bool toggle) => movement.ToggleJump(toggle);
     public void ToggleAttack(bool toggle) => attackManager.ToggleAttack(toggle);
-    public void ToggleLockOn(bool toggle) => attackManager.ToggleLockOn(toggle);
+    private void ToggleLockOn(bool toggle) => attackManager.ToggleLockOn(toggle);
     public void ToggleReceiveDamage(bool toggle) => CanBeHit = toggle;
-    public void ToggleCursor(bool toggle)
+    public static void ToggleCursor(bool toggle)
     {
         Cursor.visible = toggle;
         Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Confined;
     }
-    public void ToggleInteract(bool toggle) => CanInteract = toggle;
+    private void ToggleInteract(bool toggle) => CanInteract = toggle;
 
     public void ResetJump() => movement.ResetJump();
 

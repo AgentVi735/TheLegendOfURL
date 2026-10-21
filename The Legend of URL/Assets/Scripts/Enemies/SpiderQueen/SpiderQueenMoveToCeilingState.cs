@@ -4,6 +4,7 @@ using UnityEngine.AI;
 
 public class SpiderQueenMoveToCeilingState : IEnemyState
 {
+    private static readonly int landAnim = Animator.StringToHash("land");
     private SpiderQueenController _controller;
 
     private Transform movementTransform;
@@ -334,7 +335,7 @@ public class SpiderQueenMoveToCeilingState : IEnemyState
     private void State4Finish()
     {
         state = -1;
-        _controller.Animator.SetTrigger("land");
+        _controller.Animator.SetTrigger(landAnim);
         _controller.AudioPlayer.PlayClip(3);
         Vector3 playerPos = playerTransform.position;
         playerPos.y = 0;

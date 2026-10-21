@@ -193,16 +193,10 @@ public class FlyingStalkState : IEnemyState
     private bool CanSeePlayer()
     {
         float distance = Vector3.Distance(playerTrans.position, enemyTrans.position);
-        Vector3 playerPos = playerTrans.position;
-        RaycastHit hit;
         if (distance <= _controller.data.forceDetectDistance)
-        {
-            return Physics.Raycast(enemyTrans.position, playerPos - enemyTrans.position, out hit,
-                       _controller.data.followRange, _controller.raycastLayers) && hit.transform != null &&
-                   hit.transform.CompareTag("Player");
-        }
+            return true;
         if (!(distance < _controller.data.followRange)) return false;
-        return Physics.Raycast(enemyTrans.position, playerPos - enemyTrans.position, out hit,
+        return Physics.Raycast(enemyTrans.position, playerTrans.position - enemyTrans.position, out RaycastHit hit,
                    _controller.data.followRange, _controller.raycastLayers) && hit.transform != null &&
                hit.transform.CompareTag("Player");
     }

@@ -12,7 +12,7 @@ public class SceneController : MonoBehaviour
     private static bool s_hasStartedInitialisation;
 
     public static UnityAction<Scene, LoadSceneMode> s_OnSceneLoaded;
-    public static UnityAction<Scene> s_OnSceneUnloaded;
+    private static UnityAction<Scene> s_OnSceneUnloaded;
 
     public SceneHolder SceneHolder => _sceneHolder;
     [SerializeField] private SceneHolder _sceneHolder;
@@ -133,8 +133,8 @@ public class SceneController : MonoBehaviour
         else
             LoadScene(idx);
     }
-    
-    public void LoadNewScene(LoadZoneData data)
+
+    private void LoadNewScene(LoadZoneData data)
     {
         if (_playerController.HasInitialised)
         {

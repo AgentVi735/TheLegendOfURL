@@ -4,6 +4,11 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private static readonly int landAnim = Animator.StringToHash("land");
+    private static readonly int walkSpeedAnim = Animator.StringToHash("walkSpeed");
+    private static readonly int isRunningAnim = Animator.StringToHash("isRunning");
+    private static readonly int jumpAnim = Animator.StringToHash("jump");
+
     [Header("Object References")]
     [SerializeField] private PlayerController playerController;
     [SerializeField] private CharacterController controller;
@@ -47,9 +52,9 @@ public class PlayerMovement : MonoBehaviour
     public bool disableKeyboard;
 #endif
     
-    private float walkAnimTarget = 0f;
+    private float walkAnimTarget;
     [SerializeField] private float walkAnimSmoothing = 0.03f;
-    private float walkAnimCurrent = 0f;
+    private float walkAnimCurrent;
 
     public void Initialise()
     {
@@ -157,7 +162,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     jumpVelocity.y = 0;
                     ToggleMovement(false);
-                    playerController.Animator.SetTrigger("land");
+                    playerController.Animator.SetTrigger(landAnim);
                 }
             }
 
@@ -209,7 +214,7 @@ public class PlayerMovement : MonoBehaviour
         
         walkAnimCurrent = Mathf.Lerp(walkAnimCurrent, walkAnimTarget, walkAnimSmoothing);
         
-        playerController.Animator.SetFloat("walkSpeed", walkAnimCurrent);
+        playerController.Animator.SetFloat(walkSpeedAnim, walkAnimCurrent);
     }
 
     private void StopWalkAnimation()
@@ -217,7 +222,7 @@ public class PlayerMovement : MonoBehaviour
         walkAnimTarget = 0;
         walkAnimCurrent = 0;
         
-        playerController.Animator.SetFloat("walkSpeed", walkAnimCurrent);
+        playerController.Animator.SetFloat(walkSpeedAnim, walkAnimCurrent);
     }
 
     public void Pause()
@@ -230,7 +235,7 @@ public class PlayerMovement : MonoBehaviour
         if (!CanPause) return;
         
         playerController.ToggleAllInputs(false);
-        playerController.ToggleCursor(false);
+        PlayerController.ToggleCursor(false);
         playerController.HudController.gameObject.SetActive(false);
         SceneController.Instance.LoadMainMenuScene();
     }
@@ -239,7 +244,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isRunning || !CanRun) return;
         isRunning = true;
-        playerController.Animator.SetBool("isRunning", true);
+        playerController.Animator.SetBool(isRunningAnim, true);
         speed += runModifier;
     }
 
@@ -247,7 +252,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!isRunning) return;
         isRunning = false;
-        playerController.Animator.SetBool("isRunning", false);
+        playerController.Animator.SetBool(isRunningAnim, false);
         speed -= runModifier;
     }
 
@@ -257,7 +262,7 @@ public class PlayerMovement : MonoBehaviour
         isJumping = true;
         ToggleMovement(false);
         playerController.ToggleAttack(false);
-        playerController.Animator.SetTrigger("jump");
+        playerController.Animator.SetTrigger(jumpAnim);
     }
 
     public void FinishPreJump()

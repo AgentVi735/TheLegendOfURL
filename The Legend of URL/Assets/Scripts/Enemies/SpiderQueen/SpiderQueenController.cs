@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Linq;
-using Unity.Collections;
 using UnityEngine;
 
 public class SpiderQueenController : EnemyController
 {
+    private static readonly int gotHitAnim = Animator.StringToHash("gotHit");
+    private static readonly int blockAnim = Animator.StringToHash("block");
+    private static readonly int walkXAnim = Animator.StringToHash("walkX");
+    private static readonly int walkYAnim = Animator.StringToHash("walkY");
     public Transform ModelTransform => _modelTransform;
     [SerializeField] private Transform _modelTransform;
     public Transform MovementTrans => movementTrans;
@@ -32,11 +35,11 @@ public class SpiderQueenController : EnemyController
     private IEnemyState screamState;
     private IEnemyState dropState;
     
-    private float walkAnimTargetX = 0f;
-    private float walkAnimTargetY = 0f;
+    private float walkAnimTargetX;
+    private float walkAnimTargetY;
     [SerializeField] private float walkAnimSmoothing = 0.03f;
-    private float walkAnimCurrentX = 0f;
-    private float walkAnimCurrentY = 0f;
+    private float walkAnimCurrentX;
+    private float walkAnimCurrentY;
 
     [SerializeField] private float blockAnimationTime;
     private WaitForSeconds waitBlockAnimationTime;
@@ -110,7 +113,7 @@ public class SpiderQueenController : EnemyController
                 break;
         }
         
-        Animator.SetTrigger("gotHit");
+        Animator.SetTrigger(gotHitAnim);
         
         base.GetDamage(amount);
         player.HudController.UpdateBossHealth(health);
@@ -126,12 +129,12 @@ public class SpiderQueenController : EnemyController
 
     private IEnumerator BlockAnimation()
     {
-        Animator.SetBool("block", true);
+        Animator.SetBool(blockAnim, true);
         AudioPlayer.PlayClip(4);
 
         yield return waitBlockAnimationTime;
 
-        Animator.SetBool("block", false);
+        Animator.SetBool(blockAnim, false);
     }
     
     public override void Stun(float time)
@@ -206,8 +209,8 @@ public class SpiderQueenController : EnemyController
         walkAnimCurrentX = Mathf.Lerp(walkAnimCurrentX, walkAnimTargetX, walkAnimSmoothing);
         walkAnimCurrentY = Mathf.Lerp(walkAnimCurrentY, walkAnimTargetY, walkAnimSmoothing);
         
-        Animator.SetFloat("walkX", walkAnimCurrentX);
-        Animator.SetFloat("walkY", walkAnimCurrentY);
+        Animator.SetFloat(walkXAnim, walkAnimCurrentX);
+        Animator.SetFloat(walkYAnim, walkAnimCurrentY);
     }
 
     public void StopWalkAnimation()
@@ -217,8 +220,8 @@ public class SpiderQueenController : EnemyController
         walkAnimCurrentX = 0;
         walkAnimCurrentY = 0;
         
-        Animator.SetFloat("walkX", walkAnimCurrentX);
-        Animator.SetFloat("walkY", walkAnimCurrentY);
+        Animator.SetFloat(walkXAnim, walkAnimCurrentX);
+        Animator.SetFloat(walkYAnim, walkAnimCurrentY);
     }
 
     public void FinishAttackAnimation()

@@ -2,6 +2,7 @@
 
 public class SpiderQueenAttackChargeState : IEnemyState
 {
+    private static readonly int chargeAttackAnim = Animator.StringToHash("chargeAttack");
     private SpiderQueenController _controller;
     
     private float timeSpent;
@@ -23,7 +24,7 @@ public class SpiderQueenAttackChargeState : IEnemyState
     public void OnEnter()
     {
         _controller.AudioPlayer.StopPersistentAudio();
-        _controller.Animator.SetTrigger("chargeAttack");
+        _controller.Animator.SetTrigger(chargeAttackAnim);
         _controller.isCharging = true;
         timeSpent = 0;
         chargeTime = _controller.data.attackChargeTime;

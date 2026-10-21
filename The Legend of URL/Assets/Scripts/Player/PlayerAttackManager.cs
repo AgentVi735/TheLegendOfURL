@@ -1,10 +1,11 @@
-﻿using System.Collections;
-using Unity.Cinemachine;
+﻿using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerAttackManager : MonoBehaviour
 {
+    private static readonly int attackAnim = Animator.StringToHash("attack");
+
     [Header("Player References")]
     [SerializeField] private CinemachineCamera camera;
     [SerializeField] private PlayerController controller;
@@ -74,7 +75,7 @@ public class PlayerAttackManager : MonoBehaviour
         isAttacking = true;
         controller.ToggleMovement(false);
         swordCollider.enabled = true;
-        controller.Animator.SetTrigger("attack");
+        controller.Animator.SetTrigger(attackAnim);
         controller.AudioPlayer.PlayClip(1);
     }
 

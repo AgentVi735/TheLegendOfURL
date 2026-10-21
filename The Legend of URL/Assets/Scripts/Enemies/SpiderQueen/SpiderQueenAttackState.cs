@@ -2,6 +2,7 @@
 
 public class SpiderQueenAttackState : IEnemyState
 {
+    private static readonly int attackAnim = Animator.StringToHash("attack");
     private EnemyController _controller;
     private Transform playerTransform;
     private Transform enemyTransform;
@@ -21,7 +22,7 @@ public class SpiderQueenAttackState : IEnemyState
 
     public void OnEnter()
     {
-        _controller.Animator.SetTrigger("attack");
+        _controller.Animator.SetTrigger(attackAnim);
         _controller.AudioPlayer.PlayClip(2);
         float distance = Vector3.Distance(enemyTransform.position, playerTransform.position);
         if (distance <= attackRange)

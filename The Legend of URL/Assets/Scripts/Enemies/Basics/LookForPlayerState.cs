@@ -55,22 +55,16 @@ public class LookForPlayerState : IEnemyState
     private bool CanSeePlayer()
     {
         float distance = Vector3.Distance(playerTransform.position, enemyTransform.position);
-        Vector3 playerPos;
-        RaycastHit hit;
         if (distance <= forceDetectDistance)
-        {
-            playerPos = playerTransform.position;
-            return Physics.Raycast(eyesTransform.position, playerPos - enemyTransform.position, out hit,
-                followRange, layers) && hit.transform != null && hit.transform.CompareTag("Player");
-        }
-        playerPos = playerTransform.position;
+            return true;
+        Vector3 playerPos = playerTransform.position;
         playerPos.y = enemyTransform.position.y;
         Vector3 toTarget = (playerPos - enemyTransform.position).normalized;
         float dot = Vector3.Dot(enemyTransform.forward, toTarget);
 
         if (!(dot > 0.7071)) return false;
         playerPos.y = playerTransform.position.y;
-        return Physics.Raycast(eyesTransform.position, playerPos  - enemyTransform.position, out hit,
+        return Physics.Raycast(eyesTransform.position, playerPos  - enemyTransform.position, out RaycastHit hit,
             followRange, layers) && hit.transform != null && hit.transform.CompareTag("Player");
     }
 

@@ -1,4 +1,7 @@
 ﻿using UnityEngine;
+// ReSharper disable UnusedMember.Global
+// Once again ReSharper doesn't detect these methods being used.
+// They're using in animation events in the Player model.
 
 public class PlayerObject : MonoBehaviour
 {

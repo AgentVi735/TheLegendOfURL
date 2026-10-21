@@ -74,14 +74,15 @@ public class ScreenshotEditorWindow : EditorWindow
             return;
         }
 
-        RenderTexture renderTexture = new RenderTexture(
+        RenderTexture renderTexture = new(
             width,
             height,
             24,
             RenderTextureFormat.ARGB32
-        );
-
-        renderTexture.antiAliasing = 1;
+        )
+        {
+            antiAliasing = 1
+        };
 
         RenderTexture previousTarget = targetCamera.targetTexture;
         CameraClearFlags previousClearFlags = targetCamera.clearFlags;

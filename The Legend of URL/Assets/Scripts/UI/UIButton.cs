@@ -13,11 +13,8 @@ public class UIButton : Button
 
     private Coroutine lerpCoroutine;
 
-    public void UpdateText(string text)
-    {
-        _text.text = text;
-    }
-    
+    public void UpdateText(string text) => _text.text = text;
+
     public override void OnPointerEnter(PointerEventData eventData)
     {
         ChangeMaterial(true);

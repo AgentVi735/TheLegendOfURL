@@ -12,14 +12,6 @@ public class UIFullscreenSwitch : MonoBehaviour
     [SerializeField] private string[] _modeStrings;
     private int _idx;
 
-    public void SetCurrent(FullScreenMode mode)
-    {
-        for (int i = 0; i < _modes.Length; i++)
-            if (_modes[i] == mode)
-                _idx = i;
-        UpdateCurrent(mode);
-    }
-    
     public void SetCurrent(int idx)
     {
         _idx = idx;

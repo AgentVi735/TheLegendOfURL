@@ -2,6 +2,7 @@
 
 public class SpiderQueenStunState : IEnemyState
 {
+    private static readonly int isStunnedAnim = Animator.StringToHash("isStunned");
     private SpiderQueenController _controller;
     
     private float timeSpent;
@@ -22,14 +23,14 @@ public class SpiderQueenStunState : IEnemyState
 
     public void OnEnter()
     {
-        _controller.Animator.SetBool("isStunned", true);
+        _controller.Animator.SetBool(isStunnedAnim, true);
         timeSpent = 0;
         stunTime = _controller.stunTime;
     }
 
     public void OnExit()
     {
-        _controller.Animator.SetBool("isStunned", false);
+        _controller.Animator.SetBool(isStunnedAnim, false);
         _controller.isStunned = false;
     }
 

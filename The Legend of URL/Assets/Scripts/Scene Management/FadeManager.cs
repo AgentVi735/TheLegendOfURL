@@ -7,7 +7,6 @@ public class FadeManager : MonoBehaviour
 {
     [SerializeField] private Image fadeImage;
     [SerializeField] private float fadeTime;
-    private WaitForSeconds waitFadeTime;
     public bool IsOn { get; private set; }
 
     private Coroutine fadeCoroutine;
@@ -20,20 +19,18 @@ public class FadeManager : MonoBehaviour
         fadeImage.color = startColor;
         if (startOn)
             Show();
-        waitFadeTime = new WaitForSeconds(fadeTime);
     }
 
     public void StartFade(bool fadeIn) => StartFade(fadeIn, null, Color.black);
     public void StartFade(bool fadeIn, Action callback) => StartFade(fadeIn, callback, Color.black);
-    public void StartFade(bool fadeIn, Action callback, Color fadeColor)
+
+    private void StartFade(bool fadeIn, Action callback, Color fadeColor)
     {
         if (!gameObject.activeSelf || !IsOn)
             Show(fadeIn ? Color.clear : fadeColor);
         if (fadeCoroutine != null) StopCoroutine(fadeCoroutine);
         fadeCoroutine = StartCoroutine(Fade(fadeIn, callback, fadeColor));
     }
-    
-    public WaitForSeconds GetFadeTime() => waitFadeTime;
 
     public void Show()
     {
@@ -42,8 +39,8 @@ public class FadeManager : MonoBehaviour
         fadeImage.gameObject.SetActive(true);
         IsOn = true;
     }
-    
-    public void Show(Color color)
+
+    private void Show(Color color)
     {
         fadeImage.color = color;
         gameObject.SetActive(true);

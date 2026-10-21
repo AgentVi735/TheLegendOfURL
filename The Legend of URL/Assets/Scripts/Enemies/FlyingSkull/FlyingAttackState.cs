@@ -2,6 +2,7 @@
 
 public class FlyingAttackState : IEnemyState
 {
+    private static readonly int isDivingAnim = Animator.StringToHash("isDiving");
     private FlyingSkullController _controller;
 
     private Transform enemyTrans;
@@ -95,7 +96,7 @@ public class FlyingAttackState : IEnemyState
         _controller.AudioPlayer.StopPersistentAudio();
         _controller.AudioPlayer.PlayClip(1);
         
-        _controller.Animator.SetBool("isDiving", true);
+        _controller.Animator.SetBool(isDivingAnim, true);
         targetTrans.gameObject.SetActive(true);
         timeSpent = 0;
         Vector3 targetPos = playerTrans.position;
@@ -115,7 +116,7 @@ public class FlyingAttackState : IEnemyState
 
     public void OnExit()
     {
-        _controller.Animator.SetBool("isDiving", false);
+        _controller.Animator.SetBool(isDivingAnim, false);
         enemyTrans.rotation = Quaternion.Euler(0, enemyTrans.rotation.eulerAngles.y, 0);
         targetTrans.gameObject.SetActive(false);
     }
