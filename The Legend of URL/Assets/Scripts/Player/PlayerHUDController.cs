@@ -32,6 +32,7 @@ public class PlayerHUDController : MonoBehaviour
     public void UpdateHealthBar(int health)
     {
         healthBar.value = health >= 0 ? health : 0;
+        Debug.Log($"Updated player health bar to {healthBar.value}");
     }
 
     public void SetInteractButtonPosition(Vector3 pos)
@@ -60,15 +61,18 @@ public class PlayerHUDController : MonoBehaviour
     public void ToggleBossHealthBar(bool toggle)
     {
         bossHealthBar.gameObject.SetActive(toggle);
+        Debug.Log($"Set boss health bar to {bossHealthBar.gameObject.activeSelf}");
     }
 
     public void SetBossMaxHealth(short max)
     {
         bossHealthBar.maxValue = max;
+        Debug.Log($"Set boss health bar max to {bossHealthBar.maxValue}");
     }
     
     public void UpdateBossHealth(short health)
     {
         bossHealthBar.value = health >= 0 ? health : 0;
+        Debug.Log($"Updated boss health bar to {bossHealthBar.value}");
     }
 }
