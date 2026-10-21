@@ -1345,34 +1345,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 778805724898661044, guid: 0abeadce7ac1b0445a7e27c05b6f2f95, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2127481883871525292, guid: 0abeadce7ac1b0445a7e27c05b6f2f95, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2299022252497506682, guid: 0abeadce7ac1b0445a7e27c05b6f2f95, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2352261682357252013, guid: 0abeadce7ac1b0445a7e27c05b6f2f95, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2834859014291155584, guid: 0abeadce7ac1b0445a7e27c05b6f2f95, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4101878700220613677, guid: 0abeadce7ac1b0445a7e27c05b6f2f95, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4146138052193729288, guid: 0abeadce7ac1b0445a7e27c05b6f2f95, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 5418921275514183582, guid: 0abeadce7ac1b0445a7e27c05b6f2f95, type: 3}
       propertyPath: m_Name
       value: Boss Room
@@ -1416,26 +1388,6 @@ PrefabInstance:
     - target: {fileID: 5475142684840250334, guid: 0abeadce7ac1b0445a7e27c05b6f2f95, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6385786893787971195, guid: 0abeadce7ac1b0445a7e27c05b6f2f95, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6693911621282136354, guid: 0abeadce7ac1b0445a7e27c05b6f2f95, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7242203332577840196, guid: 0abeadce7ac1b0445a7e27c05b6f2f95, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7680419804947602833, guid: 0abeadce7ac1b0445a7e27c05b6f2f95, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8551984193779716486, guid: 0abeadce7ac1b0445a7e27c05b6f2f95, type: 3}
-      propertyPath: m_Layer
-      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
