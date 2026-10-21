@@ -42,6 +42,7 @@ public class SceneController : MonoBehaviour
     private bool _isInMainMenu = true;
     public bool IsInDialogue;
     private MainMenuManager _mainMenuManager;
+    public bool shouldResetSave { get; private set; }
 
     private void Awake()
     {
@@ -267,6 +268,8 @@ public class SceneController : MonoBehaviour
         LoadNewScene(_sceneHolder.MainMenuSceneIdx);
         _audioManager.GoBackToMainMusic();
     }
+
+    public void ShouldResetSave(bool toggle) => shouldResetSave = toggle;
 
     private void OnDeviceChange(InputEventPtr eventPtr, InputDevice device)
     {

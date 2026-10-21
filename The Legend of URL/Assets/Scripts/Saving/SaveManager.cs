@@ -95,6 +95,9 @@ public class SaveManager : MonoBehaviour
             return;
 #endif
         }
+
+        if (SaveData.health < 0)
+            SaveData.health = 100;
         
         SaveData.InitialiseData();
         _playerController.UpdateHealthFromSave();

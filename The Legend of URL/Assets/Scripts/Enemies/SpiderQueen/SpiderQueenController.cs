@@ -238,7 +238,7 @@ public class SpiderQueenController : EnemyController
     {
         Destroy(gameObject);
         player.HudController.ToggleBossHealthBar(false);
-        player.Pause();
+        player.ShouldResetSave();
         SaveManager.Instance.ResetSave();
     }
 }

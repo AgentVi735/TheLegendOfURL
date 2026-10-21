@@ -29,10 +29,20 @@ public class MainMenuManager : MonoBehaviour
         InputSystem.EnableDevice(Keyboard.current);
         if (SaveManager.Instance == null)
             FindAnyObjectByType<SaveManager>().Initialise();
-
+        
         SaveManager.Instance.CanSave = true;
         _startButton.UpdateText(SaveManager.Instance.SaveData.doesDataExist ? _continueText : _startText);
         FindAnyObjectByType<SceneController>().InitialiseBeforeStart();
+
+        if (SceneController.Instance != null)
+        {
+            if (SceneController.Instance.shouldResetSave)
+            {
+                SaveManager.Instance.ResetSave();
+                SceneController.Instance.ShouldResetSave(false);
+            }
+        }
+        
         _settingsUI.Initialise();
         _currentControlScheme = SceneController.ControlScheme;
         OnDeviceChanged(_currentControlScheme);

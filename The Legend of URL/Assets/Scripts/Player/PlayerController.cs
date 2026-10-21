@@ -103,7 +103,7 @@ public class PlayerController : MonoBehaviour
         SceneController.Instance.DialogueController.OnCloseStory.RemoveListener(() => { ToggleAllInputs(true);});
     }
 
-    public void Pause()
+    public void ShouldResetSave()
     {
         movement.Pause();
     }
@@ -144,7 +144,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnDeath()
     {
-        Pause();
+        ShouldResetSave();
         SaveManager.Instance.ResetSave();
     }
 
