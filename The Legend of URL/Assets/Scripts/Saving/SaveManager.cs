@@ -97,6 +97,7 @@ public class SaveManager : MonoBehaviour
         }
         
         SaveData.InitialiseData();
+        _playerController.UpdateHealth();
         
 #if UNITY_EDITOR
         Debug.Log("Successfully loaded data");
@@ -119,6 +120,7 @@ public class SaveManager : MonoBehaviour
 #endif
         
         SaveData.ResetSave();
+        _playerController.UpdateHealth();
         Save();
         SaveStory();
     }

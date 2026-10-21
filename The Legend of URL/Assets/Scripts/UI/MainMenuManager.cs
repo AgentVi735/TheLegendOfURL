@@ -20,7 +20,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private UIButton _quitButton;
     [SerializeField] private UIButton _settingsReturnButton;
 
-    private ControlScheme _currentControlScheme;
+    private ControlScheme _currentControlScheme = ControlScheme.None;
 
     private void Awake()
     {
@@ -29,10 +29,13 @@ public class MainMenuManager : MonoBehaviour
         InputSystem.EnableDevice(Keyboard.current);
         if (SaveManager.Instance == null)
             FindAnyObjectByType<SaveManager>().Initialise();
+
+        SaveManager.Instance.CanSave = true;
         _startButton.UpdateText(SaveManager.Instance.SaveData.doesDataExist ? _continueText : _startText);
         FindAnyObjectByType<SceneController>().InitialiseBeforeStart();
         _settingsUI.Initialise();
-        OnDeviceChanged(SceneController.ControlScheme);
+        _currentControlScheme = SceneController.ControlScheme;
+        OnDeviceChanged(_currentControlScheme);
     }
 
     public void Show()
@@ -76,6 +79,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void OnDeviceChanged(ControlScheme controlScheme)
     {
+        if (_currentControlScheme == ControlScheme.None) return;
         Debug.Log($"Main Menu switched to device {controlScheme}");
         _currentControlScheme = controlScheme;
         SelectButton();

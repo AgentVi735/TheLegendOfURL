@@ -37,7 +37,7 @@ public class SceneController : MonoBehaviour
     private static SceneHandle s_currentScene;
 
     private static InputDevice s_lastDevice;
-    public static ControlScheme ControlScheme;
+    public static ControlScheme ControlScheme = ControlScheme.Keyboard;
 
     private bool _isInMainMenu = true;
     public bool IsInDialogue;
@@ -192,6 +192,9 @@ public class SceneController : MonoBehaviour
                 spawner.gameObject.SetActive(false);
         }
 
+        if (isFirstLoad)
+            _playerController.UpdateHealth();
+        
         if (s_currentZoneData != null)
             Instance._initialisation.MovePlayer(s_currentZoneData);
         else if (SaveManager.Instance.SaveData.doesDataExist)
@@ -215,6 +218,7 @@ public class SceneController : MonoBehaviour
             _audioListenerTransform.SetParent(_playerController.transform);
             _audioListenerTransform.localPosition = Vector3.zero;
             _playerController.ToggleAllInputs(true);
+            _playerController.ResetJump();
         }
         
         SaveManager.Instance.Save();

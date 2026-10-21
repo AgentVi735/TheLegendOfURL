@@ -137,6 +137,8 @@ public class PlayerController : MonoBehaviour
     }
     public void ToggleInteract(bool toggle) => CanInteract = toggle;
 
+    public void ResetJump() => movement.ResetJump();
+
     public void OnHit(short receivedDamage)
     {
         if (!CanBeHit) return;
@@ -148,9 +150,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnDeath()
     {
-        ToggleAllInputs(false);
-        TogglePause(true);
-        print("Death :3");
+        Pause();
+        SaveManager.Instance.ResetSave();
     }
 
     public void OnEnemyKill()
@@ -255,6 +256,8 @@ public class PlayerController : MonoBehaviour
     public void LoadSaveData()
     {
         Debug.Log("Loading player save");
+        _hudController.ToggleBossHealthBar(false);
+        _hudController.SetBossMaxHealth(0);
         health = SaveManager.Instance.SaveData.health;
         _hudController.UpdateHealthBar(health);
         UpdateSensitivity();

@@ -47,6 +47,7 @@ public class SpiderQueenController : EnemyController
     {
         wallPoints = FindObjectsByType<SpiderQueenWallPoint>();
         base.Initialise(receivedData, receivedPath, givenID);
+        SaveManager.Instance.CanSave = false;
         ChangeState(moveState);
         minionSpawners = FindObjectsByType<SpiderMinionSpawner>();
         waitMinionSpawnCooldown = new WaitForSeconds(data.minionSpawnCooldown);
@@ -231,5 +232,6 @@ public class SpiderQueenController : EnemyController
         Destroy(gameObject);
         player.HudController.ToggleBossHealthBar(false);
         player.Pause();
+        SaveManager.Instance.ResetSave();
     }
 }

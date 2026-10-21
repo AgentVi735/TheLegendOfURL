@@ -290,6 +290,12 @@ public class PlayerMovement : MonoBehaviour
         else
             movementInput.Disable();
     }
+
+    public void ResetJump()
+    {
+        jumpVelocity = Vector3.zero;
+        isJumping = false;
+    }
     
     public void ToggleGravity(bool toggle) => HasGravity = toggle;
 
