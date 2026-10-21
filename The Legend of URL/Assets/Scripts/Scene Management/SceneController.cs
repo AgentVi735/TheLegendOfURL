@@ -261,6 +261,7 @@ public class SceneController : MonoBehaviour
         _audioListenerTransform.localPosition = Vector3.zero;
         _playerController.gameObject.SetActive(false);
         _playerController.HudController.gameObject.SetActive(false);
+        _playerController.HudController.ToggleBossHealthBar(false);
         _initialisation.gameObject.SetActive(false);
         _saveManager.Save();
         LoadNewScene(_sceneHolder.MainMenuSceneIdx);
