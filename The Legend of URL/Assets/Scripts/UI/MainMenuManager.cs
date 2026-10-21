@@ -1,8 +1,8 @@
 ﻿#if UNITY_EDITOR
 using UnityEditor;
 #endif
-using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class MainMenuManager : MonoBehaviour
@@ -10,6 +10,7 @@ public class MainMenuManager : MonoBehaviour
     [Header("References")]
     [SerializeField] private SettingsUI _settingsUI;
     [SerializeField] private GameObject _objectsToRemove;
+    private GameObject lastSelectedObject;
 
     [Header("UI")]
     [SerializeField] private UIButton _startButton;
@@ -17,9 +18,13 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private string _continueText;
     [SerializeField] private UIButton _settingsButton;
     [SerializeField] private UIButton _quitButton;
+    [SerializeField] private UIButton _settingsReturnButton;
+
+    private ControlScheme _currentControlScheme;
 
     private void Awake()
     {
+        lastSelectedObject = _startButton.gameObject;
         InputSystem.EnableDevice(Mouse.current);
         InputSystem.EnableDevice(Keyboard.current);
         if (SaveManager.Instance == null)
@@ -27,16 +32,20 @@ public class MainMenuManager : MonoBehaviour
         _startButton.UpdateText(SaveManager.Instance.SaveData.doesDataExist ? _continueText : _startText);
         FindAnyObjectByType<SceneController>().InitialiseBeforeStart();
         _settingsUI.Initialise();
+        OnDeviceChanged(SceneController.ControlScheme);
     }
 
     public void Show()
     {
-        _startButton.UpdateText(SaveManager.Instance.SaveData.doesDataExist ? _continueText : _startText);
         gameObject.SetActive(true);
+        _startButton.UpdateText(SaveManager.Instance.SaveData.doesDataExist ? _continueText : _startText);
+        lastSelectedObject = _settingsButton.gameObject;
+        SelectButton();
     }
     
     public void StartButton()
     {
+        EventSystem.current.SetSelectedGameObject(null);
         Destroy(_objectsToRemove);
         Destroy(_settingsUI.gameObject);
         Destroy(gameObject);
@@ -47,6 +56,8 @@ public class MainMenuManager : MonoBehaviour
     {
         gameObject.SetActive(false);
         _settingsUI.ToggleVisibility(true);
+        lastSelectedObject = _settingsReturnButton.gameObject;
+        SelectButton();
     }
 
     public void QuitButton()
@@ -61,5 +72,34 @@ public class MainMenuManager : MonoBehaviour
 #else
         Application.Quit();
 #endif
+    }
+
+    public void OnDeviceChanged(ControlScheme controlScheme)
+    {
+        Debug.Log($"Main Menu switched to device {controlScheme}");
+        _currentControlScheme = controlScheme;
+        SelectButton();
+    }
+
+    private void SelectButton()
+    {
+        switch (_currentControlScheme)
+        {
+            default:
+            case ControlScheme.None:
+            case ControlScheme.Keyboard:
+            case ControlScheme.Gamepad:
+                if (lastSelectedObject == _settingsReturnButton.gameObject && !_settingsUI.gameObject.activeSelf)
+                    lastSelectedObject = _settingsButton.gameObject;
+                EventSystem.current.SetSelectedGameObject(lastSelectedObject);
+                break;
+            case ControlScheme.Mouse:
+                lastSelectedObject = EventSystem.current.currentSelectedGameObject != null
+                    ? EventSystem.current.currentSelectedGameObject
+                    : _startButton.gameObject;
+                EventSystem.current.SetSelectedGameObject(null);
+                break;
+        }
+        Debug.Log($"Now selecting {EventSystem.current.currentSelectedGameObject?.name}");
     }
 }

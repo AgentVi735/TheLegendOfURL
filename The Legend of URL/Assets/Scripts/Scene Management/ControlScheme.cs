@@ -1,6 +1,7 @@
 ﻿public enum ControlScheme
 {
     None,
-    KeyboardMouse,
+    Keyboard,
+    Mouse,
     Gamepad
 }

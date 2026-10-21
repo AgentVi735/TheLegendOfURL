@@ -2,6 +2,7 @@
 using Heathen.Ogham;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class DialogueHUD : MonoBehaviour
@@ -44,17 +45,21 @@ public class DialogueHUD : MonoBehaviour
 
     private void OpenHUD()
     {
+        SceneController.Instance.IsInDialogue = true;
         _speakerNameText.text = "";
         _contentText.text = "";
         _hasFinished = false;
         _isFast = false;
         ToggleContinueImage(false);
         _hudObject.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(_continueButton.gameObject);
     }
 
     private void CloseHUD()
     {
         _hudObject.SetActive(false);
+        SceneController.Instance.IsInDialogue = false;
+        EventSystem.current.SetSelectedGameObject(null);
     }
     
     private void ShowNewEntry()
@@ -141,5 +146,22 @@ public class DialogueHUD : MonoBehaviour
         }
         else if (!_isFast)
             FastTyping();
+    }
+    
+
+    public void OnDeviceChanged(ControlScheme controlScheme)
+    {
+        switch (controlScheme)
+        {
+            default:
+            case ControlScheme.None:
+            case ControlScheme.Keyboard:
+            case ControlScheme.Gamepad:
+                EventSystem.current.SetSelectedGameObject(_continueButton.gameObject);
+                break;
+            case ControlScheme.Mouse:
+                EventSystem.current.SetSelectedGameObject(null);
+                break;
+        }
     }
 }

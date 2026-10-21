@@ -39,6 +39,10 @@ public class SceneController : MonoBehaviour
     private static InputDevice s_lastDevice;
     public static ControlScheme ControlScheme;
 
+    private bool _isInMainMenu = true;
+    public bool IsInDialogue;
+    private MainMenuManager _mainMenuManager;
+
     private void Awake()
     {
         if (Instance != null)
@@ -73,6 +77,7 @@ public class SceneController : MonoBehaviour
         DialogueController.Initialise();
         if (_saveManager.SaveData.doesDataExist)
             _playerController.LoadSaveData();
+        _mainMenuManager = FindAnyObjectByType<MainMenuManager>();
 
         if (Instance != null) return;
         Instance = this;
@@ -171,6 +176,9 @@ public class SceneController : MonoBehaviour
         if (IsInitScene(loadedScene.name) || !s_hasInitialised || s_hasStartedInitialisation)
         {
             _fadeManager.StartFade(true);
+            _mainMenuManager = FindAnyObjectByType<MainMenuManager>();
+            if (_mainMenuManager == null)
+                Debug.LogError("Could not find MainMenuManager");
             return;
         }
         
@@ -228,6 +236,7 @@ public class SceneController : MonoBehaviour
 
     public void StartGame()
     {
+        _isInMainMenu = false;
         _playerController.HudController.gameObject.SetActive(true);
         _playerController.gameObject.SetActive(true);
         _initialisation.gameObject.SetActive(true);
@@ -246,6 +255,7 @@ public class SceneController : MonoBehaviour
 
     public void LoadMainMenuScene()
     {
+        _isInMainMenu = true;
         _playerController.SaveData();
         _audioListenerTransform.SetParent(transform);
         _audioListenerTransform.localPosition = Vector3.zero;
@@ -268,11 +278,39 @@ public class SceneController : MonoBehaviour
         switch (device)
         {
             case Keyboard:
+            {
+                if (_isInMainMenu || IsInDialogue)
+                {
+                    if (ControlScheme == ControlScheme.Keyboard)
+                        return;
+                }
+                else
+                {
+                    if (ControlScheme is ControlScheme.Keyboard or ControlScheme.Mouse)
+                        return;
+                }
+                
+                ControlScheme = ControlScheme.Keyboard;
+                OnControlSchemeChanged();
+
+                break;
+            }
             case Mouse:
             {
-                if (ControlScheme == ControlScheme.KeyboardMouse) return;
-                ControlScheme = ControlScheme.KeyboardMouse;
+                if (_isInMainMenu || IsInDialogue)
+                {
+                    if (ControlScheme == ControlScheme.Mouse)
+                        return;
+                }
+                else
+                {
+                    if (ControlScheme is ControlScheme.Keyboard or ControlScheme.Mouse)
+                        return;
+                }
+                
+                ControlScheme = ControlScheme.Mouse;
                 OnControlSchemeChanged();
+
                 break;
             }
             case Gamepad:
@@ -290,5 +328,10 @@ public class SceneController : MonoBehaviour
         Debug.Log($"Changed control scheme to {ControlScheme}");
         
         _playerController.OnDeviceChange(ControlScheme);
+        
+        if (_isInMainMenu)
+            _mainMenuManager.OnDeviceChanged(ControlScheme);
+        else if (IsInDialogue)
+            _dialogueController.OnDeviceChange(ControlScheme);
     }
 }

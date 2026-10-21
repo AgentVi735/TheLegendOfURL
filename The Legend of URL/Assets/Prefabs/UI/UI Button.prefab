@@ -163,7 +163,6 @@ GameObject:
   - component: {fileID: 7094132858254678708}
   - component: {fileID: 1317736398333823186}
   - component: {fileID: 3684462574215715866}
-  - component: {fileID: 8222711411055802943}
   - component: {fileID: 6317978572786161514}
   m_Layer: 5
   m_Name: UI Button
@@ -230,7 +229,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8222711411055802943
+--- !u!114 &6317978572786161514
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -239,11 +238,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4813140613090587589}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: b9bef64d7a924e46a9db470d6d1bb0a7, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+  m_EditorClassIdentifier: Assembly-CSharp::UIButton
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -274,19 +273,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &6317978572786161514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4813140613090587589}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9bef64d7a924e46a9db470d6d1bb0a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UIButton
-  _button: {fileID: 8222711411055802943}
   _text: {fileID: 7097587302284411135}
   _defaultMat: {fileID: 7654368316051233903, guid: a8d57bd53184e45439f4f1e6fad7a5f7, type: 2}
   _hoverMat: {fileID: 2100000, guid: 36927a5a1f356de469f71fcdf991b326, type: 2}

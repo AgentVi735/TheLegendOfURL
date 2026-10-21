@@ -35,7 +35,7 @@ RectTransform:
   m_Father: {fileID: 2474704446492662460}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -123,7 +123,7 @@ RectTransform:
   m_Father: {fileID: 6196355384286022965}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -333,7 +333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99aa0e02598b4dae9fe92ef6802ad85a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UISlider
-  _slider: {fileID: 4873711827920105766}
+  _slider: {fileID: 8275558584611364788}
   _text: {fileID: 7301524273899720424}
   _valueText: {fileID: 5388430092998680120}
   _image: {fileID: 1123840796602587949}
@@ -351,7 +351,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9bef64d7a924e46a9db470d6d1bb0a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIButton
-  _button: {fileID: 0}
+  m_Navigation:
+    m_Mode: 0
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 0
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1123840796602587949}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
   _text: {fileID: 7301524273899720424}
   _defaultMat: {fileID: 7654368316051233903, guid: a8d57bd53184e45439f4f1e6fad7a5f7, type: 2}
   _hoverMat: {fileID: 2100000, guid: 36927a5a1f356de469f71fcdf991b326, type: 2}
@@ -365,7 +396,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8831053866355457284}
-  - component: {fileID: 4873711827920105766}
+  - component: {fileID: 8275558584611364788}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -395,7 +426,7 @@ RectTransform:
   m_AnchoredPosition: {x: 78.7854, y: -17.6}
   m_SizeDelta: {x: 171.7, y: 26.6}
   m_Pivot: {x: 0, y: 0.5}
---- !u!114 &4873711827920105766
+--- !u!114 &8275558584611364788
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -404,11 +435,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4713954703381341124}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Script: {fileID: 11500000, guid: 75fbe4d2548d4655b99ec89c4c6d1c86, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
+  m_EditorClassIdentifier: Assembly-CSharp::UISliderHover
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -441,7 +472,7 @@ MonoBehaviour:
   m_Direction: 0
   m_MinValue: 0
   m_MaxValue: 100
-  m_WholeNumbers: 0
+  m_WholeNumbers: 1
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -458,6 +489,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _text: {fileID: 7301524273899720424}
+  _defaultMat: {fileID: 7654368316051233903, guid: a8d57bd53184e45439f4f1e6fad7a5f7, type: 2}
+  _hoverMat: {fileID: 2100000, guid: 36927a5a1f356de469f71fcdf991b326, type: 2}
+  _matLerpTime: 0.1
 --- !u!1 &4831902400530786654
 GameObject:
   m_ObjectHideFlags: 0

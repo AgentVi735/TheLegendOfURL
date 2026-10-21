@@ -4,9 +4,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UIButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+public class UIButton : Button
 {
-    [SerializeField] private Button _button;
     [SerializeField] private TMP_Text _text;
     [SerializeField] private Material _defaultMat;
     [SerializeField] private Material _hoverMat;
@@ -19,18 +18,16 @@ public class UIButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         _text.text = text;
     }
     
-    public void OnPointerEnter(PointerEventData eventData)
+    public override void OnPointerEnter(PointerEventData eventData)
     {
-        if (lerpCoroutine != null)
-            StopCoroutine(lerpCoroutine);
-        StartCoroutine(LerpMaterial(true));
+        ChangeMaterial(true);
+        base.OnPointerEnter(eventData);
     }
-
-    public void OnPointerExit(PointerEventData eventData)
+    
+    public override void OnPointerExit(PointerEventData eventData)
     {
-        if (lerpCoroutine != null)
-            StopCoroutine(lerpCoroutine);
-        StartCoroutine(LerpMaterial(false));
+        ChangeMaterial(false);
+        base.OnPointerExit(eventData);
     }
 
     private IEnumerator LerpMaterial(bool toHover)
@@ -49,12 +46,42 @@ public class UIButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         _text.fontMaterial = endMat;
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    public override void OnPointerClick(PointerEventData eventData)
     {
-        if (_button == null) return;
+        Press();
+        base.OnPointerClick(eventData);
+    }
+
+    public override void OnSubmit(BaseEventData eventData)
+    {
+        Press();
+        base.OnSubmit(eventData);
+    }
+
+    private void Press()
+    {
         if (lerpCoroutine != null)
             StopCoroutine(lerpCoroutine);
         _text.fontMaterial = _defaultMat;
         SceneController.Instance.AudioManager.PlayUIClickSfx();
+    }
+    
+    public override void OnSelect(BaseEventData eventData)
+    {
+        ChangeMaterial(true);
+        base.OnSelect(eventData);
+    }
+
+    public override void OnDeselect(BaseEventData eventData)
+    {
+        ChangeMaterial(false);
+        base.OnDeselect(eventData);
+    }
+
+    private void ChangeMaterial(bool toggle)
+    {
+        if (lerpCoroutine != null)
+            StopCoroutine(lerpCoroutine);
+        StartCoroutine(LerpMaterial(toggle));
     }
 }

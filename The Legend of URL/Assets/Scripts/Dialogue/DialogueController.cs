@@ -71,4 +71,6 @@ public class DialogueController : MonoBehaviour
         _story.Close();
         OnCloseStory?.Invoke();
     }
+
+    public void OnDeviceChange(ControlScheme controlScheme) => _hud.OnDeviceChanged(controlScheme);
 }
