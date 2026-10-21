@@ -267,6 +267,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Female NPC 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3118866838888332905, guid: c000fbd4141f8bc43893fec5cf5d9961, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ff94a683a58551b4c8c54e1637c2d0d3, type: 2}
+    - target: {fileID: 3118866838888332905, guid: c000fbd4141f8bc43893fec5cf5d9961, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b4a738d89b975d04cbee418dc3d52514, type: 2}
+    - target: {fileID: 5866666021909216657, guid: c000fbd4141f8bc43893fec5cf5d9961, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 8cd9cde679df8e042b73f39e262f3379, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
