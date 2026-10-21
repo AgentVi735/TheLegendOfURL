@@ -267,7 +267,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void FinishPreJump()
     {
-        jumpVelocity += baseJumpVelocity;
+        jumpVelocity = baseJumpVelocity;
         ToggleMovement(true);
     }
 
