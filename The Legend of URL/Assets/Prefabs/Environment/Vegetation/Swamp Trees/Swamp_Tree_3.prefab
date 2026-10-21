@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1515651168288164764}
   - component: {fileID: 5821601183690685139}
   - component: {fileID: 1996068574650790571}
+  - component: {fileID: 3086449616965115716}
   m_Layer: 8
   m_Name: Swamp_Tree_3
   m_TagString: Untagged
@@ -115,3 +116,23 @@ CapsuleCollider:
   m_Height: 10
   m_Direction: 2
   m_Center: {x: -0.02, y: -0.28, z: 2.1}
+--- !u!114 &3086449616965115716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7127565589190187481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
