@@ -86,6 +86,9 @@ public class MainMenuManager : MonoBehaviour
 
     private void SelectButton()
     {
+        if (_settingsReturnButton == null || _settingsUI == null)
+            return;
+        
         switch (_currentControlScheme)
         {
             default:

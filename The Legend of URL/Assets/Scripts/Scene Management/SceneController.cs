@@ -192,8 +192,7 @@ public class SceneController : MonoBehaviour
                 spawner.gameObject.SetActive(false);
         }
 
-        if (isFirstLoad)
-            _playerController.UpdateHealth();
+        _playerController.UpdateHealthFromSave();
         
         if (s_currentZoneData != null)
             Instance._initialisation.MovePlayer(s_currentZoneData);

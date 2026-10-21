@@ -87,9 +87,10 @@ public class SpiderQueenController : EnemyController
     protected override void GetDamage(short amount)
     {
         if (isScreaming)
+        {
+            StartCoroutine(BlockAnimation());
             return;
-        
-        Animator.SetTrigger("gotHit");
+        }
 
         switch (isCharging)
         {
@@ -108,6 +109,8 @@ public class SpiderQueenController : EnemyController
                 Stun(data.interruptStunTime);
                 break;
         }
+        
+        Animator.SetTrigger("gotHit");
         
         base.GetDamage(amount);
         player.HudController.UpdateBossHealth(health);

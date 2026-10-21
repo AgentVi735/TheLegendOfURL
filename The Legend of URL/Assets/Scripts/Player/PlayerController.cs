@@ -211,7 +211,7 @@ public class PlayerController : MonoBehaviour
         _hudController.ToggleInteractButton(true);
     }
 
-    public void UpdateHealth() => HudController.UpdateHealthBar(health);
+    public void UpdateHealthFromSave() => HudController.UpdateHealthBar(SaveManager.Instance.SaveData.health);
     
     private void OnInteractPressed(InputAction.CallbackContext ctx)
     {
