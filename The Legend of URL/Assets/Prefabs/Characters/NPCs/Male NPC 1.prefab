@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: fa1b6ab8608f43649959965b4577d5bf, type: 2}
+    - target: {fileID: -5729989766907366981, guid: a1459bb2864b3a541b17288f91a13d2d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 0c981fbb90de60047afeddc976edb817, type: 2}
     - target: {fileID: 919132149155446097, guid: a1459bb2864b3a541b17288f91a13d2d, type: 3}
       propertyPath: m_Name
       value: Male NPC 1
@@ -64,6 +68,14 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 50ad4af9b78db87469a308b9ea257893, type: 2}
+    - target: {fileID: 6309614741406098699, guid: a1459bb2864b3a541b17288f91a13d2d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 0c981fbb90de60047afeddc976edb817, type: 2}
+    - target: {fileID: 6309614741406098699, guid: a1459bb2864b3a541b17288f91a13d2d, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: fa1b6ab8608f43649959965b4577d5bf, type: 2}
     - target: {fileID: 7332496146620968804, guid: a1459bb2864b3a541b17288f91a13d2d, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 

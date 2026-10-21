@@ -27,7 +27,6 @@ public class GameInitialisation : MonoBehaviour
 
     public void MovePlayer(LoadZoneData data)
     {
-        Debug.Log($"Moving player with pos: {data.newPosition}");
         if (!playerController.HasInitialised) return;
         
         bool wasActive = playerController.isActiveAndEnabled;
@@ -59,6 +58,5 @@ public class GameInitialisation : MonoBehaviour
         if (wasActive)
             playerController.gameObject.SetActive(true);
         
-        Debug.Log($"Player is now at {playerController.transform.position}");
     }
 }

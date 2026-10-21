@@ -80,7 +80,6 @@ public class MainMenuManager : MonoBehaviour
     public void OnDeviceChanged(ControlScheme controlScheme)
     {
         if (_currentControlScheme == ControlScheme.None) return;
-        Debug.Log($"Main Menu switched to device {controlScheme}");
         _currentControlScheme = controlScheme;
         SelectButton();
     }
@@ -104,6 +103,5 @@ public class MainMenuManager : MonoBehaviour
                 EventSystem.current.SetSelectedGameObject(null);
                 break;
         }
-        Debug.Log($"Now selecting {EventSystem.current.currentSelectedGameObject?.name}");
     }
 }

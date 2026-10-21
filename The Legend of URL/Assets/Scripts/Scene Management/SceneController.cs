@@ -223,8 +223,6 @@ public class SceneController : MonoBehaviour
         
         SaveManager.Instance.Save();
         _fadeManager.StartFade(true);
-        
-        Debug.Log($"After initialising scene, player is now at {_playerController.transform.position}");
     }
 
     private void UnloadScene(Scene unloadedScene)
@@ -252,7 +250,6 @@ public class SceneController : MonoBehaviour
                 : SceneHolder.StartGameSceneIdx);
         }
         
-        Debug.Log($"does save data exist? {_saveManager.SaveData.doesDataExist}");
         if (_saveManager.SaveData.doesDataExist)
             _playerController.LoadSaveData();
     }
@@ -329,8 +326,6 @@ public class SceneController : MonoBehaviour
 
     private void OnControlSchemeChanged()
     {
-        Debug.Log($"Changed control scheme to {ControlScheme}");
-        
         _playerController.OnDeviceChange(ControlScheme);
         
         if (_isInMainMenu)
