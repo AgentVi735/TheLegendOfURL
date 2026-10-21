@@ -16,6 +16,7 @@ MonoBehaviour:
   prefab: {fileID: 1411090755591761608, guid: 7c8dee0c89502c24da1b183fbaa8f56b, type: 3}
   health: 10
   damage: 5
+  shockwaveDamage: 0
   attackCooldown: 0.8
   attackRadius: 1.2
   attackChargeTime: 0
@@ -33,10 +34,10 @@ MonoBehaviour:
   knockbackVelocityOffset: {x: 0, y: 0.3, z: -0.35}
   knockbackStunTime: 0.1
   invincibleTimeAfterHit: 0.5
-  detectDistance: 22.1
-  forceDetectDistance: 9.5
-  followRange: 19
-  maxLookTime: 7
+  detectDistance: 16
+  forceDetectDistance: 7
+  followRange: 8
+  maxLookTime: 4
   stalkRange: 0
   stalkDestinationsAmount: {x: 0, y: 0}
   minionSpawnAmount: {x: 0, y: 0}

@@ -2,7 +2,7 @@
 //   Generated from the Ogham project tree by OghamNodeTreeStoryGenerator. DO NOT EDIT.
 //   Edit the .ogham file(s) and click Build in Window ▸ Heathen ▸ Storyteller.
 // </auto-generated>
-// ogham-hash:0x4D492B6664120679  // staleness marker — do not edit
+// ogham-hash:0xFB5B55DDE00D72C8  // staleness marker — do not edit
 using System.Collections.Generic;
 using Heathen.GameplayTags;
 using Heathen.Ogham;
@@ -477,15 +477,15 @@ namespace Heathen.Ogham.Generated
                         {
                             new OghamOptionManifest
                             {
-                                TagPath = "Root.NPCDialogue.Elsie.FN0.Route1", TargetEntryPath = "Root.NPCDialogue.Elsie.N0", TextMode = "Literal", TextKey = "Route 1",
-                            },
-                            new OghamOptionManifest
-                            {
                                 TagPath = "Root.NPCDialogue.Elsie.FN0.Route2", TargetEntryPath = "Root.NPCDialogue.Elsie.N0_1", TextMode = "Literal", TextKey = "Route 2",
                                 Conditions = new List<OghamConditionManifest>
                                 {
                                     new OghamConditionManifest { TagPath = "Dialogue.Elsie.TalkCount", Comparison = "Equal", CompareValue = 1UL, CompareTagPath = "", CompareValueType = "Unsigned", CompareString = "", CaseSensitive = false, ExactMatch = false, LogicOp = "And", Negate = false, Unresolved = false, TechnicalName = "", Expect = true, Collection = "", ProviderParams = null },
                                 },
+                            },
+                            new OghamOptionManifest
+                            {
+                                TagPath = "Root.NPCDialogue.Elsie.FN0.Route1", TargetEntryPath = "Root.NPCDialogue.Elsie.N0", TextMode = "Literal", TextKey = "Route 1",
                             },
                         },
                     },

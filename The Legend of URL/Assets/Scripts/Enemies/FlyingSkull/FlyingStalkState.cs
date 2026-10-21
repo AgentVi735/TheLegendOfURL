@@ -207,6 +207,7 @@ public class FlyingStalkState : IEnemyState
         Vector3 charPos = _controller.GetNavMeshPosition(targetPos, enemyTrans.position);
         targetPos.y = charPos.y;
         targetTrans.position = targetPos;
+        targetTrans.gameObject.SetActive(true);
         destinationAmount = 0;
         maxDestinations = Random.Range(_controller.data.stalkDestinationsAmount.x,
             _controller.data.stalkDestinationsAmount.y);
