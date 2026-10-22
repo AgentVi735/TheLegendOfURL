@@ -14,7 +14,9 @@ public class SpiderQueenController : EnemyController
     [SerializeField] private Transform movementTrans;
     public LineRenderer LineRenderer => _lineRenderer;
     [SerializeField] private LineRenderer _lineRenderer;
-
+    public BoxCollider BoxCollider => _boxCollider;
+    [SerializeField] private BoxCollider _boxCollider;
+    
     private SpiderMinionSpawner[] minionSpawners;
     public SpiderQueenWallPoint[] wallPoints { get; private set; }
     
@@ -44,7 +46,11 @@ public class SpiderQueenController : EnemyController
     [SerializeField] private float blockAnimationTime;
     private WaitForSeconds waitBlockAnimationTime;
 
+    public LayerMask PlayerLayer => playerLayer;
     [SerializeField] private LayerMask playerLayer;
+    
+    public LayerMask LandLayer => landLayer;
+    [SerializeField] private LayerMask landLayer;
     
     public override void Initialise(EnemyData receivedData, EnemyWaypoint[] receivedPath, string givenID)
     {

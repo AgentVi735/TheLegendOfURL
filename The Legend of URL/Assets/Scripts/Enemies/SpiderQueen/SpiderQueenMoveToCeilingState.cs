@@ -306,6 +306,9 @@ public class SpiderQueenMoveToCeilingState : IEnemyState
         _controller.AudioPlayer.StopPersistentAudio();
         _controller.StopWalkAnimation();
         state = 4;
+        
+        _controller.BoxCollider.excludeLayers = _controller.PlayerLayer;
+        _controller.characterController.excludeLayers = _controller.PlayerLayer;
         Vector3 newRot = _controller.ModelTransform.rotation.eulerAngles;
         newRot.z = 0;
         _controller.ModelTransform.rotation = Quaternion.Euler(newRot);
@@ -315,7 +318,7 @@ public class SpiderQueenMoveToCeilingState : IEnemyState
     private void State4Loop()
     {
         bool isOnGround = Physics.Raycast(enemyTransform.position, -enemyTransform.up, out RaycastHit _,
-            0.2f);
+            0.2f, _controller.LandLayer);
 
         if (isOnGround)
         {
@@ -334,6 +337,8 @@ public class SpiderQueenMoveToCeilingState : IEnemyState
 
     private void State4Finish()
     {
+        _controller.BoxCollider.excludeLayers = new LayerMask();
+        _controller.characterController.excludeLayers = new LayerMask();
         state = -1;
         _controller.Animator.SetTrigger(landAnim);
         _controller.AudioPlayer.PlayClip(3);

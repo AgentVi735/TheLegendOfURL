@@ -12,14 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b7e12d86e2d428cbd226389be448827, type: 3}
   m_Name: Save Data
   m_EditorClassIdentifier: Assembly-CSharp::SaveData
-  doesDataExist: 0
-  currentSceneIdx: 1
-  sfxVolume: 1
-  musicVolume: 1
+  doesDataExist: 1
+  currentSceneIdx: 6
+  sfxVolume: 0.38
+  musicVolume: 0.24
   fullscreenIdx: 0
-  mouseSensitivity: {x: 35, y: 35}
+  mouseSensitivity: {x: 10, y: 10}
   controllerSensitivity: {x: 100, y: 70}
-  playerPosition: {x: 0, y: 0, z: 0}
-  playerRotation: {x: 0, y: 0, z: 0}
+  playerPosition: {x: 11.393421, y: 0.10010004, z: 11.179224}
+  playerRotation: {x: 0, y: 18.828072, z: 0}
   health: 100
-  enemyIdsKilledArray: []
+  hasUnlockedCombat: 1
+  enemyIdsKilledArray:
+  - Ravine_Spider1
+  - Ravine_Spider0
+  - Ravine_Spider4
+  - Ravine_Spider2
+  - Ravine_Spider3
+  - Ravine_Skull0

@@ -97,6 +97,7 @@ MonoBehaviour:
   _modelTransform: {fileID: 8597388654154664060}
   movementTrans: {fileID: 8938910514486967708}
   _lineRenderer: {fileID: 1941908491302590952}
+  _boxCollider: {fileID: 2067920351477541013}
   isCharging: 0
   isStunned: 0
   isScreaming: 0
@@ -105,6 +106,9 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
+  landLayer:
+    serializedVersion: 2
+    m_Bits: 1409
 --- !u!195 &1476070819956099717
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -599,7 +603,7 @@ BoxCollider:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: 0
+  m_LayerOverridePriority: 1
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
