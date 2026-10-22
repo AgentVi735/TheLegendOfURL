@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioPlayer _audioPlayer;
     public Animator Animator => _animator;
     [SerializeField] private Animator _animator;
+    [SerializeField] private GameObject _swordObject;
 
     [Header("Stats")]
     [SerializeField] private short maxHealth;
@@ -46,6 +47,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private string npcTag;
     private NpcController closestNpc;
     private bool isDead;
+    public bool hasUnlockedCombat { get; private set; }
     
 #if UNITY_EDITOR
     [Header("Editor Options")]
@@ -262,6 +264,10 @@ public class PlayerController : MonoBehaviour
         _hudController.SetBossMaxHealth(0);
         health = SaveManager.Instance.SaveData.health;
         _hudController.UpdateHealthBar(health);
+        if (SaveManager.Instance.SaveData.hasUnlockedCombat)
+            UnlockCombat();
+        else
+            hasUnlockedCombat = false;
         UpdateSensitivity();
         movement.LoadSaveData();
     }
@@ -289,5 +295,12 @@ public class PlayerController : MonoBehaviour
 
         cinemachineInputController.Controllers[0].Input.Gain = sensitivity.x;
         cinemachineInputController.Controllers[1].Input.Gain = -sensitivity.y;
+    }
+
+    public void UnlockCombat()
+    {
+        SaveManager.Instance.SaveData.hasUnlockedCombat = true;
+        _swordObject.SetActive(true);
+        hasUnlockedCombat = true;
     }
 }

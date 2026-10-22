@@ -9,8 +9,9 @@ public class PlayerHUDController : MonoBehaviour
 {
     [Header("Player References")]
     [SerializeField] private PlayerController controller;
-    
+
     [Header("UI References")]
+    [SerializeField] private GameObject gameHud;
     [SerializeField] private Slider healthBar;
     [SerializeField] private Slider bossHealthBar;
     [SerializeField] private Image interactButtonImage;
@@ -75,4 +76,6 @@ public class PlayerHUDController : MonoBehaviour
         bossHealthBar.value = health >= 0 ? health : 0;
         Debug.Log($"Updated boss health bar to {bossHealthBar.value}");
     }
+
+    public void TogglePlayerHUD(bool toggle) => gameHud.SetActive(toggle);
 }

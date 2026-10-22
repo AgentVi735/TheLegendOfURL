@@ -2,7 +2,7 @@
 //   Generated from the Ogham project tree by OghamNodeTreeStoryGenerator. DO NOT EDIT.
 //   Edit the .ogham file(s) and click Build in Window ▸ Heathen ▸ Storyteller.
 // </auto-generated>
-// ogham-hash:0xFB5B55DDE00D72C8  // staleness marker — do not edit
+// ogham-hash:0x3901630A803E022B  // staleness marker — do not edit
 using System.Collections.Generic;
 using Heathen.GameplayTags;
 using Heathen.Ogham;
@@ -18,6 +18,7 @@ namespace Heathen.Ogham.Generated
             new CompiledTagEntry { Id = 0x954D8E6815ECD1DCUL, ParentId = 0x0000000000000000UL, Name = "Root" },
             new CompiledTagEntry { Id = 0xA028F27A9B7B0FB3UL, ParentId = 0x0000000000000000UL, Name = "Unlocks" },
             new CompiledTagEntry { Id = 0x76950A82C9089AD0UL, ParentId = 0x9FE7B5B67A2764C0UL, Name = "Dialogue.Elsie" },
+            new CompiledTagEntry { Id = 0x18E5BB56F5453CF2UL, ParentId = 0x9FE7B5B67A2764C0UL, Name = "Dialogue.Intro" },
             new CompiledTagEntry { Id = 0x3A999AFF03667795UL, ParentId = 0x9FE7B5B67A2764C0UL, Name = "Dialogue.Mayor" },
             new CompiledTagEntry { Id = 0x4EF68C4B2F87CDF3UL, ParentId = 0x9FE7B5B67A2764C0UL, Name = "Dialogue.Mikey" },
             new CompiledTagEntry { Id = 0xA345C1E419416F96UL, ParentId = 0x9FE7B5B67A2764C0UL, Name = "Dialogue.Russel" },
@@ -28,6 +29,7 @@ namespace Heathen.Ogham.Generated
             new CompiledTagEntry { Id = 0x8F594BCE432BED05UL, ParentId = 0x954D8E6815ECD1DCUL, Name = "Root.TestCollection" },
             new CompiledTagEntry { Id = 0xF91F6BF32CD64AEEUL, ParentId = 0xA028F27A9B7B0FB3UL, Name = "Unlocks.Combat" },
             new CompiledTagEntry { Id = 0x49C7AFDFDBD8E3C6UL, ParentId = 0x76950A82C9089AD0UL, Name = "Dialogue.Elsie.TalkCount" },
+            new CompiledTagEntry { Id = 0xD138A3D85C8D5453UL, ParentId = 0x18E5BB56F5453CF2UL, Name = "Dialogue.Intro.Finished" },
             new CompiledTagEntry { Id = 0x56F6AA7EB3FF6437UL, ParentId = 0x3A999AFF03667795UL, Name = "Dialogue.Mayor.TalkCount" },
             new CompiledTagEntry { Id = 0xA1AAA1A61803A791UL, ParentId = 0x4EF68C4B2F87CDF3UL, Name = "Dialogue.Mikey.TalkCount" },
             new CompiledTagEntry { Id = 0x9E66B50E685CBA94UL, ParentId = 0xA345C1E419416F96UL, Name = "Dialogue.Russel.TalkCount" },
@@ -377,6 +379,10 @@ namespace Heathen.Ogham.Generated
                         {
                             new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "" },
                             new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Hey, wake up!" },
+                        },
+                        EntryOperations = new List<OghamOperationManifest>
+                        {
+                            new OghamOperationManifest { TagPath = "Dialogue.Intro.Finished", Arithmetic = "Set", Value = 1UL, ValueTag = "", ValueType = "Unsigned", ValueString = "", TechnicalName = "", Collection = "", ProviderParams = null },
                         },
                     },
                     new OghamEntryManifest

@@ -771,12 +771,19 @@
               },
               {
                 "displayName": "N7",
+                "entryOperations": [
+                  {
+                    "arithmetic": "Set",
+                    "tag": "Dialogue.Intro.Finished"
+                  }
+                ],
                 "inputPins": [
                   {}
                 ],
                 "labelIds": [
                   1
                 ],
+                "opsExpanded": true,
                 "outputPins": [
                   {}
                 ],
@@ -2836,8 +2843,8 @@
     "type": "Collection"
   },
   "viewTransform": [
-    53.04196,
-    -207.031982,
-    0.85
+    -2505.38281,
+    -423.217346,
+    1.0
   ]
 }

@@ -51,6 +51,7 @@ public class DialogueHUD : MonoBehaviour
         _hasFinished = false;
         _isFast = false;
         ToggleContinueImage(false);
+        SceneController.Instance.PlayerController.HudController.TogglePlayerHUD(false);
         _hudObject.SetActive(true);
         EventSystem.current.SetSelectedGameObject(_continueButton.gameObject);
     }
@@ -58,6 +59,7 @@ public class DialogueHUD : MonoBehaviour
     private void CloseHUD()
     {
         _hudObject.SetActive(false);
+        SceneController.Instance.PlayerController.HudController.TogglePlayerHUD(true);
         SceneController.Instance.IsInDialogue = false;
         EventSystem.current.SetSelectedGameObject(null);
     }

@@ -59,7 +59,7 @@ public class DialogueController : MonoBehaviour
                 Debug.LogError($"Node {_story.CurrentNode.Tag} has no options even though it should continue the dialogue. Please ensure the flow of the story is correct.");
                 return;
         }
-
+        
         _story.Choose(_story.CurrentOptions[0].Tag);
         OnOpenEntry?.Invoke();
     }
@@ -70,6 +70,19 @@ public class DialogueController : MonoBehaviour
         SaveManager.Instance.SaveStory();
         _story.Close();
         OnCloseStory?.Invoke();
+        
+        int shouldUnlockCombat = _story.NarrativeState.GetInt("Unlocks.Combat");
+        Debug.Log(shouldUnlockCombat);
+        if (shouldUnlockCombat > 0)
+        {
+            SceneController.Instance.PlayerController.UnlockCombat();
+            _story.NarrativeState.SetInt("Unlocks.Combat", 0);
+        }
+        
+        int isIntroFinished = _story.NarrativeState.GetInt("Dialogue.Intro.Finished");
+        if (isIntroFinished <= 0) return;
+        SceneController.Instance.IntroScreen.Hide();
+        _story.NarrativeState.SetInt("Dialogue.Intro.Finished", 0);
     }
 
     public void OnDeviceChange(ControlScheme controlScheme) => _hud.OnDeviceChanged(controlScheme);

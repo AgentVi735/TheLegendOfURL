@@ -19,10 +19,13 @@ public class SceneController : MonoBehaviour
     [SerializeField] private GameInitialisation _initialisation;
     public FadeManager FadeManager => _fadeManager;
     [SerializeField] private FadeManager _fadeManager;
+    public PlayerController PlayerController => _playerController;
     [SerializeField] private PlayerController _playerController;
     [SerializeField] private SaveManager _saveManager;
     public DialogueController DialogueController => _dialogueController;
     [SerializeField] private DialogueController _dialogueController;
+    public IntroScreen IntroScreen => _introScreen;
+    [SerializeField] private IntroScreen _introScreen;
     public AudioManager AudioManager => _audioManager;
     [SerializeField] private AudioManager _audioManager;
     [SerializeField] private Transform _audioListenerTransform;
@@ -222,6 +225,9 @@ public class SceneController : MonoBehaviour
             _playerController.ToggleAllInputs(true);
             _playerController.ResetJump();
         }
+        
+        if (!SaveManager.Instance.SaveData.doesDataExist)
+            _introScreen.Show();
         
         SaveManager.Instance.Save();
         _fadeManager.StartFade(true);

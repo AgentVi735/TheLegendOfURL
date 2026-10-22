@@ -22,6 +22,7 @@ public class SaveData : ScriptableObject
     public Vector3 playerPosition;
     public Vector3 playerRotation;
     public short health = 100;
+    public bool hasUnlockedCombat;
     
     [Header("World")]
     [SerializeField] private string[] enemyIdsKilledArray;
@@ -65,6 +66,7 @@ public class SaveData : ScriptableObject
         playerPosition = Vector3.zero;
         playerRotation = Vector3.zero;
         health = 100;
+        hasUnlockedCombat = false;
         enemyIdsKilledArray = Array.Empty<string>();
         Storyteller.ClearState();
         InitialiseData();
@@ -77,6 +79,7 @@ public class SaveData : ScriptableObject
         playerPosition = Vector3.zero;
         playerRotation = Vector3.zero;
         health = 100;
+        hasUnlockedCombat = false;
         enemyIdsKilledArray = Array.Empty<string>();
         Storyteller.ClearState();
         InitialiseData();

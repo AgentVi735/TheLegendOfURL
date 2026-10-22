@@ -1,7 +1,6 @@
 ﻿using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Rendering;
 
 public class PlayerAttackManager : MonoBehaviour
 {
@@ -71,7 +70,7 @@ public class PlayerAttackManager : MonoBehaviour
     
     private void OnAttackInput(InputAction.CallbackContext ctx)
     {
-        if (!CanAttack || isAttacking) return;
+        if (!CanAttack || isAttacking || !controller.hasUnlockedCombat) return;
         
         isAttacking = true;
         controller.ToggleMovement(false);
@@ -90,7 +89,7 @@ public class PlayerAttackManager : MonoBehaviour
     
     private void OnLockOnInput(InputAction.CallbackContext ctx)
     {
-        if (!CanLockOn) return;
+        if (!CanLockOn || !controller.hasUnlockedCombat) return;
         if (isLockedOn)
             DisableLockOn();
         else

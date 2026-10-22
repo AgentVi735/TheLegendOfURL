@@ -20,8 +20,6 @@ public class DeathScreen : MonoBehaviour
     private WaitForSeconds _waitButtonDelay;
     [SerializeField] private float _buttonFadeTime;
 
-    [SerializeField] private PlayerController _playerController;
-
     private void Awake()
     {
         _waitTextDelay = new WaitForSeconds(_textDelay);
@@ -30,8 +28,8 @@ public class DeathScreen : MonoBehaviour
 
     public void Show()
     {
-        _playerController.ToggleAllInputs(false);
-        _playerController.HudController.gameObject.SetActive(false);
+        SceneController.Instance.PlayerController.ToggleAllInputs(false);
+        SceneController.Instance.PlayerController.HudController.gameObject.SetActive(false);
         SceneController.Instance.DisableEnemies();
         SceneController.Instance.ShouldResetSave(true);
         StartCoroutine(ShowDeathScreen());
