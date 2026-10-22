@@ -44,6 +44,8 @@ public class SceneController : MonoBehaviour
     private MainMenuManager _mainMenuManager;
     public bool shouldResetSave { get; private set; }
 
+    private EnemySpawner[] _enemySpawnersInScene;
+
     private void Awake()
     {
         if (Instance != null)
@@ -183,8 +185,8 @@ public class SceneController : MonoBehaviour
             return;
         }
         
-        EnemySpawner[] enemySpawners = FindObjectsByType<EnemySpawner>();
-        foreach (EnemySpawner spawner in enemySpawners)
+        _enemySpawnersInScene = FindObjectsByType<EnemySpawner>();
+        foreach (EnemySpawner spawner in _enemySpawnersInScene)
         {
             bool wasKilled = _saveManager.SaveData.GetEnemyIDKilled(spawner.EnemyID);
             if (!wasKilled)
@@ -335,5 +337,13 @@ public class SceneController : MonoBehaviour
             _mainMenuManager.OnDeviceChanged(ControlScheme);
         else if (IsInDialogue)
             _dialogueController.OnDeviceChange(ControlScheme);
+    }
+
+    public void DisableEnemies()
+    {
+        foreach (EnemySpawner spawner in _enemySpawnersInScene)
+        {
+            spawner.gameObject.SetActive(false);
+        }
     }
 }

@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerAttackManager attackManager;
     public PlayerHUDController HudController => _hudController;
     [SerializeField] private PlayerHUDController _hudController;
+    [SerializeField] private DeathScreen _deathScreen;
     public CharacterController CharacterController => _characterController;
     [SerializeField] private CharacterController _characterController;
     [SerializeField] private Transform characterTransform;
@@ -44,6 +45,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int maxInteractColliders = 1;
     [SerializeField] private string npcTag;
     private NpcController closestNpc;
+    private bool isDead;
     
 #if UNITY_EDITOR
     [Header("Editor Options")]
@@ -136,7 +138,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnHit(short receivedDamage)
     {
-        if (!CanBeHit) return;
+        if (!CanBeHit || isDead) return;
         health -= receivedDamage;
         _hudController.UpdateHealthBar(health);
         _audioPlayer.PlayClip(0);
@@ -146,7 +148,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnDeath()
     {
-        ShouldResetSave();
+        isDead = true;
+        _deathScreen.Show();
     }
 
     public void OnEnemyKill()
