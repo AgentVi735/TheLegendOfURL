@@ -15,7 +15,7 @@ public class SaveData : ScriptableObject
     public float sfxVolume = 1;
     public float musicVolume = 1;
     public int fullscreenIdx;
-    public Vector2 mouseSensitivity = new(35, 35);
+    public Vector2 mouseSensitivity = new(10, 10);
     public Vector2 controllerSensitivity = new(100, 70);
     
     [Header("Player")]
