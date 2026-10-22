@@ -114,6 +114,8 @@ public class MainMenuManager : MonoBehaviour
                     ? EventSystem.current.currentSelectedGameObject
                     : _startButton.gameObject;
                 EventSystem.current.SetSelectedGameObject(null);
+                if (lastSelectedObject == _settingsButton.gameObject && _settingsUI.gameObject.activeSelf)
+                    lastSelectedObject = _settingsReturnButton.gameObject;
                 break;
         }
     }

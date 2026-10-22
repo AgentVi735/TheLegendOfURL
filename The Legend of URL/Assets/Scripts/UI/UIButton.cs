@@ -1,15 +1,20 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UIButton : Button
+public class UIButton : Button, ICancelHandler
 {
     [SerializeField] private TMP_Text _text;
     [SerializeField] private Material _defaultMat;
     [SerializeField] private Material _hoverMat;
     [SerializeField] private float _matLerpTime;
+    
+    [Serializable] public class ButtonBackEvent : UnityEvent {}
+    [SerializeField] private ButtonBackEvent _onBack = new ButtonBackEvent();
 
     private Coroutine lerpCoroutine;
 
@@ -80,5 +85,10 @@ public class UIButton : Button
         if (lerpCoroutine != null)
             StopCoroutine(lerpCoroutine);
         StartCoroutine(LerpMaterial(toggle));
+    }
+
+    public void OnCancel(BaseEventData eventData)
+    {
+        _onBack?.Invoke();
     }
 }

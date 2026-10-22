@@ -10,6 +10,8 @@ public class UIButtonEditor : ButtonEditor
     private SerializedProperty hoverMatProp;
     private SerializedProperty matLerpTimeProp;
 
+    private SerializedProperty onBackProp;
+
     protected override void OnEnable()
     {
         base.OnEnable();
@@ -17,6 +19,8 @@ public class UIButtonEditor : ButtonEditor
         defaultMatProp = serializedObject.FindProperty("_defaultMat");
         hoverMatProp = serializedObject.FindProperty("_hoverMat");
         matLerpTimeProp = serializedObject.FindProperty("_matLerpTime");
+        
+        onBackProp = serializedObject.FindProperty("_onBack");
     }
 
     public override void OnInspectorGUI()
@@ -31,6 +35,11 @@ public class UIButtonEditor : ButtonEditor
             EditorGUILayout.PropertyField(hoverMatProp, new GUIContent("Hover Mat"));
         if (matLerpTimeProp != null)
             EditorGUILayout.PropertyField(matLerpTimeProp, new GUIContent("Mat Lerp Time"));
+        
+        EditorGUILayout.Space();
+        
+        if (onBackProp != null)
+            EditorGUILayout.PropertyField(onBackProp, new GUIContent("On Back"));
 
         EditorGUILayout.Space();
         
