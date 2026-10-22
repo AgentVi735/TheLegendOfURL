@@ -106,6 +106,7 @@ public class PlayerController : MonoBehaviour
 
     public void ShouldResetSave()
     {
+        SceneController.Instance.ShouldResetSave(true);
         movement.Pause();
     }
 
@@ -139,14 +140,13 @@ public class PlayerController : MonoBehaviour
         health -= receivedDamage;
         _hudController.UpdateHealthBar(health);
         _audioPlayer.PlayClip(0);
-        if (health < 0)
+        if (health <= 0)
             OnDeath();
     }
 
     private void OnDeath()
     {
         ShouldResetSave();
-        SaveManager.Instance.ResetSave();
     }
 
     public void OnEnemyKill()
@@ -205,8 +205,12 @@ public class PlayerController : MonoBehaviour
         _hudController.ToggleInteractButton(true);
     }
 
-    public void UpdateHealthFromSave() => HudController.UpdateHealthBar(SaveManager.Instance.SaveData.health);
-    
+    public void UpdateHealthFromSave()
+    {
+        health = SaveManager.Instance.SaveData.health;
+        HudController.UpdateHealthBar(health);
+    }
+
     private void OnInteractPressed(InputAction.CallbackContext ctx)
     {
         if (!CanInteract) return;

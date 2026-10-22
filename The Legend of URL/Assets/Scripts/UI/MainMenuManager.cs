@@ -31,9 +31,9 @@ public class MainMenuManager : MonoBehaviour
             FindAnyObjectByType<SaveManager>().Initialise();
         
         SaveManager.Instance.CanSave = true;
-        _startButton.UpdateText(SaveManager.Instance.SaveData.doesDataExist ? _continueText : _startText);
         FindAnyObjectByType<SceneController>().InitialiseBeforeStart();
 
+        Debug.Log($"should reset save? {SceneController.Instance?.shouldResetSave}");
         if (SceneController.Instance != null)
         {
             if (SceneController.Instance.shouldResetSave)
@@ -42,6 +42,8 @@ public class MainMenuManager : MonoBehaviour
                 SceneController.Instance.ShouldResetSave(false);
             }
         }
+        
+        _startButton.UpdateText(SaveManager.Instance.SaveData.doesDataExist ? _continueText : _startText);
         
         _settingsUI.Initialise();
         _currentControlScheme = SceneController.ControlScheme;
