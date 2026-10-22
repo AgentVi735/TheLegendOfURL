@@ -1454,6 +1454,20 @@
                         "comparison": "Equal",
                         "exactMatch": false,
                         "logicOp": "And",
+                        "tag": "Dialogue.Russel.TalkCount"
+                      }
+                    ],
+                    "target": "N0_2",
+                    "technicalName": "Route3",
+                    "textKey": "Route 3"
+                  },
+                  {
+                    "conditions": [
+                      {
+                        "caseSensitive": false,
+                        "comparison": "Equal",
+                        "exactMatch": false,
+                        "logicOp": "And",
                         "tag": "Dialogue.Elsie.TalkCount"
                       }
                     ],
@@ -1496,8 +1510,8 @@
                   {}
                 ],
                 "position": [
-                  768.548767,
-                  631.768555
+                  767.3478,
+                  580.12854
                 ],
                 "technicalName": "N0_1",
                 "templateFields": [
@@ -1544,8 +1558,8 @@
                   {}
                 ],
                 "position": [
-                  1206.72009,
-                  640.7998
+                  1157.482,
+                  583.155151
                 ],
                 "technicalName": "N1_1",
                 "templateFields": [
@@ -1592,8 +1606,8 @@
                   {}
                 ],
                 "position": [
-                  1649.25476,
-                  577.2688
+                  1584.15747,
+                  572.619
                 ],
                 "technicalName": "N2_1",
                 "templateFields": [
@@ -1640,8 +1654,8 @@
                   {}
                 ],
                 "position": [
-                  2147.07251,
-                  585.116943
+                  2040.12671,
+                  592.866638
                 ],
                 "technicalName": "N3_1",
                 "templateFields": [
@@ -1692,8 +1706,8 @@
                   {}
                 ],
                 "position": [
-                  2604.27954,
-                  599.240356
+                  2497.33374,
+                  611.639832
                 ],
                 "technicalName": "N4_1",
                 "templateFields": [
@@ -1761,6 +1775,47 @@
                   }
                 ],
                 "type": "ContentNode"
+              },
+              {
+                "displayName": "N0.2",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  763.546631,
+                  823.8642
+                ],
+                "technicalName": "N0_2",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "Russel",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "Go check up on the mayor for me, will ya?",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
               }
             ],
             "displayName": "Russel",
@@ -1791,6 +1846,20 @@
                   1
                 ],
                 "options": [
+                  {
+                    "conditions": [
+                      {
+                        "caseSensitive": false,
+                        "comparison": "Equal",
+                        "exactMatch": false,
+                        "logicOp": "And",
+                        "tag": "Dialogue.Mayor.DaughterMissing"
+                      }
+                    ],
+                    "target": "N0_3",
+                    "technicalName": "Route4",
+                    "textKey": "Route 4"
+                  },
                   {
                     "conditions": [
                       {
@@ -2128,12 +2197,19 @@
               },
               {
                 "displayName": "N3.2",
+                "entryOperations": [
+                  {
+                    "arithmetic": "Set",
+                    "tag": "Dialogue.Mayor.DaughterMissing"
+                  }
+                ],
                 "inputPins": [
                   {}
                 ],
                 "labelIds": [
                   1
                 ],
+                "opsExpanded": true,
                 "outputPins": [
                   {}
                 ],
@@ -2157,6 +2233,48 @@
                       },
                       {
                         "key": "Don't worry, I'll save her!",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              },
+              {
+                "displayName": "N0.3",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "opsExpanded": true,
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  766.3342,
+                  1299.65039
+                ],
+                "technicalName": "N0_3",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "Mayor",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "Please save my daughter!",
                         "mode": "Literal",
                         "templateField": "text",
                         "type": "Text"
@@ -2671,6 +2789,47 @@
                   }
                 ],
                 "type": "ContentNode"
+              },
+              {
+                "displayName": "N0.1",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  422.4197,
+                  982.429
+                ],
+                "technicalName": "N0_1",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "Your inner thoughts",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "Movement: WASD / Left Joystick\nCamera: Mouse / Right Joystick\nInteract: F / Left Button\nMelee attack: LMB / RT\nTarget Lock on (only on enemies): C / LB\nMain Menu: ESC / + button ",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
               }
             ],
             "displayName": "Rohan's House",
@@ -2723,6 +2882,88 @@
                       },
                       {
                         "key": "<- Riversplit Village\nRiversplit Forest ->",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              },
+              {
+                "displayName": "N0.1",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  600.6441,
+                  888.863159
+                ],
+                "technicalName": "N0_1",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "Sign",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "Riversplit Village up ahead",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
+              },
+              {
+                "displayName": "N0.2",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  593.909241,
+                  1106.43384
+                ],
+                "technicalName": "N0_2",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "Sign",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "Riversplit forest up ahead\nBeware for aggressive monsters",
                         "mode": "Literal",
                         "templateField": "text",
                         "type": "Text"
@@ -2793,6 +3034,47 @@
                   }
                 ],
                 "type": "ContentNode"
+              },
+              {
+                "displayName": "N0.1",
+                "inputPins": [
+                  {}
+                ],
+                "labelIds": [
+                  1
+                ],
+                "outputPins": [
+                  {}
+                ],
+                "position": [
+                  827.3095,
+                  970.5709
+                ],
+                "technicalName": "N0_1",
+                "templateFields": [
+                  {
+                    "fields": [],
+                    "template": 0
+                  },
+                  {
+                    "fields": [
+                      {
+                        "key": "Sign",
+                        "mode": "Literal",
+                        "templateField": "speakername",
+                        "type": "Text"
+                      },
+                      {
+                        "key": "BEWARE\nSPIDER CAVE UP AHEAD\nENTER AT YOUR OWN RISK",
+                        "mode": "Literal",
+                        "templateField": "text",
+                        "type": "Text"
+                      }
+                    ],
+                    "template": 1
+                  }
+                ],
+                "type": "ContentNode"
               }
             ],
             "displayName": "Forbidden Woods",
@@ -2843,8 +3125,8 @@
     "type": "Collection"
   },
   "viewTransform": [
-    291.1964,
-    -0.1600647,
-    0.5570377
+    275.970581,
+    21.721405,
+    0.35443145
   ]
 }

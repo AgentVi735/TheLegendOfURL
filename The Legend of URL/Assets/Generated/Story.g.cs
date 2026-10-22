@@ -2,7 +2,7 @@
 //   Generated from the Ogham project tree by OghamNodeTreeStoryGenerator. DO NOT EDIT.
 //   Edit the .ogham file(s) and click Build in Window ▸ Heathen ▸ Storyteller.
 // </auto-generated>
-// ogham-hash:0x3901630A803E022B  // staleness marker — do not edit
+// ogham-hash:0x7E8AC5DCE0931927  // staleness marker — do not edit
 using System.Collections.Generic;
 using Heathen.GameplayTags;
 using Heathen.Ogham;
@@ -30,6 +30,7 @@ namespace Heathen.Ogham.Generated
             new CompiledTagEntry { Id = 0xF91F6BF32CD64AEEUL, ParentId = 0xA028F27A9B7B0FB3UL, Name = "Unlocks.Combat" },
             new CompiledTagEntry { Id = 0x49C7AFDFDBD8E3C6UL, ParentId = 0x76950A82C9089AD0UL, Name = "Dialogue.Elsie.TalkCount" },
             new CompiledTagEntry { Id = 0xD138A3D85C8D5453UL, ParentId = 0x18E5BB56F5453CF2UL, Name = "Dialogue.Intro.Finished" },
+            new CompiledTagEntry { Id = 0x2F4D9B9461C9492AUL, ParentId = 0x3A999AFF03667795UL, Name = "Dialogue.Mayor.DaughterMissing" },
             new CompiledTagEntry { Id = 0x56F6AA7EB3FF6437UL, ParentId = 0x3A999AFF03667795UL, Name = "Dialogue.Mayor.TalkCount" },
             new CompiledTagEntry { Id = 0xA1AAA1A61803A791UL, ParentId = 0x4EF68C4B2F87CDF3UL, Name = "Dialogue.Mikey.TalkCount" },
             new CompiledTagEntry { Id = 0x9E66B50E685CBA94UL, ParentId = 0xA345C1E419416F96UL, Name = "Dialogue.Russel.TalkCount" },
@@ -73,6 +74,7 @@ namespace Heathen.Ogham.Generated
             new CompiledTagEntry { Id = 0x34ADBD5AE006EFD9UL, ParentId = 0x65D321649071FE8AUL, Name = "Root.NPCDialogue.Mayor.N0" },
             new CompiledTagEntry { Id = 0x15EEE2AF8A15A303UL, ParentId = 0x65D321649071FE8AUL, Name = "Root.NPCDialogue.Mayor.N0_1" },
             new CompiledTagEntry { Id = 0x323BB0F2722BAAFCUL, ParentId = 0x65D321649071FE8AUL, Name = "Root.NPCDialogue.Mayor.N0_2" },
+            new CompiledTagEntry { Id = 0x86B040A575C21C6EUL, ParentId = 0x65D321649071FE8AUL, Name = "Root.NPCDialogue.Mayor.N0_3" },
             new CompiledTagEntry { Id = 0xE59CD58F7860F2DCUL, ParentId = 0x65D321649071FE8AUL, Name = "Root.NPCDialogue.Mayor.N1" },
             new CompiledTagEntry { Id = 0x8733829398B2CF44UL, ParentId = 0x65D321649071FE8AUL, Name = "Root.NPCDialogue.Mayor.N1_2" },
             new CompiledTagEntry { Id = 0xE5C4816307ED0FF2UL, ParentId = 0x65D321649071FE8AUL, Name = "Root.NPCDialogue.Mayor.N2_2" },
@@ -86,6 +88,7 @@ namespace Heathen.Ogham.Generated
             new CompiledTagEntry { Id = 0xD54ADB2927104165UL, ParentId = 0x071018DA2C038254UL, Name = "Root.NPCDialogue.Russel.FN0" },
             new CompiledTagEntry { Id = 0x56B0C8868A10BB52UL, ParentId = 0x071018DA2C038254UL, Name = "Root.NPCDialogue.Russel.N0" },
             new CompiledTagEntry { Id = 0x089B6EE08FDE2123UL, ParentId = 0x071018DA2C038254UL, Name = "Root.NPCDialogue.Russel.N0_1" },
+            new CompiledTagEntry { Id = 0xA02981D4D017AEB5UL, ParentId = 0x071018DA2C038254UL, Name = "Root.NPCDialogue.Russel.N0_2" },
             new CompiledTagEntry { Id = 0xAEF37BCF5CA49AC1UL, ParentId = 0x071018DA2C038254UL, Name = "Root.NPCDialogue.Russel.N1_1" },
             new CompiledTagEntry { Id = 0xCB94F8A1648CEEF7UL, ParentId = 0x071018DA2C038254UL, Name = "Root.NPCDialogue.Russel.N2_1" },
             new CompiledTagEntry { Id = 0xB99166F2347BC80AUL, ParentId = 0x071018DA2C038254UL, Name = "Root.NPCDialogue.Russel.N3_1" },
@@ -93,10 +96,14 @@ namespace Heathen.Ogham.Generated
             new CompiledTagEntry { Id = 0xABA973336950BDFEUL, ParentId = 0x879AFE2E3DB4F185UL, Name = "Root.NPCDialogue.Shary.N0" },
             new CompiledTagEntry { Id = 0x9DBE8D2FBF0DE1A3UL, ParentId = 0x2869E67E9EC9B362UL, Name = "Root.Signs.Blacksmith.N0" },
             new CompiledTagEntry { Id = 0xD791AB118C045027UL, ParentId = 0xA0953E41DB0A3CB9UL, Name = "Root.Signs.Forbidden_Woods.N0" },
+            new CompiledTagEntry { Id = 0xC1A975A2C2B40417UL, ParentId = 0xA0953E41DB0A3CB9UL, Name = "Root.Signs.Forbidden_Woods.N0_1" },
             new CompiledTagEntry { Id = 0xBB85839A74645BF3UL, ParentId = 0x6EE631DAA51F8F6AUL, Name = "Root.Signs.ForestSplit.N0" },
+            new CompiledTagEntry { Id = 0x68ED9E8DC8BEB7F5UL, ParentId = 0x6EE631DAA51F8F6AUL, Name = "Root.Signs.ForestSplit.N0_1" },
+            new CompiledTagEntry { Id = 0xC249E30911FAF3EEUL, ParentId = 0x6EE631DAA51F8F6AUL, Name = "Root.Signs.ForestSplit.N0_2" },
             new CompiledTagEntry { Id = 0xC288D0BF53325277UL, ParentId = 0xE1698B53ACA5ED0EUL, Name = "Root.Signs.Mayor_s_House.N0" },
             new CompiledTagEntry { Id = 0xB4734546C7CF8EC1UL, ParentId = 0x138F5DB66DF4A573UL, Name = "Root.Signs.Ranch.N0" },
             new CompiledTagEntry { Id = 0x539F7EC5ADB7DD47UL, ParentId = 0x9A265A305F03182FUL, Name = "Root.Signs.Rohan_s_House.N0" },
+            new CompiledTagEntry { Id = 0xE0C8D79BA2F402E2UL, ParentId = 0x9A265A305F03182FUL, Name = "Root.Signs.Rohan_s_House.N0_1" },
             new CompiledTagEntry { Id = 0x501BB4DE76012D7CUL, ParentId = 0xEE9E05099B229505UL, Name = "Root.TestCollection.Daniek.ForkNode0" },
             new CompiledTagEntry { Id = 0xC80087B49E05C452UL, ParentId = 0xEE9E05099B229505UL, Name = "Root.TestCollection.Daniek.Node0" },
             new CompiledTagEntry { Id = 0xDA38CD06D0093202UL, ParentId = 0xEE9E05099B229505UL, Name = "Root.TestCollection.Daniek.Node1" },
@@ -119,6 +126,7 @@ namespace Heathen.Ogham.Generated
             new CompiledTagEntry { Id = 0xC9932DA9A98B6B3EUL, ParentId = 0x3869A968DF8FA87CUL, Name = "Root.NPCDialogue.Mayor.FN0.Route1" },
             new CompiledTagEntry { Id = 0x1C2F04BFB5383040UL, ParentId = 0x3869A968DF8FA87CUL, Name = "Root.NPCDialogue.Mayor.FN0.Route2" },
             new CompiledTagEntry { Id = 0x957957CB96CA4699UL, ParentId = 0x3869A968DF8FA87CUL, Name = "Root.NPCDialogue.Mayor.FN0.Route3" },
+            new CompiledTagEntry { Id = 0xD7BCDE0EF171BB64UL, ParentId = 0x3869A968DF8FA87CUL, Name = "Root.NPCDialogue.Mayor.FN0.Route4" },
             new CompiledTagEntry { Id = 0x518863E88DD33EBDUL, ParentId = 0x34ADBD5AE006EFD9UL, Name = "Root.NPCDialogue.Mayor.N0.Option1" },
             new CompiledTagEntry { Id = 0xDCF6971AA7C2A6FBUL, ParentId = 0x323BB0F2722BAAFCUL, Name = "Root.NPCDialogue.Mayor.N0_2.Option1" },
             new CompiledTagEntry { Id = 0x3DAEEE628834D0F3UL, ParentId = 0x8733829398B2CF44UL, Name = "Root.NPCDialogue.Mayor.N1_2.Option1" },
@@ -130,6 +138,7 @@ namespace Heathen.Ogham.Generated
             new CompiledTagEntry { Id = 0x1B6A7A26218628C0UL, ParentId = 0xDA22BFD96D72D250UL, Name = "Root.NPCDialogue.Mikey.N2.Option1" },
             new CompiledTagEntry { Id = 0x311E8E50794348D4UL, ParentId = 0xD54ADB2927104165UL, Name = "Root.NPCDialogue.Russel.FN0.Route1" },
             new CompiledTagEntry { Id = 0xE22A9A9B31636B45UL, ParentId = 0xD54ADB2927104165UL, Name = "Root.NPCDialogue.Russel.FN0.Route2" },
+            new CompiledTagEntry { Id = 0x122CFE25D23763A5UL, ParentId = 0xD54ADB2927104165UL, Name = "Root.NPCDialogue.Russel.FN0.Route3" },
             new CompiledTagEntry { Id = 0x550216450F678095UL, ParentId = 0x089B6EE08FDE2123UL, Name = "Root.NPCDialogue.Russel.N0_1.Option1" },
             new CompiledTagEntry { Id = 0x67B9458E207F342DUL, ParentId = 0xAEF37BCF5CA49AC1UL, Name = "Root.NPCDialogue.Russel.N1_1.Option1" },
             new CompiledTagEntry { Id = 0xE6232B0F7F508609UL, ParentId = 0xCB94F8A1648CEEF7UL, Name = "Root.NPCDialogue.Russel.N2_1.Option1" },
@@ -573,6 +582,14 @@ namespace Heathen.Ogham.Generated
                         {
                             new OghamOptionManifest
                             {
+                                TagPath = "Root.NPCDialogue.Russel.FN0.Route3", TargetEntryPath = "Root.NPCDialogue.Russel.N0_2", TextMode = "Literal", TextKey = "Route 3",
+                                Conditions = new List<OghamConditionManifest>
+                                {
+                                    new OghamConditionManifest { TagPath = "Dialogue.Russel.TalkCount", Comparison = "Equal", CompareValue = 1UL, CompareTagPath = "", CompareValueType = "Unsigned", CompareString = "", CaseSensitive = false, ExactMatch = false, LogicOp = "And", Negate = false, Unresolved = false, TechnicalName = "", Expect = true, Collection = "", ProviderParams = null },
+                                },
+                            },
+                            new OghamOptionManifest
+                            {
                                 TagPath = "Root.NPCDialogue.Russel.FN0.Route1", TargetEntryPath = "Root.NPCDialogue.Russel.N0_1", TextMode = "Literal", TextKey = "Route 1",
                                 Conditions = new List<OghamConditionManifest>
                                 {
@@ -674,10 +691,27 @@ namespace Heathen.Ogham.Generated
                     },
                     new OghamEntryManifest
                     {
+                        TagPath = "Root.NPCDialogue.Russel.N0_2",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Russel" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Go check up on the mayor for me, will ya?" },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
                         TagPath = "Root.NPCDialogue.Mayor.FN0",
                         Mode = "Fork",
                         Options = new List<OghamOptionManifest>
                         {
+                            new OghamOptionManifest
+                            {
+                                TagPath = "Root.NPCDialogue.Mayor.FN0.Route4", TargetEntryPath = "Root.NPCDialogue.Mayor.N0_3", TextMode = "Literal", TextKey = "Route 4",
+                                Conditions = new List<OghamConditionManifest>
+                                {
+                                    new OghamConditionManifest { TagPath = "Dialogue.Mayor.DaughterMissing", Comparison = "Equal", CompareValue = 1UL, CompareTagPath = "", CompareValueType = "Unsigned", CompareString = "", CaseSensitive = false, ExactMatch = false, LogicOp = "And", Negate = false, Unresolved = false, TechnicalName = "", Expect = true, Collection = "", ProviderParams = null },
+                                },
+                            },
                             new OghamOptionManifest
                             {
                                 TagPath = "Root.NPCDialogue.Mayor.FN0.Route3", TargetEntryPath = "Root.NPCDialogue.Mayor.N0_2", TextMode = "Literal", TextKey = "Route 3",
@@ -798,6 +832,19 @@ namespace Heathen.Ogham.Generated
                             new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Rohan" },
                             new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Don't worry, I'll save her!" },
                         },
+                        EntryOperations = new List<OghamOperationManifest>
+                        {
+                            new OghamOperationManifest { TagPath = "Dialogue.Mayor.DaughterMissing", Arithmetic = "Set", Value = 1UL, ValueTag = "", ValueType = "Unsigned", ValueString = "", TechnicalName = "", Collection = "", ProviderParams = null },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.NPCDialogue.Mayor.N0_3",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Mayor" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Please save my daughter!" },
+                        },
                     },
                     new OghamEntryManifest
                     {
@@ -873,6 +920,15 @@ namespace Heathen.Ogham.Generated
                     },
                     new OghamEntryManifest
                     {
+                        TagPath = "Root.Signs.Rohan_s_House.N0_1",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Your inner thoughts" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Movement: WASD / Left Joystick\nCamera: Mouse / Right Joystick\nInteract: F / Left Button\nMelee attack: LMB / RT\nTarget Lock on (only on enemies): C / LB\nMain Menu: ESC / + button " },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
                         TagPath = "Root.Signs.ForestSplit.N0",
                         ContentKeys = new List<OghamContentManifest>
                         {
@@ -882,11 +938,38 @@ namespace Heathen.Ogham.Generated
                     },
                     new OghamEntryManifest
                     {
+                        TagPath = "Root.Signs.ForestSplit.N0_1",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Sign" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Riversplit Village up ahead" },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.Signs.ForestSplit.N0_2",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Sign" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Riversplit forest up ahead\nBeware for aggressive monsters" },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
                         TagPath = "Root.Signs.Forbidden_Woods.N0",
                         ContentKeys = new List<OghamContentManifest>
                         {
                             new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Sign" },
                             new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "BEWARE\nFORBIDDEN WOODS UP AHEAD\nENTER AT YOUR OWN RISK" },
+                        },
+                    },
+                    new OghamEntryManifest
+                    {
+                        TagPath = "Root.Signs.Forbidden_Woods.N0_1",
+                        ContentKeys = new List<OghamContentManifest>
+                        {
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Sign" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "BEWARE\nSPIDER CAVE UP AHEAD\nENTER AT YOUR OWN RISK" },
                         },
                     },
                 },

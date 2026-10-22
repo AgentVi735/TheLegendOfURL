@@ -1188,7 +1188,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3850063847859711435, guid: c1e4fabe060740d4a98743fbc2d396d5, type: 3}
       propertyPath: m_Name
-      value: Enemy Spawner
+      value: EnemySpawner (Forest_Spider0)
       objectReference: {fileID: 0}
     - target: {fileID: 6187742861341056170, guid: c1e4fabe060740d4a98743fbc2d396d5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3004,6 +3004,67 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8788063800605760548, guid: f148ea6e1b0871b49b6a73d8178bd659, type: 3}
   m_PrefabInstance: {fileID: 1940687984}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1991698719
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 83120153989809013, guid: d548e650969ee7c42ba9a6cf11768e51, type: 3}
+      propertyPath: _storyTag._id
+      value: 16197433123291792098
+      objectReference: {fileID: 0}
+    - target: {fileID: 2303099654232001658, guid: d548e650969ee7c42ba9a6cf11768e51, type: 3}
+      propertyPath: m_Name
+      value: Sign
+      objectReference: {fileID: 0}
+    - target: {fileID: 6346889379736856219, guid: d548e650969ee7c42ba9a6cf11768e51, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 70.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 6346889379736856219, guid: d548e650969ee7c42ba9a6cf11768e51, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.00000006041989
+      objectReference: {fileID: 0}
+    - target: {fileID: 6346889379736856219, guid: d548e650969ee7c42ba9a6cf11768e51, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 69.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 6346889379736856219, guid: d548e650969ee7c42ba9a6cf11768e51, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.46929228
+      objectReference: {fileID: 0}
+    - target: {fileID: 6346889379736856219, guid: d548e650969ee7c42ba9a6cf11768e51, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6346889379736856219, guid: d548e650969ee7c42ba9a6cf11768e51, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.88304293
+      objectReference: {fileID: 0}
+    - target: {fileID: 6346889379736856219, guid: d548e650969ee7c42ba9a6cf11768e51, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6346889379736856219, guid: d548e650969ee7c42ba9a6cf11768e51, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6346889379736856219, guid: d548e650969ee7c42ba9a6cf11768e51, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -124.023
+      objectReference: {fileID: 0}
+    - target: {fileID: 6346889379736856219, guid: d548e650969ee7c42ba9a6cf11768e51, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d548e650969ee7c42ba9a6cf11768e51, type: 3}
 --- !u!1001 &8632792951920807017
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3052,9 +3113,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3506927915993956654, guid: d35d1febe14ca284d839825aabd14654, type: 3}
+      propertyPath: _storyTag._id
+      value: 13999970544753767406
+      objectReference: {fileID: 0}
     - target: {fileID: 3966089304794150383, guid: d35d1febe14ca284d839825aabd14654, type: 3}
       propertyPath: m_Name
       value: World_Forest_House
+      objectReference: {fileID: 0}
+    - target: {fileID: 4607969973151908724, guid: d35d1febe14ca284d839825aabd14654, type: 3}
+      propertyPath: _storyTag._id
+      value: 7560873681220450293
       objectReference: {fileID: 0}
     - target: {fileID: 8575680323094143897, guid: d35d1febe14ca284d839825aabd14654, type: 3}
       propertyPath: m_Size.y
@@ -3209,3 +3278,4 @@ SceneRoots:
   - {fileID: 777256736}
   - {fileID: 434302265}
   - {fileID: 543736158}
+  - {fileID: 1991698719}
