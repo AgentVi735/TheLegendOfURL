@@ -33,7 +33,6 @@ public class MainMenuManager : MonoBehaviour
         SaveManager.Instance.CanSave = true;
         FindAnyObjectByType<SceneController>().InitialiseBeforeStart();
 
-        Debug.Log($"should reset save? {SceneController.Instance?.shouldResetSave}");
         if (SceneController.Instance != null)
         {
             if (SceneController.Instance.shouldResetSave)

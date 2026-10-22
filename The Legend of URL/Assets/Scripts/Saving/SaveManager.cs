@@ -52,7 +52,6 @@ public class SaveManager : MonoBehaviour
         
         if (SaveData.currentSceneIdx != 0)
             SaveData.doesDataExist = true;
-        Debug.Log($"{SaveData.currentSceneIdx} | {SaveData.doesDataExist}");
         
         _playerController.SaveData();
         SaveData.SaveEnemyIDsKilled();

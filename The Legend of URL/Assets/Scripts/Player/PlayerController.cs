@@ -267,7 +267,7 @@ public class PlayerController : MonoBehaviour
         if (SaveManager.Instance.SaveData.hasUnlockedCombat)
             UnlockCombat();
         else
-            hasUnlockedCombat = false;
+            DisableCombat();
         UpdateSensitivity();
         movement.LoadSaveData();
     }
@@ -302,5 +302,12 @@ public class PlayerController : MonoBehaviour
         SaveManager.Instance.SaveData.hasUnlockedCombat = true;
         _swordObject.SetActive(true);
         hasUnlockedCombat = true;
+    }
+
+    private void DisableCombat()
+    {
+        SaveManager.Instance.SaveData.hasUnlockedCombat = false;
+        _swordObject.SetActive(false);
+        hasUnlockedCombat = false;
     }
 }
