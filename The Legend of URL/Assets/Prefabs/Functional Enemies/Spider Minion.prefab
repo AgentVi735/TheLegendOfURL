@@ -115,6 +115,7 @@ MonoBehaviour:
   _leftTransform: {fileID: 0}
   _animator: {fileID: 1945475474483351720}
   _audioPlayer: {fileID: -2838804951383030693}
+  _lockOnArrowOffset: {x: 0, y: 0.559, z: -0.189}
   hitVelocity: {x: 0, y: 0, z: 0}
   stunTime: 0
   raycastLayers:

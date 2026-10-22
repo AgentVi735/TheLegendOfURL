@@ -15,6 +15,7 @@ public class PlayerHUDController : MonoBehaviour
     [SerializeField] private Slider bossHealthBar;
     [SerializeField] private Image interactButtonImage;
     [SerializeField] private RectTransform interactButtonTransform;
+    [SerializeField] private RectTransform lockOnArrowTransform;
 
     [Header("Interact Button Sprites")]
     [SerializeField] private Sprite keyboardInteractSprite;
@@ -35,13 +36,12 @@ public class PlayerHUDController : MonoBehaviour
         Debug.Log($"Updated player health bar to {healthBar.value}");
     }
 
-    public void SetInteractButtonPosition(Vector3 pos)
-    {
-        interactButtonTransform.position = pos;
-    }
-
+    public void SetInteractButtonPosition(Vector3 pos) => interactButtonTransform.position = pos;
     public void ToggleInteractButton(bool toggle) => interactButtonTransform.gameObject.SetActive(toggle);
-
+    
+    public void SetLockOnArrowPosition(Vector3 pos) => lockOnArrowTransform.position = pos;
+    public void ToggleLockOnArrow(bool toggle) => lockOnArrowTransform.gameObject.SetActive(toggle);
+    
     public void SetInteractButtonSprite(ControlScheme controlScheme)
     {
         if (controlScheme == ControlScheme.Gamepad)

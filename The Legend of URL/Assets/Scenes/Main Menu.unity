@@ -4177,16 +4177,20 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 6536811719063026357, guid: 9821005e27d28124884f6af0f337f784, type: 3}
-      propertyPath: m_LocalScale.y
+    - target: {fileID: 7024504820566291243, guid: 9821005e27d28124884f6af0f337f784, type: 3}
+      propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 6536811719063026357, guid: 9821005e27d28124884f6af0f337f784, type: 3}
-      propertyPath: m_LocalScale.z
+    - target: {fileID: 7024504820566291243, guid: 9821005e27d28124884f6af0f337f784, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7024504820566291243, guid: 9821005e27d28124884f6af0f337f784, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 6536811719063026357, guid: 9821005e27d28124884f6af0f337f784, type: 3}
-      propertyPath: m_ConstrainProportionsScale
+    - target: {fileID: 7024504820566291243, guid: 9821005e27d28124884f6af0f337f784, type: 3}
+      propertyPath: m_AnchorMin.x
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7013547946878605795, guid: 9821005e27d28124884f6af0f337f784, type: 3}
@@ -4217,14 +4221,18 @@ PrefabInstance:
       propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7916135486199950814, guid: 9821005e27d28124884f6af0f337f784, type: 3}
-      propertyPath: m_Navigation.m_Mode
+    - target: {fileID: 7024504820566291243, guid: 9821005e27d28124884f6af0f337f784, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8092995019752165489, guid: 9821005e27d28124884f6af0f337f784, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -39.0791
+    - target: {fileID: 7476655341140965973, guid: 9821005e27d28124884f6af0f337f784, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7493740746687770178, guid: 9821005e27d28124884f6af0f337f784, type: 3}
+      propertyPath: _controller
+      value: 
+      objectReference: {fileID: 2121307235}
     - target: {fileID: 8168259121658602467, guid: 9821005e27d28124884f6af0f337f784, type: 3}
       propertyPath: m_Name
       value: HUD Canvas

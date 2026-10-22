@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private CinemachineCamera cinemachineCamera;
     [SerializeField] private CinemachineOrbitalFollow cinemachineOrbitalFollow;
     [SerializeField] private CinemachineInputAxisController cinemachineInputController;
+    public Camera Camera => _camera;
     [SerializeField] private Camera _camera;
     public AudioPlayer AudioPlayer => _audioPlayer;
     [SerializeField] private AudioPlayer _audioPlayer;

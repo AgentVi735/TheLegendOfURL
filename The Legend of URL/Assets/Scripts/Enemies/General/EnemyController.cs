@@ -18,6 +18,8 @@ public abstract class EnemyController : MonoBehaviour
     [SerializeField] private Animator _animator;
     public AudioPlayer AudioPlayer => _audioPlayer;
     [SerializeField] private AudioPlayer _audioPlayer;
+    public Vector3 LockOnArrowOffset => _lockOnArrowOffset;
+    [SerializeField] private Vector3 _lockOnArrowOffset;
 
     protected short health;
     public EnemyData data { get; private set; }

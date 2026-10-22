@@ -1,6 +1,7 @@
 ﻿using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 public class PlayerAttackManager : MonoBehaviour
 {
@@ -108,11 +109,6 @@ public class PlayerAttackManager : MonoBehaviour
         {
             if (collider == null || !collider.CompareTag("Enemy")) continue;
             
-                // || !Physics.Raycast(camera.transform.position,
-                // camera.transform.position - collider.transform.position,
-                // out RaycastHit hit,
-                // lockOnRadius, lockOnCheckLayerMask) || hit.collider.gameObject != collider.gameObject
-
             camForward.y = collider.transform.position.y;
             float angle = Vector3.Angle(camForward, collider.transform.position);
             if (angle < closestEnemyAngle) continue;
@@ -124,6 +120,10 @@ public class PlayerAttackManager : MonoBehaviour
         lockedEnemy = closestEnemy.GetComponent<EnemyController>();
 
         isLockedOn = true;
+        Vector3 enemyPos = lockedEnemy.transform.TransformPoint(lockedEnemy.LockOnArrowOffset);
+        Vector2 arrowPos = controller.Camera.WorldToScreenPoint(enemyPos);
+        controller.HudController.SetLockOnArrowPosition(arrowPos);
+        controller.HudController.ToggleLockOnArrow(true);
     }
 
     private void DisableLockOn()
@@ -131,6 +131,7 @@ public class PlayerAttackManager : MonoBehaviour
         isLockedOn = false;
         lockedEnemy = null;
         cameraTarget.position = characterTransform.position;
+        controller.HudController.ToggleLockOnArrow(false);
     }
 
     public void ToggleAttack(bool toggle)
@@ -164,17 +165,16 @@ public class PlayerAttackManager : MonoBehaviour
         if (!isLockedOn) return;
         if (lockedEnemy == null ||
             Vector3.Distance(characterTransform.position, lockedEnemy.transform.position) > lockOnRadius)
-            
-        //     ||
-        // !Physics.Raycast(camera.transform.position, camera.transform.position - lockedEnemy.transform.position,
-        //     out RaycastHit hit,
-        //     lockOnRadius, lockOnCheckLayerMask) || hit.collider.gameObject != lockedEnemy.gameObject
         {
             DisableLockOn();
             return;
         }
 
         cameraTarget.position = Vector3.Lerp(characterTransform.position, lockedEnemy.transform.position, 0.5f);
+        
+        Vector3 enemyPos = lockedEnemy.transform.TransformPoint(lockedEnemy.LockOnArrowOffset);
+        Vector2 arrowPos = controller.Camera.WorldToScreenPoint(enemyPos);
+        controller.HudController.SetLockOnArrowPosition(arrowPos);
     }
 
     private void OnDrawGizmosSelected()
