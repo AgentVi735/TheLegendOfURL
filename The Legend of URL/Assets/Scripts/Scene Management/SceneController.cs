@@ -21,6 +21,7 @@ public class SceneController : MonoBehaviour
     [SerializeField] private FadeManager _fadeManager;
     public PlayerController PlayerController => _playerController;
     [SerializeField] private PlayerController _playerController;
+    [SerializeField] private Camera _playerCamera;
     [SerializeField] private SaveManager _saveManager;
     public DialogueController DialogueController => _dialogueController;
     [SerializeField] private DialogueController _dialogueController;
@@ -135,7 +136,7 @@ public class SceneController : MonoBehaviour
             _initialisation.TogglePlayer(false);
         }
         if (!_fadeManager.IsOn)
-            _fadeManager.StartFade(false, () => {LoadScene(idx);});
+            _fadeManager.StartFade(true, () => {LoadScene(idx);});
         else
             LoadScene(idx);
     }
@@ -149,7 +150,7 @@ public class SceneController : MonoBehaviour
             _initialisation.TogglePlayer(false);
         }
         if (!_fadeManager.IsOn)
-            _fadeManager.StartFade(false, () => {LoadScene(data);});
+            _fadeManager.StartFade(true, () => {LoadScene(data);});
         else
             LoadScene(data);
     }
@@ -225,12 +226,16 @@ public class SceneController : MonoBehaviour
             _playerController.ToggleAllInputs(true);
             _playerController.ResetJump();
         }
-        
+
         if (!SaveManager.Instance.SaveData.doesDataExist)
+        {
             _introScreen.Show();
+            _fadeManager.Hide();
+        }
+        else
+            _fadeManager.StartFade(true);
         
         SaveManager.Instance.Save();
-        _fadeManager.StartFade(true);
     }
 
     private void UnloadScene(Scene unloadedScene)
@@ -249,6 +254,7 @@ public class SceneController : MonoBehaviour
         _isInMainMenu = false;
         _playerController.HudController.gameObject.SetActive(true);
         _playerController.gameObject.SetActive(true);
+        Camera.SetupCurrent(_playerCamera);
         _initialisation.gameObject.SetActive(true);
 
         if (_initialisation.hasInitialised)
