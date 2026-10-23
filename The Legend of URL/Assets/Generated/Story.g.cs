@@ -2,7 +2,7 @@
 //   Generated from the Ogham project tree by OghamNodeTreeStoryGenerator. DO NOT EDIT.
 //   Edit the .ogham file(s) and click Build in Window ▸ Heathen ▸ Storyteller.
 // </auto-generated>
-// ogham-hash:0xD2273B819B2CF717  // staleness marker — do not edit
+// ogham-hash:0x2F6A46083AE17A09  // staleness marker — do not edit
 using System.Collections.Generic;
 using Heathen.GameplayTags;
 using Heathen.Ogham;
@@ -851,7 +851,7 @@ namespace Heathen.Ogham.Generated
                         TagPath = "Root.NPCDialogue.Christene.N0",
                         ContentKeys = new List<OghamContentManifest>
                         {
-                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Christene" },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Daniek" },
                             new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "This is the perfect season to harvest our famous square melons." },
                         },
                     },

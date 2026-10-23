@@ -2329,7 +2329,7 @@
                   {
                     "fields": [
                       {
-                        "key": "Christene",
+                        "key": "Daniek",
                         "mode": "Literal",
                         "templateField": "speakername",
                         "type": "Text"
@@ -2556,8 +2556,8 @@
           {}
         ],
         "position": [
-          76.18739,
-          525.312134
+          73.7308044,
+          515.485962
         ],
         "technicalName": "NPCDialogue",
         "type": "Collection"
