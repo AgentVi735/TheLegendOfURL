@@ -2,6 +2,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class DeathScreen : MonoBehaviour
@@ -99,6 +100,7 @@ public class DeathScreen : MonoBehaviour
         _buttonCanvasGroup.alpha = 1;
         _buttonCanvasGroup.interactable = true;
         PlayerController.ToggleCursor(true);
+        EventSystem.current.SetSelectedGameObject(_mainMenuButton.gameObject);
     }
     
     public void OnMainMenu()

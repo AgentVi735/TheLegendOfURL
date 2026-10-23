@@ -256,6 +256,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Villager Female 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4562930803585640991, guid: 7ddd24cc93c969a4491c9fab7a1d36db, type: 3}
+      propertyPath: '_clips.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: d48ea0eec34cb1b408082e836e7af2e0, type: 3}
     - target: {fileID: 8237658524015329321, guid: 7ddd24cc93c969a4491c9fab7a1d36db, type: 3}
       propertyPath: m_LocalPosition.x
       value: -79.778305
@@ -483,6 +487,26 @@ PrefabInstance:
     - target: {fileID: 649207985192938306, guid: b3c28077f2854fd4b9d31418617ecff1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667917567354916943, guid: b3c28077f2854fd4b9d31418617ecff1, type: 3}
+      propertyPath: m_Size.x
+      value: 4.323716
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667917567354916943, guid: b3c28077f2854fd4b9d31418617ecff1, type: 3}
+      propertyPath: m_Size.z
+      value: 0.9999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667917567354916943, guid: b3c28077f2854fd4b9d31418617ecff1, type: 3}
+      propertyPath: m_Center.x
+      value: 1.6618546
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667917567354916943, guid: b3c28077f2854fd4b9d31418617ecff1, type: 3}
+      propertyPath: m_Center.y
+      value: -3.1551517e-16
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667917567354916943, guid: b3c28077f2854fd4b9d31418617ecff1, type: 3}
+      propertyPath: m_Center.z
+      value: 1.770612e-10
       objectReference: {fileID: 0}
     - target: {fileID: 5682002363215822873, guid: b3c28077f2854fd4b9d31418617ecff1, type: 3}
       propertyPath: m_Name

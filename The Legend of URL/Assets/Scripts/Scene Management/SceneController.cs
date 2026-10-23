@@ -136,7 +136,7 @@ public class SceneController : MonoBehaviour
             _initialisation.TogglePlayer(false);
         }
         if (!_fadeManager.IsOn)
-            _fadeManager.StartFade(true, () => {LoadScene(idx);});
+            _fadeManager.StartFade(false, () => {LoadScene(idx);});
         else
             LoadScene(idx);
     }
@@ -150,7 +150,7 @@ public class SceneController : MonoBehaviour
             _initialisation.TogglePlayer(false);
         }
         if (!_fadeManager.IsOn)
-            _fadeManager.StartFade(true, () => {LoadScene(data);});
+            _fadeManager.StartFade(false, () => {LoadScene(data);});
         else
             LoadScene(data);
     }
