@@ -2,7 +2,7 @@
 //   Generated from the Ogham project tree by OghamNodeTreeStoryGenerator. DO NOT EDIT.
 //   Edit the .ogham file(s) and click Build in Window ▸ Heathen ▸ Storyteller.
 // </auto-generated>
-// ogham-hash:0x7E8AC5DCE0931927  // staleness marker — do not edit
+// ogham-hash:0xD2273B819B2CF717  // staleness marker — do not edit
 using System.Collections.Generic;
 using Heathen.GameplayTags;
 using Heathen.Ogham;
@@ -924,7 +924,7 @@ namespace Heathen.Ogham.Generated
                         ContentKeys = new List<OghamContentManifest>
                         {
                             new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Your inner thoughts" },
-                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Movement: WASD / Left Joystick\nCamera: Mouse / Right Joystick\nInteract: F / Left Button\nMelee attack: LMB / RT\nTarget Lock on (only on enemies): C / LB\nMain Menu: ESC / + button " },
+                            new OghamContentManifest { Type = "Text", Mode = "Literal", KeyOrValue = "Movement: WASD / Left Joystick\nCamera: Mouse / Right Joystick\nJump: Space / Bottom Button\nSprint: LShift / Left Trigger\nInteract: F / Left Button\nMelee attack: LMB / Right Trigger\nTarget Lock on (only on enemies): C / Left Shoulder\nMain Menu: ESC / + button " },
                         },
                     },
                     new OghamEntryManifest

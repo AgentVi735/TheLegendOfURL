@@ -2820,7 +2820,7 @@
                         "type": "Text"
                       },
                       {
-                        "key": "Movement: WASD / Left Joystick\nCamera: Mouse / Right Joystick\nInteract: F / Left Button\nMelee attack: LMB / RT\nTarget Lock on (only on enemies): C / LB\nMain Menu: ESC / + button ",
+                        "key": "Movement: WASD / Left Joystick\nCamera: Mouse / Right Joystick\nJump: Space / Bottom Button\nSprint: LShift / Left Trigger\nInteract: F / Left Button\nMelee attack: LMB / Right Trigger\nTarget Lock on (only on enemies): C / Left Shoulder\nMain Menu: ESC / + button ",
                         "mode": "Literal",
                         "templateField": "text",
                         "type": "Text"
@@ -3125,8 +3125,8 @@
     "type": "Collection"
   },
   "viewTransform": [
-    215.967682,
-    -126.389526,
-    0.476637274
+    276.177826,
+    22.0571747,
+    0.3513224
   ]
 }
